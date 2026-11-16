@@ -1,0 +1,99 @@
+name: Scheduled posts
+
+# All times are UTC (IST = UTC + 5:30). Minutes are off the hour on purpose:
+# GitHub delays jobs scheduled at :00 the most.
+on:
+  schedule:
+    - cron: '55 1 * * 1-5'    # 07:25 IST  global cues
+    - cron: '5 3 * * 1-5'     # 08:35 IST  day ahead
+    - cron: '40 3 * * 1-5'    # 09:10 IST  IPO cards
+    - cron: '35 4 * * 1-5'    # 10:05 IST  news
+    - cron: '5 7 * * 1-5'     # 12:35 IST  news
+    - cron: '20 10 * * 1-5'   # 15:50 IST  market close
+    - cron: '45 10 * * 1-5'   # 16:15 IST  gainers & losers by market cap
+    - cron: '5 11 * * 1-5'    # 16:35 IST  daily overview carousel
+    - cron: '15 12 * * 1-5'   # 17:45 IST  news (results season: evening filings)
+    - cron: '50 12-14 * * 1-5' # 18:20 / 19:20 / 20:20 IST  FII/DII (posts once, when NSE publishes)
+    - cron: '35 15 * * 1-5'   # 21:05 IST  news
+    - cron: '35 4 * * 6'      # Sat 10:05 IST news
+    - cron: '35 5 * * 6'      # Sat 11:05 IST weekly all-time highs (by market cap)
+    - cron: '35 11 * * 6'     # Sat 17:05 IST weekly 52-week lows (by market cap)
+    - cron: '35 12 * * 0'     # Sun 18:05 IST news
+  workflow_dispatch:
+    inputs:
+      job:
+        description: 'Job to run'
+        required: true
+        type: choice
+        options: [news, global_cues, day_ahead, ipo, market_close, cap_movers, daily_overview, fii_dii, weekly_ath, weekly_lows]
+      force:
+        description: 'Run even if already posted today / no session today'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pick job
+        id: pick
+        run: |
+          case "${{ github.event.schedule }}" in
+            '55 1 * * 1-5')     JOB=global_cues ;;
+            '5 3 * * 1-5')      JOB=day_ahead ;;
+            '40 3 * * 1-5')     JOB=ipo ;;
+            '20 10 * * 1-5')    JOB=market_close ;;
+            '45 10 * * 1-5')    JOB=cap_movers ;;
+            '5 11 * * 1-5')     JOB=daily_overview ;;
+            '50 12-14 * * 1-5') JOB=fii_dii ;;
+            '35 5 * * 6')       JOB=weekly_ath ;;
+            '35 11 * * 6')      JOB=weekly_lows ;;
+            '')                 JOB='${{ inputs.job }}' ;;
+            *)                  JOB=news ;;
+          esac
+          echo "job=$JOB" >> "$GITHUB_OUTPUT"
+          echo "Running $JOB"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Load bot state
+        run: bash scripts/data.sh pull
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run ${{ steps.pick.outputs.job }}
+        run: python -m tm.cli ${{ steps.pick.outputs.job }} ${{ inputs.force && '--force' || '' }}
+        env:
+          TM_PAGE: india
+          TM_DATA_DIR: ${{ github.workspace }}/data
+          TM_NEWS_PER_RUN: ${{ vars.TM_NEWS_PER_RUN || '2' }}
+          TM_POST_TO: ${{ vars.TM_POST_TO || 'instagram,facebook,threads' }}
+          TM_AUTO_POST: ${{ vars.TM_AUTO_POST || '' }}
+          TM_AUTO_DELAY_MIN: ${{ vars.TM_AUTO_DELAY_MIN || '10' }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+
+      - name: Save bot state
+        if: always()
+        run: bash scripts/data.sh push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TM_JOB: ${{ steps.pick.outputs.job }}
