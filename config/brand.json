@@ -1,0 +1,16 @@
+{
+  "india": {
+    "name": "Ticker Market India",
+    "handle": "@tickermarket.india",
+    "logo": "assets/logos/india_logo_dark.png",
+    "tricolour_strip": true,
+    "hashtag_base": ["#StockMarketIndia", "#Nifty50", "#Sensex", "#ShareMarket", "#NSE"]
+  },
+  "global": {
+    "name": "Ticker Market Global",
+    "handle": "@tickermarket.global",
+    "logo": "assets/logos/global_logo_dark.png",
+    "tricolour_strip": false,
+    "hashtag_base": ["#StockMarket", "#WallStreet", "#Investing", "#Markets", "#Finance"]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "_note": "tier 1 = official/primary source (confirms facts alone). tier 2 = news outlet (needs a second independent outlet). A broken feed is logged and skipped, never fatal. 'outlet' groups feeds from the same publisher: the two-source rule counts outlets, not feeds. 'filter' (regex) keeps only matching titles from busy feeds.",
+  "feeds": [
+    {
+      "name": "NSE Announcements",
+      "tier": 1,
+      "url": "https://nsearchives.nseindia.com/content/RSS/Online_announcements.xml",
+      "outlet": "NSE",
+      "filter": "(?i)result|dividend|buy-?back|bonus|split|merger|amalgamation|acquisition|order|demerger|fund ?rais|qip|delisting"
+    },
+    {
+      "name": "NSE Financial Results",
+      "tier": 1,
+      "url": "https://nsearchives.nseindia.com/content/RSS/Financial_Results.xml",
+      "outlet": "NSE",
+      "filter": "(?i)result|dividend|buy-?back|bonus|split|merger|amalgamation|acquisition|order|demerger|fund ?rais|qip|delisting"
+    },
+    {
+      "name": "NSE Offer Documents",
+      "tier": 1,
+      "url": "https://nsearchives.nseindia.com/content/RSS/Offer_Documents.xml",
+      "outlet": "NSE"
+    },
+    {
+      "name": "RBI Press Releases",
+      "tier": 1,
+      "url": "https://www.rbi.org.in/pressreleases_rss.xml",
+      "outlet": "RBI"
+    },
+    {
+      "name": "SEBI",
+      "tier": 1,
+      "url": "https://www.sebi.gov.in/sebirss.xml",
+      "outlet": "SEBI"
+    },
+    {
+      "name": "Economic Times Markets",
+      "tier": 2,
+      "url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+      "outlet": "Economic Times"
+    },
+    {
+      "name": "Economic Times Stocks",
+      "tier": 2,
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/rssfeeds/2146842.cms",
+      "outlet": "Economic Times"
+    },
+    {
+      "name": "Moneycontrol Markets",
+      "tier": 2,
+      "url": "https://www.moneycontrol.com/rss/marketreports.xml",
+      "outlet": "Moneycontrol"
+    },
+    {
+      "name": "Moneycontrol Business",
+      "tier": 2,
+      "url": "https://www.moneycontrol.com/rss/business.xml",
+      "outlet": "Moneycontrol"
+    },
+    {
+      "name": "Mint Markets",
+      "tier": 2,
+      "url": "https://www.livemint.com/rss/markets",
+      "outlet": "Mint"
+    },
+    {
+      "name": "Business Standard Markets",
+      "tier": 2,
+      "url": "https://www.business-standard.com/rss/markets-106.rss",
+      "outlet": "Business Standard"
+    },
+    {
+      "name": "BusinessLine Markets",
+      "tier": 2,
+      "url": "https://www.thehindubusinessline.com/markets/feeder/default.rss",
+      "outlet": "BusinessLine"
+    },
+    {
+      "name": "Google News India Markets",
+      "tier": 2,
+      "url": "https://news.google.com/rss/search?q=(Sensex+OR+Nifty+OR+IPO+OR+SEBI+OR+RBI)+when:1d&hl=en-IN&gl=IN&ceid=IN:en",
+      "outlet": "Google News"
+    },
+    {
+      "name": "Google News Global Markets",
+      "tier": 2,
+      "url": "https://news.google.com/rss/search?q=(Fed+OR+%22Wall+Street%22+OR+crude+oil)+India+market+when:1d&hl=en-IN&gl=IN&ceid=IN:en",
+      "outlet": "Google News"
+    }
+  ]
+}
