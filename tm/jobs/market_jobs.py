@@ -47,15 +47,15 @@ def market_close(force=False):
     if store.seen('post', key) and not force:
         return
     report = Report()
-    quotes, breadth, nse_date, rep = market.market_snapshot()
+    need = ['NIFTY 50', 'SENSEX', 'NIFTY BANK']
+    quotes, breadth, nse_date, rep = market.market_snapshot({k: market.KEY_INDICES[k] for k in need})
     report.extend(rep)
     if not _session_or_skip(quotes, nse_date, report, force):
         return
-    need = ['NIFTY 50', 'SENSEX', 'NIFTY BANK']
     if any(n not in quotes for n in need):
         report.fail('missing ' + ', '.join(n for n in need if n not in quotes))
     secs, rep2 = market.sector_snapshot()
-    report.extend(rep2)
+    report.extend([('warn', m + ' - sector left out') if st == 'fail' else (st, m) for st, m in rep2])
     if not report.passed:
         finish('market_close', key, [], '', report)
         return
@@ -99,13 +99,15 @@ def daily_overview(force=False):
         return
     report = Report()
     quotes, breadth, nse_date, rep = market.market_snapshot()
-    report.extend(rep)
+    core = ('NIFTY 50', 'SENSEX', 'NIFTY BANK')
+    report.extend([(st, m) if st != 'fail' or m.startswith(core) else ('warn', m + ' - left out')
+                   for st, m in rep])
     if not _session_or_skip(quotes, nse_date, report, force):
         return
     if 'NIFTY 50' not in quotes:
         report.fail('Nifty 50 missing')
     secs, rep2 = market.sector_snapshot()
-    report.extend(rep2)
+    report.extend([('warn', m + ' - sector left out') if st == 'fail' else (st, m) for st, m in rep2])
     try:
         gainers, losers = market.movers('NIFTY 50', 5)
         report.ok('Nifty 50 movers from NSE')
@@ -176,7 +178,10 @@ def global_cues(force=False):
         return
     us = [r for r in pick if r['name'] in ('Dow Jones', 'S&P 500', 'Nasdaq')]
     up = sum(1 for r in us if r['pct'] > 0)
-    mood = 'Wall Street ends *higher*' if up == len(us) else 'Wall Street ends *lower*' if up == 0 else 'Wall Street ends *mixed*'
+    hr0 = now_ist().hour + now_ist().minute / 60
+    verb = 'trades' if (hr0 >= 19.0 or hr0 < 2.5) else 'ends'
+    mood = (f'Wall Street {verb} *higher*' if up == len(us) else f'Wall Street {verb} *lower*' if up == 0
+            else f'Wall Street {verb} *mixed*')
     crude = next((r for r in pick if r['name'] == 'Brent Crude'), None)
     head = mood + (f'; *crude {"up" if crude["pct"] >= 0 else "down"} {abs(crude["pct"]):.1f}%*' if crude else '')
     notes = []
@@ -186,6 +191,10 @@ def global_cues(force=False):
     if crude:
         notes.append(f'Brent crude at {crude["value"]}, {"up" if crude["pct"] >= 0 else "down"} {abs(crude["pct"]):.2f}%')
     asof = max(r['date'] for r in pick)
+    hr = now_ist().hour + now_ist().minute / 60
+    us_open = hr >= 19.0 or hr < 2.5                 # US cash session in IST (approx., covers DST)
+    when = (f'as of {now_ist().strftime("%-I:%M %p")} IST (US markets open)' if us_open
+            else f'at their last close on {fmt_date(asof)}')
     images = cards.global_cues({'date_text': fmt_date(today_ist(), 'dow'), 'headline': head, 'rows': pick,
                                 'theme': 'market_up' if up * 2 >= len(us) else 'market_down', 'seed': str(today_ist()),
                                 'tone': 'up' if up * 2 >= len(us) else 'down',
@@ -194,7 +203,8 @@ def global_cues(force=False):
     for r in pick:
         allowed += [r['close'], r['pct'], abs(r['pct'])]
     lines = [f'{r["name"]}: {r["value"]} ({r["pct"]:+.2f}%)' for r in pick]
-    caption = assemble(head, ['Global markets at their last close on ' + fmt_date(asof) + ':', '\n'.join(lines)],
+    allowed += [now_ist().hour % 12 or 12, now_ist().minute]
+    caption = assemble(head, [f'Global markets {when}:', '\n'.join(lines)],
                        'Yahoo Finance', tags('#GlobalMarkets', '#WallStreet', '#CrudeOil', '#StockMarketIndia', '#Nifty50'))
     if finish('global_cues', key, images, caption, report, allowed):
         store.mark_seen('post', key)

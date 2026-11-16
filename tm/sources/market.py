@@ -16,7 +16,7 @@ KEY_INDICES = {
     'NIFTY BANK': ('NIFTY BANK', '^NSEBANK'),
     'NIFTY MIDCAP 100': ('NIFTY MIDCAP 100', None),
     'NIFTY SMALLCAP 100': ('NIFTY SMALLCAP 100', None),
-    'INDIA VIX': ('INDIA VIX', '^INDIAVIX'),
+    'INDIA VIX': ('INDIA VIX', None),          # Yahoo's copy lags; NSE only
 }
 SECTORS = {
     'IT': ('NIFTY IT', '^CNXIT'), 'BANK': ('NIFTY BANK', '^NSEBANK'), 'AUTO': ('NIFTY AUTO', '^CNXAUTO'),
@@ -45,7 +45,7 @@ def yahoo_daily(symbol):
             'date': h.index[-1].date()}
 
 
-def _merge(name, nse_row, ysym, report, nse_date=None):
+def _merge(name, nse_row, ysym, report, nse_date=None, src='NSE'):
     """Combine NSE + Yahoo for one index; append check lines to report. Returns quote or None."""
     y = None
     if ysym:
@@ -55,15 +55,15 @@ def _merge(name, nse_row, ysym, report, nse_date=None):
             log.warning('Yahoo %s failed: %s', ysym, e)
     if nse_row:
         q = {'name': name, 'close': nse_row['last'], 'chg': nse_row['chg'], 'pct': nse_row['pct'],
-             'prev': nse_row['prev'], 'date': nse_date, 'source': 'NSE'}
+             'prev': nse_row['prev'], 'date': nse_date, 'source': src}
         if y:
             diff = abs(q['close'] - y['close']) / q['close'] * 100
             if diff > TOLERANCE_PCT:
-                report.append(('fail', f'{name}: NSE {q["close"]:,.2f} vs Yahoo {y["close"]:,.2f} differ {diff:.3f}%'))
+                report.append(('fail', f'{name}: {src} {q["close"]:,.2f} vs Yahoo {y["close"]:,.2f} differ {diff:.3f}%'))
                 return None
-            report.append(('ok', f'{name} {q["close"]:,.2f}: NSE = Yahoo (gap {diff:.3f}%)'))
+            report.append(('ok', f'{name} {q["close"]:,.2f}: {src} = Yahoo (gap {diff:.3f}%)'))
         else:
-            report.append(('ok', f'{name} {q["close"]:,.2f}: NSE (official)'))
+            report.append(('ok', f'{name} {q["close"]:,.2f}: {src} (official)'))
         return q
     if y:
         report.append(('warn', f'{name} {y["close"]:,.2f}: Yahoo only, single source - check before approving'))
@@ -85,7 +85,14 @@ def market_snapshot(names=KEY_INDICES):
         report.append(('warn', 'NSE index feed unavailable - using Yahoo where possible'))
     quotes = {}
     for name, (nse_name, ysym) in names.items():
-        q = _merge(name, rows.get(nse_name) if nse_name else None, ysym, report, nse_date)
+        official = rows.get(nse_name) if nse_name else None
+        if name == 'SENSEX':
+            from . import bse
+            try:
+                official = bse.sensex()
+            except nse.SourceError as e:
+                log.warning('BSE Sensex unavailable: %s', e)
+        q = _merge(name, official, ysym, report, nse_date, 'BSE' if name == 'SENSEX' else 'NSE')
         if q:
             quotes[name] = q
     breadth = None

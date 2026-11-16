@@ -93,8 +93,7 @@ def base(category, date_text, sample=False, theme=None, seed=0, dim=0.0, tone=No
 def footer(im, d, source, swipe=False, page=None):
     y = H - 150
     d.line([(60, y), (W - 60, y)], fill=LINE, width=2)
-    d.text((60, y + 34), f'Source: {source}', font=hind(26), fill=MUTED, anchor='lm')
-    d.text((60, y + 72), 'For information only. Not investment advice.', font=hind(24, 'Regular'), fill=MUTED, anchor='lm')
+    d.text((60, y + 52), 'For information only. Not investment advice.', font=hind(24, 'Regular'), fill=MUTED, anchor='lm')
     lg = logo()
     lg = lg.resize((230, int(lg.height * 230 / lg.width)), Image.LANCZOS)
     im.paste(lg, (W - 60 - lg.width, y + 16), lg)

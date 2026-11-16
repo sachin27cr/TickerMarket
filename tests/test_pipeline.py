@@ -26,7 +26,7 @@ def q(name, close, chg):
 def fake_sources():
     quotes = {i['name']: q(i['name'], i['close'], i['chg']) for i in S.INDICES}
     market.market_snapshot = lambda names=market.KEY_INDICES: (
-        {k: v for k, v in quotes.items() if k in names} if names is market.KEY_INDICES else
+        {k: v for k, v in quotes.items() if k in names} if set(names) & set(market.KEY_INDICES) else
         {s['name']: {**q(s['name'], 1000 * (1 + s['pct'] / 100), 10 * s['pct']), 'pct': s['pct']} for s in S.SECTORS},
         {'advances': 312, 'declines': 181, 'universe': 'Nifty 500'}, today_ist(),
         checks.Report([('ok', 'fake NSE = Yahoo')]))
@@ -124,7 +124,7 @@ def auto_post():
     C.AUTO_POST = set(C.DATA_KINDS)
     shutil.rmtree(config.DATA_DIR / 'seen', ignore_errors=True)
     market_jobs.market_close()
-    d = [x for x in drafts() if x['kind'] == 'market_close'][-1]
+    d = max([x for x in drafts() if x['kind'] == 'market_close'], key=lambda x: x['created'])
     assert d['status'] == 'auto', d['status']
     approvals.post_due_autos()                       # cancel window not over yet
     assert store.load_draft(d['id'])['status'] == 'auto'

@@ -13,7 +13,7 @@ def plain(headline):
 def assemble(headline, paragraphs, source, hashtags):
     tags = ' '.join(hashtags[:5])
     body = '\n\n'.join(p.strip() for p in paragraphs if p.strip())
-    return f'{plain(headline)}\n\n{body}\n\nSource: {source}. {DISCLAIMER}\n\n{tags}'
+    return f'{plain(headline)}\n\n{body}\n\n{DISCLAIMER}\n\n{tags}'
 
 
 def threads_text(caption, limit=500):
