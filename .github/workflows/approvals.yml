@@ -1,0 +1,55 @@
+name: Telegram approvals
+
+# Checks Telegram every 5 minutes for Approve / Reject taps and commands (/news, /close ...).
+# GitHub may run this a few minutes late; posts go out on the next run after your tap.
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: approvals
+  cancel-in-progress: false
+
+jobs:
+  approvals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Load bot state
+        run: bash scripts/data.sh pull
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Handle taps and commands
+        run: python -m tm.cli approvals
+        env:
+          TM_PAGE: india
+          TM_DATA_DIR: ${{ github.workspace }}/data
+          TM_NEWS_PER_RUN: ${{ vars.TM_NEWS_PER_RUN || '2' }}
+          TM_POST_TO: ${{ vars.TM_POST_TO || 'instagram,facebook,threads' }}
+          TM_AUTO_POST: ${{ vars.TM_AUTO_POST || '' }}
+          TM_AUTO_DELAY_MIN: ${{ vars.TM_AUTO_DELAY_MIN || '10' }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+      - name: Save bot state
+        if: always()
+        run: bash scripts/data.sh push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TM_JOB: approvals
