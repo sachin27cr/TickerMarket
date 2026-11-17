@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw
 from .. import config
 from ..util import fmt_inr
 from .cards import (BG, DOWN, FLAT, GOLD, H, LINE, MUTED, PANEL, UP, W, WHITE, base, bebas, col, cond, footer,
-                    headline, hind, logo, scrim, wrap)
+                    headline, hind, logo, rich_text, scrim, sign_of, wrap)
 from .widgets import monogram
 
 
@@ -222,6 +222,7 @@ def list_slide(data):
         im.alpha_composite(monogram(48, nm), (130, cy - 24))
         f = _fit(d, nm, lambda s: hind(s, 'SemiBold'), 30, 560, 22)
         d.text((194, cy), nm, font=f, fill=WHITE, anchor='lm')
+        sign = sign_of(val, sign)
         d.text((W - 90, cy), val, font=bebas(48), fill=UP if sign > 0 else DOWN if sign < 0 else WHITE, anchor='rm')
         y += rh
     footer(im, d, '', swipe=data.get('swipe', True))
@@ -246,41 +247,26 @@ def summary_slide(data):
         d.rounded_rectangle([60, y, W - 60, y + hgt], radius=16, fill=PANEL, outline=LINE, width=2)
         d.ellipse([84, y + 22, 128, y + 66], fill=GOLD)
         d.text((106, y + 44), str(i + 1), font=bebas(36), fill=BG, anchor='mm')
-        yy = y + 22
-        for ln in lines:
-            d.text((152, yy), ln, font=f, fill=WHITE)
-            yy += lh
+        rich_text(d, 152, y + 22, p, f, W - 220, WHITE, lh)
         y += hgt + 16
     footer(im, d, '', swipe=True)
     return im.convert('RGB')
 
 
 def follow_slide(data):
-    """Closing slide: follow prompt with the page's line and what it posts every day."""
+    """Closing slide: logo and follow prompt only."""
     im, d = base(data.get('category', 'Ticker Market India'), data.get('date_text', ''), False,
                  data.get('theme', 'market_up'), data.get('seed', 0), 0.5, data.get('tone', 'up'))
-    im = scrim(im.convert('RGBA'), 160, 1190, 190)
+    im = scrim(im.convert('RGBA'), 160, 1190, 175)
     d = ImageDraw.Draw(im)
     lg = logo()
-    lg = lg.resize((460, int(lg.height * 460 / lg.width)), Image.LANCZOS)
-    im.paste(lg, ((W - lg.width) // 2, 180), lg)
-    y = 230 + lg.height + 40
-    d.text((W // 2, y), 'FOLLOW TICKER MARKET INDIA', font=bebas(84), fill=GOLD, anchor='mm')
-    d.text((W // 2, y + 70), 'for daily stock market data & news', font=hind(38, 'SemiBold'), fill=WHITE, anchor='mm')
-    d.text((W // 2, y + 124), config.BRAND['handle'], font=hind(36, 'Bold'), fill=GOLD, anchor='mm')
-    y += 175
-    d.rounded_rectangle([140, y, W - 140, y + 64], radius=32, outline=GOLD, width=2)
-    d.text((W // 2, y + 33), 'Every number checked. Every market day.', font=cond(36), fill=WHITE, anchor='mm')
-    y += 100
-    items = data.get('items') or ['Global cues before the bell', 'Closing bell & sector moves',
-                                  'Gainers & losers by market cap', 'New highs & 52-week lows',
-                                  'FII / DII money flows', 'IPOs, results & data stories']
-    for it in items:
-        if y > H - 290:
-            break
-        d.rounded_rectangle([250, y + 12, 266, y + 28], radius=4, fill=GOLD)
-        d.text((290, y + 20), it, font=hind(33, 'SemiBold'), fill=WHITE, anchor='lm')
-        y += 62
-    d.text((W // 2, H - 200), 'Save  •  Share  •  Turn on post notifications', font=cond(32), fill=MUTED, anchor='mm')
+    lg = lg.resize((620, int(lg.height * 620 / lg.width)), Image.LANCZOS)
+    y = 300
+    im.paste(lg, ((W - lg.width) // 2, y), lg)
+    y += lg.height + 90
+    d.text((W // 2, y), 'FOLLOW TICKER MARKET INDIA', font=bebas(96), fill=GOLD, anchor='mm')
+    d.text((W // 2, y + 82), 'for daily stock market data & news', font=hind(42, 'SemiBold'), fill=WHITE, anchor='mm')
+    d.text((W // 2, y + 146), config.BRAND['handle'], font=hind(40, 'Bold'), fill=GOLD, anchor='mm')
+    d.text((W // 2, H - 220), 'Save  •  Share  •  Turn on post notifications', font=cond(34), fill=MUTED, anchor='mm')
     footer(im, d, '')
     return im.convert('RGB')

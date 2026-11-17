@@ -53,6 +53,56 @@ def col(v):
     return UP if v > 0 else DOWN if v < 0 else FLAT
 
 
+# ---------------------------------------------------------------- % colouring: gains green, falls red, everywhere
+PCT = re.compile(r'^[(\[]?([+\-\u2212])?\d[\d,]*(?:\.\d+)?%')
+DOWN_WORDS = {'down', 'fell', 'falls', 'fall', 'falling', 'lower', 'loser', 'losers', 'declined', 'declines', 'drop',
+              'drops', 'dropped', 'slipped', 'slips', 'plunges', 'plunged', 'sank', 'sinks', 'lost', 'loses', 'loss',
+              'weakest', 'worst', 'tumbles', 'tumbled', 'crashes', 'crashed', 'shed', 'sheds', 'cut', 'slumps'}
+UP_WORDS = {'up', 'rose', 'rises', 'rise', 'rising', 'gain', 'gains', 'gained', 'higher', 'gainer', 'gainers',
+            'advanced', 'jumps', 'jumped', 'surges', 'surged', 'soars', 'soared', 'climbs', 'climbed', 'rallies',
+            'rallied', 'best', 'added', 'adds', 'grew', 'growth'}
+
+
+def pct_colour(words, i):
+    """Colour for words[i] if it is a percentage move: sign first, else the nearest up/down word before it."""
+    w = words[i].strip('*')
+    m = PCT.match(w)
+    if not m:
+        return None
+    if m.group(1):
+        return UP if m.group(1) == '+' else DOWN
+    for prev in reversed(words[max(0, i - 4):i]):
+        p = prev.lower().strip('*,.;:()[]')
+        if p in DOWN_WORDS:
+            return DOWN
+        if p in UP_WORDS:
+            return UP
+    return None
+
+
+def sign_of(text, default=0):
+    """+1/-1 from the first signed % in a text (for tiles), else default."""
+    m = re.search(r'([+\-\u2212])\d[\d,]*(?:\.\d+)?%', text)
+    return default if not m else (1 if m.group(1) == '+' else -1)
+
+
+def rich_text(d, x, y, text, font, max_w, fill, line_h, y_limit=None):
+    """Wrapped text drawn word by word with % moves coloured. Returns y after the last line."""
+    words = text.split()
+    cols = [pct_colour(words, i) or fill for i in range(len(words))]
+    space = d.textlength(' ', font=font)
+    cx = x
+    for w, c in zip(words, cols):
+        ww = d.textlength(w, font=font)
+        if cx > x and cx + ww > x + max_w:
+            cx, y = x, y + line_h
+            if y_limit and y > y_limit:
+                return y
+        d.text((cx, y), w, font=font, fill=c)
+        cx += ww + space
+    return y + line_h
+
+
 # ---------------------------------------------------------------- building blocks
 
 def base(category, date_text, sample=False, theme=None, seed=0, dim=0.0, tone=None):
@@ -143,10 +193,13 @@ def headline(d, text, y, size=96, max_w=960, line_gap=0.98, max_lines=3):
         if len(lines) <= max_lines or size <= 60:
             break
         size -= 6
+    flat = [w for line in lines for w, _ in line]
+    cols = iter([pct_colour(flat, i) for i in range(len(flat))])
     for line in lines:
         x = 60
         for w, hi in line:
-            d.text((x, y), w, font=f, fill=GOLD if hi else WHITE)
+            c = next(cols)
+            d.text((x, y), w, font=f, fill=c or (GOLD if hi else WHITE))
             x += d.textlength(w, font=f) + space
         y += int(size * line_gap)
     return y
@@ -176,15 +229,13 @@ def wrap(d, text, font, max_w):
 
 def bullets(d, items, y, size=34, max_w=900, y_limit=H - 190):
     f = hind(size)
+    lh = int(size * 1.35)
     for it in items:
         lines = wrap(d, it, f, max_w)
-        if y + len(lines) * size * 1.35 > y_limit:
+        if y + len(lines) * lh > y_limit:
             break
         d.rounded_rectangle([60, y + 14, 74, y + 28], radius=3, fill=GOLD)
-        for ln in lines:
-            d.text((100, y), ln, font=f, fill=WHITE)
-            y += int(size * 1.35)
-        y += 16
+        y = rich_text(d, 100, y, it, f, max_w, WHITE, lh) + 16
     return y
 
 
@@ -757,6 +808,7 @@ def cover(data):
             f = 70
             while d.textlength(val, font=bebas(f)) > tw - 48 and f > 36:
                 f -= 4
+            sign = sign_of(val, sign) if '%' in val else sign
             d.text((x + 24, y + 112), val, font=bebas(f), fill=UP if sign > 0 else DOWN if sign < 0 else WHITE,
                    anchor='lm')
         y += 210
