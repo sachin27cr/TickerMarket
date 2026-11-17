@@ -94,6 +94,12 @@ def build_from_cluster(c):
 
 
 def news(force=False, limit=None):
+    from datetime import datetime, timedelta
+    last = store.get_flag('last_news_run')
+    if last and not force and now_ist() - datetime.fromisoformat(last) < timedelta(minutes=50):
+        log.info('news ran at %s - skipping duplicate trigger', last)
+        return 0
+    store.set_flag('last_news_run', now_ist().isoformat())
     limit = limit or config.NEWS_PER_RUN
     items, status = news_src.fetch_all()
     log.info('feeds: %s', status)

@@ -83,6 +83,11 @@ def fake_llm(good=True):
                                          'issues': []}, 'groq')
 
 
+def run_news():
+    store.set_flag('last_news_run', None)        # each test call is a separate scheduled run
+    return news_jobs.news()
+
+
 def drafts():
     return store.list_drafts()
 
@@ -93,7 +98,7 @@ def run():
     n0 = 0
     for name, fn in [('market_close', market_jobs.market_close), ('cap_movers', market_jobs.cap_movers), ('daily_overview', market_jobs.daily_overview),
                      ('global_cues', market_jobs.global_cues), ('fii_dii', market_jobs.fii_dii), ('weekly_ath', market_jobs.weekly_ath), ('weekly_lows', market_jobs.weekly_lows),
-                     ('day_ahead', market_jobs.day_ahead), ('ipo', market_jobs.ipo), ('news', news_jobs.news)]:
+                     ('day_ahead', market_jobs.day_ahead), ('ipo', market_jobs.ipo), ('news', run_news)]:
         fn()
         ds = drafts()
         assert len(ds) == n0 + 1, f'{name}: expected a draft, flagged={list((config.DATA_DIR / "flagged").glob("*"))}'
@@ -103,12 +108,12 @@ def run():
         print(f'--- {name}: {len(d["images"])} image(s), checks:\n{d["report_text"]}\n\n{d["caption"]}\n')
         n0 += 1
     # dedupe: running again creates nothing
-    market_jobs.market_close(); market_jobs.fii_dii(); news_jobs.news()
+    market_jobs.market_close(); market_jobs.fii_dii(); run_news()
     assert len(drafts()) == n0, 'dedupe failed'
     # a wrong number from the AI must be blocked
     shutil.rmtree(config.DATA_DIR / 'seen' / 'news', ignore_errors=True)
     fake_llm(good=False)
-    news_jobs.news()
+    run_news()
     assert len(drafts()) == n0, 'bad AI number was not blocked'
     flagged = list((config.DATA_DIR / 'flagged').glob('*.json'))
     assert flagged, 'blocked draft not logged'
@@ -134,7 +139,7 @@ def auto_post():
     assert store.load_draft(d['id'])['status'] == 'posted'
     # news never auto-posts with the 'data' setting
     shutil.rmtree(config.DATA_DIR / 'seen' / 'news', ignore_errors=True); fake_llm()
-    news_jobs.news()
+    run_news()
     assert [x for x in drafts() if x['kind'] == 'news'][-1]['status'] == 'pending'
     C.AUTO_POST = set()
     print('auto-post: data card posted after cancel window, news still waits for approval')
@@ -152,8 +157,18 @@ def unit():
     print('unit tests passed')
 
 
+def duplicate_guard():
+    store.set_flag('last_news_run', None)
+    shutil.rmtree(config.DATA_DIR / 'seen' / 'news', ignore_errors=True)
+    n1 = len(drafts()); news_jobs.news(); n2 = len(drafts()); news_jobs.news(); n3 = len(drafts())
+    assert n2 == n1 + 1 and n3 == n2, (n1, n2, n3)
+    print('duplicate trigger within 50 min skipped')
+
+
 if __name__ == '__main__':
     unit()
     run()
     auto_post()
+    duplicate_guard()
     print('ALL PIPELINE TESTS PASSED')
+

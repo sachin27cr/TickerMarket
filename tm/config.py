@@ -31,9 +31,9 @@ TELEGRAM_TOKEN = env('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = env('TELEGRAM_CHAT_ID')
 
 GEMINI_API_KEY = env('GEMINI_API_KEY')
-GEMINI_MODEL = env('GEMINI_MODEL', 'gemini-2.5-flash')
+GEMINI_MODEL = env('GEMINI_MODEL', 'auto')          # 'auto' = newest available Flash model
 GROQ_API_KEY = env('GROQ_API_KEY')
-GROQ_MODEL = env('GROQ_MODEL', 'llama-3.3-70b-versatile')
+GROQ_MODEL = env('GROQ_MODEL', 'auto')              # 'auto' = best available large model
 REQUIRE_SECOND_OPINION = env_bool('TM_REQUIRE_SECOND_OPINION', True)
 
 META_PAGE_ID = env('META_PAGE_ID')

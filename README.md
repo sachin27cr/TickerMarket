@@ -67,6 +67,13 @@ Market holidays are detected automatically: if NSE has no session today, close/o
    (default `instagram,facebook,threads`), `TM_AUTO_POST` (see above), `TM_AUTO_DELAY_MIN` (default 10).
 5. Actions tab → enable workflows. Run **Scheduled posts → Run workflow → job: news** once to test.
 
+## Reliable timing (Cloudflare Worker)
+
+GitHub's built-in cron often skips or delays runs on new repos. `worker/scheduler-worker.js` is a free
+Cloudflare Worker that runs every 5 minutes, starts each job at its IST time and runs the approvals check.
+GitHub's own schedule stays on as a backup; duplicate triggers are ignored (data posts are made once per
+day, news runs at most once per 50 minutes).
+
 ## Telegram commands
 
 `/news` `/close` `/capmovers` `/overview` `/ath` `/lows` `/fii` `/global` `/dayahead` `/ipo` run a job now ·

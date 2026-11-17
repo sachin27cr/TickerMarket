@@ -9,7 +9,10 @@ import requests
 from .. import config
 from ..util import IST, log, now_ist
 
-UA = {'User-Agent': 'Mozilla/5.0 (TickerMarketBot; +https://instagram.com/tickermarket.india)'}
+UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                    'Chrome/130.0 Safari/537.36',
+      'Accept': 'application/rss+xml, application/xml;q=0.9, text/xml;q=0.8, */*;q=0.5',
+      'Accept-Language': 'en-IN,en;q=0.9'}
 
 STOP = set('''a an the and or of to in on for with at by from as is are was were be been it its this that
 these those after before over under into than then about amid says said will may can could would new
@@ -30,7 +33,12 @@ def clean(text):
 
 
 def fetch_feed(feed):
-    r = requests.get(feed['url'], headers=UA, timeout=20)
+    import time
+    timeout = 45 if 'nseindia' in feed['url'] else 25
+    r = requests.get(feed['url'], headers=UA, timeout=timeout)
+    if r.status_code == 429:                         # Google News rate limit: wait once and retry
+        time.sleep(8)
+        r = requests.get(feed['url'], headers=UA, timeout=timeout)
     r.raise_for_status()
     parsed = feedparser.parse(r.content)
     items = []
@@ -41,6 +49,8 @@ def fetch_feed(feed):
         published = datetime(*ts[:6], tzinfo=timezone.utc).astimezone(IST)
         title = clean(e.get('title'))
         outlet = feed.get('outlet', feed['name'])
+        if e.get('news_source'):                          # Bing News: real outlet name
+            outlet = e['news_source']
         src = e.get('source')
         if src and getattr(src, 'title', None):           # Google News: real outlet name
             outlet = src.title

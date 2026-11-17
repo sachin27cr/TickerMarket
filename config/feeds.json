@@ -86,6 +86,60 @@
       "tier": 2,
       "url": "https://news.google.com/rss/search?q=(Fed+OR+%22Wall+Street%22+OR+crude+oil)+India+market+when:1d&hl=en-IN&gl=IN&ceid=IN:en",
       "outlet": "Google News"
+    },
+    {
+      "name": "Economic Times Economy",
+      "tier": 2,
+      "outlet": "Economic Times",
+      "url": "https://economictimes.indiatimes.com/news/economy/rssfeeds/1373380680.cms"
+    },
+    {
+      "name": "Economic Times IPO",
+      "tier": 2,
+      "outlet": "Economic Times",
+      "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/rssfeeds/14655708.cms"
+    },
+    {
+      "name": "Mint Companies",
+      "tier": 2,
+      "outlet": "Mint",
+      "url": "https://www.livemint.com/rss/companies"
+    },
+    {
+      "name": "Mint Economy",
+      "tier": 2,
+      "outlet": "Mint",
+      "url": "https://www.livemint.com/rss/economy"
+    },
+    {
+      "name": "Financial Express Market",
+      "tier": 2,
+      "outlet": "Financial Express",
+      "url": "https://www.financialexpress.com/market/feed/"
+    },
+    {
+      "name": "CNBC-TV18 Market",
+      "tier": 2,
+      "outlet": "CNBC-TV18",
+      "url": "https://www.cnbctv18.com/commonfeeds/v1/cne/rss/market.xml"
+    },
+    {
+      "name": "BusinessLine Companies",
+      "tier": 2,
+      "outlet": "BusinessLine",
+      "url": "https://www.thehindubusinessline.com/companies/feeder/default.rss"
+    },
+    {
+      "name": "The Hindu Business",
+      "tier": 2,
+      "outlet": "The Hindu",
+      "url": "https://www.thehindu.com/business/markets/feeder/default.rss"
+    },
+    {
+      "name": "Bing News India Markets",
+      "tier": 2,
+      "outlet": "Bing News",
+      "url": "https://www.bing.com/news/search?q=Sensex+Nifty&format=rss&mkt=en-IN"
     }
   ]
 }
