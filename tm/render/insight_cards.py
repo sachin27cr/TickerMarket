@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw
 from .. import config
 from ..util import fmt_inr
 from .cards import (BG, DOWN, FLAT, GOLD, H, LINE, MUTED, PANEL, UP, W, WHITE, base, bebas, col, cond, footer,
-                    headline, hind, logo, scrim)
+                    headline, hind, logo, scrim, wrap)
 from .widgets import monogram
 
 
@@ -228,26 +228,59 @@ def list_slide(data):
     return im.convert('RGB')
 
 
-def follow_slide(data):
-    """Closing slide: what the page posts every day + follow prompt."""
-    im, d = base(data.get('category', 'Ticker Market'), data.get('date_text', ''), False, 'market_up', data.get('seed', 0), 0.55, 'up')
+def summary_slide(data):
+    """'In short' slide: key points taken from the (already verified) caption. data: date_text, points, theme, seed, tone"""
+    im, d = base('In Short', data['date_text'], False, data.get('theme', 'market_up'), data.get('seed', 0), 0.6,
+                 data.get('tone'))
     im = scrim(im.convert('RGBA'), 160, 1190, 195)
     d = ImageDraw.Draw(im)
+    y = headline(d, data.get('headline', 'The day *in short*'), 190, size=92, max_lines=2) + 30
+    pts = data['points'][:6]
+    size = 34 if sum(len(p) for p in pts) < 520 else 30
+    f, lh = hind(size, 'SemiBold'), int(size * 1.35)
+    for i, p in enumerate(pts):
+        lines = wrap(d, p, f, W - 220)
+        hgt = len(lines) * lh + 40
+        if y + hgt > H - 190:
+            break
+        d.rounded_rectangle([60, y, W - 60, y + hgt], radius=16, fill=PANEL, outline=LINE, width=2)
+        d.ellipse([84, y + 22, 128, y + 66], fill=GOLD)
+        d.text((106, y + 44), str(i + 1), font=bebas(36), fill=BG, anchor='mm')
+        yy = y + 22
+        for ln in lines:
+            d.text((152, yy), ln, font=f, fill=WHITE)
+            yy += lh
+        y += hgt + 16
+    footer(im, d, '', swipe=True)
+    return im.convert('RGB')
+
+
+def follow_slide(data):
+    """Closing slide: follow prompt with the page's line and what it posts every day."""
+    im, d = base(data.get('category', 'Ticker Market India'), data.get('date_text', ''), False,
+                 data.get('theme', 'market_up'), data.get('seed', 0), 0.5, data.get('tone', 'up'))
+    im = scrim(im.convert('RGBA'), 160, 1190, 190)
+    d = ImageDraw.Draw(im)
     lg = logo()
-    lg = lg.resize((520, int(lg.height * 520 / lg.width)), Image.LANCZOS)
-    im.paste(lg, ((W - lg.width) // 2, 210), lg)
-    y = 230 + lg.height + 30
-    d.text((W // 2, y), 'FOLLOW FOR MORE', font=bebas(96), fill=GOLD, anchor='mm')
-    d.text((W // 2, y + 76), config.BRAND['handle'], font=hind(40, 'Bold'), fill=WHITE, anchor='mm')
-    y += 150
-    items = data.get('items') or ['Global cues before the bell', 'Closing bell with key indices',
-                                  'Gainers and losers by market cap', 'New highs and 52-week lows',
-                                  'FII / DII money flows', 'IPO details and live subscription',
-                                  'Data stories every other day']
+    lg = lg.resize((460, int(lg.height * 460 / lg.width)), Image.LANCZOS)
+    im.paste(lg, ((W - lg.width) // 2, 180), lg)
+    y = 230 + lg.height + 40
+    d.text((W // 2, y), 'FOLLOW TICKER MARKET INDIA', font=bebas(84), fill=GOLD, anchor='mm')
+    d.text((W // 2, y + 70), 'for daily stock market data & news', font=hind(38, 'SemiBold'), fill=WHITE, anchor='mm')
+    d.text((W // 2, y + 124), config.BRAND['handle'], font=hind(36, 'Bold'), fill=GOLD, anchor='mm')
+    y += 175
+    d.rounded_rectangle([140, y, W - 140, y + 64], radius=32, outline=GOLD, width=2)
+    d.text((W // 2, y + 33), 'Every number checked. Every market day.', font=cond(36), fill=WHITE, anchor='mm')
+    y += 100
+    items = data.get('items') or ['Global cues before the bell', 'Closing bell & sector moves',
+                                  'Gainers & losers by market cap', 'New highs & 52-week lows',
+                                  'FII / DII money flows', 'IPOs, results & data stories']
     for it in items:
-        d.rounded_rectangle([200, y + 12, 216, y + 28], radius=4, fill=GOLD)
-        d.text((244, y + 20), it, font=hind(32, 'SemiBold'), fill=WHITE, anchor='lm')
+        if y > H - 290:
+            break
+        d.rounded_rectangle([250, y + 12, 266, y + 28], radius=4, fill=GOLD)
+        d.text((290, y + 20), it, font=hind(33, 'SemiBold'), fill=WHITE, anchor='lm')
         y += 62
-    d.text((W // 2, y + 40), 'Save this post  •  Share with a friend', font=cond(34), fill=MUTED, anchor='mm')
+    d.text((W // 2, H - 200), 'Save  •  Share  •  Turn on post notifications', font=cond(32), fill=MUTED, anchor='mm')
     footer(im, d, '')
     return im.convert('RGB')

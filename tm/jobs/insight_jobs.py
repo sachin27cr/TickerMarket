@@ -95,7 +95,7 @@ def profits(force=False, st=None):
     ps = st['profits'].setdefault(quarter, {'posted': [], 'part': 0})
     fresh = [r for r in found if r['symbol'] not in ps['posted']]
     thr = 200 if sum(r['growth'] >= 200 for r in fresh) >= 5 else 100
-    pick = [r for r in fresh if r['growth'] >= thr][:7]
+    pick = [r for r in fresh if r['growth'] >= thr][:6]     # cover + list + 6 + summary + follow = 10
     if len(pick) < (1 if force else 3):
         log.info('profits: only %d new companies - waiting for more results', len(pick)); return None
     part = ps['part'] + 1
@@ -134,7 +134,6 @@ def profits(force=False, st=None):
                                        'date_text': fmt_date(day, 'dow'), 'category': f'Results • Part {part}',
                                        'seed': r['symbol']}))
         allowed += [r.get('last') or 0, abs(r.get('pct') or 0)]
-    images.append(ic.follow_slide({'seed': part}))
     paras = [f'Part {part}: companies in the Nifty 500 whose net profit for {quarter} grew more than {thr}% '
              f'over {py_q}, with profit of at least ₹10 crore in both quarters.', '\n'.join(lines),
              'Figures in ₹ crore as reported to the exchange. Growth from a small base can look large; '
@@ -143,7 +142,7 @@ def profits(force=False, st=None):
     caption = assemble(f'Companies with more than {thr}% profit growth in {quarter} (Part {part})', paras, '',
                        tags('#Q2Results' if quarter.startswith('Q2') else '#QuarterlyResults', '#EarningsSeason',
                             '#StockMarketIndia', '#ProfitGrowth', '#ShareMarket'))
-    d = finish('insight', f'profits {quarter} part {part}', images[:10], caption, report, allowed)
+    d = finish('insight', f'profits {quarter} part {part}', images, caption, report, allowed)
     if d:
         ps['posted'] += [r['symbol'] for r in pick]
         ps['part'] = part
@@ -180,8 +179,7 @@ def assets(force=False, st=None):
               ic.score_table({'category': 'Monthly Scorecard', 'date_text': mname, 'name_col': 'ASSET',
                               'headline': f'{mname}: *month change*', 'cols': ['CHANGE'], 'theme': 'gold', 'seed': key + 'b',
                               'rows': [{'name': f'{i["label"]}  ({i["fmt"].format(i["start"])} to {i["fmt"].format(i["end"])})',
-                                        'vals': [i['pct']]} for i in items]}),
-              ic.follow_slide({'seed': key})]
+                                        'vals': [i['pct']]} for i in items]})]
     allowed = [y, 500, 50]
     lines = []
     for i in items:
@@ -231,8 +229,7 @@ def mcap(force=False, st=None):
                         'rows': [{'name': r['nm'], 'value': r['mcap_cr'], 'value_text': f'₹{lk(r["mcap_cr"]):,.2f} L Cr',
                                   'side_text': f'{r["week_pct"]:+.2f}%' if r.get('week_pct') is not None else '',
                                   'side_sign': r.get('week_pct') or 0} for r in rows],
-                        'note': 'Market value = shares issued x NSE price. 1 lakh crore = 1,00,000 crore.'}),
-              ic.follow_slide({'seed': str(day)})]
+                        'note': 'Market value = shares issued x NSE price. 1 lakh crore = 1,00,000 crore.'})]
     allowed = [10, 5, 1, 100000, lk(total)]
     lines = []
     for i, r in enumerate(rows, 1):
@@ -281,8 +278,7 @@ def wealth(force=False, st=None):
                         'note': 'Price change only (dividends not included). Split-adjusted.'}),
               ic.hbars({'category': 'One Year', 'date_text': f'Since {fmt_date(ago)}', 'headline': '*Bottom 5*: ₹1 lakh became',
                         'rows': mk(worst), 'colour': 'down', 'theme': 'market_down', 'tone': 'down', 'seed': 'w2',
-                        'swipe': True, 'note': 'Price change only (dividends not included). Split-adjusted.'}),
-              ic.follow_slide({'seed': str(day)})]
+                        'swipe': True, 'note': 'Price change only (dividends not included). Split-adjusted.'})]
     allowed = [1, 5, 50, 100000, up, len(rows), ago.day, ago.year, day.day, day.year]
     fmt = lambda r: f'{r["nm"]} ₹{fmt_inr(r["lakh"], 0)} ({r["pct"]:+.1f}%)'
     for r in best + worst:
@@ -325,8 +321,7 @@ def sectors(force=False, st=None):
                            'inside': ['16 sectors', 'vs Nifty 50']}),
               ic.score_table({'category': 'Sector Scorecard', 'date_text': fmt_date(day, 'dow'), 'headline': 'Sector *scorecard*',
                               'cols': ['1W', '1M', '1Y'], 'rows': table_rows[:17], 'theme': 'market_up', 'seed': 's1',
-                              'swipe': True, 'note': 'Sorted by 1-month change. Index price change.'}),
-              ic.follow_slide({'seed': str(day)})]
+                              'swipe': True, 'note': 'Sorted by 1-month change. Index price change.'})]
     allowed = [1, 16, 50, day.day, day.year]
     lines = []
     for r in secs:
