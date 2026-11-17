@@ -4,6 +4,7 @@ from datetime import date, timedelta
 
 from .. import store
 from ..render import cards
+from ..render.art import as_post
 from ..sources import market, nse
 from ..util import fmt_date, fmt_inr, log, now_ist, pct_change, signed, today_ist
 from ..verify.checks import Report, check_sum
@@ -65,6 +66,7 @@ def _relabel(rep, core):
     return [(st, m) if st != 'fail' or m.startswith(core) else ('warn', m + ' - left out') for st, m in rep]
 
 
+@as_post('market_close')
 def market_close(force=False):
     if not _after_close(None, 'Closing bell'):
         return
@@ -144,6 +146,7 @@ def market_close(force=False):
 
 # ---------------------------------------------------------------- highs & lows carousel (4:35 PM)
 
+@as_post('daily_overview')
 def daily_overview(force=False):
     """Index scorecard, then all-time highs / 52-week highs and lows for each market-cap group."""
     if not _after_close(None, 'Highs & lows'):
@@ -209,6 +212,7 @@ def daily_overview(force=False):
 
 # ---------------------------------------------------------------- global cues (7:30 AM)
 
+@as_post('global_cues')
 def global_cues(force=False):
     key = f'global:{today_ist()}'
     if store.seen('post', key) and not force:
@@ -264,6 +268,7 @@ def global_cues(force=False):
 
 # ---------------------------------------------------------------- FII / DII (polls 6-9 PM)
 
+@as_post('fii_dii')
 def fii_dii(force=False):
     report = Report()
     try:
@@ -336,6 +341,7 @@ def fii_dii(force=False):
 
 # ---------------------------------------------------------------- day ahead (8:30 AM)
 
+@as_post('day_ahead')
 def day_ahead(force=False):
     today = today_ist()
     key = f'dayahead:{today}'
@@ -422,6 +428,7 @@ def _ipo_facts(i, detail):
     return facts
 
 
+@as_post('ipo')
 def ipo(force=False):
     today = today_ist()
     try:
@@ -517,6 +524,7 @@ def ipo(force=False):
             store.mark_seen('post', key)
 
 
+@as_post('ipo_status')
 def ipo_status(force=False):
     """Live category-wise subscription for IPOs open today (one card per IPO, 5:20 PM)."""
     today = today_ist()
@@ -575,6 +583,7 @@ def ipo_status(force=False):
 
 # ---------------------------------------------------------------- gainers & losers by market cap (4:15 PM)
 
+@as_post('cap_movers')
 def cap_movers(force=False):
     key = f'capmovers:{today_ist()}'
     if store.seen('post', key) and not force:
@@ -699,9 +708,11 @@ def _weekly_post(kind, force):
         store.mark_seen('post', key)
 
 
+@as_post('weekly_ath')
 def weekly_ath(force=False):
     _weekly_post('ath', force)
 
 
+@as_post('weekly_lows')
 def weekly_lows(force=False):
     _weekly_post('low', force)

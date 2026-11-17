@@ -3,6 +3,7 @@ import re
 
 from .. import config, store
 from ..render import cards
+from ..render.art import as_post
 from ..sources import market
 from ..sources import news as news_src
 from ..util import fmt_date, log, now_ist, today_ist
@@ -94,6 +95,7 @@ def build_from_cluster(c):
     return images, caption, report, title
 
 
+@as_post('news')
 def news(force=False, limit=None):
     from datetime import datetime, timedelta
     last = store.get_flag('last_news_run')

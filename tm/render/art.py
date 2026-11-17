@@ -128,13 +128,47 @@ def _bank_facade(w, h, x0, x1, y_top, y_bot, color=(200, 205, 215)):
     return lay
 
 
+POST_KIND = None          # set by the job that is rendering (see set_post); picks the scene pool
+SECTOR_THEMES = {'solar', 'bank', 'ipo', 'tech', 'oil', 'gold'}
+
+
+def set_post(kind):
+    global POST_KIND
+    POST_KIND = kind
+
+
+def as_post(kind):
+    """Decorator for a job: its images use that post type's scene pool."""
+    import functools
+
+    def wrap(fn):
+        @functools.wraps(fn)
+        def inner(*a, **k):
+            global POST_KIND
+            prev, POST_KIND = POST_KIND, kind
+            try:
+                return fn(*a, **k)
+            finally:
+                POST_KIND = prev
+        return inner
+    return wrap
+
+
 def background(theme, w=1080, h=1350, seed=0, tone=None):
-    """tone: 'up' | 'down' sets the chart direction and colour; default depends on the theme."""
+    """tone: 'up' | 'down' sets the chart direction and colour; default depends on the theme.
+    Data posts and insights draw a scene from their own pool (scenes.py), rotating daily; news about a
+    specific sector keeps its sector picture."""
+    from . import scenes
     rng = random.Random(f'{theme}-{seed}')
     down = theme in ('market_down', 'solar', 'oil')
     if tone in ('up', 'down'):
         down = tone == 'down'
     colr = DOWN if down else UP
+    kind = POST_KIND or 'news'
+    if not (kind == 'news' and theme in SECTOR_THEMES):
+        from ..util import today_ist
+        scene = scenes.pick(kind, theme, seed, today_ist().toordinal())
+        return _scene_background(scene, kind, w, h, rng, not down, colr)
     sky_top = (40, 18, 30) if down else (10, 40, 70)
     im = _sky(w, h, sky_top, (3, 8, 20)).convert('RGBA')
     # light source
@@ -169,6 +203,24 @@ def background(theme, w=1080, h=1350, seed=0, tone=None):
             c = rng.choice([GOLD, UP, (255, 255, 255), (255, 153, 51)])
             cd.rectangle([x, y, x + rng.randint(4, 10), y + rng.randint(8, 16)], fill=c + (rng.randint(120, 230),))
         im.alpha_composite(conf)
+    return _finish(im, rng, w, h)
+
+
+def _scene_background(scene, kind, w, h, rng, up, colr):
+    from . import scenes
+    top, bottom, light = scenes.PALETTES.get(scene, ((10, 40, 70), (3, 8, 20), (90, 170, 255)))
+    if not up:                                   # warmer, darker sky on red days
+        top = tuple(int(0.6 * a + 0.4 * b) for a, b in zip(top, (60, 14, 24)))
+    im = _sky(w, h, top, bottom).convert('RGBA')
+    g = Image.new('RGBA', (w, h), (0, 0, 0, 0))
+    gx, gy = rng.randint(w // 4, 3 * w // 4), int(h * 0.12)
+    ImageDraw.Draw(g).ellipse([gx - 280, gy - 280, gx + 280, gy + 280], fill=light + (70,))
+    im.alpha_composite(g.filter(ImageFilter.GaussianBlur(100)))
+    scenes.draw(scene, im, rng, up, colr, kind)
+    return _finish(im, rng, w, h)
+
+
+def _finish(im, rng, w, h):
     # bokeh
     bok = Image.new('RGBA', (w, h), (0, 0, 0, 0))
     bd = ImageDraw.Draw(bok)
@@ -179,7 +231,7 @@ def background(theme, w=1080, h=1350, seed=0, tone=None):
     # fade to the page colour so text below is readable
     fade = np.zeros((h, w, 4), np.uint8)
     fade[..., :3] = (3, 10, 23)
-    t = np.clip((np.arange(h) - h * 0.36) / (h * 0.16), 0, 1)
+    t = np.clip((np.arange(h) - h * 0.40) / (h * 0.18), 0, 1)
     fade[..., 3] = (t[:, None] * 255).astype(np.uint8)
     im.alpha_composite(Image.fromarray(fade, 'RGBA'))
     # vignette

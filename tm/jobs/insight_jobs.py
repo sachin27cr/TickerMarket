@@ -13,6 +13,7 @@ from datetime import date
 
 from .. import store, telegram
 from ..render import cards, insight_cards as ic
+from ..render.art import as_post
 from ..sources import insights as src, market
 from ..util import fmt_date, fmt_inr, log, today_ist
 from ..verify.checks import Report
@@ -77,6 +78,7 @@ def _save_yq(cache):
     store.write_json(f'cache/yq/{today_ist()}.json', {s: {str(k): v for k, v in q.items()} for s, q in cache.items()})
 
 
+@as_post('insight_profits')
 def profits(force=False, st=None):
     st = st or _state()
     report = Report()
@@ -151,6 +153,7 @@ def profits(force=False, st=None):
 
 # ---------------------------------------------------------------- 2. assets last month
 
+@as_post('insight_assets')
 def assets(force=False, st=None):
     st = st or _state()
     y, m = src.last_complete_month()
@@ -199,6 +202,7 @@ def assets(force=False, st=None):
 
 # ---------------------------------------------------------------- 3. most valuable companies
 
+@as_post('insight_mcap')
 def mcap(force=False, st=None):
     st = st or _state()
     report = Report()
@@ -248,6 +252,7 @@ def mcap(force=False, st=None):
 
 # ---------------------------------------------------------------- 4. one year in the Nifty 50
 
+@as_post('insight_wealth')
 def wealth(force=False, st=None):
     st = st or _state()
     report = Report()
@@ -296,6 +301,7 @@ def wealth(force=False, st=None):
 
 # ---------------------------------------------------------------- 5. sector scorecard
 
+@as_post('insight_sectors')
 def sectors(force=False, st=None):
     st = st or _state()
     report = Report()

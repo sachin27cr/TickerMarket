@@ -733,12 +733,16 @@ def cover(data):
                  0.1, data.get('tone'))
     im = im.convert('RGBA')
     # date block
-    band = Image.new('RGBA', (W, 250), BG + (175,))
-    im.alpha_composite(band, (0, 150))
+    # left-to-right shade behind the date only, so the scene stays visible on the right
+    import numpy as _np
+    a = _np.zeros((250, W, 4), _np.uint8)
+    a[..., :3] = BG
+    a[..., 3] = (_np.clip(1.25 - _np.linspace(0, 1, W) * 1.5, 0, 1) * 185).astype(_np.uint8)[None, :]
+    im.alpha_composite(Image.fromarray(a, 'RGBA'), (0, 150))
     d = ImageDraw.Draw(im)
     d.text((60, 200), day.strftime('%A').upper(), font=bebas(66), fill=GOLD, anchor='lm')
     d.text((60, 300), f'{day.day} {day.strftime("%B %Y")}'.upper(), font=bebas(120), fill=WHITE, anchor='lm')
-    im = scrim(im, 420, 1180, 190)
+    im = scrim(im, 420, 1180, 120)
     d = ImageDraw.Draw(im)
     y = headline(d, data['headline'], 470, size=108, max_lines=3) + 40
     stats = data.get('stats') or []
