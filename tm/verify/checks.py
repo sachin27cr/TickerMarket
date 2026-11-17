@@ -7,7 +7,7 @@ from datetime import timedelta
 
 from ..util import now_ist
 
-NUM_RE = re.compile(r'(?<![A-Za-z\d])-?\d[\d,]*(?:\.\d+)?(?![A-Za-z\d])')
+NUM_RE = re.compile(r'(?<![A-Za-z\d.])-?\d[\d,]*(?:\.\d+)?(?!\d)(?!\.\d)')   # '0.52x', '18%' read whole
 MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september',
           'october', 'november', 'december']
 

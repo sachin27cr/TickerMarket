@@ -23,6 +23,7 @@ const SCHEDULE = [
   ['12345', '15:50', 'market_close'],
   ['12345', '16:15', 'cap_movers'],
   ['12345', '16:35', 'daily_overview'],
+  ['12345', '17:20', 'ipo_status'],
   ['12345', '17:45', 'news'],
   ['12345', '18:20', 'fii_dii'],
   ['12345', '19:20', 'fii_dii'],
@@ -32,6 +33,7 @@ const SCHEDULE = [
   ['6', '11:05', 'weekly_ath'],
   ['6', '17:05', 'weekly_lows'],
   ['0', '18:05', 'news'],
+  ['0123456', '18:40', 'insights'],   // posts every other day; skips itself on the days in between
 ];
 const JOBS = new Set(SCHEDULE.map(s => s[2]));
 
@@ -75,7 +77,9 @@ export default {
       if (job === 'approvals') return new Response((await dispatch(env, 'approvals.yml', {})) ? 'started approvals' : 'failed - see logs');
       if (!JOBS.has(job)) return new Response('unknown job. Use one of: ' + [...JOBS, 'approvals'].join(', '), { status: 400 });
       const force = url.searchParams.get('force') === 'true';
-      return new Response((await dispatch(env, 'scheduler.yml', { job, force })) ? `started ${job}` : 'failed - see Worker logs');
+      const inputs = { job, force };
+      if (job === 'insights' && url.searchParams.get('tag')) inputs.arg = url.searchParams.get('tag');
+      return new Response((await dispatch(env, 'scheduler.yml', inputs)) ? `started ${job}` : 'failed - see Worker logs');
     }
     const { day, slot } = istSlot(Date.now());
     return new Response(`Ticker Market scheduler is running. IST slot ${slot}, day ${day}.`);

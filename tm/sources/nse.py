@@ -100,6 +100,8 @@ def index_constituents(index='NIFTY 50'):
                          'chg': float(r['change']), 'pct': float(r['pChange']),
                          'prev': float(r.get('previousClose') or 0) or None,
                          'year_high': float(r.get('yearHigh') or 0) or None,
+                         'day_high': float(r.get('dayHigh') or 0) or None,
+                         'day_low': float(r.get('dayLow') or 0) or None,
                          'year_low': float(r.get('yearLow') or 0) or None})
         except (KeyError, TypeError, ValueError):
             continue
@@ -206,3 +208,98 @@ def quote(symbol):
     return {'price': price, 'chg': float(p.get('change') or 0), 'pct': float(p.get('pChange') or 0),
             'prev': prev or None, 'time': parse_nse_date(meta.get('lastUpdateTime', '') or ''),
             'name': info.get('companyName') or symbol}
+
+
+# ---------------------------------------------------------------- F&O participant positions
+
+PARTICIPANT_OI_URL = 'https://nsearchives.nseindia.com/content/nsccl/fao_participant_oi_{d:%d%m%Y}.csv'
+PARTICIPANTS = ('Client', 'DII', 'FII', 'Pro')
+
+
+def participant_oi(day):
+    """Open interest (contracts) by participant for one trading day, from NSE's daily archive file.
+    {'FII': {'fut_idx_long':..,'fut_idx_short':..,'opt_idx_call_long':.., ...}, 'TOTAL': {...}}"""
+    import csv
+    import io
+    r = session().get(PARTICIPANT_OI_URL.format(d=day), timeout=45)
+    if r.status_code != 200 or 'Client' not in r.text:
+        raise SourceError(f'participant OI {day}: HTTP {r.status_code}')
+    lines = [ln for ln in r.text.splitlines() if ln.strip()]
+    start = next(i for i, ln in enumerate(lines) if ln.lower().startswith('client type'))
+    rows = list(csv.reader(io.StringIO('\n'.join(lines[start:]))))
+    head = [h.strip().lower() for h in rows[0]]
+    col = {name: head.index(name) for name in head}
+
+    def g(row, name):
+        return int(float(row[col[name]].strip().replace(',', '')))
+
+    out = {}
+    for row in rows[1:]:
+        who = row[0].strip()
+        if who.upper() == 'TOTAL':
+            who = 'TOTAL'
+        if who not in PARTICIPANTS + ('TOTAL',):
+            continue
+        out[who] = {
+            'fut_idx_long': g(row, 'future index long'), 'fut_idx_short': g(row, 'future index short'),
+            'fut_stk_long': g(row, 'future stock long'), 'fut_stk_short': g(row, 'future stock short'),
+            'opt_idx_call_long': g(row, 'option index call long'), 'opt_idx_put_long': g(row, 'option index put long'),
+            'opt_idx_call_short': g(row, 'option index call short'), 'opt_idx_put_short': g(row, 'option index put short'),
+        }
+    if not all(p in out for p in PARTICIPANTS + ('TOTAL',)):
+        raise SourceError(f'participant OI {day}: missing rows')
+    return out
+
+
+# ---------------------------------------------------------------- IPO details and live subscription
+
+def _flatten(obj, path=''):
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            yield from _flatten(v, f'{path}.{k}' if path else str(k))
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj):
+            yield from _flatten(v, f'{path}[{i}]')
+    else:
+        yield path, obj
+
+
+def find_field(obj, *patterns):
+    """First scalar whose key path matches any regex (case-insensitive). NSE renames fields often,
+    so IPO details are read by meaning, not by one fixed field name."""
+    import re
+    flat = list(_flatten(obj))
+    for pat in patterns:
+        rx = re.compile(pat, re.I)
+        for path, v in flat:
+            if rx.search(path.split('.')[-1]) and v not in (None, '', '-', 'NA'):
+                return v
+    return None
+
+
+def ipo_detail(symbol, series='EQ'):
+    return get('/api/ipo-detail', {'symbol': symbol, 'series': series})
+
+
+def ipo_subscription(symbol):
+    """Category-wise live bids: [{'category','offered','bid','times'}] + update time text."""
+    import re
+    j = get('/api/ipo-active-category', {'symbol': symbol})
+    rows, upd = [], find_field(j, r'update', r'time')
+    lists = [v for v in (j.values() if isinstance(j, dict) else [j]) if isinstance(v, list)]
+    for lst in lists:
+        for r in lst:
+            if not isinstance(r, dict):
+                continue
+            cat = find_field(r, r'categor', r'^name$')
+            offered = find_field(r, r'offer|reserv')
+            bid = find_field(r, r'bid')
+            times = find_field(r, r'times|meant|subscri')
+            if not cat:
+                continue
+            num = lambda v: float(re.sub(r'[^0-9.]', '', str(v)) or 0) if v is not None else None
+            rows.append({'category': re.sub(r'\s+', ' ', str(cat)).strip(), 'offered': num(offered), 'bid': num(bid),
+                         'times': num(times)})
+    if not rows:
+        raise SourceError(f'IPO subscription {symbol}: no category rows')
+    return rows, upd, j

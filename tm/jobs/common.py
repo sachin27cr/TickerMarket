@@ -29,7 +29,8 @@ def finish(kind, title, images, caption, report: Report, allowed_numbers=None, m
         except Exception as e:                       # noqa: BLE001
             log.warning('telegram notice failed: %s', e)
         return None
-    hint = f'{kind}-{now_ist().strftime("%H%M%S")}'
+    import secrets
+    hint = f'{kind}-{now_ist().strftime("%H%M%S")}-{secrets.token_hex(2)}'   # unique even for two drafts in one second
     paths = []
     for i, im in enumerate(images):
         rel = store.media_path(hint, i + 1)

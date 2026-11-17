@@ -338,3 +338,114 @@ def company_quotes(companies, report, limit=3):
         out.append({'name': _re.sub(r'\s+Limited$', ' Ltd', name.strip()), 'symbol': sym, 'price': q['price'], 'chg': q['chg'],
                     'pct': q['pct'], 'time_text': f'{t.day} {t.strftime("%b")}, {t.strftime("%-I:%M %p")} IST'})
     return out
+
+
+# ---------------------------------------------------------------- FII derivatives positions
+
+def fii_fno(day, report, lookback=7):
+    """FII index-futures and index-options positions for `day`, with change vs the previous trading day.
+    Check: for every column, Client + DII + FII + Pro must equal NSE's TOTAL row."""
+    from datetime import timedelta
+    try:
+        cur = nse.participant_oi(day)
+    except nse.SourceError as e:
+        report.warn(f'F&O positions not published yet ({e})')
+        return None
+    for k in cur['TOTAL']:
+        s = sum(cur[p][k] for p in nse.PARTICIPANTS)
+        if s != cur['TOTAL'][k]:
+            report.warn(f'F&O file does not add up ({k}: {s} vs {cur["TOTAL"][k]}) - section left out')
+            return None
+    prev = None
+    for i in range(1, lookback):
+        try:
+            prev = nse.participant_oi(day - timedelta(days=i))
+            break
+        except nse.SourceError:
+            continue
+    f = cur['FII']
+    long_, short = f['fut_idx_long'], f['fut_idx_short']
+    out = {
+        'idx_fut_long': long_, 'idx_fut_short': short, 'idx_fut_net': long_ - short,
+        'idx_fut_long_pct': long_ / (long_ + short) * 100 if long_ + short else 0.0,
+        'stk_fut_net': f['fut_stk_long'] - f['fut_stk_short'],
+        'idx_call_net': f['opt_idx_call_long'] - f['opt_idx_call_short'],
+        'idx_put_net': f['opt_idx_put_long'] - f['opt_idx_put_short'],
+        'client_long_pct': (cur['Client']['fut_idx_long'] / (cur['Client']['fut_idx_long'] + cur['Client']['fut_idx_short'])
+                            * 100) if cur['Client']['fut_idx_long'] + cur['Client']['fut_idx_short'] else 0.0,
+    }
+    if prev:
+        pf = prev['FII']
+        out['idx_fut_net_chg'] = out['idx_fut_net'] - (pf['fut_idx_long'] - pf['fut_idx_short'])
+    report.ok(f'FII index futures: long {long_:,} / short {short:,} contracts (long {out["idx_fut_long_pct"]:.1f}%); '
+              f'NSE file totals add up')
+    return out
+
+
+# ---------------------------------------------------------------- daily new highs / lows by market cap
+
+def daily_history(symbols):
+    """{symbol: DataFrame of daily bars} for a few stocks (full history)."""
+    import yfinance as yf
+    out = {}
+    if not symbols:
+        return out
+    df = yf.download([s + '.NS' for s in symbols], period='max', interval='1d', auto_adjust=False,
+                     group_by='ticker', threads=True, progress=False)
+    for s in symbols:
+        try:
+            h = df[s + '.NS'].dropna(subset=['High', 'Low', 'Close'])
+        except KeyError:
+            continue
+        if len(h):
+            out[s] = h
+    return out
+
+
+def daily_extremes(day, n=6):
+    """Per market-cap group: stocks whose high today equals their 52-week high (NSE), which of those are
+    all-time highs (no higher price in Yahoo's full history before today, 1+ year listed), and stocks whose
+    low today equals their 52-week low. Yahoo's high for today must agree with NSE within 0.5%."""
+    result, report = {}, []
+    for seg, index in CAP_SEGMENTS:
+        try:
+            rows, _ = nse.index_constituents(index)
+        except nse.SourceError as e:
+            report.append(('fail', f'{seg} ({index}): NSE list unavailable ({e})'))
+            continue
+        hi52 = [r for r in rows if r.get('day_high') and r.get('year_high') and r['day_high'] >= r['year_high'] * 0.9995]
+        lo52 = [r for r in rows if r.get('day_low') and r.get('year_low') and r['day_low'] <= r['year_low'] * 1.0005]
+        hist = daily_history([r['symbol'] for r in hi52])
+        ath, mismatch = [], 0
+        for r in hi52:
+            h = hist.get(r['symbol'])
+            if h is None or len(h) < 250 or h.index[-1].date() != day:
+                continue
+            y_hi = float(h['High'].iloc[-1])
+            if abs(y_hi - r['day_high']) / r['day_high'] * 100 > 0.5:
+                mismatch += 1; continue
+            if r['day_high'] > float(h['High'].iloc[:-1].max()):
+                ath.append(r)
+        key = lambda x: x['pct']
+        result[seg] = {'index': index, 'count': len(rows),
+                       'ath': sorted(ath, key=key, reverse=True)[:n], 'ath_count': len(ath),
+                       'hi52': sorted([r for r in hi52 if r not in ath], key=key, reverse=True)[:n],
+                       'hi52_count': len(hi52),
+                       'lo52': sorted(lo52, key=key)[:n], 'lo52_count': len(lo52)}
+        report.append(('ok', f'{seg} ({index}): {len(hi52)} at 52-week high ({len(ath)} all-time high), '
+                             f'{len(lo52)} at 52-week low' + (f'; {mismatch} dropped (Yahoo/NSE differ)' if mismatch else '')))
+    return result, report
+
+
+BOARD = [  # indices slide for the daily highs/lows carousel
+    ('NIFTY 50', 'NIFTY 50'), ('SENSEX', None), ('NIFTY NEXT 50', 'NIFTY NEXT 50'), ('NIFTY 100', 'NIFTY 100'),
+    ('NIFTY MIDCAP 150', 'NIFTY MIDCAP 150'), ('NIFTY SMALLCAP 250', 'NIFTY SMALLCAP 250'),
+    ('NIFTY MICROCAP 250', 'NIFTY MICROCAP 250'), ('NIFTY 500', 'NIFTY 500'), ('NIFTY BANK', 'NIFTY BANK'),
+    ('INDIA VIX', 'INDIA VIX'),
+]
+
+
+def index_board():
+    names = {k: (v, '^BSESN' if k == 'SENSEX' else None) for k, v in BOARD}
+    q, _, nse_date, report = market_snapshot(names)
+    return [q[k] for k, _ in BOARD if k in q], nse_date, report

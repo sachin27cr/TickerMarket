@@ -18,13 +18,28 @@ A draft with any ⚠️ warning (e.g. single-source data) never auto-posts; it w
 | 8:35 AM | Market day ahead (results, ex-dates, IPOs open) | NSE event calendar, corporate actions, IPO list |
 | 9:10 AM | IPO cards for issues opening today/tomorrow | NSE IPO list |
 | 10:05 AM, 12:35 PM, 5:45 PM, 9:05 PM | News (2 per run, set `TM_NEWS_PER_RUN`) | AI writes from sources, code checks every fact |
-| 3:50 PM | Market close card | NSE closing data, cross-checked with Yahoo |
+| 3:50 PM | **Closing Bell** carousel: date/day cover with the hook, key indices + breadth, sectors, Nifty 50 movers, rupee/crude/gold/VIX | NSE closing data, cross-checked with Yahoo |
 | 4:15 PM | **Gainers & losers by market cap** carousel: Large (Nifty 100), Mid (Midcap 150), Small (Smallcap 250), Micro (Microcap 250) | NSE closing data; each % re-computed from price |
-| 4:35 PM | **Daily market overview** carousel (indices, sectors, top movers, rupee/commodities) | NSE + Yahoo |
-| 6:20–8:20 PM | FII/DII card (posts once, when NSE publishes) | NSE provisional data |
+| 4:35 PM | **Highs & Lows** carousel: index scorecard, then new all-time highs / 52-week highs / 52-week lows per market-cap group | NSE 52-week levels; all-time highs from Yahoo full history, confirmed against NSE |
+| 5:20 PM | **Live IPO subscription** (only while an IPO is open) | NSE category-wise bids; times re-computed from bids / shares offered |
+| 6:20–8:20 PM | FII/DII carousel with FII positions in F&O (posts once, when NSE publishes) | NSE provisional data + NSE participant OI file |
+| 6:40 PM daily | **Insights** data story, every other day (see below) | NSE + Yahoo, always needs your approval |
 | Sat 10:05 AM, Sun 6:05 PM | Weekend news | as above |
 | Sat 11:05 AM | **Weekly all-time highs** carousel, up to 10 stocks per market-cap group | Yahoo full price history, level confirmed against NSE 52-week high |
 | Sat 5:05 PM | **Weekly 52-week lows** carousel, up to 10 stocks per group | Yahoo price history, confirmed against NSE 52-week low |
+
+### Insights (every other day, or on demand with `/innovative`)
+
+| Tag | Post | Checks |
+| --- | --- | --- |
+| `profits` | Results season series, "Part 1, 2, 3...": Nifty 500 companies whose quarterly net profit grew 100%+ (or 200%+) YoY. One slide per company: growth %, profit and revenue then vs now, NSE price | Net profit must match between NSE results and Yahoo for both quarters (2%), otherwise the company is left out. Companies already posted are never repeated |
+| `assets` | How major assets did last month (Nifty, Sensex, Bank Nifty, gold, silver, crude, rupee, Nasdaq, S&P 500, bitcoin), first week of each month | Nifty/Bank Nifty month-end closes from NSE; others Yahoo (shown as single-source warnings) |
+| `mcap` | India's 10 most valuable companies + change this week | NSE issued shares x NSE price, each within 3% of Yahoo |
+| `wealth` | Rs 1 lakh in each Nifty 50 stock a year ago: top 5 / bottom 5 | Today's price from NSE; Yahoo price must agree within 0.5% |
+| `sectors` | Sector scorecard: 1 week / 1 month / 1 year for 16 sector indices vs Nifty 50 | NSE's own period changes |
+
+The 6:40 PM run posts only if the last insight is 2+ days old. Order: `profits` during results season, `assets` in the first week
+of a month, then whichever of `mcap` / `sectors` / `wealth` has waited longest. Every insight ends with a "Follow for more" slide.
 
 Market holidays are detected automatically: if NSE has no session today, close/overview cards are skipped.
 
@@ -76,7 +91,8 @@ day, news runs at most once per 50 minutes).
 
 ## Telegram commands
 
-`/news` `/close` `/capmovers` `/overview` `/ath` `/lows` `/fii` `/global` `/dayahead` `/ipo` run a job now ·
+`/news` `/close` `/capmovers` `/overview` `/ath` `/lows` `/fii` `/global` `/dayahead` `/ipo` `/iposubs` run a job now ·
+`/innovative` next insight · `/innovative profits` (or `assets`, `mcap`, `wealth`, `sectors`) a specific one · `/innovative list` ·
 `/queue` drafts waiting · `/flagged` recently blocked drafts with reasons · `/feeds` news feed health ·
 `/pause` `/resume` stop/restart scheduled drafts.
 

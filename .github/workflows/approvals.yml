@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  actions: write      # lets /innovative start the Insights workflow
 
 concurrency:
   group: approvals
@@ -32,6 +33,7 @@ jobs:
       - name: Handle taps and commands
         run: python -m tm.cli approvals
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TM_PAGE: india
           TM_DATA_DIR: ${{ github.workspace }}/data
           TM_NEWS_PER_RUN: ${{ vars.TM_NEWS_PER_RUN || '2' }}

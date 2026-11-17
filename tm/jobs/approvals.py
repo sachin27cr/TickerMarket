@@ -16,7 +16,9 @@ HELP = """<b>Ticker Market bot</b>
 /fii - FII/DII card
 /global - global cues card
 /dayahead - day-ahead card
-/ipo - IPO cards
+/ipo - IPO carousels
+/iposubs - live IPO subscription
+/innovative - next data story (Insights); /innovative list for tags, e.g. /innovative profits
 /queue - drafts waiting for you
 /flagged - recently blocked drafts
 /feeds - news feed health
@@ -54,14 +56,38 @@ def reject(did):
     return 'rejected'
 
 
-def run_command(cmd):
-    from . import market_jobs, news_jobs
+def _dispatch_insight(arg):
+    """Insights can take ~10 minutes (results scan), so they run as their own workflow, not inside approvals."""
+    import os
+    import requests
+    repo, token = os.environ.get('GITHUB_REPOSITORY'), os.environ.get('GITHUB_TOKEN')
+    if not repo or not token:
+        return False
+    r = requests.post(f'https://api.github.com/repos/{repo}/actions/workflows/scheduler.yml/dispatches',
+                      headers={'Authorization': f'Bearer {token}', 'Accept': 'application/vnd.github+json'},
+                      json={'ref': 'main', 'inputs': {'job': 'insights', 'force': True, 'arg': arg}}, timeout=20)
+    if r.status_code != 204:
+        log.warning('insight dispatch failed: %s %s', r.status_code, r.text[:200])
+    return r.status_code == 204
+
+
+def run_command(cmd, arg=''):
+    from . import insight_jobs, market_jobs, news_jobs
+    if cmd in ('/innovative', '/insight', '/insights'):
+        if arg.lower() in ('list', 'help', '?'):
+            insight_jobs.run_tag('list')
+        elif _dispatch_insight(arg or 'next'):
+            telegram.send_text(f'Building insight {html.escape(arg or "(next in rotation)")} - the draft arrives here in a few minutes.')
+        else:
+            telegram.send_text('Building insight ...')
+            insight_jobs.run_tag(arg)
+        return
     jobs = {'/news': lambda: news_jobs.news(force=True), '/close': lambda: market_jobs.market_close(force=True),
             '/overview': lambda: market_jobs.daily_overview(force=True),
             '/capmovers': lambda: market_jobs.cap_movers(force=True),
             '/ath': lambda: market_jobs.weekly_ath(force=True), '/lows': lambda: market_jobs.weekly_lows(force=True), '/fii': lambda: market_jobs.fii_dii(force=True),
             '/global': lambda: market_jobs.global_cues(force=True), '/dayahead': lambda: market_jobs.day_ahead(force=True),
-            '/ipo': lambda: market_jobs.ipo(force=True)}
+            '/ipo': lambda: market_jobs.ipo(force=True), '/iposubs': lambda: market_jobs.ipo_status(force=True)}
     if cmd in jobs:
         telegram.send_text(f'Running {cmd} ...')
         jobs[cmd]()
@@ -118,7 +144,8 @@ def _handle_updates():
         text = (msg.get('text') or '').strip()
         if text.startswith('/'):
             try:
-                run_command(text.split()[0].split('@')[0].lower())
+                parts = text.split(maxsplit=1)
+                run_command(parts[0].split('@')[0].lower(), parts[1].strip() if len(parts) > 1 else '')
             except Exception as e:                   # noqa: BLE001
                 log.exception('command failed')
                 telegram.send_text(f'Command failed: {html.escape(str(e))[:500]}')

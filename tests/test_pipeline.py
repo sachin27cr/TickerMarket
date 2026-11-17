@@ -63,6 +63,28 @@ def fake_sources():
     def _no_yahoo(sym):
         raise RuntimeError('offline')
     market.yahoo_daily = _no_yahoo
+    board = [q(i['name'], i['close'], i['chg']) for i in S.INDICES]
+    market.index_board = lambda: (board, today_ist(), checks.Report([('ok', 'fake board')]))
+    def _ext(day, n=6):
+        out = {}
+        for seg, idx in market.CAP_SEGMENTS:
+            rows = S.CAP_ROWS[idx]
+            out[seg] = {'index': idx, 'count': len(rows), 'ath': rows[:2], 'ath_count': 2, 'hi52': rows[2:5],
+                        'hi52_count': 5, 'lo52': rows[-3:], 'lo52_count': 3}
+        return out, [('ok', 'fake extremes')]
+    market.daily_extremes = _ext
+    def _fno(day, report, lookback=7):
+        report.ok('fake F&O')
+        return {'idx_fut_long': 120000, 'idx_fut_short': 280000, 'idx_fut_net': -160000, 'idx_fut_long_pct': 30.0,
+                'stk_fut_net': 45210, 'idx_call_net': 51234, 'idx_put_net': -23456, 'client_long_pct': 61.2,
+                'idx_fut_net_chg': 8210}
+    market.fii_fno = _fno
+    nse.ipo_detail = lambda sym, series='EQ': {'issueInfo': {'minBidQuantity': '34', 'faceValue': 'Rs 2',
+        'issueSize': 'Rs 1,250 Cr', 'freshIssue': 'Rs 800 Cr', 'offerForSale': 'Rs 450 Cr', 'qibQuota': '50%',
+        'niiQuota': '15%', 'retailQuota': '35%', 'registrar': 'ABC Registry Ltd', 'leadManagers': 'XYZ Capital'}}
+    nse.ipo_subscription = lambda sym: ([{'category': 'Qualified Institutional Buyers', 'offered': 1000.0, 'bid': 520.0, 'times': 0.52},
+                                         {'category': 'Retail Individual Investors', 'offered': 2000.0, 'bid': 3100.0, 'times': 1.55},
+                                         {'category': 'Total', 'offered': 3000.0, 'bid': 3620.0, 'times': 1.21}], '17-Nov-2026 17:00', {})
     cl = S.news_cluster()
     news_src.fetch_all = lambda max_age_hours=None: (cl['items'], [('fake', 'ok', 2)])
 
@@ -98,7 +120,7 @@ def run():
     n0 = 0
     for name, fn in [('market_close', market_jobs.market_close), ('cap_movers', market_jobs.cap_movers), ('daily_overview', market_jobs.daily_overview),
                      ('global_cues', market_jobs.global_cues), ('fii_dii', market_jobs.fii_dii), ('weekly_ath', market_jobs.weekly_ath), ('weekly_lows', market_jobs.weekly_lows),
-                     ('day_ahead', market_jobs.day_ahead), ('ipo', market_jobs.ipo), ('news', run_news)]:
+                     ('day_ahead', market_jobs.day_ahead), ('ipo', market_jobs.ipo), ('ipo_status', market_jobs.ipo_status), ('news', run_news)]:
         fn()
         ds = drafts()
         assert len(ds) == n0 + 1, f'{name}: expected a draft, flagged={list((config.DATA_DIR / "flagged").glob("*"))}'
@@ -165,10 +187,63 @@ def duplicate_guard():
     print('duplicate trigger within 50 min skipped')
 
 
+def fake_insights():
+    from datetime import date
+    from tm.sources import insights as src
+    qe, pe = date(2026, 9, 30), date(2025, 9, 30)
+    names = [('DIAMONDPOW', 'Diamond Power Infrastructure', 27.73, 107.88, 438.33, 1031.90),
+             ('PRINCEPIPE', 'Prince Pipes And Fittings', 15.0, 48.0, 595.0, 821.0),
+             ('PRIMEFOCUS', 'Prime Focus', 14.0, 58.0, 1061.0, 1429.0),
+             ('KERNEX', 'Kernex Microsystems (India)', 17.0, 129.0, 47.0, 543.0),
+             ('MODINSU', 'Modern Insulators', 17.0, 53.0, 176.0, 249.0),
+             ('SLOWCO', 'Slow Growth Co', 100.0, 120.0, 500.0, 520.0)]
+    yq = {s: {qe: {'profit': b * 1e7, 'revenue': rv * 1e7}, pe: {'profit': a * 1e7, 'revenue': ra * 1e7}}
+          for s, _, a, b, ra, rv in names}
+    nq = {s: [{'end': qe, 'profit': b * 100, 'revenue': rv * 100, 'basis': 'C'},
+              {'end': pe, 'profit': a * 100, 'revenue': ra * 100, 'basis': 'C'}] for s, _, a, b, ra, rv in names}
+    nq['MODINSU'][0]['profit'] *= 1.2            # NSE disagrees with Yahoo -> must be left out
+    rows = [{'symbol': s, 'last': 500.0 + i, 'chg': 5.0, 'pct': 1.01} for i, (s, *_ ) in enumerate(names)]
+    nse.index_constituents = lambda index='NIFTY 50': (rows, datetime.now(IST))
+    src.yahoo_quarters = lambda sym: yq[sym]
+    src.nse_quarters = lambda sym: (nq[sym], {})
+    market.equity_master = lambda: [(s, n + ' Limited') for s, n, *_ in names]
+    src.month_assets = lambda y, m: ([{'label': l, 'start': 100.0, 'end': 100 + p, 'pct': p, 'fmt': '{:,.2f}'} for l, p in
+                                      [('Brent Crude', 13.6), ('Nifty 50', 1.9), ('US Dollar / Rupee', 0.4), ('Gold', -6.9),
+                                       ('Nasdaq', -5.3), ('Silver', -18.3), ('Sensex', 1.7)]], [('ok', 'fake assets')])
+    src.mcap_leaders = lambda n=10: ([{'symbol': f'CO{i}', 'name': f'Company {chr(65 + i)} Ltd', 'price': 1000.0 + i,
+                                       'shares': 1e9, 'mcap_cr': 2000000 - i * 120000, 'week_pct': 1.5 - i * 0.4,
+                                       'week_cr': 30000 - i * 8000} for i in range(10)], [('ok', 'fake mcap')])
+    src.one_year_returns = lambda u='NIFTY 50': ([{'symbol': f'S{i:02d}', 'then': 100.0, 'now': 100 + 90 - i * 3.5,
+                                                   'pct': round(90 - i * 3.5, 2), 'then_date': date(2025, 11, 17)}
+                                                  for i in range(50)], date(2025, 11, 17), [('ok', 'fake 1y')])
+    src.sector_scorecard = lambda: ([{'name': n, 'last': 1000.0, 'w1': 0.5 - k * 0.2, 'm1': 3.2 - k * 0.6, 'y1': 12.0 - k * 2.1}
+                                     for k, n in enumerate(src.SECTOR_INDICES + ['NIFTY 50'])], [('ok', 'fake sectors')])
+
+
+def insights_test():
+    from tm.jobs import insight_jobs as ij
+    fake_insights()
+    shutil.rmtree(config.DATA_DIR / 'insights', ignore_errors=True)
+    for tag in ['profits', 'assets', 'mcap', 'wealth', 'sectors']:
+        n = len(drafts())
+        d = ij.run_tag(tag)
+        assert d and len(drafts()) == n + 1, f'insight {tag}: no draft (see flagged)'
+        assert d['status'] == 'pending' and len(d['images']) <= 10
+        print(f'--- insight {tag}: {len(d["images"])} slides\n{d["report_text"]}\n\n{d["caption"]}\n')
+    st = store.read_json(ij.STATE)
+    posted = st['profits']['Q2 FY27']['posted']
+    assert 'MODINSU' not in posted and 'SLOWCO' not in posted and len(posted) == 4, posted
+    n = len(drafts()); ij.insights(); assert len(drafts()) == n, 'insight posted twice within 2 days'
+    st['last_post'] = '2000-01-01'; store.write_json(ij.STATE, st)
+    ij.insights(); assert len(drafts()) == n, 'nothing new should be due (all tags inside their gap)'
+    print('insights: 5 tags built, NSE/Yahoo mismatch left out, every-other-day gate works')
+
+
 if __name__ == '__main__':
     unit()
     run()
     auto_post()
     duplicate_guard()
+    insights_test()
     print('ALL PIPELINE TESTS PASSED')
 

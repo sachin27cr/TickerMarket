@@ -4,13 +4,16 @@ import sys
 import traceback
 
 from . import store, telegram
-from .jobs import approvals, market_jobs, news_jobs
+import os
+
+from .jobs import approvals, insight_jobs, market_jobs, news_jobs
 from .util import log
 
 JOBS = {
     'global_cues': market_jobs.global_cues,
     'day_ahead': market_jobs.day_ahead,
     'ipo': market_jobs.ipo,
+    'ipo_status': market_jobs.ipo_status,
     'news': news_jobs.news,
     'market_close': market_jobs.market_close,
     'cap_movers': market_jobs.cap_movers,
@@ -18,6 +21,7 @@ JOBS = {
     'fii_dii': market_jobs.fii_dii,
     'weekly_ath': market_jobs.weekly_ath,
     'weekly_lows': market_jobs.weekly_lows,
+    'insights': insight_jobs.insights,
     'approvals': approvals.approvals,
 }
 
@@ -29,7 +33,11 @@ def main():
     if name != 'approvals' and store.get_flag('paused') and not force:
         log.info('paused - skipping %s', name); return
     try:
-        JOBS[name](force=force) if name != 'approvals' else JOBS[name]()
+        arg = os.environ.get('TM_ARG', '').strip()
+        if name == 'insights' and arg:              # on demand from Telegram: /innovative [tag]
+            insight_jobs.run_tag('' if arg == 'next' else arg)
+        else:
+            JOBS[name](force=force) if name != 'approvals' else JOBS[name]()
     except Exception as e:                       # noqa: BLE001 - report every crash to Telegram
         log.exception('%s crashed', name)
         try:

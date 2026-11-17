@@ -80,7 +80,7 @@ def base(category, date_text, sample=False, theme=None, seed=0, dim=0.0, tone=No
     tw = d.textlength(category.upper(), font=f)
     d.rounded_rectangle([60, 52, 60 + tw + 40, 102], radius=8, fill=GOLD)
     d.text((80, 77), category.upper(), font=f, fill=BG, anchor='lm')
-    d.text((W - 60, 77), date_text.upper(), font=cond(30), fill=MUTED, anchor='rm')
+    d.text((W - 60, 77), date_text.upper(), font=cond(34), fill=WHITE, anchor='rm')
     if sample:
         txt = 'SAMPLE  -  ILLUSTRATIVE NUMBERS, NOT REAL DATA'
         sf = cond(24)
@@ -333,6 +333,34 @@ def fii_dii(data):
         d.text((cols[0], y + 52), data.get('total_label', 'TOTAL'), font=bebas(56), fill=GOLD, anchor='lm')
         for x, v, a in ((cols[1], fii_t, 'mm'), (cols[2], dii_t, 'rm')):
             d.text((x, y + 52), ('+' if v >= 0 else '') + fmt_inr(v), font=bebas(64), fill=col(v), anchor=a)
+        y += 100
+    fno = data.get('fno')
+    if fno and y < H - 470:
+        y = section(d, 'FII positions in F&O (contracts)', y + 28)
+        # long/short bar for index futures
+        lp = fno['idx_fut_long_pct']
+        bw = W - 120
+        lw = int(bw * lp / 100)
+        d.rounded_rectangle([60, y, 60 + max(lw, 8), y + 40], radius=8, fill=UP)
+        d.rounded_rectangle([60 + lw + 6, y, W - 60, y + 40], radius=8, fill=DOWN)
+        d.text((60, y + 70), f'Index futures: {lp:.1f}% long', font=hind(30, 'SemiBold'), fill=UP, anchor='lm')
+        d.text((W - 60, y + 70), f'{100 - lp:.1f}% short', font=hind(30, 'SemiBold'), fill=DOWN, anchor='rm')
+        y += 104
+        tiles = [('Index futures net', fno['idx_fut_net'], fno.get('idx_fut_net_chg')),
+                 ('Stock futures net', fno['stk_fut_net'], None),
+                 ('Index calls net', fno['idx_call_net'], None),
+                 ('Index puts net', fno['idx_put_net'], None)]
+        tw, th = (W - 150) // 2, 118
+        for i, (k, v, chg) in enumerate(tiles):
+            x = 60 + (i % 2) * (tw + 30); yy = y + (i // 2) * (th + 16)
+            if yy + th > H - 170:
+                break
+            d.rounded_rectangle([x, yy, x + tw, yy + th], radius=14, fill=PANEL)
+            d.text((x + 24, yy + 30), k.upper(), font=cond(26), fill=MUTED, anchor='lm')
+            d.text((x + 24, yy + 80), ('+' if v >= 0 else '') + fmt_inr(v, 0), font=bebas(52), fill=col(v), anchor='lm')
+            if chg is not None:
+                d.text((x + tw - 20, yy + 84), f'{"+" if chg >= 0 else ""}{fmt_inr(chg, 0)} vs prev', font=hind(22),
+                       fill=MUTED, anchor='rm')
     footer(im, d, data['source'])
     return [im.convert('RGB')], {'fii_total': round(fii_t, 2), 'dii_total': round(dii_t, 2)}
 
@@ -575,3 +603,172 @@ def news_hero(data):
     bullets(d, data.get('points', []), y, size=32)
     footer(im, d, data['source'])
     return [im.convert('RGB')]
+
+
+def info_table(category, date_text, head, rows, source, theme=None, seed=0):
+    """Label | value rows (long values wrap). rows: [(label, value)]"""
+    im, d = base(category, date_text, False, theme, seed, 0.45)
+    if theme:
+        im = scrim(im, 175, 400, 150); d = ImageDraw.Draw(im)
+    y = headline(d, head, 190, size=86, max_lines=2) + 26
+    lf, vf = cond(30), hind(31, 'SemiBold')
+    for i, (k, v) in enumerate(rows):
+        lines = wrap(d, str(v), vf, W - 120 - 380) or ['-']
+        h = max(70, 26 + 42 * len(lines[:3]))
+        if y + h > H - 175:
+            break
+        if i % 2 == 0:
+            d.rounded_rectangle([60, y, W - 60, y + h], radius=10, fill=PANEL)
+        d.text((90, y + h // 2), k.upper(), font=lf, fill=MUTED, anchor='lm')
+        yy = y + h // 2 - (len(lines[:3]) - 1) * 21
+        for ln in lines[:3]:
+            d.text((440, yy), ln, font=vf, fill=WHITE, anchor='lm')
+            yy += 42
+        y += h + 6
+    footer(im, d, source)
+    return im.convert('RGB')
+
+
+def subscription(category, date_text, head, rows, update_text, source, theme='ipo', seed=0, tiles=None):
+    """Category-wise subscription bars. rows: [{'category','times','bid','offered'}]; the 'Total' row is highlighted.
+    tiles: up to 3 (label, value) facts drawn under the bars (price band, closes on, day)."""
+    im, d = base(category, date_text, False, theme, seed, 0.45, 'up')
+    im = scrim(im, 175, 400, 150); d = ImageDraw.Draw(im)
+    y = headline(d, head, 190, size=86, max_lines=2) + 20
+    if update_text:
+        d.text((60, y), f'As of {update_text}', font=hind(26), fill=MUTED)
+        y += 54
+    mx = max([r['times'] for r in rows if r['times'] is not None] + [1])
+    bottom = H - 200 - (190 if tiles else 0)
+    rh = min(132, (bottom - y) // max(1, len(rows)))
+    for r in rows:
+        total = 'total' in r['category'].lower()
+        name = r['category'][:34]
+        d.text((60, y + 22), name, font=hind(30, 'Bold' if total else 'SemiBold'), fill=GOLD if total else WHITE, anchor='lm')
+        t = r['times'] or 0
+        bw = int((W - 320) * min(t / mx, 1))
+        d.rounded_rectangle([60, y + 46, 60 + max(bw, 6), y + 76], radius=8, fill=GOLD if total else UP)
+        d.text((W - 60, y + 61), f'{t:.2f}x', font=bebas(54), fill=GOLD if total else WHITE, anchor='rm')
+        if r.get('bid') and r.get('offered') and rh >= 110:
+            d.text((60, y + 98), f'Bids for {fmt_inr(r["bid"], 0)} of {fmt_inr(r["offered"], 0)} shares offered',
+                   font=hind(23), fill=MUTED, anchor='lm')
+        y += rh
+    if tiles:
+        y = H - 360
+        n = len(tiles[:3]); gap = 20; tw = (W - 120 - gap * (n - 1)) // n
+        for k, (lab, val) in enumerate(tiles[:3]):
+            x = 60 + k * (tw + gap)
+            d.rounded_rectangle([x, y, x + tw, y + 140], radius=16, fill=PANEL, outline=LINE, width=2)
+            d.text((x + 22, y + 36), lab.upper(), font=cond(26), fill=MUTED, anchor='lm')
+            f = 54
+            while d.textlength(val, font=bebas(f)) > tw - 40 and f > 30:
+                f -= 4
+            d.text((x + 22, y + 95), val, font=bebas(f), fill=WHITE, anchor='lm')
+    footer(im, d, source)
+    return im.convert('RGB')
+
+
+def index_board(data):
+    """One slide listing many indices: name | close | change | %."""
+    im, d = base('Index Scorecard', data['date_text'], False, data.get('theme'), data.get('seed', 0), 0.45, data.get('tone'))
+    im = scrim(im, 175, 400, 150); d = ImageDraw.Draw(im)
+    y = headline(d, data['headline'], 190, size=86, max_lines=2) + 22
+    rows = data['rows']
+    rh = min(98, (H - 230 - y) // max(1, len(rows)))
+    for i, q in enumerate(rows):
+        if i % 2 == 0:
+            d.rounded_rectangle([60, y, W - 60, y + rh - 6], radius=10, fill=PANEL)
+        cy = y + (rh - 6) // 2
+        pct = pct_change(q['close'], q['chg'])
+        d.text((84, cy), q['name'], font=hind(29, 'SemiBold'), fill=WHITE, anchor='lm')
+        d.text((660, cy), fmt_inr(q['close']), font=bebas(46), fill=WHITE, anchor='rm')
+        d.text((840, cy), ('+' if q['chg'] >= 0 else '') + fmt_inr(q['chg']), font=hind(26, 'SemiBold'), fill=col(q['chg']), anchor='rm')
+        d.text((W - 84, cy), f'{pct:+.2f}%', font=bebas(46), fill=col(q['chg']), anchor='rm')
+        y += rh
+    footer(im, d, data['source'], swipe=True)
+    return im.convert('RGB')
+
+
+def highs_lows_group(data):
+    """One market-cap group: new highs (all-time high or 52-week high tag) and new 52-week lows."""
+    im, d = base(data['name'], data['date_text'], False, data.get('theme'), data.get('seed', 0), 0.5, data.get('tone'))
+    im = scrim(im, 175, 330, 150); d = ImageDraw.Draw(im)
+    y = headline(d, data['headline'], 190, size=80, max_lines=2) + 10
+    d.text((60, y + 10), data['summary'], font=hind(27), fill=MUTED, anchor='lm')
+    y += 46
+
+    def rows_block(title, rows, colour, empty, tag_fn, y):
+        y = section(d, title, y)
+        if not rows:
+            d.text((60, y + 18), empty, font=hind(28), fill=MUTED)
+            return y + 70
+        for r in rows:
+            d.rounded_rectangle([60, y, W - 60, y + 60], radius=10, fill=PANEL)
+            d.rectangle([60, y, 68, y + 60], fill=colour)
+            d.text((92, y + 30), r['symbol'], font=hind(29, 'SemiBold'), fill=WHITE, anchor='lm')
+            tag = tag_fn(r)
+            if tag:
+                tw = d.textlength(tag, font=cond(22)) + 20
+                d.rounded_rectangle([420, y + 16, 420 + tw, y + 44], radius=6, fill=GOLD)
+                d.text((430, y + 30), tag, font=cond(22), fill=BG, anchor='lm')
+            d.text((760, y + 30), '₹' + fmt_inr(r['last']), font=hind(28, 'SemiBold'), fill=MUTED, anchor='rm')
+            d.text((W - 84, y + 30), f'{r["pct"]:+.2f}%', font=bebas(44), fill=col(r['pct']), anchor='rm')
+            y += 68
+        return y + 10
+
+    highs = [dict(r, _ath=True) for r in data['ath']] + [dict(r, _ath=False) for r in data['hi52']]
+    y = rows_block('New highs today', highs[:6], GOLD, 'No stock in this group made a new 52-week high today.',
+                   lambda r: 'ALL-TIME HIGH' if r['_ath'] else '52-WEEK HIGH', y)
+    rows_block('New 52-week lows today', data['lo52'][:5], DOWN, 'No stock in this group made a new 52-week low today.',
+               lambda r: None, y)
+    footer(im, d, data['source'])
+    return im.convert('RGB')
+
+
+def cover(data):
+    """Hook slide for a carousel: big day + date, hook headline, up to 3 key numbers, swipe hint.
+    data: category, day (date), headline, stats[(label, value_text, sign)], theme, seed, tone, source"""
+    day = data['day']
+    im, d = base(data['category'], data.get('date_text', ''), data.get('sample'), data.get('theme'), data.get('seed', 0),
+                 0.1, data.get('tone'))
+    im = im.convert('RGBA')
+    # date block
+    band = Image.new('RGBA', (W, 250), BG + (175,))
+    im.alpha_composite(band, (0, 150))
+    d = ImageDraw.Draw(im)
+    d.text((60, 200), day.strftime('%A').upper(), font=bebas(66), fill=GOLD, anchor='lm')
+    d.text((60, 300), f'{day.day} {day.strftime("%B %Y")}'.upper(), font=bebas(120), fill=WHITE, anchor='lm')
+    im = scrim(im, 420, 1180, 190)
+    d = ImageDraw.Draw(im)
+    y = headline(d, data['headline'], 470, size=108, max_lines=3) + 40
+    stats = data.get('stats') or []
+    if stats:
+        n = len(stats[:3])
+        gap = 24
+        tw = (W - 120 - gap * (n - 1)) // n
+        for i, (lab, val, sign) in enumerate(stats[:3]):
+            x = 60 + i * (tw + gap)
+            d.rounded_rectangle([x, y, x + tw, y + 170], radius=18, fill=PANEL, outline=LINE, width=2)
+            d.text((x + 24, y + 38), lab.upper(), font=cond(28), fill=MUTED, anchor='lm')
+            f = 70
+            while d.textlength(val, font=bebas(f)) > tw - 48 and f > 36:
+                f -= 4
+            d.text((x + 24, y + 112), val, font=bebas(f), fill=UP if sign > 0 else DOWN if sign < 0 else WHITE,
+                   anchor='lm')
+        y += 210
+    inside = data.get('inside') or []
+    if inside and y < H - 330:
+        d.text((60, y), 'INSIDE THIS POST', font=cond(30), fill=GOLD, anchor='lm')
+        y += 44
+        x = 60
+        for item in inside:
+            tw = d.textlength(item, font=hind(28, 'SemiBold')) + 44
+            if x + tw > W - 60:
+                x = 60; y += 64
+            if y > H - 230:
+                break
+            d.rounded_rectangle([x, y, x + tw, y + 50], radius=25, outline=GOLD, width=2)
+            d.text((x + 22, y + 26), item, font=hind(28, 'SemiBold'), fill=WHITE, anchor='lm')
+            x += tw + 14
+    footer(im, d, data.get('source', ''), swipe=True)
+    return im.convert('RGB')

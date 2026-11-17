@@ -49,7 +49,7 @@ NEWS_MAX_AGE_HOURS = float(env('TM_NEWS_MAX_AGE_HOURS', '18'))
 
 # Auto-posting. '' = every post needs your tap (default). 'data' = data cards post on their own,
 # news still needs approval. 'all' = everything posts on its own. Or a comma list of job names.
-DATA_KINDS = {'global_cues', 'day_ahead', 'ipo', 'market_close', 'cap_movers', 'daily_overview', 'fii_dii',
+DATA_KINDS = {'global_cues', 'day_ahead', 'ipo', 'ipo_status', 'market_close', 'cap_movers', 'daily_overview', 'fii_dii',
               'weekly_ath', 'weekly_lows'}
 _auto = env('TM_AUTO_POST', '').strip().lower()
 AUTO_POST = (DATA_KINDS if _auto == 'data' else {'*'} if _auto == 'all' else

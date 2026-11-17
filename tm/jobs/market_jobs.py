@@ -58,76 +58,27 @@ def _session_or_skip(quotes, nse_date, report, force):
     return True
 
 
-# ---------------------------------------------------------------- market close (3:50 PM)
+# ---------------------------------------------------------------- closing bell carousel (3:50 PM)
+
+def _relabel(rep, core):
+    """Problems with secondary data leave that row out instead of blocking the post."""
+    return [(st, m) if st != 'fail' or m.startswith(core) else ('warn', m + ' - left out') for st, m in rep]
+
 
 def market_close(force=False):
+    if not _after_close(None, 'Closing bell'):
+        return
     key = f'close:{today_ist()}'
     if store.seen('post', key) and not force:
         return
-    if not _after_close(None, 'Market close'):
-        return
     report = Report()
-    need = ['NIFTY 50', 'SENSEX', 'NIFTY BANK']
-    quotes, breadth, nse_date, rep = market.market_snapshot({k: market.KEY_INDICES[k] for k in need})
-    report.extend(rep)
-    if not _session_or_skip(quotes, nse_date, report, force):
-        return
-    if any(n not in quotes for n in need):
-        report.fail('missing ' + ', '.join(n for n in need if n not in quotes))
-    secs, rep2 = market.sector_snapshot()
-    report.extend([('warn', m + ' - sector left out') if st == 'fail' else (st, m) for st, m in rep2])
-    if not report.passed:
-        finish('market_close', key, [], '', report)
-        return
-    n, s, b = quotes['NIFTY 50'], quotes['SENSEX'], quotes['NIFTY BANK']
-    day = today_ist() if nse_date is None else nse_date
-    verb = 'gains' if n['chg'] >= 0 else 'falls'
-    head = f'Nifty {verb} *{fmt_inr(abs(n["chg"]), 0)} points*; Sensex ends at *{fmt_inr(s["close"], 0)}*'
-    drivers, allowed = [], _allowed_quote(n) + _allowed_quote(s) + _allowed_quote(b)
-    allowed += [abs(n['chg']), abs(s['chg']), abs(b['chg'])]
-    if secs:
-        ranked = sorted(secs.values(), key=lambda q: q['pct'], reverse=True)
-        best, worst = ranked[0], ranked[-1]
-        drivers.append(f'{sector_label(best["name"])} {"rose" if best["pct"] >= 0 else "fell"} '
-                       f'{abs(best["pct"]):.2f}%, the best of all sectors')
-        if worst is not best:
-            drivers.append(f'{sector_label(worst["name"])} {"rose" if worst["pct"] >= 0 else "fell"} '
-                           f'{abs(worst["pct"]):.2f}%, the weakest sector')
-        allowed += [abs(best['pct']), abs(worst['pct'])]
-    if breadth:
-        drivers.append(f'{breadth["advances"]} of {breadth["universe"]} stocks advanced, {breadth["declines"]} declined')
-        allowed += [breadth['advances'], breadth['declines'], 500]
-    images = cards.market_close({'date_text': fmt_date(day, 'dow'), 'headline': head, 'seed': str(day),
-                                 'theme': 'market_up' if n['chg'] >= 0 else 'market_down',
-                                 'indices': [n, s, b], 'drivers': drivers, 'source': 'NSE, BSE closing data'})
-    p1 = (f'On {fmt_date(day)}, the Nifty 50 closed at {fmt_inr(n["close"])}, {_move(n)}. '
-          f'The Sensex ended at {fmt_inr(s["close"])}, {_move(s)}, and Nifty Bank closed at '
-          f'{fmt_inr(b["close"])}, {_move(b)}.')
-    p2 = ' '.join(x.rstrip('.') + '.' for x in drivers)
-    caption = assemble(head, [p1, p2], 'NSE, BSE closing data', tags('#Nifty50', '#Sensex', '#StockMarketIndia',
-                                                                       '#ShareMarket', '#MarketClose'))
-    allowed += [day.day, day.year]
-    if finish('market_close', key, images, caption, report, allowed):
-        store.mark_seen('post', key)
-
-
-# ---------------------------------------------------------------- daily overview carousel (4:30 PM)
-
-def daily_overview(force=False):
-    key = f'overview:{today_ist()}'
-    if store.seen('post', key) and not force:
-        return
-    if not _after_close(None, 'Daily overview'):
-        return
-    report = Report()
-    quotes, breadth, nse_date, rep = market.market_snapshot()
     core = ('NIFTY 50', 'SENSEX', 'NIFTY BANK')
-    report.extend([(st, m) if st != 'fail' or m.startswith(core) else ('warn', m + ' - left out')
-                   for st, m in rep])
+    quotes, breadth, nse_date, rep = market.market_snapshot()
+    report.extend(_relabel(rep, core))
     if not _session_or_skip(quotes, nse_date, report, force):
         return
-    if 'NIFTY 50' not in quotes:
-        report.fail('Nifty 50 missing')
+    if any(n not in quotes for n in core):
+        report.fail('missing ' + ', '.join(n for n in core if n not in quotes))
     secs, rep2 = market.sector_snapshot()
     report.extend([('warn', m + ' - sector left out') if st == 'fail' else (st, m) for st, m in rep2])
     try:
@@ -143,28 +94,35 @@ def daily_overview(force=False):
     if vix:
         extras.append({'name': 'India VIX', 'value': f'{vix["close"]:.2f}', 'pct': pct_change(vix['close'], vix['chg'])})
     if not report.passed:
-        finish('daily_overview', key, [], '', report)
+        finish('market_close', key, [], '', report)
         return
     day = nse_date or today_ist()
+    n, s_, b = quotes['NIFTY 50'], quotes['SENSEX'], quotes['NIFTY BANK']
+    up = n['chg'] >= 0
+    theme, tone = ('market_up', 'up') if up else ('market_down', 'down')
+    verb = 'gains' if up else 'falls'
+    head = f'Nifty {verb} *{fmt_inr(abs(n["chg"]), 0)} points*; Sensex ends at *{fmt_inr(s_["close"], 0)}*'
+    pc = lambda q: pct_change(q['close'], q['chg'])
+    stats = [('Nifty 50', f'{pc(n):+.2f}%', n['chg']), ('Sensex', f'{pc(s_):+.2f}%', s_['chg']),
+             ('Nifty Bank', f'{pc(b):+.2f}%', b['chg'])]
     order = ['NIFTY 50', 'SENSEX', 'NIFTY BANK', 'NIFTY MIDCAP 100', 'NIFTY SMALLCAP 100', 'INDIA VIX']
-    idx = [quotes[n] for n in order if n in quotes]
+    idx = [quotes[k] for k in order if k in quotes]
     sectors = [{'name': v['name'], 'pct': v['pct']} for v in secs.values()]
-    n = quotes['NIFTY 50']
-    images = cards.daily_overview({
-        'theme': 'market_up' if n['chg'] >= 0 else 'market_down', 'seed': str(day),
-        'tone': 'up' if n['chg'] >= 0 else 'down', 'date_text': fmt_date(day, 'dow'), 'headline': f'Daily market overview: *{fmt_date(day)}*',
-        'indices': idx, 'breadth': breadth, 'sectors': sectors, 'gainers': gainers, 'losers': losers,
-        'extras': extras, 'source': 'NSE, BSE, Yahoo Finance (FX, commodities)'})
+    inside = ['Key indices'] + (['Sector moves'] if sectors else []) + (['Nifty 50 top movers'] if gainers else []) \
+        + (['Market breadth'] if breadth else []) + (['Rupee, crude & gold'] if extras else [])
+    slides = [cards.cover({'category': 'Closing Bell', 'day': day, 'headline': head, 'stats': stats,
+                           'theme': theme, 'seed': str(day), 'tone': tone, 'inside': inside})]
+    slides += cards.daily_overview({'theme': theme, 'seed': str(day) + 'o', 'tone': tone,
+                                    'date_text': fmt_date(day, 'dow'), 'headline': f'Key indices on *{fmt_date(day, "daymonth")}*',
+                                    'indices': idx, 'breadth': breadth, 'sectors': sectors, 'gainers': gainers,
+                                    'losers': losers, 'extras': extras, 'source': ''})
     allowed = [day.day, day.year, 50, 500, 100]
     for q in idx:
-        allowed += _allowed_quote(q) + [abs(q['chg'])]
-    paras = [f'Nifty 50 closed at {fmt_inr(n["close"])}, {_move(n)}, on {fmt_date(day)}.']
-    for nm in ('NIFTY MIDCAP 100', 'NIFTY SMALLCAP 100'):
-        if nm in quotes:
-            q = quotes[nm]
-            paras[0] += f' {sector_label(nm)} {"gained" if q["chg"] >= 0 else "lost"} {abs(pct_change(q["close"], q["chg"])):.2f}%.'
+        allowed += [q['close'], q['chg'], pc(q), abs(q['chg'])]
+    paras = [f'On {fmt_date(day)}, the Nifty 50 closed at {fmt_inr(n["close"])}, {_move(n)}. The Sensex ended at '
+             f'{fmt_inr(s_["close"])}, {_move(s_)}, and Nifty Bank closed at {fmt_inr(b["close"])}, {_move(b)}.']
     if sectors:
-        ranked = sorted(sectors, key=lambda s: s['pct'], reverse=True)
+        ranked = sorted(sectors, key=lambda x: x['pct'], reverse=True)
         paras.append(f'Best sector: {sector_label(ranked[0]["name"])} ({ranked[0]["pct"]:+.2f}%). '
                      f'Weakest sector: {sector_label(ranked[-1]["name"])} ({ranked[-1]["pct"]:+.2f}%).')
         allowed += [abs(ranked[0]['pct']), abs(ranked[-1]['pct'])]
@@ -175,12 +133,74 @@ def daily_overview(force=False):
     if breadth:
         paras.append(f'{breadth["advances"]} stocks advanced and {breadth["declines"]} declined in the Nifty 500.')
         allowed += [breadth['advances'], breadth['declines']]
-    paras.append('Swipe for sectors, top movers, the rupee and commodities. Currency and commodity prices as of '
-                 f'{now_ist().strftime("%-I:%M %p")} IST.')
-    allowed += [now_ist().hour % 12 or 12, now_ist().minute]
-    caption = assemble(f'Daily market overview: {fmt_date(day)}', paras, 'NSE, BSE, Yahoo Finance',
-                       tags('#StockMarketIndia', '#Nifty50', '#Sensex', '#MarketUpdate', '#ShareMarket'))
-    if finish('daily_overview', key, images, caption, report, allowed):
+    paras.append('Swipe for all indices, sectors, top movers, the rupee and commodities.')
+    caption = assemble(head, paras, '', tags('#Nifty50', '#Sensex', '#StockMarketIndia', '#ShareMarket', '#MarketClose'))
+    if finish('market_close', key, slides, caption, report, allowed):
+        store.mark_seen('post', key)
+
+
+# ---------------------------------------------------------------- highs & lows carousel (4:35 PM)
+
+def daily_overview(force=False):
+    """Index scorecard, then all-time highs / 52-week highs and lows for each market-cap group."""
+    if not _after_close(None, 'Highs & lows'):
+        return
+    key = f'highslows:{today_ist()}'
+    if store.seen('post', key) and not force:
+        return
+    report = Report()
+    board, nse_date, rep = market.index_board()
+    report.extend(_relabel(rep, ('NIFTY 50',)))
+    if not market.traded_today(nse_date, {q['name']: q for q in board}) and not force:
+        log.info('no session today'); return
+    day = nse_date or today_ist()
+    groups, rep2 = market.daily_extremes(day)
+    report.extend(rep2)
+    if len(groups) < 4:
+        report.fail('need all 4 market-cap groups')
+    if not board:
+        report.fail('index data unavailable')
+    if not report.passed:
+        finish('daily_overview', key, [], '', report)
+        return
+    order = [s for s, _ in market.CAP_SEGMENTS]
+    ath = sum(groups[g]['ath_count'] for g in order)
+    hi = sum(groups[g]['hi52_count'] for g in order)
+    lo = sum(groups[g]['lo52_count'] for g in order)
+    n50 = next((q for q in board if q['name'] == 'NIFTY 50'), board[0])
+    up = n50['chg'] >= 0
+    theme, tone = ('market_up', 'up') if up else ('market_down', 'down')
+    if ath:
+        head = f'*{ath} stocks* hit all-time highs; *{lo}* at 52-week lows'
+    else:
+        head = f'*{hi} stocks* at 52-week highs, *{lo}* at 52-week lows'
+    slides = [cards.cover({'category': 'Highs & Lows', 'day': day, 'headline': head,
+                           'stats': [('All-time highs', str(ath), 1 if ath else 0), ('52-week highs', str(hi), 1 if hi else 0),
+                                     ('52-week lows', str(lo), -1 if lo else 0)],
+                           'theme': theme, 'seed': str(day) + 'h', 'tone': tone,
+                           'inside': ['Index scorecard', 'Large cap', 'Mid cap', 'Small cap', 'Micro cap']})]
+    slides.append(cards.index_board({'date_text': fmt_date(day, 'dow'), 'headline': f'Index scorecard: *{fmt_date(day, "daymonth")}*',
+                                     'rows': board, 'theme': theme, 'seed': str(day) + 'b', 'tone': tone, 'source': ''}))
+    allowed = [day.day, day.year, ath, hi, lo, 52, 50, 100, 150, 250, 500]
+    lines = []
+    for g in order:
+        gg = groups[g]
+        slides.append(cards.highs_lows_group({
+            'name': g, 'date_text': fmt_date(day, 'dow'), 'theme': theme, 'seed': str(day) + g, 'tone': tone,
+            'headline': f'*{g}*: new highs and lows', 'source': '',
+            'summary': f'{gg["hi52_count"]} at 52-week high ({gg["ath_count"]} all-time high), '
+                       f'{gg["lo52_count"]} at 52-week low  |  {gg["index"].title()}',
+            'ath': gg['ath'], 'hi52': gg['hi52'], 'lo52': gg['lo52']}))
+        top = ', '.join(r['symbol'] for r in (gg['ath'] or gg['hi52'])[:3])
+        lines.append(f'{g}: {gg["hi52_count"]} at 52-week highs ({gg["ath_count"]} all-time highs), '
+                     f'{gg["lo52_count"]} at 52-week lows' + (f'. Highs include {top}' if top else '') + '.')
+        allowed += [gg['hi52_count'], gg['ath_count'], gg['lo52_count']]
+    paras = [f'New highs and lows on {fmt_date(day)}: {ath} stocks across the four market-cap groups touched an '
+             f'all-time high, {hi} a 52-week high and {lo} a 52-week low.', '\n'.join(lines),
+             'Groups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, '
+             'Micro Cap = Nifty Microcap 250. Swipe for the index scorecard and each group.']
+    caption = assemble(head, paras, '', tags('#AllTimeHigh', '#52WeekHigh', '#StockMarketIndia', '#Nifty50', '#ShareMarket'))
+    if finish('daily_overview', key, slides, caption, report, allowed):
         store.mark_seen('post', key)
 
 
@@ -193,7 +213,8 @@ def global_cues(force=False):
     report = Report()
     rows, rep = market.global_snapshot()
     report.extend(rep)
-    pick = [r for r in rows if r['name'] in ('Dow Jones', 'S&P 500', 'Nasdaq', 'Brent Crude', 'Gold', 'USD / INR')]
+    pick = [r for r in rows if r['name'] in ('Dow Jones', 'S&P 500', 'Nasdaq', 'Nikkei 225', 'Hang Seng',
+                                              'Brent Crude', 'Gold', 'USD / INR')]
     if len(pick) < 4:
         report.fail('fewer than 4 global markets available')
         finish('global_cues', key, [], '', report)
@@ -221,6 +242,12 @@ def global_cues(force=False):
                                 'theme': 'market_up' if up * 2 >= len(us) else 'market_down', 'seed': str(today_ist()),
                                 'tone': 'up' if up * 2 >= len(us) else 'down',
                                 'notes': notes, 'source': f'Yahoo Finance, closing levels of {fmt_date(asof, "short")}'})
+    by = {r['name']: r for r in pick}
+    gstats = [(k, f'{by[k]["pct"]:+.2f}%', by[k]['pct']) for k in ('Dow Jones', 'Nasdaq', 'Brent Crude') if k in by]
+    images = [cards.cover({'category': 'Global Cues', 'day': today_ist(), 'headline': head, 'stats': gstats,
+                           'theme': 'market_up' if up * 2 >= len(us) else 'market_down', 'seed': str(today_ist()) + 'g',
+                           'tone': 'up' if up * 2 >= len(us) else 'down',
+                           'inside': ['US markets', 'Asia', 'Crude & gold', 'Rupee', 'What changed overnight']})] + images
     allowed = [asof.day, asof.year, 500]
     for r in pick:
         allowed += [r['close'], r['pct'], abs(r['pct'])]
@@ -248,6 +275,10 @@ def fii_dii(force=False):
         log.info('FII/DII still shows %s - waiting for today', f['date'])
         return
     report.ok(f'NSE provisional data for {fmt_date(f["date"])}: FII {f["fii"]:+,.2f}, DII {f["dii"]:+,.2f} crore')
+    fno = market.fii_fno(f['date'], report)
+    if fno is None and now_ist().hour < 20 and not force:
+        log.info('F&O positions not out yet - will post at the next attempt (last one at 8:20 PM)')
+        return
     hist = store.read_json('fii/history.json', {}) or {}
     hist[str(f['date'])] = {'fii': f['fii'], 'dii': f['dii']}
     store.write_json('fii/history.json', hist)
@@ -264,7 +295,16 @@ def fii_dii(force=False):
     images, totals = cards.fii_dii({'date_text': fmt_date(f['date'], 'dow'), 'headline': head, 'rows': rows,
                                     'theme': 'market_up' if f['fii'] >= 0 else 'market_down', 'seed': str(f['date']),
                                     'tone': 'up' if f['fii'] >= 0 else 'down',
-                                    'total_label': f'LAST {len(rows)} DAYS', 'source': 'NSE provisional data'})
+                                    'total_label': f'LAST {len(rows)} DAYS', 'source': 'NSE provisional data',
+                                    'fno': fno})
+    stats = [('FII net', f'{"+" if f["fii"] >= 0 else "-"}₹{fmt_inr(abs(f["fii"]), 0)} Cr', f['fii']),
+             ('DII net', f'{"+" if f["dii"] >= 0 else "-"}₹{fmt_inr(abs(f["dii"]), 0)} Cr', f['dii'])]
+    if fno:
+        stats.append(('FII index fut. long', f'{fno["idx_fut_long_pct"]:.1f}%', 0))
+    images = [cards.cover({'category': 'FII / DII Data', 'day': f['date'], 'headline': head, 'stats': stats,
+                           'theme': 'market_up' if f['fii'] >= 0 else 'market_down', 'seed': str(f['date']) + 'c',
+                           'tone': 'up' if f['fii'] >= 0 else 'down',
+                           'inside': ['Cash market: last 5 days'] + (['FII positions in F&O'] if fno else [])})] + images
     paras = [f'On {fmt_date(f["date"])}, foreign institutional investors (FIIs) were net {who} of '
              f'₹{fmt_inr(abs(f["fii"]))} crore in the cash market, while domestic institutional investors (DIIs) were '
              f'net {"buyers" if f["dii"] >= 0 else "sellers"} of ₹{fmt_inr(abs(f["dii"]))} crore.',
@@ -272,7 +312,19 @@ def fii_dii(force=False):
     if len(days) > 1:
         paras.append(f'{f["date"].strftime("%B")} so far ({len(days)} sessions): FIIs {signed(m_fii)} crore, '
                      f'DIIs {signed(m_dii)} crore.')
-    allowed = [f['fii'], f['dii'], m_fii, m_dii, len(days), f['date'].day, f['date'].year, totals['fii_total'], totals['dii_total']]
+    fno_nums = []
+    if fno:
+        line = (f'In derivatives, FIIs held {fno["idx_fut_long_pct"]:.1f}% of their index futures positions long '
+                f'(net {signed(fno["idx_fut_net"], 0)} contracts')
+        if 'idx_fut_net_chg' in fno:
+            line += f', {signed(fno["idx_fut_net_chg"], 0)} from the previous session'
+        line += (f'). Net index calls: {signed(fno["idx_call_net"], 0)}; net index puts: '
+                 f'{signed(fno["idx_put_net"], 0)} contracts.')
+        paras.append(line)
+        fno_nums = [fno['idx_fut_long_pct'], fno['idx_fut_net'], fno.get('idx_fut_net_chg', 0), fno['idx_call_net'],
+                    fno['idx_put_net'], fno['stk_fut_net'], 100 - fno['idx_fut_long_pct']]
+    allowed = [f['fii'], f['dii'], m_fii, m_dii, len(days), f['date'].day, f['date'].year, totals['fii_total'],
+               totals['dii_total']] + fno_nums
     caption = assemble(head, paras, 'NSE provisional data (cash market)',
                        tags('#FII', '#DII', '#StockMarketIndia', '#Nifty50', '#ShareMarket'))
     if finish('fii_dii', key, images, caption, report, allowed):
@@ -321,13 +373,51 @@ def day_ahead(force=False):
     images = cards.day_ahead({'date_text': fmt_date(today, 'dow'), 'headline': head, 'groups': groups,
                               'theme': 'market_up', 'seed': str(today),
                               'source': 'NSE event calendar, corporate actions, IPO list'})
+    counts = {t: len(ls) for t, ls in groups}
+    dstats = [(t.split(' /')[0].replace(' today', '').replace(' for bidding', ''), str(c), 0) for t, c in counts.items()][:3]
+    images = [cards.cover({'category': 'Market Day Ahead', 'day': today, 'headline': head, 'stats': dstats,
+                           'theme': 'market_up', 'seed': str(today) + 'c',
+                           'inside': [t for t, ls in groups if ls]})] + images
     paras = [f'{t}: ' + ', '.join(ls) + '.' for t, ls in groups if ls]
     caption = assemble(head, paras, 'NSE', tags('#StockMarketIndia', '#Nifty50', '#Results', '#IPO', '#ShareMarket'))
     if finish('day_ahead', key, images, caption, report, allowed_numbers=None):
         store.mark_seen('post', key)
 
 
-# ---------------------------------------------------------------- IPO cards (9 AM)
+# ---------------------------------------------------------------- IPO carousel (9 AM) and live subscription (5:20 PM)
+
+def _num(v):
+    if v is None:
+        return None
+    m = re.findall(r'\d+(?:\.\d+)?', str(v).replace(',', ''))
+    return float(m[0]) if m else None
+
+
+def _ipo_facts(i, detail):
+    """Collect what NSE gives us; every value shown later comes from here."""
+    f = nse.find_field
+    price = i.get('issuePrice') or f(detail, r'price.?band', r'issue.?price') or ''
+    band = [float(x) for x in re.findall(r'\d+(?:\.\d+)?', str(price).replace(',', ''))]
+    facts = {
+        'band': band,
+        'lot': _num(f(detail, r'min.*bid.*(qty|quant)', r'lot.?size', r'market.?lot', r'bid.?lot')),
+        'face': _num(f(detail, r'face.?value')),
+        'issue_size': f(detail, r'issue.?size', r'total.?issue'),
+        'fresh': f(detail, r'fresh'),
+        'ofs': f(detail, r'offer.?for.?sale', r'^ofs'),
+        'qib': f(detail, r'qib'),
+        'nii': f(detail, r'nii|non.?inst'),
+        'retail': f(detail, r'retail|rii'),
+        'registrar': f(detail, r'registrar'),
+        'brlm': f(detail, r'lead.?manager|brlm|book.?running'),
+        'allot': f(detail, r'allot'),
+        'refund': f(detail, r'refund'),
+        'credit': f(detail, r'credit|demat'),
+        'listing': f(detail, r'listing.?date', r'list.*date'),
+        'shares': i.get('issueSize'),
+    }
+    return facts
+
 
 def ipo(force=False):
     today = today_ist()
@@ -337,10 +427,10 @@ def ipo(force=False):
         log.warning('IPO lists unavailable: %s', e); return
     for i in issues:
         name = i.get('companyName') or i.get('symbol')
+        sym = i.get('symbol') or ''
         s = nse.parse_nse_date(i.get('issueStartDate', ''))
         e = nse.parse_nse_date(i.get('issueEndDate', ''))
-        price = i.get('issuePrice') or i.get('priceBand') or ''
-        if not (name and s and e and price):
+        if not (name and s and e):
             continue
         if not (today <= s.date() <= today + timedelta(days=1)) and not force:
             continue
@@ -348,27 +438,135 @@ def ipo(force=False):
         if store.seen('post', key):
             continue
         report = Report()
-        report.ok(f'IPO details from NSE issue list: {name}')
-        nums = [float(x) for x in re.findall(r'\d+(?:\.\d+)?', price.replace(',', ''))]
-        band = f'₹{fmt_inr(nums[0], 0)} - {fmt_inr(nums[-1], 0)}' if len(nums) >= 2 else (f'₹{fmt_inr(nums[0], 0)}' if nums else price)
-        series = (i.get('series') or '').upper()
-        seg = 'SME IPO' if series in ('SME', 'ST', 'SM') else 'Mainboard IPO'
-        tiles = [('Price band', band), ('Opens', fmt_date(s.date(), 'daymonth')), ('Closes', fmt_date(e.date(), 'daymonth'))]
-        if i.get('issueSize'):
-            tiles.append(('Shares offered', fmt_inr(float(str(i['issueSize']).replace(',', '')), 0)))
-        when = 'opens' if s.date() >= today else 'is open'
-        head = f'*{name.replace(" Limited", "").replace(" Ltd", "")}* IPO {when} *{fmt_date(s.date(), "daymonth")}*'
-        images = cards.ipo({'date_text': f'Opens {fmt_date(s.date(), "short")}', 'headline': head, 'company': name,
-                            'theme': 'ipo', 'seed': name,
-                            'segment': f'{seg}  |  NSE', 'tiles': tiles,
-                            'timeline': [('Opens', fmt_date(s.date(), 'daymonth')), ('Closes', fmt_date(e.date(), 'daymonth'))],
-                            'source': 'NSE IPO list'})
-        para = (f'The {name} IPO {"opens for bidding on" if s.date() > today else "opened for bidding on"} '
-                f'{fmt_date(s.date())} and closes on {fmt_date(e.date())}. Price band: {band} per share.')
-        allowed = nums + [s.day, s.year, e.day, e.year] + ([float(str(i['issueSize']).replace(',', ''))] if i.get('issueSize') else [])
-        caption = assemble(head, [para, 'Read the red herring prospectus on the SEBI and exchange websites before applying.'],
-                           'NSE', tags('#IPO', '#IPOAlert', '#StockMarketIndia', '#NSE', '#ShareMarket'))
-        if finish('ipo', key, images, caption, report, allowed):
+        detail = {}
+        try:
+            detail = nse.ipo_detail(sym, i.get('series') or 'EQ')
+            store.write_json(f'cache/ipo_raw/{sym}.json', detail)          # kept for checking field names
+            report.ok(f'IPO details from NSE issue page: {sym}')
+        except nse.SourceError as ex:
+            report.warn(f'IPO detail page unavailable ({ex}) - basic card only')
+        fx = _ipo_facts(i, detail)
+        if not fx['band']:
+            report.fail('price band missing'); finish('ipo', key, [], '', report); continue
+        hi_price = fx['band'][-1]
+        band = (f'₹{fmt_inr(fx["band"][0], 0)} - {fmt_inr(hi_price, 0)}' if len(fx['band']) >= 2
+                else f'₹{fmt_inr(hi_price, 0)}')
+        seg = 'SME IPO' if (i.get('series') or '').upper() in ('SME', 'ST', 'SM') else 'Mainboard IPO'
+        tiles = [('Price band', band)]
+        allowed = list(fx['band']) + [s.day, s.year, e.day, e.year]
+        if fx['lot']:
+            tiles.append(('Lot size', f'{int(fx["lot"])} shares'))
+            min_inv = fx['lot'] * hi_price                             # computed, never typed
+            tiles.append(('Min. investment', f'₹{fmt_inr(min_inv, 0)}'))
+            allowed += [fx['lot'], min_inv]
+        if fx['issue_size']:
+            tiles.append(('Issue size', str(fx['issue_size'])[:18]))
+            allowed += [_num(fx['issue_size']) or 0]
+        tiles += [('Opens', fmt_date(s.date(), 'daymonth')), ('Closes', fmt_date(e.date(), 'daymonth'))]
+        timeline = [('Opens', fmt_date(s.date(), 'daymonth')), ('Closes', fmt_date(e.date(), 'daymonth'))]
+        for lab, k in (('Allotment', 'allot'), ('Listing', 'listing')):
+            dd = nse.parse_nse_date(str(fx[k])) if fx[k] else None
+            if dd:
+                timeline.append((lab, fmt_date(dd.date(), 'daymonth')))
+                allowed += [dd.day, dd.year]
+        short = name.replace(' Limited', '').replace(' Ltd', '')
+        when = 'opens' if s.date() > today else 'opens today' if s.date() == today else 'is open'
+        head = f'*{short}* IPO {when}' + (f' *{fmt_date(s.date(), "daymonth")}*' if s.date() > today else '')
+        slides = cards.ipo({'date_text': f'Opens {fmt_date(s.date(), "short")}', 'headline': head, 'company': name,
+                            'theme': 'ipo', 'seed': name, 'segment': f'{seg}  |  NSE', 'tiles': tiles[:6],
+                            'timeline': timeline, 'source': 'NSE'})
+        istats = [('Price band', band, 0)]
+        if fx['lot']:
+            istats += [('Lot size', f'{int(fx["lot"])} shares', 0), ('Min. investment', f'₹{fmt_inr(fx["lot"] * hi_price, 0)}', 0)]
+        slides = [cards.cover({'category': 'IPO Watch', 'day': s.date() if s.date() >= today else today,
+                               'headline': head, 'stats': istats, 'theme': 'ipo', 'seed': name + 'c', 'tone': 'up',
+                               'inside': ['Price band & lot', 'Issue structure', 'Key dates']})] + slides
+        # slide 2: issue structure
+        rows = [(lab, v) for lab, v in (
+            ('Issue size', fx['issue_size']), ('Fresh issue', fx['fresh']), ('Offer for sale', fx['ofs']),
+            ('Face value', f'₹{fmt_inr(fx["face"], 0)} per share' if fx['face'] else None),
+            ('QIB quota', fx['qib']), ('NII quota', fx['nii']), ('Retail quota', fx['retail']),
+            ('Lead managers', fx['brlm']), ('Registrar', fx['registrar'])) if v]
+        if len(rows) >= 3:
+            slides.append(cards.info_table('IPO Details', fmt_date(today, 'dow'), f'*{short}* issue structure',
+                                           [(k, str(v)) for k, v in rows], 'NSE', 'ipo', name))
+            for _, v in rows:
+                allowed += [float(x) for x in re.findall(r'\d+(?:\.\d+)?', str(v).replace(',', ''))]
+        # slide 3: key dates
+        dates = [('Opens', fmt_date(s.date())), ('Closes', fmt_date(e.date()))]
+        for lab, k in (('Allotment', 'allot'), ('Refunds', 'refund'), ('Shares in demat', 'credit'), ('Listing', 'listing')):
+            dd = nse.parse_nse_date(str(fx[k])) if fx[k] else None
+            if dd:
+                dates.append((lab, fmt_date(dd.date())))
+                allowed += [dd.day, dd.year]
+        if len(dates) >= 4:
+            slides.append(cards.info_table('IPO Timeline', fmt_date(today, 'dow'), f'*{short}* IPO key dates',
+                                           dates, 'NSE', 'ipo', name + 'd'))
+        paras = [f'The {name} IPO {"opens for bidding on" if s.date() > today else "opened for bidding on"} '
+                 f'{fmt_date(s.date())} and closes on {fmt_date(e.date())}. Price band: {band} per share.']
+        if fx['lot']:
+            paras.append(f'Minimum bid: {int(fx["lot"])} shares, which is ₹{fmt_inr(fx["lot"] * hi_price, 0)} at the '
+                         f'upper end of the price band.')
+        paras.append('Swipe for the issue structure and key dates. Read the red herring prospectus on the SEBI and '
+                     'exchange websites before applying.')
+        caption = assemble(head, paras, 'NSE', tags('#IPO', '#IPOAlert', '#StockMarketIndia', '#NSE', '#ShareMarket'))
+        if finish('ipo', key, slides, caption, report, allowed):
+            store.mark_seen('post', key)
+
+
+def ipo_status(force=False):
+    """Live category-wise subscription for IPOs open today (one card per IPO, 5:20 PM)."""
+    today = today_ist()
+    try:
+        issues = nse.ipos_current() or []
+    except nse.SourceError as e:
+        log.warning('IPO list unavailable: %s', e); return
+    for i in issues:
+        name, sym = i.get('companyName') or i.get('symbol'), i.get('symbol') or ''
+        s = nse.parse_nse_date(i.get('issueStartDate', '')); e = nse.parse_nse_date(i.get('issueEndDate', ''))
+        if not (s and e and s.date() <= today <= e.date()):
+            continue
+        key = f'ipostatus:{sym}:{today}'
+        if store.seen('post', key) and not force:
+            continue
+        report = Report()
+        try:
+            rows, upd, raw = nse.ipo_subscription(sym)
+            store.write_json(f'cache/ipo_raw/{sym}_subs.json', raw)
+        except nse.SourceError as ex:
+            log.info('no subscription data for %s: %s', sym, ex); continue
+        good = []
+        for r in rows:
+            if r['offered'] and r['bid'] is not None:
+                calc = r['bid'] / r['offered']
+                if r['times'] is not None and abs(calc - r['times']) > 0.02 + 0.01 * calc:
+                    report.warn(f'{r["category"]}: NSE shows {r["times"]}x but bids/offered = {calc:.2f}x - left out')
+                    continue
+                r['times'] = calc if r['times'] is None else r['times']
+            if r['times'] is not None:
+                good.append(r)
+        if not good:
+            continue
+        report.ok(f'{len(good)} categories; times re-computed from bids and shares offered where NSE gives both')
+        day_no = sum(1 for k in range((today - s.date()).days + 1) if (s.date() + timedelta(days=k)).weekday() < 5)  # bidding days
+        total = next((r for r in good if 'total' in r['category'].lower()), None)
+        short = name.replace(' Limited', '').replace(' Ltd', '')
+        head = (f'*{short}* IPO subscribed *{total["times"]:.2f} times* on day {day_no}' if total
+                else f'*{short}* IPO subscription status, day {day_no}')
+        days_total = sum(1 for k in range((e.date() - s.date()).days + 1)
+                         if (s.date() + timedelta(days=k)).weekday() < 5)
+        tiles = [('Issue day', f'{day_no} of {days_total}'), ('Closes on', fmt_date(e.date(), 'daymonth'))]
+        band = str(i.get('issuePrice') or '').replace('Rs.', '₹').replace(' to ', ' - ')
+        if band:
+            tiles.insert(0, ('Price band', band))
+        img = cards.subscription('IPO Subscription', fmt_date(today, 'dow'), head, good[:7],
+                                 str(upd) if upd else '', 'NSE', 'ipo', sym, tiles)
+        lines = '\n'.join(f'{r["category"]}: {r["times"]:.2f}x' for r in good[:7])
+        caption = assemble(head, [f'Category-wise subscription for the {name} IPO on {fmt_date(today)} '
+                                  f'(day {day_no} of the issue, which closes on {fmt_date(e.date())}):', lines],
+                           'NSE', tags('#IPO', '#IPOAlert', '#IPOSubscription', '#StockMarketIndia', '#ShareMarket'))
+        allowed = [r['times'] for r in good] + [day_no, today.day, today.year, e.day, e.year]
+        if finish('ipo_status', key, [img], caption, report, allowed):
             store.mark_seen('post', key)
 
 
@@ -399,6 +597,16 @@ def cap_movers(force=False):
                                'seed': str(day), 'tone': 'up' if n_up else 'down',
                                'headline': f'Top gainers and losers by *market cap*: *{fmt_date(day, "daymonth")}*',
                                'segments': seg_list, 'source': 'NSE closing data'})
+    cstats = []
+    for sg in seg_list[:3]:
+        if sg['gainers']:
+            g0 = sg['gainers'][0]
+            cstats.append((f'{sg["name"]} top', f'{g0["symbol"][:10]} {g0["pct"]:+.1f}%', g0['pct']))
+    images = [cards.cover({'category': 'Gainers & Losers', 'day': day,
+                           'headline': f'Top gainers and losers by *market cap*',
+                           'stats': cstats, 'theme': 'market_up' if n_up else 'market_down', 'seed': str(day) + 'c',
+                           'tone': 'up' if n_up else 'down',
+                           'inside': ['Summary', 'Large cap', 'Mid cap', 'Small cap', 'Micro cap']})] + images
     allowed = [day.day, day.year, 5]          # 5 = 'top 5 in each group'
     paras = []
     for sg in seg_list:
