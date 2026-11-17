@@ -13,7 +13,7 @@ def date_numbers(*dates):
     return out
 
 
-def finish(kind, title, images, caption, report: Report, allowed_numbers=None, meta=None):
+def finish(kind, title, images, caption, report: Report, allowed_numbers=None, meta=None, notify=True):
     """Final checks shared by every post, then hand to Telegram. Returns draft or None."""
     if allowed_numbers is not None:
         body = caption.rsplit('\n\n', 1)[0]                      # hashtags excluded
@@ -22,6 +22,8 @@ def finish(kind, title, images, caption, report: Report, allowed_numbers=None, m
     if not report.passed:
         log.warning('BLOCKED %s %s\n%s', kind, title, report.text())
         telegram.send_blocked(kind, title, report.text())
+        if not notify:
+            return None
         try:
             telegram.send_text(f'⛔ Blocked before review: <b>{kind}</b> - {title}\n\n{report.text()[-1500:]}')
         except Exception as e:                       # noqa: BLE001

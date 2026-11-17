@@ -53,6 +53,7 @@ def build_from_cluster(c):
     checks.check_numbers(draft_text + '\n' + label, allowed, report, 'headline/banner/points/body')
     checks.check_names(draft_text, src_text, report)
     checks.check_months(draft_text, src_text, report)
+    checks.check_fiscal(draft_text, src_text, report)
     if label:
         lab = checks.Report(); checks.check_banned(label, lab)
         if not lab.passed:
@@ -104,7 +105,7 @@ def news(force=False, limit=None):
     items, status = news_src.fetch_all()
     log.info('feeds: %s', status)
     clusters = [c for c in news_src.cluster(items) if not store.seen('news', c['key'])]
-    made, tried = 0, 0
+    made, tried, blocked = 0, 0, []
     for c in clusters:
         if made >= limit or tried >= limit * 3:
             break
@@ -118,9 +119,19 @@ def news(force=False, limit=None):
             break
         store.mark_seen('news', c['key'], {'title': c['lead']['title']})
         if images is None:
-            finish('news', title, [], '', report)
+            finish('news', title, [], '', report, notify=False)
+            blocked.append((title, next((m for st, m in report if st == 'fail'), 'blocked')))
             continue
         if finish('news', title, images, caption, report, allowed_numbers=None):
             made += 1
     log.info('news run: %s drafts from %s candidates', made, tried)
+    if blocked:
+        try:
+            from .. import telegram
+            import html
+            lines = '\n'.join(f'• {html.escape(t[:70])}\n   <i>{html.escape(r[:110])}</i>' for t, r in blocked[:6])
+            telegram.send_text(f'📰 News run: {made} draft(s) sent, {len(blocked)} story(ies) blocked by checks:\n\n'
+                               f'{lines}\n\nFull details: /flagged')
+        except Exception as e:                       # noqa: BLE001
+            log.warning('summary not sent: %s', e)
     return made

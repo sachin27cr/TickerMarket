@@ -33,7 +33,12 @@ October November December Source For Not Investment Advice Information Only Tota
 Gold Dollar Rupee Global Asian European Dow Jones Nasdaq Opens Closes Listing Allotment Price Band Lot Size Issue
 Fresh Offer Sale Key Dates Interest Rate Repo Policy Monetary Committee Inflation Trade Tariff Tariffs Earnings
 Dividend Buyback Record Date Ex Up Down Rises Falls Gains Jumps Slips Ends Closes Hits High Low Record Billion
-Million Trillion Per Cent Percent Year-On-Year YoY QoQ Mainboard SME'''.split())
+Million Trillion Per Cent Percent Year-On-Year YoY QoQ Mainboard SME CEO CFO COO CTO MD Chairman Chairperson
+Chairwoman Director Directors Managing Executive Officer Chief President Minister Governor Deputy Secretary Head
+Founder Promoter Promoters Shareholders Investors Analysts Brokerage Brokerages Exchange Exchanges H1 H2 FY Crores
+Net Operating Revenue EBITDA PAT Margin Margins Order Orders Contract Deal Stake Share Bonus Split Record Festive
+Sales Season Wedding Silver Prices Price Rally Fall Rise Low Lows Highs Year Month Day Days Weeks Months Quarterly
+Annual First Second Third Fourth Half New Old Big Top Key Also As It's Its Here Why How What When Who Which'''.split())
 
 
 class Report(list):
@@ -95,9 +100,9 @@ def source_numbers(texts):
 
 
 def check_names(text, source_text, report):
-    plain = re.sub(r'[*]', '', text)
+    plain = FY_DRAFT.sub(' ', re.sub(r'[*]', '', text))           # fiscal labels are checked separately
     src = source_text.lower()
-    phrases = re.findall(r"\b([A-Z][A-Za-z0-9&'.\-]*(?:\s+[A-Z][A-Za-z0-9&'.\-]*)*)", plain)
+    phrases = re.findall(r"\b([A-Z][A-Za-z0-9&'\-]*(?:[ \t]+[A-Z][A-Za-z0-9&'\-]*)*)", plain)
     missing = []
     for ph in phrases:
         words = [w for w in ph.split() if w.strip("'.") not in COMMON]
@@ -112,12 +117,43 @@ def check_names(text, source_text, report):
         report.ok('all names appear in the sources')
 
 
+MONTH_ABBR = {m: [m[:3]] + (['sept'] if m == 'september' else []) for m in MONTHS}
+
+
 def check_months(text, source_text, report):
-    t, s = text.lower(), source_text.lower()
+    """Capitalised month names in the draft must appear in the sources (full or short form).
+    Lower-case words like 'may' are ordinary words, not months."""
+    s = source_text.lower()
     this_month = MONTHS[now_ist().month - 1]
-    bad = [m for m in MONTHS if re.search(r'\b' + m + r'\b', t) and m not in s and m != this_month]
+    found = {w.lower() for w in re.findall(r'\b(' + '|'.join(m.capitalize() for m in MONTHS) + r')\b', text)}
+    bad = [m for m in found if m != this_month and m not in s
+           and not any(re.search(r'\b' + a + r'\b', s) for a in MONTH_ABBR[m])]
     if bad:
-        report.fail(f'month names not in sources: {", ".join(bad)}')
+        report.fail(f'month names not in sources: {", ".join(sorted(bad))}')
+
+
+FY_DRAFT = re.compile(r'\b(?:H[12]\s*|Q[1-4]\s*)?FY\s?\'?(\d{2}|\d{4})(?:\s*-\s*(\d{2}|\d{4}))?\b', re.I)
+
+
+def _fy_years(text):
+    """FY27, FY2027, FY 2026-27, FY26-27 -> {27}"""
+    out = set()
+    for a, b in FY_DRAFT.findall(text):
+        out.add(int((b or a)[-2:]))
+    for a, b in re.findall(r'\b(20\d{2})\s*-\s*(\d{2}|20\d{2})\b', text):   # '2026-27' fiscal style
+        out.add(int(b[-2:]))
+    return out
+
+
+def check_fiscal(text, source_text, report):
+    years = {int((b or a)[-2:]) for a, b in FY_DRAFT.findall(text)}
+    if not years:
+        return
+    missing = years - _fy_years(source_text)
+    if missing:
+        report.fail('fiscal years not in sources: ' + ', '.join(f'FY{y}' for y in sorted(missing)))
+    else:
+        report.ok('fiscal years match the sources')
 
 
 def check_banned(text, report):

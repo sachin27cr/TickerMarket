@@ -24,7 +24,8 @@ IMPORTANT = {'sensex': 3, 'nifty': 3, 'rbi': 3, 'sebi': 3, 'ipo': 3, 'fii': 3, '
              'merger': 2, 'acquisition': 2, 'listing': 2, 'gst': 2}
 # not market news, or not suitable for this page
 EXCLUDE = re.compile(r'\b(horoscope|astrology|cricket|bollywood|recipe|lottery|stocks? to (buy|watch)|'
-                     r'multibagger|target price|buy or sell|top picks?|technical pick|trading idea)\b', re.I)
+                     r'multibagger|target price|buy or sell|top picks?|technical pick|trading idea|should you (buy|sell|invest)|'
+                     r'buy or wait|good time to (buy|invest)|stocks? to (accumulate|hold))\b', re.I)
 
 
 def clean(text):
