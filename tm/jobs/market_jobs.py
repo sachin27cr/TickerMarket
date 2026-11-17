@@ -651,7 +651,8 @@ def _weekly_data(monday, report):
         return cached['groups']
     groups, rep = market.weekly_extremes(monday)
     report.extend(rep)
-    store.write_json(f'weekly/{monday}.json', {'groups': groups, 'report': rep})
+    if len(groups) == len(market.CAP_SEGMENTS):          # never cache a failed scan
+        store.write_json(f'weekly/{monday}.json', {'groups': groups, 'report': rep})
     return groups
 
 
