@@ -101,27 +101,174 @@ def all_indices():
     return out, ts
 
 
+# Expected member counts: a reply with far fewer rows is treated as incomplete, never used.
+INDEX_SIZE = {'NIFTY 50': 50, 'NIFTY NEXT 50': 50, 'NIFTY 100': 100, 'NIFTY 200': 200, 'NIFTY 500': 500,
+              'NIFTY MIDCAP 150': 150, 'NIFTY SMALLCAP 250': 250, 'NIFTY MICROCAP 250': 250}
+LAST_SOURCE = {}            # index -> 'NSE' or 'NSE list + Yahoo prices' (callers flag the second as a warning)
+
+_KEYS = {  # field -> key patterns, matched case-insensitively against each row's own keys
+    'symbol': [r'^symbol$', r'^cmsymbol$', r'^tradingsymbol$', r'symbol$'],
+    'last': [r'^lastprice$', r'^ltp$', r'^last_?price$', r'^last$', r'^lasttradedprice$', r'^closeprice$'],
+    'chg': [r'^change$', r'^netchange$', r'^chg$', r'^pricechange$'],
+    'pct': [r'^pchange$', r'^perchange$', r'^percentchange$', r'^pctchange$', r'^changepercent$'],
+    'prev': [r'^previousclose$', r'^prevclose$', r'^previous_?close_?price$', r'^prev_?close$'],
+    'year_high': [r'^yearhigh$', r'^52_?w(ee)?k_?high$', r'^wkhi52$', r'^high52$', r'^fiftytwoweekhigh$'],
+    'year_low': [r'^yearlow$', r'^52_?w(ee)?k_?low$', r'^wklo52$', r'^low52$', r'^fiftytwoweeklow$'],
+    'day_high': [r'^dayhigh$', r'^high$', r'^highprice$', r'^intradayhigh$'],
+    'day_low': [r'^daylow$', r'^low$', r'^lowprice$', r'^intradaylow$'],
+}
+
+
+def _pick(row, field):
+    import re
+    keys = {k.lower().replace('_', ''): k for k in row}
+    for pat in _KEYS[field]:
+        rx = re.compile(pat.replace('_?', ''), re.I)
+        for low, k in keys.items():
+            if rx.search(low) and row[k] not in (None, '', '-'):
+                return row[k]
+    return None
+
+
+def _f(v):
+    try:
+        return float(str(v).replace(',', '')) if v not in (None, '', '-') else None
+    except ValueError:
+        return None
+
+
+def _rows_from(j, index):
+    """Find the list of stock rows anywhere in an NSE reply and read it by meaning, not fixed field names."""
+    lists = []
+
+    def walk(o):
+        if isinstance(o, list) and o and isinstance(o[0], dict):
+            lists.append(o)
+        if isinstance(o, dict):
+            for v in o.values():
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    walk(j)
+    best = []
+    for lst in lists:
+        rows = []
+        for r in lst:
+            sym, last = _pick(r, 'symbol'), _f(_pick(r, 'last'))
+            if not sym or last is None or str(sym).upper() == index.upper() or r.get('priority') == 1:
+                continue
+            prev, chg, pct = _f(_pick(r, 'prev')), _f(_pick(r, 'chg')), _f(_pick(r, 'pct'))
+            if prev is None and chg is not None:
+                prev = last - chg
+            if prev:
+                chg = last - prev if chg is None else chg
+                pct = (last - prev) / prev * 100 if pct is None else pct
+            if pct is None:
+                continue
+            rows.append({'symbol': str(sym).strip().upper(), 'last': last, 'chg': chg or 0.0, 'pct': pct, 'prev': prev,
+                         'year_high': _f(_pick(r, 'year_high')), 'year_low': _f(_pick(r, 'year_low')),
+                         'day_high': _f(_pick(r, 'day_high')), 'day_low': _f(_pick(r, 'day_low'))})
+        if len(rows) > len(best):
+            best = rows
+    return best
+
+
+def _save_raw(name, obj):
+    try:
+        from .. import store
+        store.write_json(f'cache/nse_raw/{name}.json', obj)
+    except Exception:                                  # noqa: BLE001
+        pass
+
+
 def index_constituents(index='NIFTY 50'):
-    """Stocks of an index with lastPrice, change, pChange."""
-    j = get('/api/equity-stockIndices', {'index': index})
-    rows = []
-    for r in j.get('data', []):
-        if r.get('priority') == 1 or r.get('symbol') == index:
-            continue
+    """Stocks of an index: symbol, last, chg, pct, prev, year/day high/low.
+    NSE retired /api/equity-stockIndices in 2026, so the newer website APIs are tried first; if none
+    answers in full, NSE's official member list is priced from Yahoo (callers mark that as a warning)."""
+    need = int(INDEX_SIZE.get(index, 10) * 0.9)
+    short = index.replace('NIFTY ', '')
+    attempts = [('/api/NextApi/apiClient/marketWatchApi', {'functionName': 'getIndicesData', 'symbol': index}),
+                ('/api/NextApi/apiClient/marketWatchApi', {'functionName': 'getIndicesData', 'symbol': short}),
+                ('/api/NextApi/apiClient/indexTrackerApi', {'functionName': 'getConstituents', 'index': index}),
+                ('/api/equity-stockIndices', {'index': index})]
+    errors = []
+    for path, params in attempts:
         try:
-            rows.append({'symbol': r['symbol'], 'last': float(r['lastPrice']),
-                         'chg': float(r['change']), 'pct': float(r['pChange']),
-                         'prev': float(r.get('previousClose') or 0) or None,
-                         'year_high': float(r.get('yearHigh') or 0) or None,
-                         'day_high': float(r.get('dayHigh') or 0) or None,
-                         'day_low': float(r.get('dayLow') or 0) or None,
-                         'year_low': float(r.get('yearLow') or 0) or None})
-        except (KeyError, TypeError, ValueError):
+            j = get(path, params, retries=1)
+        except SourceError as e:
+            errors.append(f'{path.rsplit("/", 1)[-1]}: {str(e).rsplit(":", 1)[-1].strip()}'); continue
+        rows = _rows_from(j, index)
+        if len(rows) >= need:
+            _save_raw(f'{short.replace(" ", "_")}_ok', j if len(str(j)) < 400000 else {'note': 'large'})
+            LAST_SOURCE[index] = 'NSE'
+            ts = parse_nse_date(str(find_field(j, r'timestamp', r'time$') or ''))
+            return rows, ts
+        _save_raw(f'{short.replace(" ", "_")}_{params.get("functionName", "old")}', j)
+        errors.append(f'{path.rsplit("/", 1)[-1]}: {len(rows)} of {need}+ rows readable')
+    try:
+        rows = _yahoo_priced(index)
+    except Exception as e:                             # noqa: BLE001
+        errors.append(f'member list + Yahoo: {e}')
+        raise SourceError(f'{index}: ' + '; '.join(errors))
+    if len(rows) < need:
+        raise SourceError(f'{index}: only {len(rows)} stocks priced; ' + '; '.join(errors))
+    LAST_SOURCE[index] = 'NSE list + Yahoo prices'
+    from ..util import log as _log
+    _log.warning('%s via member list + Yahoo (%s)', index, '; '.join(errors))
+    return rows, None
+
+
+LIST_FILES = {'NIFTY 50': ['ind_nifty50list'], 'NIFTY NEXT 50': ['ind_niftynext50list'], 'NIFTY 100': ['ind_nifty100list'],
+              'NIFTY 200': ['ind_nifty200list'], 'NIFTY 500': ['ind_nifty500list'],
+              'NIFTY MIDCAP 150': ['ind_niftymidcap150list'], 'NIFTY SMALLCAP 250': ['ind_niftysmallcap250list'],
+              'NIFTY MICROCAP 250': ['ind_niftymicrocap250_list', 'ind_niftymicrocap250list']}
+
+
+def index_members(index):
+    """Official member symbols from NSE's index list file (published by NSE Indices)."""
+    import csv
+    import io
+    for name in LIST_FILES.get(index, []):
+        for host in ('https://nsearchives.nseindia.com/content/indices/', 'https://www.niftyindices.com/IndexConstituent/',
+                     'https://archives.nseindia.com/content/indices/'):
+            try:
+                r = session().get(host + name + '.csv', timeout=30)
+            except requests.RequestException:
+                continue
+            if r.status_code == 200 and 'Symbol' in r.text[:300]:
+                syms = [row['Symbol'].strip() for row in csv.DictReader(io.StringIO(r.text)) if row.get('Symbol')]
+                if len(syms) >= int(INDEX_SIZE.get(index, 10) * 0.9):
+                    return syms
+    raise SourceError(f'{index}: member list file unavailable')
+
+
+def _yahoo_priced(index):
+    import yfinance as yf
+    syms = index_members(index)
+    df = yf.download([s + '.NS' for s in syms], period='1y', interval='1d', auto_adjust=False,
+                     group_by='ticker', threads=True, progress=False)
+    hist = {}
+    for s in syms:
+        try:
+            h = df[s + '.NS'].dropna(subset=['Close', 'High', 'Low'])
+        except KeyError:
             continue
-    if not rows:
-        raise SourceError(f'{index} constituents empty')
-    ts = parse_nse_date(j.get('timestamp', '')) if j.get('timestamp') else None
-    return rows, ts
+        if len(h) >= 2:
+            hist[s] = h
+    if not hist:
+        return []
+    latest = max(h.index[-1].date() for h in hist.values())     # last session (works on weekends too)
+    rows = []
+    for s, h in hist.items():
+        if h.index[-1].date() != latest:
+            continue
+        last, prev = round(float(h['Close'].iloc[-1]), 2), round(float(h['Close'].iloc[-2]), 2)
+        rows.append({'symbol': s, 'last': last, 'prev': prev, 'chg': round(last - prev, 2),
+                     'pct': (last - prev) / prev * 100, 'day_high': float(h['High'].iloc[-1]),
+                     'day_low': float(h['Low'].iloc[-1]), 'year_high': float(h['High'].max()),
+                     'year_low': float(h['Low'].min())})
+    return rows
 
 
 def fii_dii():
@@ -207,20 +354,38 @@ def equity_list():
     return out
 
 
+def quote_raw(symbol):
+    """Full quote JSON: old /api/quote-equity first, then the newer GetQuoteApi (the old one is often blocked)."""
+    try:
+        j = get('/api/quote-equity', {'symbol': symbol}, retries=1)
+        if (j.get('priceInfo') or {}).get('lastPrice') is not None:
+            return j
+    except SourceError:
+        pass
+    return get('/api/NextApi/apiClient/GetQuoteApi',
+               {'functionName': 'getSymbolData', 'marketType': 'N', 'series': 'EQ', 'symbol': symbol}, retries=2)
+
+
 def quote(symbol):
     """Live/closing quote: {'price','chg','pct','prev','time','name'}."""
-    j = get('/api/quote-equity', {'symbol': symbol})
+    j = quote_raw(symbol)
     p = j.get('priceInfo') or {}
-    try:
-        price = float(p['lastPrice'])
-        prev = float(p.get('previousClose') or 0)
-    except (KeyError, TypeError, ValueError):
+    price = _f(p.get('lastPrice')) or _f(find_field(j, r'^lastprice$', r'^ltp$', r'lasttradedprice', r'^closeprice$'))
+    if price is None:
+        _save_raw(f'quote_{symbol}', j)
         raise SourceError(f'quote {symbol}: no price')
+    prev = _f(p.get('previousClose')) or _f(find_field(j, r'^previousclose$', r'^prevclose$'))
+    chg = _f(p.get('change')) if p else _f(find_field(j, r'^change$', r'^netchange$'))
+    pct = _f(p.get('pChange')) if p else _f(find_field(j, r'^pchange$', r'^perchange$', r'percentchange'))
+    if prev:
+        chg = price - prev if chg is None else chg
+        pct = (price - prev) / prev * 100 if pct is None else pct
     meta = j.get('metadata') or {}
     info = j.get('info') or {}
-    return {'price': price, 'chg': float(p.get('change') or 0), 'pct': float(p.get('pChange') or 0),
-            'prev': prev or None, 'time': parse_nse_date(meta.get('lastUpdateTime', '') or ''),
-            'name': info.get('companyName') or symbol}
+    upd = meta.get('lastUpdateTime') or find_field(j, r'lastupdatetime', r'timestamp') or ''
+    return {'price': price, 'chg': chg or 0.0, 'pct': pct or 0.0, 'prev': prev,
+            'time': parse_nse_date(str(upd)),
+            'name': info.get('companyName') or find_field(j, r'^companyname$', r'^company_?name$') or symbol}
 
 
 # ---------------------------------------------------------------- F&O participant positions

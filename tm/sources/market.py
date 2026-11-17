@@ -175,7 +175,10 @@ def cap_movers(n=5):
         losers = [r for r in reversed(ranked[-n:]) if r['pct'] < 0]
         out[seg] = {'index': index, 'gainers': gainers, 'losers': losers, 'count': len(good),
                     'date': ts.date() if ts else None}
-        report.append(('ok', f'{seg} ({index}): {len(good)} stocks from NSE, % re-computed from prices'))
+        src = nse.LAST_SOURCE.get(index, 'NSE')
+        report.append(('ok' if src == 'NSE' else 'warn',
+                       f'{seg} ({index}): {len(good)} stocks, ' + ('NSE prices, % re-computed' if src == 'NSE' else
+                       'members from NSE list, prices from Yahoo (NSE stock API unavailable)')))
     return out, report
 
 
@@ -216,6 +219,8 @@ def weekly_extremes(week_monday, n=10):
         except nse.SourceError as e:
             report.append(('fail', f'{seg} ({index}): NSE list unavailable ({e})'))
             continue
+        if nse.LAST_SOURCE.get(index, 'NSE') != 'NSE':
+            report.append(('warn', f'{seg}: NSE stock API unavailable - 52-week levels from Yahoo, not cross-checked'))
         nse_by = {r['symbol']: r for r in rows}
         hist = weekly_history(list(nse_by))
         ath, low, young, mismatch, stale = [], [], 0, 0, 0
@@ -413,6 +418,8 @@ def daily_extremes(day, n=6):
         except nse.SourceError as e:
             report.append(('fail', f'{seg} ({index}): NSE list unavailable ({e})'))
             continue
+        if nse.LAST_SOURCE.get(index, 'NSE') != 'NSE':
+            report.append(('warn', f'{seg}: NSE stock API unavailable - prices and 52-week levels from Yahoo'))
         hi52 = [r for r in rows if r.get('day_high') and r.get('year_high') and r['day_high'] >= r['year_high'] * 0.9995]
         lo52 = [r for r in rows if r.get('day_low') and r.get('year_low') and r['day_low'] <= r['year_low'] * 1.0005]
         hist = daily_history([r['symbol'] for r in hi52])

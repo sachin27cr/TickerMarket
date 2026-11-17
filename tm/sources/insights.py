@@ -248,14 +248,15 @@ def month_assets(year, month):
 # ---------------------------------------------------------------- 3. most valuable listed companies
 
 def quote_full(symbol):
-    j = nse.get('/api/quote-equity', {'symbol': symbol})
+    j = nse.quote_raw(symbol)
+    q = nse.quote(symbol) if not (j.get('priceInfo') or {}).get('lastPrice') else None
     p, info, sec = j.get('priceInfo') or {}, j.get('info') or {}, j.get('securityInfo') or {}
-    price = _num(p.get('lastPrice'))
-    shares = _num(sec.get('issuedSize')) or _num(nse.find_field(j, r'issued_?size|issued_?cap'))
+    price = _num(p.get('lastPrice')) or (q and q['price'])
+    shares = _num(sec.get('issuedSize')) or _num(nse.find_field(j, r'issued_?size', r'issued_?cap', r'^shares'))
     if not price or not shares:
         raise nse.SourceError(f'{symbol}: price or issued size missing')
-    return {'symbol': symbol, 'name': info.get('companyName') or symbol, 'price': price, 'shares': shares,
-            'pct': _num(p.get('pChange')) or 0.0}
+    return {'symbol': symbol, 'name': info.get('companyName') or (q and q['name']) or symbol, 'price': price,
+            'shares': shares, 'pct': _num(p.get('pChange')) or (q and q['pct']) or 0.0}
 
 
 def mcap_leaders(n=10, universe='NIFTY 100'):

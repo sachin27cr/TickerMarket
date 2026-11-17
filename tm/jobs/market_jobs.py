@@ -83,7 +83,10 @@ def market_close(force=False):
     report.extend([('warn', m + ' - sector left out') if st == 'fail' else (st, m) for st, m in rep2])
     try:
         gainers, losers = market.movers('NIFTY 50', 5)
-        report.ok('Nifty 50 movers from NSE')
+        if nse.LAST_SOURCE.get('NIFTY 50', 'NSE') == 'NSE':
+            report.ok('Nifty 50 movers from NSE')
+        else:
+            report.warn('Nifty 50 movers: NSE stock API unavailable - prices from Yahoo')
     except nse.SourceError as e:
         gainers = losers = None
         report.warn(f'movers unavailable ({e}) - slide left out')
