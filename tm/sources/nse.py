@@ -42,16 +42,29 @@ def session():
     return _session
 
 
+def _url(path, params, plus=False):
+    """NSE expects spaces as %20 ('NIFTY 100' -> NIFTY%20100), the way the website itself calls the API.
+    requests' default ('+') makes some endpoints answer 404."""
+    from urllib.parse import quote, quote_plus, urlencode
+    if not params:
+        return BASE + path
+    return BASE + path + '?' + urlencode(params, quote_via=quote_plus if plus else quote)
+
+
 def get(path, params=None, retries=3):
     last = None
     for i in range(retries):
-        try:
-            r = session().get(BASE + path, params=params, timeout=20)
-            if r.status_code == 200 and r.text.strip().startswith(('{', '[')):
-                return r.json()
-            last = f'HTTP {r.status_code}'
-        except (requests.RequestException, ValueError) as e:
-            last = str(e)
+        for plus in (False, True):                 # %20 first; '+' as a fallback
+            try:
+                r = session().get(_url(path, params, plus), timeout=20)
+                if r.status_code == 200 and r.text.strip().startswith(('{', '[')):
+                    return r.json()
+                last = f'HTTP {r.status_code}'
+                if r.status_code != 404 or not params:
+                    break
+            except (requests.RequestException, ValueError) as e:
+                last = str(e)
+                break
         time.sleep(2 * (i + 1))
         global _session
         _session = None                       # refresh cookies and retry
