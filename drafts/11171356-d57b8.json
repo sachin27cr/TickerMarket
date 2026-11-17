@@ -1,0 +1,49 @@
+{
+  "id": "11171356-d57b8",
+  "kind": "news",
+  "created": "2026-11-17T13:56:02.980152+05:30",
+  "images": [
+    "media/2026-11-17/news-135602_1.jpg"
+  ],
+  "caption": "MAHANADI COALFIELDS ANNOUNCES RS 8,981 CRORE IPO PRICE BAND\n\nCoal India subsidiary Mahanadi Coalfields will launch its Rs 8,981 crore initial public offering on 19 November 2026. The price band is fixed at Rs 129-136 per share, with a lot size of 110 shares.\n\nFor information only. Not investment advice.\n\n#MahanadiCoalfields #CoalIndia #IPO #IPONews #StockMarketIndia",
+  "threads_text": "MAHANADI COALFIELDS ANNOUNCES RS 8,981 CRORE IPO PRICE BAND\n\nCoal India subsidiary Mahanadi Coalfields will launch its Rs 8,981 crore initial public offering on 19 November 2026. The price band is fixed at Rs 129-136 per share, with a lot size of 110 shares.\n\nFor information only. Not investment advice.\n\n#MahanadiCoalfields #CoalIndia #IPO #IPONews #StockMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 4 outlets: CNBC-TV18, Economic Times, Mint, The Hindu"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.4 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 14 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "company price boxes skipped: NSE equity list unavailable (equity list HTTP 403)"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://economictimes.indiatimes.com/markets/ipos/fpos/mahanadi-coalfields-rs-8981-crore-ipo-to-open-on-november-19-gmp-at-3-check-key-details/articleshow/135916428.cms | https://economictimes.indiatimes.com/markets/ipos/fpos/mahanadi-ipo-to-take-coal-indias-listed-subsidiaries-to-3-group-market-value-to-touch-rs-3-63-lakh-crore/articleshow/135908097.cms | https://www.cnbctv18.com/market/mahanadi-coalfields-ipo-gmp-listing-premium-check-price-band-subscription-dates-key-details-20035417.htm | https://economictimes.indiatimes.com/markets/ipos/fpos/mahanadi-coalfields-sets-rs-8981-crore-ipo-price-band-at-rs-129-136/articleshow/135907281.cms"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 30,
+  "posted": {},
+  "report_text": "✅ confirmed by 4 outlets: CNBC-TV18, Economic Times, Mint, The Hindu\n✅ fresh: newest source 0.4 h old\n✅ headline/banner/points/body: all 14 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n⚠️ company price boxes skipped: NSE equity list unavailable (equity list HTTP 403)\n✅ written by gemini; sources: https://economictimes.indiatimes.com/markets/ipos/fpos/mahanadi-coalfields-rs-8981-crore-ipo-to-open-on-november-19-gmp-at-3-check-key-details/articleshow/135916428.cms | https://economictimes.indiatimes.com/markets/ipos/fpos/mahanadi-ipo-to-take-coal-indias-listed-subsidiaries-to-3-group-market-value-to-touch-rs-3-63-lakh-crore/articleshow/135908097.cms | https://www.cnbctv18.com/market/mahanadi-coalfields-ipo-gmp-listing-premium-check-price-band-subscription-dates-key-details-20035417.htm | https://economictimes.indiatimes.com/markets/ipos/fpos/mahanadi-coalfields-sets-rs-8981-crore-ipo-price-band-at-rs-129-136/articleshow/135907281.cms\n✅ no advice, prediction or rumour language"
+}
