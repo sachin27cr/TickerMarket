@@ -24,6 +24,7 @@ def q(name, close, chg):
 
 
 def fake_sources():
+    market_jobs.CLOSE_READY = (0, 0)              # tests run at any time of day
     quotes = {i['name']: q(i['name'], i['close'], i['chg']) for i in S.INDICES}
     market.market_snapshot = lambda names=market.KEY_INDICES: (
         {k: v for k, v in quotes.items() if k in names} if set(names) & set(market.KEY_INDICES) else

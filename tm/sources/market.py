@@ -56,6 +56,10 @@ def _merge(name, nse_row, ysym, report, nse_date=None, src='NSE'):
     if nse_row:
         q = {'name': name, 'close': nse_row['last'], 'chg': nse_row['chg'], 'pct': nse_row['pct'],
              'prev': nse_row['prev'], 'date': nse_date, 'source': src}
+        if y and nse_date and y['date'] != nse_date:
+            # Yahoo's bar is for another day (not updated yet, or pre-open): it cannot confirm today's level
+            report.append(('ok', f'{name} {q["close"]:,.2f}: {src} (official); Yahoo still on {y["date"]}, not compared'))
+            return q
         if y:
             diff = abs(q['close'] - y['close']) / q['close'] * 100
             if diff > TOLERANCE_PCT:

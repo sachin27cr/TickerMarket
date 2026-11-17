@@ -30,6 +30,24 @@ def _allowed_quote(q):
     return [q['close'], q['chg'], p]
 
 
+CLOSE_READY = (15, 35)          # NSE closes 3:30 PM IST; closing data is final a few minutes later
+
+
+def _after_close(report, label):
+    """Closing-data posts never run during market hours - intraday numbers are not closing numbers."""
+    t = now_ist()
+    if t.weekday() < 5 and (t.hour, t.minute) < CLOSE_READY:
+        log.info('%s: market not closed yet (%s IST) - skipping', label, t.strftime('%H:%M'))
+        try:
+            from .. import telegram
+            telegram.send_text(f'⏳ {label}: the market has not closed yet ({t.strftime("%-I:%M %p")} IST). '
+                               f'This post uses closing data, so run it after 3:35 PM.')
+        except Exception:                          # noqa: BLE001
+            pass
+        return False
+    return True
+
+
 def _session_or_skip(quotes, nse_date, report, force):
     if not market.traded_today(nse_date, quotes):
         if force:
@@ -45,6 +63,8 @@ def _session_or_skip(quotes, nse_date, report, force):
 def market_close(force=False):
     key = f'close:{today_ist()}'
     if store.seen('post', key) and not force:
+        return
+    if not _after_close(None, 'Market close'):
         return
     report = Report()
     need = ['NIFTY 50', 'SENSEX', 'NIFTY BANK']
@@ -96,6 +116,8 @@ def market_close(force=False):
 def daily_overview(force=False):
     key = f'overview:{today_ist()}'
     if store.seen('post', key) and not force:
+        return
+    if not _after_close(None, 'Daily overview'):
         return
     report = Report()
     quotes, breadth, nse_date, rep = market.market_snapshot()
@@ -355,6 +377,8 @@ def ipo(force=False):
 def cap_movers(force=False):
     key = f'capmovers:{today_ist()}'
     if store.seen('post', key) and not force:
+        return
+    if not _after_close(None, 'Gainers & losers'):
         return
     report = Report()
     quotes, _, nse_date, rep = market.market_snapshot({'NIFTY 50': ('NIFTY 50', '^NSEI')})
