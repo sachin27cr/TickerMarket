@@ -1,0 +1,21 @@
+{
+  "groups": {},
+  "report": [
+    [
+      "fail",
+      "Large Cap (NIFTY 100): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)"
+    ],
+    [
+      "fail",
+      "Mid Cap (NIFTY MIDCAP 150): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)"
+    ],
+    [
+      "fail",
+      "Small Cap (NIFTY SMALLCAP 250): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)"
+    ],
+    [
+      "fail",
+      "Micro Cap (NIFTY MICROCAP 250): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)"
+    ]
+  ]
+}
