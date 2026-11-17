@@ -1,0 +1,40 @@
+{
+  "id": "11172140-47ac3",
+  "kind": "fii_dii",
+  "created": "2026-11-17T21:40:45.341434+05:30",
+  "images": [
+    "media/2026-11-17/fii_dii-214045-20eb_1.jpg",
+    "media/2026-11-17/fii_dii-214045-20eb_2.jpg",
+    "media/2026-11-17/fii_dii-214045-20eb_3.jpg",
+    "media/2026-11-17/fii_dii-214045-20eb_4.jpg"
+  ],
+  "caption": "FIIS NET BUYERS AT ₹4,195.38 CRORE ON 17 NOV\n\nOn 17 November 2026, foreign institutional investors (FIIs) were net buyers of ₹4,195.38 crore in the cash market, while domestic institutional investors (DIIs) were net buyers of ₹196.93 crore.\n\nNovember so far (2 sessions): FIIs +9,060.06 crore, DIIs -3,322.12 crore.\n\nIn derivatives, FIIs held 33.4% of their index futures positions long (net -65,123 contracts, -8,436 from the previous session). Net index calls: -1,16,830; net index puts: +3,69,613 contracts.\n\nFor information only. Not investment advice.\n\n#FII #DII #StockMarketIndia #Nifty50 #ShareMarket",
+  "threads_text": "FIIS NET BUYERS AT ₹4,195.38 CRORE ON 17 NOV\n\nOn 17 November 2026, foreign institutional investors (FIIs) were net buyers of ₹4,195.38 crore in the cash market, while domestic institutional investors (DIIs) were net buyers of ₹196.93 crore.\n\nNovember so far (2 sessions): FIIs +9,060.06 crore, DIIs -3,322.12 crore.\n\nIn derivatives, FIIs held 33.4% of their index futures positions long (net -65,123 contracts, -8,436 from the previous session).\n\n#FII #DII #StockMarketIndia #Nifty50 #ShareMarket",
+  "report": [
+    [
+      "ok",
+      "NSE provisional data for 17 November 2026: FII +4,195.38, DII +196.93 crore"
+    ],
+    [
+      "ok",
+      "FII index futures: long 65,568 / short 130,691 contracts (long 33.4%); NSE file totals add up"
+    ],
+    [
+      "ok",
+      "month FII total: total 9,060.06 = sum of rows"
+    ],
+    [
+      "ok",
+      "caption: all 14 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 146,
+  "posted": {},
+  "report_text": "✅ NSE provisional data for 17 November 2026: FII +4,195.38, DII +196.93 crore\n✅ FII index futures: long 65,568 / short 130,691 contracts (long 33.4%); NSE file totals add up\n✅ month FII total: total 9,060.06 = sum of rows\n✅ caption: all 14 numbers match source data\n✅ no advice, prediction or rumour language"
+}
