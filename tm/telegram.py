@@ -5,23 +5,44 @@ import json
 import requests
 
 from . import config, store
-from .util import log
+from .util import log, scrub
+
+
+class TelegramError(Exception):
+    pass
 
 
 def _api(method, files=None, **params):
+    """Telegram call with retries. Errors never include the bot token (the URL is not echoed)."""
     if config.DRY_RUN or not config.TELEGRAM_TOKEN:
         log.info('[telegram dry-run] %s %s', method, {k: (str(v)[:120]) for k, v in params.items()})
         return {'message_id': 0} if method != 'getUpdates' else []
-    r = requests.post(f'https://api.telegram.org/bot{config.TELEGRAM_TOKEN}/{method}',
-                      data=params, files=files, timeout=60)
-    j = r.json()
-    if not j.get('ok'):
-        raise RuntimeError(f'Telegram {method}: {j.get("description")}')
-    return j['result']
+    import time
+    last = ''
+    for attempt in range(4):
+        try:
+            if files:
+                for f in files.values():
+                    f.seek(0)
+            r = requests.post(f'https://api.telegram.org/bot{config.TELEGRAM_TOKEN}/{method}',
+                              data=params, files=files, timeout=60)
+            j = r.json()
+        except (requests.RequestException, ValueError) as e:
+            last = type(e).__name__                  # name only: the message would contain the URL with the token
+            time.sleep(3 * (attempt + 1))
+            continue
+        if j.get('ok'):
+            return j['result']
+        if r.status_code == 429:
+            time.sleep(int((j.get('parameters') or {}).get('retry_after', 5)) + 1)
+            last = 'rate limited'
+            continue
+        raise TelegramError(f'Telegram {method}: {j.get("description")}')
+    raise TelegramError(f'Telegram {method}: not reachable ({last})')
 
 
 def send_text(text, buttons=None):
-    params = {'chat_id': config.TELEGRAM_CHAT_ID, 'text': text[:4096], 'parse_mode': 'HTML',
+    params = {'chat_id': config.TELEGRAM_CHAT_ID, 'text': scrub(text)[:4096], 'parse_mode': 'HTML',
               'disable_web_page_preview': 'true'}
     if buttons:
         params['reply_markup'] = json.dumps({'inline_keyboard': buttons})
@@ -68,7 +89,11 @@ def send_blocked(kind, title, report_text):
 
 def get_updates():
     offset = store.read_json('telegram_offset.json', {'offset': 0})['offset']
-    ups = _api('getUpdates', offset=offset, timeout=0, allowed_updates=json.dumps(['message', 'callback_query']))
+    try:
+        ups = _api('getUpdates', offset=offset, timeout=0, allowed_updates=json.dumps(['message', 'callback_query']))
+    except TelegramError as e:                       # network blip: try again on the next run, no crash
+        log.warning('%s - will retry next run', e)
+        return []
     if ups:
         store.write_json('telegram_offset.json', {'offset': ups[-1]['update_id'] + 1})
     return ups

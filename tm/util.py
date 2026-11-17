@@ -66,3 +66,19 @@ def parse_num(s):
 
 def slug(text, n=60):
     return re.sub(r'[^a-z0-9]+', '-', text.lower()).strip('-')[:n]
+
+
+SECRET_VARS = ('TELEGRAM_BOT_TOKEN', 'GEMINI_API_KEY', 'GROQ_API_KEY', 'META_PAGE_TOKEN', 'THREADS_TOKEN', 'CF_AI_TOKEN',
+               'GITHUB_TOKEN', 'CF_ACCOUNT_ID', 'META_APP_SECRET')
+
+
+def scrub(text):
+    """Remove secret values (and anything shaped like a bot token or key=...) from text sent anywhere."""
+    import os
+    text = str(text)
+    for v in SECRET_VARS:
+        val = os.environ.get(v)
+        if val and len(val) > 6:
+            text = text.replace(val, '***')
+    text = re.sub(r'bot\d{6,}:[A-Za-z0-9_-]{20,}', 'bot***', text)
+    return re.sub(r'([?&](key|token|access_token|api_key)=)[^&\s\'"<]+', r'\1***', text)

@@ -26,6 +26,9 @@ JOBS = {
 }
 
 
+from .util import scrub   # noqa: E402
+
+
 def main():
     if len(sys.argv) < 2 or sys.argv[1] not in JOBS:
         print('jobs:', ', '.join(JOBS)); sys.exit(2)
@@ -39,10 +42,10 @@ def main():
         else:
             JOBS[name](force=force) if name != 'approvals' else JOBS[name]()
     except Exception as e:                       # noqa: BLE001 - report every crash to Telegram
-        log.exception('%s crashed', name)
+        log.error('%s crashed: %s', name, scrub(str(e)))
         try:
-            telegram.send_text(f'⚠️ Job <b>{name}</b> crashed: {html.escape(str(e))[:300]}\n\n'
-                               f'<code>{html.escape(traceback.format_exc()[-1200:])}</code>')
+            telegram.send_text(f'⚠️ Job <b>{name}</b> crashed: {html.escape(scrub(str(e)))[:300]}\n\n'
+                               f'<code>{html.escape(scrub(traceback.format_exc())[-1200:])}</code>')
         except Exception:                        # noqa: BLE001
             pass
         sys.exit(1)

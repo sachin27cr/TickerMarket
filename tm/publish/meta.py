@@ -90,6 +90,8 @@ def publish_all(image_urls, caption, threads_text):
         try:
             out[name] = jobs[name]()
         except Exception as e:                       # noqa: BLE001
-            log.error('%s publish failed: %s', name, e)
-            out[name] = f'error: {e}'
+            from ..util import scrub
+            msg = scrub(type(e).__name__ if 'access_token' in str(e) else str(e))
+            log.error('%s publish failed: %s', name, msg)
+            out[name] = f'error: {msg}'
     return out
