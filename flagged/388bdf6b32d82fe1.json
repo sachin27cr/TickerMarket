@@ -1,0 +1,5 @@
+{
+  "kind": "daily_overview",
+  "title": "highslows:2026-11-17",
+  "report": "✅ NIFTY 50 25,387.40: NSE (official)\n✅ SENSEX 82,532.19: BSE = Yahoo (gap 0.000%)\n✅ NIFTY NEXT 50 72,693.00: NSE (official)\n✅ NIFTY 100 26,278.25: NSE (official)\n✅ NIFTY MIDCAP 150 22,648.70: NSE (official)\n✅ NIFTY SMALLCAP 250 17,754.85: NSE (official)\n✅ NIFTY MICROCAP 250 25,411.30: NSE (official)\n✅ NIFTY 500 23,822.30: NSE (official)\n✅ NIFTY BANK 62,273.25: NSE (official)\n✅ INDIA VIX 15.51: NSE (official)\n❌ Large Cap (NIFTY 100): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)\n❌ Mid Cap (NIFTY MIDCAP 150): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)\n❌ Small Cap (NIFTY SMALLCAP 250): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)\n❌ Micro Cap (NIFTY MICROCAP 250): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)\n❌ need all 4 market-cap groups\n✅ no advice, prediction or rumour language"
+}
