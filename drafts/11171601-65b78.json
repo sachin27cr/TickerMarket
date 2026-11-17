@@ -1,0 +1,38 @@
+{
+  "id": "11171601-65b78",
+  "kind": "fii_dii",
+  "created": "2026-11-17T16:01:43.978729+05:30",
+  "images": [
+    "media/2026-11-17/fii_dii-160143-2a9a_1.jpg",
+    "media/2026-11-17/fii_dii-160143-2a9a_2.jpg"
+  ],
+  "caption": "FIIS NET BUYERS AT ₹4,864.68 CRORE ON 16 NOV\n\nOn 16 November 2026, foreign institutional investors (FIIs) were net buyers of ₹4,864.68 crore in the cash market, while domestic institutional investors (DIIs) were net sellers of ₹3,519.05 crore.\n\nFor information only. Not investment advice.\n\n#FII #DII #StockMarketIndia #Nifty50 #ShareMarket",
+  "threads_text": "FIIS NET BUYERS AT ₹4,864.68 CRORE ON 16 NOV\n\nOn 16 November 2026, foreign institutional investors (FIIs) were net buyers of ₹4,864.68 crore in the cash market, while domestic institutional investors (DIIs) were net sellers of ₹3,519.05 crore.\n\nFor information only. Not investment advice.\n\n#FII #DII #StockMarketIndia #Nifty50 #ShareMarket",
+  "report": [
+    [
+      "ok",
+      "NSE provisional data for 16 November 2026: FII +4,864.68, DII -3,519.05 crore"
+    ],
+    [
+      "warn",
+      "F&O file does not add up (opt_idx_call_short: 6174150 vs 6174151) - section left out"
+    ],
+    [
+      "ok",
+      "month FII total: total 4,864.68 = sum of rows"
+    ],
+    [
+      "ok",
+      "caption: all 6 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 96,
+  "posted": {},
+  "report_text": "✅ NSE provisional data for 16 November 2026: FII +4,864.68, DII -3,519.05 crore\n⚠️ F&O file does not add up (opt_idx_call_short: 6174150 vs 6174151) - section left out\n✅ month FII total: total 4,864.68 = sum of rows\n✅ caption: all 6 numbers match source data\n✅ no advice, prediction or rumour language"
+}
