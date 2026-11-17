@@ -1,0 +1,50 @@
+{
+  "id": "11171616-9cc0d",
+  "kind": "cap_movers",
+  "created": "2026-11-17T16:16:15.156614+05:30",
+  "images": [
+    "media/2026-11-17/cap_movers-161615-123f_1.jpg",
+    "media/2026-11-17/cap_movers-161615-123f_2.jpg",
+    "media/2026-11-17/cap_movers-161615-123f_3.jpg",
+    "media/2026-11-17/cap_movers-161615-123f_4.jpg",
+    "media/2026-11-17/cap_movers-161615-123f_5.jpg",
+    "media/2026-11-17/cap_movers-161615-123f_6.jpg"
+  ],
+  "caption": "TOP GAINERS AND LOSERS BY MARKET CAP: 17 NOVEMBER 2026\n\nLarge Cap: top gainer TMCV (+4.26%), top loser CUMMINSIND (-3.97%).\nMid Cap: top gainer LAURUSLABS (+5.32%), top loser APARINDS (-4.86%).\nSmall Cap: top gainer FIRSTCRY (+12.85%), top loser URBANCO (-5.86%).\nMicro Cap: top gainer KPIGREEN (+7.75%), top loser UTLSOLAR (-5.99%).\n\nGroups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the top 5 in each group.\n\nFor information only. Not investment advice.\n\n#TopGainers #TopLosers #StockMarketIndia #SmallCap #ShareMarket",
+  "threads_text": "TOP GAINERS AND LOSERS BY MARKET CAP: 17 NOVEMBER 2026\n\nLarge Cap: top gainer TMCV (+4.26%), top loser CUMMINSIND (-3.97%).\nMid Cap: top gainer LAURUSLABS (+5.32%), top loser APARINDS (-4.86%).\nSmall Cap: top gainer FIRSTCRY (+12.85%), top loser URBANCO (-5.86%).\nMicro Cap: top gainer KPIGREEN (+7.75%), top loser UTLSOLAR (-5.99%).\n\n#TopGainers #TopLosers #StockMarketIndia #SmallCap #ShareMarket",
+  "report": [
+    [
+      "warn",
+      "Large Cap: 1 stock(s) left out - % change did not match price data"
+    ],
+    [
+      "ok",
+      "Large Cap (NIFTY 100): 99 stocks, NSE prices, % re-computed"
+    ],
+    [
+      "ok",
+      "Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed"
+    ],
+    [
+      "warn",
+      "Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)"
+    ],
+    [
+      "warn",
+      "Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)"
+    ],
+    [
+      "ok",
+      "caption: all 11 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 112,
+  "posted": {},
+  "report_text": "⚠️ Large Cap: 1 stock(s) left out - % change did not match price data\n✅ Large Cap (NIFTY 100): 99 stocks, NSE prices, % re-computed\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed\n⚠️ Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n⚠️ Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n✅ caption: all 11 numbers match source data\n✅ no advice, prediction or rumour language"
+}
