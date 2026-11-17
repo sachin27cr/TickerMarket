@@ -1,5 +1,0 @@
-{
-  "kind": "market_close",
-  "title": "close:2026-11-17",
-  "report": "❌ NIFTY 50: NSE 25,107.70 vs Yahoo 25,291.10 differ 0.730%\n❌ SENSEX: BSE 82,236.93 vs Yahoo 82,104.79 differ 0.161%\n❌ NIFTY BANK: NSE 60,764.55 vs Yahoo 61,575.90 differ 1.335%\n❌ missing NIFTY 50, SENSEX, NIFTY BANK\n⚠️ IT: NSE 31,871.50 vs Yahoo 31,941.05 differ 0.218% - sector left out\n⚠️ BANK: NSE 60,764.55 vs Yahoo 61,575.90 differ 1.335% - sector left out\n⚠️ AUTO: NSE 27,688.60 vs Yahoo 27,570.25 differ 0.427% - sector left out\n✅ PHARMA 28,098.10: NSE = Yahoo (gap 0.001%)\n⚠️ FMCG: NSE 47,801.55 vs Yahoo 47,708.10 differ 0.195% - sector left out\n⚠️ METAL: NSE 12,493.10 vs Yahoo 12,458.35 differ 0.278% - sector left out\n⚠️ REALTY: NSE 906.95 vs Yahoo 908.90 differ 0.215% - sector left out\n⚠️ ENERGY: NSE 37,252.05 vs Yahoo 37,276.65 differ 0.066% - sector left out\n⚠️ PSU BANK: NSE 9,329.85 vs Yahoo 9,305.30 differ 0.263% - sector left out\n✅ MEDIA 1,767.10: NSE (official)\n✅ FIN SERVICE 27,647.15: NSE (official)\n✅ OIL & GAS 11,382.55: NSE (official)\n✅ no advice, prediction or rumour language"
-}
