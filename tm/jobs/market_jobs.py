@@ -646,7 +646,7 @@ def _week():
 def _weekly_data(monday, report):
     """Scan once per week; the second post reuses the saved result."""
     cached = store.read_json(f'weekly/{monday}.json')
-    if cached:
+    if cached and len(cached.get('groups') or {}) == len(market.CAP_SEGMENTS):   # ignore a saved failed scan
         report.extend([tuple(r) for r in cached['report']])
         return cached['groups']
     groups, rep = market.weekly_extremes(monday)
