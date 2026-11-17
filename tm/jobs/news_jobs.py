@@ -85,10 +85,19 @@ def build_from_cluster(c):
         tone = 'up' if net > 0 else 'down' if net < 0 else tone
     sector = str(out.get('sector') or 'other').lower()
     theme = THEMES.get(sector) or ('market_down' if tone == 'down' else 'market_up')
-    images = cards.news_hero({'category': category, 'date_text': fmt_date(newest.date(), 'dow'), 'theme': theme,
-                              'seed': c['key'], 'tone': tone, 'quotes': quotes, 'label': label,
-                              'headline': headline, 'points': points,
-                              'source': ('NSE prices, ' if quotes else '') + outlets})
+    from ..render import photo
+    scene = re.sub(r'[0-9"]', '', str(out.get('image_scene') or ''))[:220].strip()
+    names = [n.lower() for n in companies]
+    if not scene or any(n and n in scene.lower() for n in names):      # never a company name in the picture
+        scene = photo.SECTOR_SCENES.get(sector) or photo.SECTOR_SCENES['economy']
+    photo.PHOTO_PROMPT = scene
+    try:
+        images = cards.news_hero({'category': category, 'date_text': fmt_date(newest.date(), 'dow'), 'theme': theme,
+                                  'seed': c['key'], 'tone': tone, 'quotes': quotes, 'label': label,
+                                  'headline': headline, 'points': points,
+                                  'source': ('NSE prices, ' if quotes else '') + outlets})
+    finally:
+        photo.PHOTO_PROMPT = None
     outlets = ('NSE prices, ' if quotes else '') + outlets
     caption = assemble(headline, body, outlets, hashtags)
     report.ok(f'written by {writer}; sources: ' + ' | '.join(i['link'] or i['outlet'] for i in c['items'][:4]))

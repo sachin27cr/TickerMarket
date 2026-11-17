@@ -43,6 +43,14 @@ of a month, then whichever of `mcap` / `sectors` / `wealth` has waited longest. 
 
 Market holidays are detected automatically: if NSE has no session today, close/overview cards are skipped.
 
+## Photo-realistic backgrounds (optional, free)
+
+Add two GitHub secrets and every post gets a realistic picture made by FLUX.1 [schnell] on Cloudflare Workers AI
+(free daily quota; the bot stops at 80 pictures a day):
+`CF_ACCOUNT_ID` and `CF_AI_TOKEN` (Cloudflare dashboard -> AI -> Workers AI -> Use REST API -> create a Workers AI token).
+Pictures never contain text, numbers, logos or real people. Without the secrets, or if a call fails, posts use the
+drawn scenes. News pictures follow the story (the writer describes a scene; company names are never used).
+
 ## Look of the posts
 
 - Every post has generated background art (night skyline, glowing candles, trend arrow green/red by

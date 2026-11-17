@@ -165,6 +165,11 @@ def background(theme, w=1080, h=1350, seed=0, tone=None):
         down = tone == 'down'
     colr = DOWN if down else UP
     kind = POST_KIND or 'news'
+    from . import photo
+    if photo.enabled():                          # photo-realistic scene when Cloudflare is set up
+        pic = photo.get(photo.prompt_for(kind, 'down' if down else 'up', seed))
+        if pic is not None:
+            return _photo_background(pic, w, h)
     if not (kind == 'news' and theme in SECTOR_THEMES):
         from ..util import today_ist
         scene = scenes.pick(kind, theme, seed, today_ist().toordinal())
@@ -204,6 +209,24 @@ def background(theme, w=1080, h=1350, seed=0, tone=None):
             cd.rectangle([x, y, x + rng.randint(4, 10), y + rng.randint(8, 16)], fill=c + (rng.randint(120, 230),))
         im.alpha_composite(conf)
     return _finish(im, rng, w, h)
+
+
+def _photo_background(pic, w, h):
+    from PIL import ImageEnhance
+    side = w
+    pic = pic.resize((side, side), Image.LANCZOS)
+    pic = ImageEnhance.Brightness(pic).enhance(0.88)
+    im = Image.new('RGBA', (w, h), (3, 10, 23, 255))
+    im.paste(pic, (0, 0))
+    fade = np.zeros((h, w, 4), np.uint8)
+    fade[..., :3] = (3, 10, 23)
+    t = np.clip((np.arange(h) - h * 0.42) / (h * 0.20), 0, 1)
+    fade[..., 3] = (t[:, None] * 255).astype(np.uint8)
+    im.alpha_composite(Image.fromarray(fade, 'RGBA'))
+    top = np.zeros((h, w, 4), np.uint8)              # light shade at the top so the category tag stays readable
+    top[..., 3] = (np.clip(1 - np.arange(h) / (h * 0.12), 0, 1) * 110).astype(np.uint8)[:, None]
+    im.alpha_composite(Image.fromarray(top, 'RGBA'))
+    return im.convert('RGB')
 
 
 def _scene_background(scene, kind, w, h, rng, up, colr):
