@@ -46,8 +46,11 @@ def gemini_models():
         return [config.GEMINI_MODEL]
     if 'gemini' in _cache:
         return _cache['gemini']
-    r = requests.get('https://generativelanguage.googleapis.com/v1beta/models',
-                     params={'key': config.GEMINI_API_KEY, 'pageSize': 200}, timeout=30)
+    try:
+        r = requests.get('https://generativelanguage.googleapis.com/v1beta/models',
+                         params={'key': config.GEMINI_API_KEY, 'pageSize': 200}, timeout=30)
+    except requests.RequestException as e:
+        raise LLMError(f'Gemini model list: {type(e).__name__}')
     if r.status_code != 200:
         raise LLMError(f'Gemini model list HTTP {r.status_code}: {r.text[:200]}')
     names = [m['name'].split('/', 1)[1] for m in r.json().get('models', [])
@@ -70,8 +73,11 @@ def groq_models():
         return [config.GROQ_MODEL]
     if 'groq' in _cache:
         return _cache['groq']
-    r = requests.get('https://api.groq.com/openai/v1/models',
-                     headers={'Authorization': f'Bearer {config.GROQ_API_KEY}'}, timeout=30)
+    try:
+        r = requests.get('https://api.groq.com/openai/v1/models',
+                         headers={'Authorization': f'Bearer {config.GROQ_API_KEY}'}, timeout=30)
+    except requests.RequestException as e:
+        raise LLMError(f'Groq model list: {type(e).__name__}')
     if r.status_code != 200:
         raise LLMError(f'Groq model list HTTP {r.status_code}: {r.text[:200]}')
     ids = [m['id'] for m in r.json().get('data', []) if m.get('active', True) and not GROQ_SKIP.search(m['id'])]
@@ -89,22 +95,38 @@ def groq_models():
 def gemini(prompt, temperature=0.2):
     if not config.GEMINI_API_KEY:
         raise LLMError('GEMINI_API_KEY not set')
+    if _cache.get('gemini_timeouts', 0) >= 2:
+        raise LLMError('Gemini not responding this run (timed out twice)')
     last = 'no model tried'
     for model in gemini_models()[:4]:
         url = f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent'
         body = {'contents': [{'parts': [{'text': prompt}]}],
                 'generationConfig': {'responseMimeType': 'application/json', 'temperature': temperature}}
+        r = None
         for attempt in range(3):
-            r = requests.post(url, params={'key': config.GEMINI_API_KEY}, json=body, timeout=120)
+            try:
+                r = requests.post(url, params={'key': config.GEMINI_API_KEY}, json=body, timeout=75)
+            except requests.RequestException as e:      # slow or unreachable -> next model, never crash the job
+                last = f'{model}: {type(e).__name__}'
+                log.warning('Gemini %s', last)
+                r = None
+                break
             if r.status_code == 429:
                 last = f'{model}: rate limited'; time.sleep(20 * (attempt + 1)); continue
             break
-        if r.status_code in (400, 404, 429):           # retired, unsupported option, or out of quota -> next model
+        if r is None:
+            timeouts = _cache.setdefault('gemini_timeouts', 0) + 1
+            _cache['gemini_timeouts'] = timeouts
+            if timeouts >= 2:                           # Gemini is having a bad moment - let Groq take over
+                break
+            continue
+        if r.status_code in (400, 404, 429, 500, 502, 503, 504):           # retired, unsupported option, or out of quota -> next model
             last = f'{model}: HTTP {r.status_code} {r.text[:160]}'
             log.warning('Gemini %s', last)
             continue
         if r.status_code != 200:
-            raise LLMError(f'Gemini HTTP {r.status_code}: {r.text[:200]}')
+            last = f'{model}: HTTP {r.status_code} {r.text[:160]}'
+            continue
         try:
             return _json(r.json()['candidates'][0]['content']['parts'][0]['text'])
         except (KeyError, IndexError, ValueError) as e:
@@ -123,11 +145,19 @@ def groq(prompt, temperature=0.0):
                     'messages': [{'role': 'user', 'content': prompt + '\n\nReply with JSON only.'}]}
             if use_json_mode:
                 body['response_format'] = {'type': 'json_object'}
+            r = None
             for attempt in range(3):
-                r = requests.post('https://api.groq.com/openai/v1/chat/completions',
-                                  headers={'Authorization': f'Bearer {config.GROQ_API_KEY}'}, json=body, timeout=120)
+                try:
+                    r = requests.post('https://api.groq.com/openai/v1/chat/completions',
+                                      headers={'Authorization': f'Bearer {config.GROQ_API_KEY}'}, json=body, timeout=75)
+                except requests.RequestException as e:
+                    last = f'{model}: {type(e).__name__}'
+                    r = None
+                    break
                 if r.status_code == 429:
                     last = f'{model}: rate limited'; time.sleep(15 * (attempt + 1)); continue
+                break
+            if r is None:
                 break
             if r.status_code == 200:
                 try:

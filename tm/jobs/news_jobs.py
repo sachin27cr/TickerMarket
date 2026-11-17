@@ -116,6 +116,12 @@ def news(force=False, limit=None):
             images, caption, report, title = build_from_cluster(c)
         except llm.LLMError as e:
             log.error('LLM unavailable: %s', e)
+            try:
+                from .. import telegram
+                telegram.send_text(f'📰 News run skipped: the AI writers did not respond ({str(e)[:150]}). '
+                                   f'Stories stay in the queue for the next run.')
+            except Exception:                        # noqa: BLE001
+                pass
             break
         store.mark_seen('news', c['key'], {'title': c['lead']['title']})
         if images is None:
