@@ -193,6 +193,14 @@ def scene_tiles(sc):
     return tiles
 
 
+def _min_time(sc):
+    if sc['type'] == 'rows':
+        return 1.8 + 0.45 * len(sc.get('rows', []))
+    if sc['type'] == 'duo':
+        return 3.4
+    return 2.4
+
+
 def _subtitle_chunks(text, n_words=9):
     words = voice.clean(text).split()
     return [' '.join(words[i:i + n_words]) for i in range(0, len(words), n_words)] or ['']
@@ -240,10 +248,10 @@ def build(scenes, label, out_path, seed='reel'):
     durs, wavs = [], []
     for i, sc in enumerate(scenes):
         if sc.get('voice'):
-            mp3, eng = voice.speak(voice.clean(sc['voice']), work / f'v{i}.mp3')
+            mp3, eng = voice.speak(voice.speech(sc['voice']), work / f'v{i}.mp3')
             engine = engine or (eng if mp3 else None)
-            spoken = voice.duration(mp3) if mp3 else max(3.0, len(sc['voice'].split()) / 2.7)
-            d = round(spoken + 0.9, 2)
+            spoken = voice.duration(mp3) if mp3 else max(1.5, len(sc['voice'].split()) / 2.7)
+            d = round(max(spoken + 0.7, _min_time(sc)), 2)   # short voice, but enough time to read the screen
         else:                                     # on-screen list only: no voice, held for a few seconds
             mp3, d = None, float(sc.get('hold', 3.0))
         durs.append(d)

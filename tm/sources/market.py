@@ -6,6 +6,7 @@ If only Yahoo is available the value is used but marked as single-source.
 """
 from ..util import log, today_ist
 from . import nse
+from .names import short as _short_name
 
 TOLERANCE_PCT = 0.05   # max allowed gap between two sources for a closing level
 
@@ -230,7 +231,7 @@ def weekly_extremes(week_monday, n=10):
             if len(h) < 53:
                 young += 1; continue
             cur, prev_close = h.iloc[-1], float(h['Close'].iloc[-2])
-            wk = {'symbol': sym, 'name': nse_by[sym].get('name') or sym, 'close': float(cur['Close']),
+            wk = {'symbol': sym, 'name': nse_by[sym].get('name') or _short_name(sym), 'close': float(cur['Close']),
                   'week_pct': (float(cur['Close']) - prev_close) / prev_close * 100}
             r = nse_by[sym]
             if float(cur['High']) > float(h['High'].iloc[:-1].max()):

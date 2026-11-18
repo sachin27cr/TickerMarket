@@ -92,7 +92,8 @@ def send_draft(d, auto=False):
         send_images(d['images'])
     head = (f'<b>AUTO-POST {d["id"]}</b> - {html.escape(d["kind"])} - posts in about {config.AUTO_DELAY_MIN} min'
             if auto else f'<b>DRAFT {d["id"]}</b> - {html.escape(d["kind"])}')
-    text = f'{head}\n\n{html.escape(d["caption"])}\n\n<b>Checks</b>\n{html.escape(d["report_text"])}'
+    script = ('\n\n<b>Voice-over</b>\n' + html.escape('\n'.join(d['script']))) if d.get('script') else ''
+    text = f'{head}\n\n{html.escape(d["caption"])}{script}\n\n<b>Checks</b>\n{html.escape(d["report_text"])}'
     buttons = ([[{'text': '🚀 Post now', 'callback_data': f'ap:{d["id"]}'},
                  {'text': '✋ Cancel', 'callback_data': f'rj:{d["id"]}'}]] if auto else
                [[{'text': '✅ Approve & post', 'callback_data': f'ap:{d["id"]}'},

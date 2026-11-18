@@ -91,7 +91,7 @@ def finish(kind, title, images, caption, report: Report, allowed_numbers=None, m
     return d
 
 
-def finish_video(kind, title, video_path, cover, caption, report, allowed_numbers=None):
+def finish_video(kind, title, video_path, cover, caption, report, allowed_numbers=None, script=None):
     """Same checks as finish(); the reel (mp4) and its cover frame go to Telegram for approval.
     Reels always wait for your approval (they are not auto-posted)."""
     import shutil
@@ -113,6 +113,7 @@ def finish_video(kind, title, video_path, cover, caption, report, allowed_number
     d = store.new_draft(kind, [cover_rel], caption, captions.threads_text(caption), [list(r) for r in report],
                         {'video': vid_rel})
     d['video'] = vid_rel
+    d['script'] = script or []
     d['report_text'] = report.text()
     store.save_draft(d)
     telegram.send_draft(d)

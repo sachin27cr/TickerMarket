@@ -270,14 +270,14 @@ def reels_test():
                                                                      '^NSEBANK': 52310.55}[ysym], 'pct': 1.23,
                                            'last_date': today_ist()}
     for name, fn in [('reel_morning', reel_jobs.morning_reel), ('reel_evening', reel_jobs.evening_reel),
-                     ('reel_weekly', reel_jobs.weekly_reel), ('reel_ath', reel_jobs.ath_reel)]:
+                     ('reel_weekly', reel_jobs.weekly_reel), ('reel_ath', reel_jobs.ath_reel), ('reel_lows', reel_jobs.lows_reel)]:
         n = len(drafts())
         fn(force=True)
         ds = [d for d in drafts() if d['kind'] == name]
         assert len(drafts()) == n + 1 and ds, f'{name}: no draft (see flagged)'
         d = ds[-1]
         assert (config.DATA_DIR / d['video']).exists() and d['status'] == 'pending'
-        print(f'--- {name}: {d["report_text"].splitlines()[-1]}\n{d["caption"]}\n')
+        print(f'--- {name}: {d["report_text"].splitlines()[-1]}\nSCRIPT\n' + '\n'.join(d['script']) + f'\n{d["caption"]}\n')
     print('reels: morning, evening, weekly and all-time-high reels built')
 
 

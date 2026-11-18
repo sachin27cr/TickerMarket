@@ -98,12 +98,35 @@ def move(chg, p):
     return f'{"up" if chg >= 0 else "down"} {pts(chg)} points, or {pct(p)}'
 
 
+def signed(p):
+    return f'{"up" if p >= 0 else "down"} {pct(p)}'
+
+
+def clock(dt):
+    """'7:00 PM' -> '7 PM', '11:30 PM' -> '11:30 PM' (spoken naturally)."""
+    return dt.strftime('%-I %p') if dt.minute == 0 else dt.strftime('%-I:%M %p')
+
+
 def crore(v):
     return f'{abs(v):,.0f} crore rupees'
 
 
 def clean(text):
     """Plain speech: no symbols the voices read oddly."""
+    text = re.sub(r'\bm/m\b', 'month on month', text)
+    text = re.sub(r'\by/y\b', 'year on year', text)
+    text = re.sub(r'\bq/q\b', 'quarter on quarter', text)
+    text = text.replace('FOMC', 'Fed')
     text = text.replace('₹', '').replace('&', ' and ').replace('%', ' percent').replace('/', ' ')
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
+
+
+def speech(text):
+    """What the voice reads: like the subtitles, plus spellings that help pronunciation."""
+    t = clean(text)
+    t = re.sub(r'\bFIIs\b', 'F I Is', t)
+    t = re.sub(r'\bDIIs\b', 'D I Is', t)
+    t = re.sub(r'\bFII\b', 'F I I', t)
+    t = re.sub(r'\bDII\b', 'D I I', t)
+    return t
