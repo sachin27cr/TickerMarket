@@ -101,7 +101,8 @@ def gemini(prompt, temperature=0.2):
     for model in gemini_models()[:4]:
         url = f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent'
         body = {'contents': [{'parts': [{'text': prompt}]}],
-                'generationConfig': {'responseMimeType': 'application/json', 'temperature': temperature}}
+                'generationConfig': {'responseMimeType': 'application/json', 'temperature': temperature,
+                                     'thinkingConfig': {'thinkingBudget': 0}}}   # fast: no long thinking
         r = None
         for attempt in range(3):
             try:
@@ -120,6 +121,12 @@ def gemini(prompt, temperature=0.2):
             if timeouts >= 2:                           # Gemini is having a bad moment - let Groq take over
                 break
             continue
+        if r.status_code == 400 and 'thinking' in r.text.lower():      # model without a thinking switch
+            body['generationConfig'].pop('thinkingConfig', None)
+            try:
+                r = requests.post(url, params={'key': config.GEMINI_API_KEY}, json=body, timeout=75)
+            except requests.RequestException:
+                continue
         if r.status_code in (400, 404, 429, 500, 502, 503, 504):           # retired, unsupported option, or out of quota -> next model
             last = f'{model}: HTTP {r.status_code} {r.text[:160]}'
             log.warning('Gemini %s', last)
@@ -183,7 +190,25 @@ def write(prompt):
 
 
 def check(prompt, writer_name):
-    """Second opinion from the model that did NOT write the draft."""
-    if writer_name == 'gemini':
-        return groq(prompt), 'groq'
-    return gemini(prompt, temperature=0.0), 'gemini'
+    """Second opinion from the model that did NOT write the draft; if that service is down, a different
+    model from the other service."""
+    first, second = ((lambda: groq(prompt), 'groq'), (lambda: gemini(prompt, temperature=0.0), 'gemini')) \
+        if writer_name == 'gemini' else ((lambda: gemini(prompt, temperature=0.0), 'gemini'), (lambda: groq_alt(prompt), 'groq'))
+    try:
+        return first[0](), first[1]
+    except LLMError as e:
+        log.warning('checker %s failed (%s) - trying %s', first[1], e, second[1])
+        return second[0](), second[1] + ' (backup)'
+
+
+def groq_alt(prompt):
+    """Groq with a different model from the one that wrote (used when Groq wrote and Gemini is down)."""
+    models = groq_models()
+    if len(models) < 2:
+        raise LLMError('no second Groq model')
+    saved = _cache.get('groq')
+    _cache['groq'] = models[1:]
+    try:
+        return groq(prompt)
+    finally:
+        _cache['groq'] = saved

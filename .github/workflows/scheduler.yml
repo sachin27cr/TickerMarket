@@ -102,7 +102,7 @@ jobs:
           TM_PAGE: india
           TM_ARG: ${{ inputs.arg }}
           TM_DATA_DIR: ${{ github.workspace }}/data
-          TM_NEWS_PER_RUN: ${{ vars.TM_NEWS_PER_RUN || '2' }}
+          TM_NEWS_PER_RUN: ${{ vars.TM_NEWS_PER_RUN || '3' }}
           TM_POST_TO: ${{ vars.TM_POST_TO || 'instagram,facebook,threads' }}
           TM_AUTO_POST: ${{ vars.TM_AUTO_POST || '' }}
           TM_AUTO_DELAY_MIN: ${{ vars.TM_AUTO_DELAY_MIN || '10' }}

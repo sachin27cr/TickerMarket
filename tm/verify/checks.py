@@ -99,17 +99,30 @@ def source_numbers(texts):
     return vals
 
 
+TRANSITION = set("""Meanwhile However Also Further Furthermore Additionally Overall Earlier Separately Notably Besides
+Moreover Still Yet Thus Hence Analysts Investors Shares Traders Experts Officials Sources Government Officials
+Here There What Why How When While Despite Following According Under Over During Amid Against Among""".split())
+
+
+def _norm(t):
+    return re.sub(r'[^a-z0-9&]', '', t.lower())
+
+
 def check_names(text, source_text, report):
+    """Every name-like word in the draft must appear in the sources (word by word, ignoring punctuation:
+    'AT1' matches 'AT-1'). Ordinary capitalised words at the start of a sentence are not names."""
     plain = FY_DRAFT.sub(' ', re.sub(r'[*]', '', text))           # fiscal labels are checked separately
-    src = source_text.lower()
-    phrases = re.findall(r"\b([A-Z][A-Za-z0-9&'\-]*(?:[ \t]+[A-Z][A-Za-z0-9&'\-]*)*)", plain)
+    src_norm = _norm(source_text)
+    src_words = {_norm(w) for w in source_text.split()}
     missing = []
-    for ph in phrases:
-        words = [w for w in ph.split() if w.strip("'.") not in COMMON]
-        if not words:
-            continue
-        cand = ' '.join(words).lower().strip(".'")
-        if cand and cand not in src:
+    for m in re.finditer(r"\b([A-Z][A-Za-z0-9&'\-]*(?:[ \t]+[A-Z][A-Za-z0-9&'\-]*)*)", plain):
+        ph = m.group(1)
+        words = [w.strip("'.,-") for w in ph.split() if w.strip("'.,-") not in COMMON and w.strip("'.,-") not in TRANSITION]
+        start = m.start() == 0 or plain[:m.start()].rstrip()[-1:] in '.:;!?\n'
+        if start and len(ph.split()) == 1:
+            continue                                        # a lone capitalised word starting a sentence
+        bad = [w for w in words if len(_norm(w)) >= 2 and _norm(w) not in src_words and _norm(w) not in src_norm]
+        if bad:
             missing.append(ph)
     if missing:
         report.fail(f'names not found in sources: {", ".join(sorted(set(missing)))}')
@@ -178,6 +191,8 @@ def check_sources(cluster, report):
         report.ok('confirmed by an official source (' + ', '.join(cluster['outlets']) + ')')
     elif len(cluster['outlets']) >= 2:
         report.ok(f'confirmed by {len(cluster["outlets"])} outlets: ' + ', '.join(cluster['outlets']))
+    elif cluster.get('trusted'):
+        report.ok('reported by a trusted outlet: ' + ', '.join(cluster['trusted']))
     else:
         report.fail('only one outlet reports this story: ' + cluster['outlets'][0])
 

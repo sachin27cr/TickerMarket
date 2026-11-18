@@ -34,7 +34,7 @@ GEMINI_API_KEY = env('GEMINI_API_KEY')
 GEMINI_MODEL = env('GEMINI_MODEL', 'auto')          # 'auto' = newest available Flash model
 GROQ_API_KEY = env('GROQ_API_KEY')
 GROQ_MODEL = env('GROQ_MODEL', 'auto')              # 'auto' = best available large model
-REQUIRE_SECOND_OPINION = env_bool('TM_REQUIRE_SECOND_OPINION', True)
+REQUIRE_SECOND_OPINION = env_bool('TM_REQUIRE_SECOND_OPINION', False)   # news always waits for approval
 
 META_PAGE_ID = env('META_PAGE_ID')
 META_PAGE_TOKEN = env('META_PAGE_TOKEN')
@@ -44,7 +44,7 @@ THREADS_TOKEN = env('THREADS_TOKEN')
 GRAPH_VERSION = env('META_GRAPH_VERSION', 'v21.0')
 POST_TO = [p.strip() for p in env('TM_POST_TO', 'instagram,facebook,threads').split(',') if p.strip()]
 
-NEWS_PER_RUN = int(env('TM_NEWS_PER_RUN', '2'))
+NEWS_PER_RUN = int(env('TM_NEWS_PER_RUN', '3'))
 NEWS_MAX_AGE_HOURS = float(env('TM_NEWS_MAX_AGE_HOURS', '18'))
 
 # Auto-posting. '' = every post needs your tap (default). 'data' = data cards post on their own,

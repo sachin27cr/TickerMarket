@@ -25,7 +25,19 @@ IMPORTANT = {'sensex': 3, 'nifty': 3, 'rbi': 3, 'sebi': 3, 'ipo': 3, 'fii': 3, '
 # not market news, or not suitable for this page
 EXCLUDE = re.compile(r'\b(horoscope|astrology|cricket|bollywood|recipe|lottery|stocks? to (buy|watch)|'
                      r'multibagger|target price|buy or sell|top picks?|technical pick|trading idea|should you (buy|sell|invest)|'
-                     r'buy or wait|good time to (buy|invest)|stocks? to (accumulate|hold))\b', re.I)
+                     r'buy or wait|good time to (buy|invest)|stocks? to (accumulate|hold)|outlook for|trade setup|'
+                     r'levels to watch|gmp|grey market|profit calculator|what to expect|market prediction|'
+                     r'live updates|live blog|stock market live)\b', re.I)
+# Major business outlets: one of these reporting a story is enough (official sources are tier 1).
+TRUSTED = ('economic times', 'moneycontrol', 'mint', 'livemint', 'business standard', 'businessline',
+           'hindu businessline', 'cnbc-tv18', 'cnbctv18', 'financial express', 'the hindu', 'reuters', 'pti',
+           'press trust of india', 'ndtv profit', 'bloomberg', 'business today', 'et now', 'zee business',
+           'hindustan times', 'times of india', 'nse', 'bse', 'rbi', 'sebi')
+
+
+def trusted(outlet):
+    o = (outlet or '').lower()
+    return any(re.search(r'\b' + re.escape(t) + r'\b', o) for t in TRUSTED)
 
 
 def clean(text):
@@ -113,10 +125,15 @@ def cluster(items, threshold=0.34):
         outlets = {i['outlet'] for i in c['items']}
         c['outlets'] = sorted(outlets)
         c['tier1'] = any(i['tier'] == 1 for i in c['items'])
-        c['confirmed'] = c['tier1'] or len(outlets) >= 2
+        c['trusted'] = [o for o in outlets if trusted(o)]
+        c['confirmed'] = c['tier1'] or len(outlets) >= 2 or bool(c['trusted'])
         imp = sum(IMPORTANT.get(t, 0) for t in c['tokens'])
         age_h = (now_ist() - max(i['published'] for i in c['items'])).total_seconds() / 3600
-        c['score'] = len(outlets) * 3 + imp + (4 if c['tier1'] else 0) - age_h * 0.3
+        from .names import COMMON
+        titles = ' '.join(i['title'] for i in c['items'])
+        big = sum(1 for n in set(COMMON.values()) if len(n) > 3 and re.search(r'\b' + re.escape(n) + r'\b', titles))
+        # viral = covered by many outlets + big names + market-moving words, and fresh
+        c['score'] = len(outlets) * 4 + imp + 3 * min(big, 2) + (4 if c['tier1'] else 0) - age_h * 0.4
         lead = max(c['items'], key=lambda i: (i['tier'] == 1, len(i['summary'])))
         c['key'] = ' '.join(sorted(list(tokens(lead['title'])))[:8])
         c['lead'] = lead

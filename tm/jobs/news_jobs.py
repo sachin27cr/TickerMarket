@@ -51,6 +51,9 @@ def build_from_cluster(c):
     for i in c['items']:
         allowed += [i['published'].day, i['published'].year]
     allowed += [today_ist().day, today_ist().year]
+    for yr in range(2020, 2036):                       # 'CY27', 'FY27', '2027' in a source all allow 2027
+        if re.search(r'(?<!\d)(?:20)?' + str(yr)[2:] + r'(?!\d)', src_text) and re.search(r'(?i)(fy|cy|20|\')' + str(yr)[2:] + r'(?!\d)', src_text):
+            allowed.append(yr)
     checks.check_numbers(draft_text + '\n' + label, allowed, report, 'headline/banner/points/body')
     checks.check_names(draft_text, src_text, report)
     checks.check_months(draft_text, src_text, report)
@@ -71,7 +74,7 @@ def build_from_cluster(c):
         else:
             report.fail(f'second opinion ({checker}): ' + '; '.join(verdict.get('issues') or ['rejected']))
     except llm.LLMError as e:
-        msg = f'second opinion unavailable ({e})'
+        msg = f'second opinion unavailable ({str(e)[:80]}) - code checks passed, please read before approving'
         report.fail(msg) if config.REQUIRE_SECOND_OPINION else report.warn(msg)
     if not report.passed:
         return None, None, report, title
@@ -118,7 +121,7 @@ def news(force=False, limit=None):
     clusters = [c for c in news_src.cluster(items) if not store.seen('news', c['key'])]
     made, tried, blocked = 0, 0, []
     for c in clusters:
-        if made >= limit or tried >= limit * 3:
+        if made >= limit or tried >= limit * 5:
             break
         if not c['confirmed']:
             continue
