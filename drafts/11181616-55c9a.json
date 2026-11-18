@@ -1,0 +1,52 @@
+{
+  "id": "11181616-55c9a",
+  "kind": "cap_movers",
+  "created": "2026-11-18T16:16:28.133462+05:30",
+  "images": [
+    "media/2026-11-18/cap_movers-161628-6123_1.jpg",
+    "media/2026-11-18/cap_movers-161628-6123_2.jpg",
+    "media/2026-11-18/cap_movers-161628-6123_3.jpg",
+    "media/2026-11-18/cap_movers-161628-6123_4.jpg",
+    "media/2026-11-18/cap_movers-161628-6123_5.jpg",
+    "media/2026-11-18/cap_movers-161628-6123_6.jpg",
+    "media/2026-11-18/cap_movers-161628-6123_7.jpg",
+    "media/2026-11-18/cap_movers-161628-6123_8.jpg"
+  ],
+  "caption": "TOP GAINERS AND LOSERS BY MARKET CAP: 18 NOVEMBER 2026\n\nLarge Cap: top gainer SBI (+2.38%), top loser Vedanta Aluminium Metal (-5.79%).\nMid Cap: top gainer Exide Industries (+2.25%), top loser Kalyan Jewellers (-4.80%).\nSmall Cap: top gainer INOX India (+7.81%), top loser Caplin Point Laboratories (-7.20%).\nMicro Cap: top gainer Subros (+13.10%), top loser Karnataka Bank (-7.17%).\n\nGroups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the top 5 in each group.\n\nFor information only. Not investment advice.\n\n#TopGainers #TopLosers #StockMarketIndia #SmallCap #ShareMarket",
+  "threads_text": "TOP GAINERS AND LOSERS BY MARKET CAP: 18 NOVEMBER 2026\n\nLarge Cap: top gainer SBI (+2.38%), top loser Vedanta Aluminium Metal (-5.79%).\nMid Cap: top gainer Exide Industries (+2.25%), top loser Kalyan Jewellers (-4.80%).\nSmall Cap: top gainer INOX India (+7.81%), top loser Caplin Point Laboratories (-7.20%).\nMicro Cap: top gainer Subros (+13.10%), top loser Karnataka Bank (-7.17%).\n\n#TopGainers #TopLosers #StockMarketIndia #SmallCap #ShareMarket",
+  "report": [
+    [
+      "ok",
+      "Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed"
+    ],
+    [
+      "warn",
+      "Mid Cap: 1 stock(s) left out - % change did not match price data"
+    ],
+    [
+      "ok",
+      "Mid Cap (NIFTY MIDCAP 150): 149 stocks, NSE prices, % re-computed"
+    ],
+    [
+      "warn",
+      "Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)"
+    ],
+    [
+      "warn",
+      "Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)"
+    ],
+    [
+      "ok",
+      "caption: all 11 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 208,
+  "posted": {},
+  "report_text": "✅ Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed\n⚠️ Mid Cap: 1 stock(s) left out - % change did not match price data\n✅ Mid Cap (NIFTY MIDCAP 150): 149 stocks, NSE prices, % re-computed\n⚠️ Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n⚠️ Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n✅ caption: all 11 numbers match source data\n✅ no advice, prediction or rumour language"
+}
