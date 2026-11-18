@@ -178,8 +178,11 @@ def daily_overview(force=False):
     n50 = next((q for q in board if q['name'] == 'NIFTY 50'), board[0])
     store.write_json(f'daily/{day}/highslows.json', {          # for the evening reel
         'ath': ath, 'hi52': hi, 'lo52': lo,
-        'groups': {g: {'ath': [name_of(r) for r in groups[g]['ath'][:3]], 'ath_count': groups[g]['ath_count'],
-                       'hi52_count': groups[g]['hi52_count'], 'lo52_count': groups[g]['lo52_count']} for g in order}})
+        'groups': {g: {'ath': [{'name': name_of(r), 'pct': r['pct']} for r in groups[g]['ath'][:6]],
+                       'hi52': [{'name': name_of(r), 'pct': r['pct']} for r in groups[g]['hi52'][:6]],
+                       'lo52': [{'name': name_of(r), 'pct': r['pct']} for r in groups[g]['lo52'][:6]],
+                       'ath_count': groups[g]['ath_count'], 'hi52_count': groups[g]['hi52_count'],
+                       'lo52_count': groups[g]['lo52_count']} for g in order}})
     up = n50['chg'] >= 0
     theme, tone = ('market_up', 'up') if up else ('market_down', 'down')
     if ath:

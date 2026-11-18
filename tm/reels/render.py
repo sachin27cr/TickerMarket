@@ -160,7 +160,8 @@ def scene_tiles(sc):
                 right -= d.textlength(pt, font=_font('bebas', big)) + 34
             if r.get('value'):
                 d.text((right, cy), r['value'], font=_font('bebas', big), fill=INK, anchor='rm')
-            tiles.append(Tile(card, 60, 520 + i * rh, 0.35 + i * 0.22))
+            stagger = 0.22 if sc.get('voice') else 0.08          # silent lists appear almost at once
+            tiles.append(Tile(card, 60, 520 + i * rh, (0.35 if sc.get('voice') else 0.15) + i * stagger))
     elif kind == 'duo':
         tiles.append(_title_tile(sc['title'], 380, 0.05))
         colw = (W - 140) // 2
@@ -238,10 +239,13 @@ def build(scenes, label, out_path, seed='reel'):
     engine = None
     durs, wavs = [], []
     for i, sc in enumerate(scenes):
-        mp3, eng = voice.speak(voice.clean(sc['voice']), work / f'v{i}.mp3')
-        engine = engine or (eng if mp3 else None)
-        spoken = voice.duration(mp3) if mp3 else max(3.0, len(sc['voice'].split()) / 2.7)
-        d = round(spoken + 0.9, 2)
+        if sc.get('voice'):
+            mp3, eng = voice.speak(voice.clean(sc['voice']), work / f'v{i}.mp3')
+            engine = engine or (eng if mp3 else None)
+            spoken = voice.duration(mp3) if mp3 else max(3.0, len(sc['voice'].split()) / 2.7)
+            d = round(spoken + 0.9, 2)
+        else:                                     # on-screen list only: no voice, held for a few seconds
+            mp3, d = None, float(sc.get('hold', 3.0))
         durs.append(d)
         wav = work / f'a{i}.wav'
         src = ['-i', str(mp3)] if mp3 else ['-f', 'lavfi', '-i', 'anullsrc=r=44100:cl=mono']
@@ -289,8 +293,9 @@ def build(scenes, label, out_path, seed='reel'):
                 _header(frame, label, i, len(scenes), t / durs[i])
                 for tl in tiles:
                     tl.draw(frame, t)
-                ci = min(len(subs) - 1, int(t / durs[i] * len(subs)))
-                frame.alpha_composite(subs[ci], (60, H - 330))
+                if sc.get('voice'):
+                    ci = min(len(subs) - 1, int(t / durs[i] * len(subs)))
+                    frame.alpha_composite(subs[ci], (60, H - 330))
                 rgb = frame.convert('RGB')
                 if cover is None and i == 0 and k == int(1.2 * FPS):
                     cover = rgb.copy()

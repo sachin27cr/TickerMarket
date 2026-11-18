@@ -44,6 +44,31 @@ def _outro():
             'voice': 'Follow Ticker Market India for daily stock market data and news.'}
 
 
+def _pick(hl, key):
+    out = []
+    for seg, g in (hl.get('groups') or {}).items():
+        for r in g.get(key) or []:
+            if isinstance(r, dict):
+                out.append({**r, 'seg': seg})
+    return out
+
+
+def _list_scenes(hl, tone):
+    """On-screen lists of the stocks at new highs / lows (names are shown, not read out), about 3 s each."""
+    scenes = []
+    highs = sorted(_pick(hl, 'ath'), key=lambda r: r['pct'], reverse=True)
+    title = f'All-time highs today ({hl["ath"]})'
+    if not highs:
+        highs = sorted(_pick(hl, 'hi52'), key=lambda r: r['pct'], reverse=True)
+        title = f'52-week highs today ({hl["hi52"]})'
+    lows = sorted(_pick(hl, 'lo52'), key=lambda r: r['pct'])
+    for t, rows, topic in ((title, highs, 'highs'), (f'52-week lows today ({hl["lo52"]})', lows, 'lows')):
+        if rows:
+            scenes.append({'type': 'rows', 'title': t, 'topic': topic, 'tone': tone, 'voice': '', 'hold': 3.4,
+                           'rows': [{'label': r['name'], 'sub': r['seg'], 'pct': r['pct']} for r in rows[:6]]})
+    return scenes
+
+
 def _make(kind, title, label, scenes, caption, report, allowed, seed):
     out = Path(tempfile.mkdtemp()) / f'{kind}.mp4'
     path, cover, rep, _ = render.build(scenes, label, out, seed)
@@ -244,6 +269,7 @@ def evening_reel(force=False):
                                 f'{hl["hi52"]} touched a 52-week high and {hl["lo52"]} a 52-week low.'})
         paras.append(f'New highs and lows: {hl["ath"]} all-time highs, {hl["hi52"]} 52-week highs, {hl["lo52"]} 52-week lows.')
         allowed += [hl['ath'], hl['hi52'], hl['lo52'], 52]
+        scenes += _list_scenes(hl, 'up' if up else 'down')
     verb = 'gains' if up else 'falls'
     hook = f'Nifty {verb} {fmt_inr(abs(n["chg"]), 0)} points; Sensex at {fmt_inr(s["close"], 0)}'
     allowed += [round(abs(n['chg'])), round(s['close'])]
@@ -369,15 +395,14 @@ def _extremes_reel(kind, force):
                        'tone': 'up' if kind == 'ath' else 'down',
                        'rows': [{'label': name_of(r), 'value': '₹' + fmt_inr(r['close'] if 'close' in r else r.get('last', 0)),
                                  'pct': r['week_pct']} for r in top],
-                       'voice': f'In {seg.lower()}, {g[f"{kind}_count"]} stocks hit a {what} this week, including '
-                                f'{", ".join(name_of(r) for r in top)}.'})
+                       'voice': f'In {seg.lower()}, {g[f"{kind}_count"]} stocks hit a {what} this week.'})
         paras.append(f'{seg}: {g[f"{kind}_count"]} - ' + ', '.join(f'{name_of(r)} ({r["week_pct"]:+.2f}%)' for r in top))
         allowed += [g[f'{kind}_count']] + [abs(r['week_pct']) for r in top] + \
                    [r.get('close') or r.get('last') or 0 for r in top]
     scenes.insert(0, {'type': 'intro', 'title': label, 'day': today, 'topic': 'highs' if kind == 'ath' else 'lows',
                       'tone': 'up' if kind == 'ath' else 'down',
                       'hook': f'{total} stocks hit a {what} this week',
-                      'voice': f'{total} stocks across the four market-cap groups hit a {what} this week. Here are the top names.'})
+                      'voice': f'{total} stocks across the four market-cap groups hit a {what} this week.'})
     scenes.append(_outro())
     caption = assemble(f'{total} stocks hit a {what} this week', paras + ['Weekly % change in brackets.'], '',
                        tags('#AllTimeHigh' if kind == 'ath' else '#52WeekLow', '#StockMarketIndia', '#Nifty50',
