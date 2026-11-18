@@ -1,0 +1,44 @@
+{
+  "ath": 10,
+  "hi52": 17,
+  "lo52": 8,
+  "groups": {
+    "Large Cap": {
+      "ath": [
+        "Kotak Bank"
+      ],
+      "ath_count": 1,
+      "hi52_count": 3,
+      "lo52_count": 1
+    },
+    "Mid Cap": {
+      "ath": [
+        "Bank of Maharashtra",
+        "MCX"
+      ],
+      "ath_count": 2,
+      "hi52_count": 3,
+      "lo52_count": 3
+    },
+    "Small Cap": {
+      "ath": [
+        "NAVINFLUOR",
+        "Emcure Pharmaceuticals",
+        "Shyam Metalics and Energy"
+      ],
+      "ath_count": 3,
+      "hi52_count": 7,
+      "lo52_count": 0
+    },
+    "Micro Cap": {
+      "ath": [
+        "Indo Count Industries",
+        "Pearl Global Industries",
+        "SG Mart"
+      ],
+      "ath_count": 4,
+      "hi52_count": 4,
+      "lo52_count": 4
+    }
+  }
+}
