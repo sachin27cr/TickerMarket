@@ -1,5 +1,6 @@
 """Runs every few minutes: handles Approve/Reject taps and Telegram commands."""
 import html
+from pathlib import Path
 
 from .. import config, store, telegram
 from ..publish import meta
@@ -19,6 +20,7 @@ HELP = """<b>Ticker Market bot</b>
 /ipo - IPO carousels
 /iposubs - live IPO subscription
 /reelam /reelpm /reelweek /reelath /reellows - make a reel now
+/voices - hear the voice options; /voice name - choose one
 /innovative - next data story (Insights); /innovative list for tags, e.g. /innovative profits
 /queue - drafts waiting for you
 /flagged - recently blocked drafts
@@ -82,6 +84,26 @@ def _dispatch_insight(arg, job='insights'):
 
 def run_command(cmd, arg=''):
     from . import insight_jobs, market_jobs, news_jobs
+    if cmd == '/voices':
+        import tempfile
+        from ..reels import voice as V
+        cur = (store.get_flag('voice') or V.DEFAULT).lower()
+        for name, (vid, _, desc) in V.VOICES.items():
+            try:
+                path = V.sample(name, Path(tempfile.mkdtemp()) / f'{name}.mp3')
+                telegram.send_audio(path, f'{name}{" (current)" if name == cur else ""} - {desc}. Pick: /voice {name}')
+            except Exception as e:                   # noqa: BLE001
+                telegram.send_text(f'{name}: sample failed ({type(e).__name__})')
+        return
+    if cmd == '/voice':
+        from ..reels import voice as V
+        name = arg.strip().lower()
+        if name not in V.VOICES:
+            telegram.send_text('Choose one of: ' + ', '.join(f'/voice {n}' for n in V.VOICES) + '. Hear them with /voices')
+            return
+        store.set_flag('voice', name)
+        telegram.send_text(f'Reels will now use the {name} voice ({V.VOICES[name][2]}).')
+        return
     if cmd in REEL_CMDS:
         if _dispatch_insight('', REEL_CMDS[cmd]):
             telegram.send_text(f'Making the reel ({REEL_CMDS[cmd]}) - it arrives here in about 3 minutes.')

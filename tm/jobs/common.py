@@ -7,6 +7,11 @@ from ..verify.checks import Report, check_banned, check_numbers
 from ..writer import captions
 
 
+def _name_digits():
+    from ..sources.names import name_numbers
+    return name_numbers()
+
+
 def date_numbers(*dates):
     out = []
     for d in dates:
@@ -54,7 +59,7 @@ def finish(kind, title, images, caption, report: Report, allowed_numbers=None, m
     """Final checks shared by every post, then hand to Telegram. Returns draft or None."""
     if allowed_numbers is not None:
         body = caption.rsplit('\n\n', 1)[0]                      # hashtags excluded
-        check_numbers(body, list(allowed_numbers) + date_numbers(now_ist().date()), report)
+        check_numbers(body, list(allowed_numbers) + date_numbers(now_ist().date()) + _name_digits(), report)
     check_banned(caption, report)
     if not report.passed:
         log.warning('BLOCKED %s %s\n%s', kind, title, report.text())
@@ -92,7 +97,7 @@ def finish_video(kind, title, video_path, cover, caption, report, allowed_number
     import shutil
     if allowed_numbers is not None:
         body = caption.rsplit('\n\n', 1)[0]
-        check_numbers(body, list(allowed_numbers) + date_numbers(now_ist().date()), report)
+        check_numbers(body, list(allowed_numbers) + date_numbers(now_ist().date()) + _name_digits(), report)
     check_banned(caption, report)
     if not report.passed:
         log.warning('BLOCKED %s %s\n%s', kind, title, report.text())

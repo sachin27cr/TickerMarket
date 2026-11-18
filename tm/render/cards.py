@@ -13,6 +13,7 @@ from ..util import fmt_inr, pct_change
 W, H = 1080, 1350
 BG = (3, 10, 23)
 PANEL = (14, 22, 40)
+PANEL2 = (9, 16, 31)       # alternate table rows: still solid, so no background shows through
 GRID = (9, 17, 33)
 LINE = (38, 50, 74)
 WHITE = (255, 255, 255)
@@ -47,6 +48,21 @@ def logo():
     if _logo is None:
         _logo = Image.open(config.ROOT / config.BRAND['logo']).convert('RGBA')
     return _logo
+
+
+def name_of(r):
+    if r.get('name'):
+        return r['name']
+    from ..sources.names import short
+    return short(r.get('symbol', ''))
+
+
+def fit(d, text, size, max_w, weight='SemiBold', min_size=22):
+    f = hind(size, weight)
+    while d.textlength(text, font=f) > max_w and size > min_size:
+        size -= 1
+        f = hind(size, weight)
+    return f
 
 
 def col(v):
@@ -110,8 +126,10 @@ def base(category, date_text, sample=False, theme=None, seed=0, dim=0.0, tone=No
     if theme:
         from .art import background
         im = background(theme, W, H, seed, tone)
-        if dim:
-            im = Image.blend(im, Image.new('RGB', (W, H), BG), dim)
+        if dim:                                   # content slides: blur + darken so nothing in the art competes with data
+            from PIL import ImageFilter
+            im = im.filter(ImageFilter.GaussianBlur(22))
+            im = Image.blend(im, Image.new('RGB', (W, H), BG), max(dim, 0.62))
     else:
         im = Image.new('RGB', (W, H), BG)
     d = ImageDraw.Draw(im)
@@ -285,8 +303,7 @@ def daily_overview(data):
     y = headline(d, data['headline'], 190, size=90) + 26
     rh = 92
     for i, q in enumerate(data['indices'][:6]):
-        if i % 2 == 0:
-            d.rounded_rectangle([60, y, W - 60, y + rh - 8], radius=10, fill=PANEL)
+        d.rounded_rectangle([60, y, W - 60, y + rh - 8], radius=10, fill=PANEL if i % 2 == 0 else PANEL2)
         pct = pct_change(q['close'], q['chg'])
         d.text((90, y + 42), q['name'], font=hind(34, 'SemiBold'), fill=WHITE, anchor='lm')
         d.text((690, y + 42), fmt_inr(q['close']), font=bebas(52), fill=WHITE, anchor='rm')
@@ -340,8 +357,7 @@ def daily_overview(data):
         im, d = base('Currency & Commodities', data['date_text'], data.get('sample'))
         y = headline(d, data.get('extras_headline', '*Rupee*, crude, gold and volatility'), 190, size=88) + 30
         for i, r in enumerate(data['extras']):
-            if i % 2 == 0:
-                d.rounded_rectangle([60, y, W - 60, y + 100], radius=12, fill=PANEL)
+            d.rounded_rectangle([60, y, W - 60, y + 100], radius=12, fill=PANEL if i % 2 == 0 else PANEL2)
             d.text((90, y + 50), r['name'], font=hind(36, 'SemiBold'), fill=WHITE, anchor='lm')
             d.text((690, y + 50), r['value'], font=bebas(58), fill=WHITE, anchor='rm')
             arrow(d, 740, y + 38, r['pct'], 24)
@@ -368,8 +384,7 @@ def fii_dii(data):
     fs = 40 if rh >= 90 else 34
     fii_t = dii_t = 0
     for i, r in enumerate(rows):
-        if i % 2 == 0:
-            d.rectangle([60, y, W - 60, y + rh], fill=PANEL)
+        d.rectangle([60, y, W - 60, y + rh], fill=PANEL if i % 2 == 0 else PANEL2)
         d.text((cols[0], y + rh // 2), r['date'], font=hind(fs - 2, 'SemiBold'), fill=WHITE, anchor='lm')
         if r.get('holiday'):
             d.text((W / 2 + 100, y + rh // 2), 'Market holiday', font=hind(fs - 4), fill=MUTED, anchor='mm')
@@ -460,8 +475,7 @@ def global_cues(data):
     y = headline(d, data['headline'], 190, size=92) + 24
     rh = 84
     for i, r in enumerate(data['rows'][:8]):
-        if i % 2 == 0:
-            d.rounded_rectangle([60, y, W - 60, y + rh - 8], radius=10, fill=PANEL)
+        d.rounded_rectangle([60, y, W - 60, y + rh - 8], radius=10, fill=PANEL if i % 2 == 0 else PANEL2)
         d.text((90, y + 38), r['name'], font=hind(36, 'SemiBold'), fill=WHITE, anchor='lm')
         d.text((640, y + 38), r['value'], font=bebas(52), fill=WHITE, anchor='rm')
         arrow(d, 760, y + 26, r['pct'], 24)
@@ -531,7 +545,7 @@ def movers_slide(category, date_text, head, gainers, losers, source, swipe=False
             rh = step - 10
             d.rounded_rectangle([60, y, W - 60, y + rh], radius=10, fill=PANEL)
             d.rectangle([60, y, 68, y + rh], fill=c)
-            d.text((96, y + rh // 2), r['symbol'], font=hind(32, 'SemiBold'), fill=WHITE, anchor='lm')
+            d.text((96, y + rh // 2), name_of(r), font=fit(d, name_of(r), 32, 380), fill=WHITE, anchor='lm')
             d.text((690, y + rh // 2), '₹' + fmt_inr(r['last']), font=hind(32, 'SemiBold'), fill=MUTED, anchor='rm')
             d.text((W - 90, y + rh // 2), f'{r["pct"]:+.2f}%', font=bebas(48), fill=c, anchor='rm')
             y += step
@@ -556,7 +570,7 @@ def cap_movers(data):
             yy = y + 92 + k * 50
             d.text((90, yy), lab, font=hind(28), fill=MUTED, anchor='lm')
             if rows:
-                d.text((330, yy), rows[0]['symbol'], font=hind(32, 'SemiBold'), fill=WHITE, anchor='lm')
+                d.text((330, yy), name_of(rows[0]), font=fit(d, name_of(rows[0]), 32, 330), fill=WHITE, anchor='lm')
                 d.text((W - 90, yy), f'{rows[0]["pct"]:+.2f}%', font=bebas(46), fill=c, anchor='rm')
             else:
                 d.text((330, yy), '-', font=hind(32), fill=MUTED, anchor='lm')
@@ -587,7 +601,7 @@ def extremes_slide(category, date_text, head, rows, kind, source, empty_text, sa
         rh = step - 8
         d.rounded_rectangle([60, y, W - 60, y + rh], radius=10, fill=PANEL)
         d.rectangle([60, y, 68, y + rh], fill=bar)
-        d.text((96, y + rh // 2), r['symbol'], font=hind(31, 'SemiBold'), fill=WHITE, anchor='lm')
+        d.text((96, y + rh // 2), name_of(r), font=fit(d, name_of(r), 31, 400), fill=WHITE, anchor='lm')
         d.text((690, y + rh // 2), '₹' + fmt_inr(r['level']), font=hind(31, 'SemiBold'), fill=WHITE, anchor='rm')
         d.text((W - 90, y + rh // 2), f'{r["week_pct"]:+.2f}%', font=bebas(44), fill=col(r['week_pct']), anchor='rm')
         y += step
@@ -612,7 +626,7 @@ def extremes(data):
         word = 'all-time high' if kind == 'ath' else '52-week low'
         d.text((90, y + 96), f'{g["count"]} stock{"s" if g["count"] != 1 else ""} at a new {word}',
                font=hind(32, 'SemiBold'), fill=WHITE, anchor='lm')
-        names = ', '.join(r['symbol'] for r in g['rows'][:3])
+        names = ', '.join(name_of(r) for r in g['rows'][:3])
         if names:
             d.text((90, y + 134), names[:48], font=hind(28), fill=MUTED, anchor='lm')
         y += th
@@ -668,8 +682,7 @@ def info_table(category, date_text, head, rows, source, theme=None, seed=0):
         h = max(70, 26 + 42 * len(lines[:3]))
         if y + h > H - 175:
             break
-        if i % 2 == 0:
-            d.rounded_rectangle([60, y, W - 60, y + h], radius=10, fill=PANEL)
+        d.rounded_rectangle([60, y, W - 60, y + h], radius=10, fill=PANEL if i % 2 == 0 else PANEL2)
         d.text((90, y + h // 2), k.upper(), font=lf, fill=MUTED, anchor='lm')
         yy = y + h // 2 - (len(lines[:3]) - 1) * 21
         for ln in lines[:3]:
@@ -727,8 +740,7 @@ def index_board(data):
     rows = data['rows']
     rh = min(98, (H - 230 - y) // max(1, len(rows)))
     for i, q in enumerate(rows):
-        if i % 2 == 0:
-            d.rounded_rectangle([60, y, W - 60, y + rh - 6], radius=10, fill=PANEL)
+        d.rounded_rectangle([60, y, W - 60, y + rh - 6], radius=10, fill=PANEL if i % 2 == 0 else PANEL2)
         cy = y + (rh - 6) // 2
         pct = pct_change(q['close'], q['chg'])
         d.text((84, cy), q['name'], font=hind(29, 'SemiBold'), fill=WHITE, anchor='lm')
@@ -756,7 +768,7 @@ def highs_lows_group(data):
         for r in rows:
             d.rounded_rectangle([60, y, W - 60, y + 60], radius=10, fill=PANEL)
             d.rectangle([60, y, 68, y + 60], fill=colour)
-            d.text((92, y + 30), r['symbol'], font=hind(29, 'SemiBold'), fill=WHITE, anchor='lm')
+            d.text((92, y + 30), name_of(r), font=fit(d, name_of(r), 29, 300), fill=WHITE, anchor='lm')
             tag = tag_fn(r)
             if tag:
                 tw = d.textlength(tag, font=cond(22)) + 20

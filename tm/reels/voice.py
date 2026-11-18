@@ -12,8 +12,29 @@ from pathlib import Path
 from .. import config
 from ..util import log
 
-VOICE = config.env('TM_VOICE', 'en-IN-NeerjaNeural')      # or en-IN-PrabhatNeural (male)
-RATE = config.env('TM_VOICE_RATE', '+6%')
+# Male voices to choose from in Telegram (/voices plays a sample of each, /voice <name> picks one).
+VOICES = {
+    'prabhat': ('en-IN-PrabhatNeural', '+4%', 'Indian English, male'),
+    'andrew': ('en-US-AndrewMultilingualNeural', '+0%', 'most natural conversational voice, American accent'),
+    'brian': ('en-US-BrianMultilingualNeural', '+0%', 'warm conversational voice, American accent'),
+    'madhur': ('hi-IN-MadhurNeural', '+0%', 'Hindi male voice reading English, Indian accent'),
+}
+DEFAULT = config.env('TM_VOICE', 'prabhat')
+SAMPLE = ('Good morning. The Nifty closed at 24,612, up 118 points, or 0.48 percent. Foreign investors were net '
+          'buyers of 4,870 crore rupees. Here is what to watch today.')
+
+
+def current():
+    """(edge voice id, rate) chosen in Telegram, else TM_VOICE, else Prabhat."""
+    from .. import store
+    key = (store.get_flag('voice') or DEFAULT).lower()
+    if key not in VOICES:                       # a full voice id may be set directly
+        return key, '+0%'
+    v, rate, _ = VOICES[key]
+    return v, rate
+
+
+VOICE = None                                     # filled at use time (see current())
 
 
 def duration(path):
@@ -25,12 +46,21 @@ def duration(path):
         return 0.0
 
 
-def _edge(text, path):
+def _edge(text, path, voice_id=None):
     import edge_tts
+    vid, rate = (voice_id, '+0%') if voice_id else current()
+    if voice_id in [v for v, _, _ in VOICES.values()]:
+        rate = next(r for v, r, _ in VOICES.values() if v == voice_id)
 
     async def run():
-        await edge_tts.Communicate(text, VOICE, rate=RATE).save(str(path))
+        await edge_tts.Communicate(text, vid, rate=rate, pitch='-2Hz').save(str(path))
     asyncio.run(run())
+
+
+def sample(name, path):
+    """A short sample of one voice for /voices."""
+    _edge(SAMPLE, path, VOICES[name][0])
+    return path
 
 
 def _gtts(text, path):

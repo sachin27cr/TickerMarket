@@ -38,8 +38,8 @@ A draft with any ⚠️ warning (e.g. single-source data) never auto-posts; it w
 | Sat 12:35 PM | **Week in Review** | weekly change of Nifty/Sensex/Bank Nifty, FII/DII for the week, highs/lows |
 | Sat 5:20 PM | **52-Week Lows** of the week | count and top names per market-cap group |
 
-Voice: Microsoft Edge neural voice `en-IN-NeerjaNeural` (free, via edge-tts; set variable `TM_VOICE=en-IN-PrabhatNeural`
-for a male voice), Google TTS with an Indian accent as fallback. The voice script, captions and on-screen numbers are
+Voice: free Microsoft Edge neural male voice (default Prabhat, Indian English). Send `/voices` in Telegram to hear
+Prabhat, Andrew, Brian and Madhur, then `/voice andrew` (etc.) to choose. Google TTS is the fallback. The voice script, captions and on-screen numbers are
 written by code from verified data (no AI). A soft generated music bed sits under the voice (no copyrighted music).
 Reels always wait for approval in Telegram; Instagram and Facebook receive the file directly, Threads reads it from the
 data branch. Telegram: `/reelam` `/reelpm` `/reelweek` `/reelath` `/reellows`.

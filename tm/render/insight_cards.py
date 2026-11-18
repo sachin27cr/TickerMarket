@@ -4,7 +4,7 @@ from PIL import Image, ImageDraw
 
 from .. import config
 from ..util import fmt_inr
-from .cards import (BG, DOWN, FLAT, GOLD, H, LINE, MUTED, PANEL, UP, W, WHITE, base, bebas, col, cond, footer,
+from .cards import (BG, DOWN, FLAT, GOLD, H, LINE, MUTED, PANEL, PANEL2, UP, W, WHITE, base, bebas, col, cond, footer,
                     headline, hind, logo, rich_text, scrim, sign_of, wrap)
 from .widgets import monogram
 
@@ -192,8 +192,7 @@ def score_table(data):
     rh = min(66, (H - 250 - y) // max(1, len(rows)))
     nf, vf = hind(min(28, rh - 18), 'SemiBold'), bebas(min(40, rh - 6))
     for i, r in enumerate(rows):
-        if i % 2 == 0:
-            d.rounded_rectangle([60, y, W - 60, y + rh - 4], radius=8, fill=PANEL)
+        d.rounded_rectangle([60, y, W - 60, y + rh - 4], radius=8, fill=PANEL if i % 2 == 0 else PANEL2)
         cy = y + (rh - 4) // 2
         hl = r.get('highlight')
         d.text((84, cy), r['name'], font=nf, fill=GOLD if hl else WHITE, anchor='lm')

@@ -4,6 +4,8 @@ from datetime import date, timedelta
 
 from .. import store
 from ..render import cards
+from ..render.cards import name_of
+from ..sources.names import short as short_name
 from ..render.art import as_post
 from ..sources import market, nse
 from ..util import fmt_date, fmt_inr, log, now_ist, pct_change, signed, today_ist
@@ -133,7 +135,7 @@ def market_close(force=False):
         allowed += [abs(ranked[0]['pct']), abs(ranked[-1]['pct'])]
     if gainers and losers:
         g, l = gainers[0], losers[0]
-        paras.append(f'Top Nifty 50 gainer: {g["symbol"]} ({g["pct"]:+.2f}%). Top loser: {l["symbol"]} ({l["pct"]:+.2f}%).')
+        paras.append(f'Top Nifty 50 gainer: {name_of(g)} ({g["pct"]:+.2f}%). Top loser: {name_of(l)} ({l["pct"]:+.2f}%).')
         allowed += [abs(g['pct']), abs(l['pct'])]
     if breadth:
         paras.append(f'{breadth["advances"]} stocks advanced and {breadth["declines"]} declined in the Nifty 500.')
@@ -176,7 +178,7 @@ def daily_overview(force=False):
     n50 = next((q for q in board if q['name'] == 'NIFTY 50'), board[0])
     store.write_json(f'daily/{day}/highslows.json', {          # for the evening reel
         'ath': ath, 'hi52': hi, 'lo52': lo,
-        'groups': {g: {'ath': [r['symbol'] for r in groups[g]['ath'][:3]], 'ath_count': groups[g]['ath_count'],
+        'groups': {g: {'ath': [name_of(r) for r in groups[g]['ath'][:3]], 'ath_count': groups[g]['ath_count'],
                        'hi52_count': groups[g]['hi52_count'], 'lo52_count': groups[g]['lo52_count']} for g in order}})
     up = n50['chg'] >= 0
     theme, tone = ('market_up', 'up') if up else ('market_down', 'down')
@@ -201,7 +203,7 @@ def daily_overview(force=False):
             'summary': f'{gg["hi52_count"]} at 52-week high ({gg["ath_count"]} all-time high), '
                        f'{gg["lo52_count"]} at 52-week low  |  {gg["index"].title()}',
             'ath': gg['ath'], 'hi52': gg['hi52'], 'lo52': gg['lo52']}))
-        top = ', '.join(r['symbol'] for r in (gg['ath'] or gg['hi52'])[:3])
+        top = ', '.join(name_of(r) for r in (gg['ath'] or gg['hi52'])[:3])
         lines.append(f'{g}: {gg["hi52_count"]} at 52-week highs ({gg["ath_count"]} all-time highs), '
                      f'{gg["lo52_count"]} at 52-week lows' + (f'. Highs include {top}' if top else '') + '.')
         allowed += [gg['hi52_count'], gg['ath_count'], gg['lo52_count']]
@@ -367,7 +369,7 @@ def day_ahead(force=False):
         report.warn(f'event calendar unavailable ({e})')
     try:
         ca = nse.corporate_actions(today, today)
-        groups.append(('Ex-date today', [f'{c["symbol"]} - {c["subject"]}'[:52] for c in ca][:5]))
+        groups.append(('Ex-date today', [f'{short_name(c["symbol"], c.get("company"))} - {c["subject"]}'[:52] for c in ca][:5]))
         report.ok(f'{len(ca)} corporate actions with ex-date today')
     except nse.SourceError as e:
         report.warn(f'corporate actions unavailable ({e})')
@@ -619,7 +621,7 @@ def cap_movers(force=False):
     for sg in seg_list[:3]:
         if sg['gainers']:
             g0 = sg['gainers'][0]
-            cstats.append((f'{sg["name"]} top', f'{g0["symbol"][:10]} {g0["pct"]:+.1f}%', g0['pct']))
+            cstats.append((f'{sg["name"]} top', f'{name_of(g0)[:14]} {g0["pct"]:+.1f}%', g0['pct']))
     images = [cards.cover({'category': 'Gainers & Losers', 'day': day,
                            'headline': f'Top gainers and losers by *market cap*',
                            'stats': cstats, 'theme': 'market_up' if n_up else 'market_down', 'seed': str(day) + 'c',
@@ -630,10 +632,10 @@ def cap_movers(force=False):
     for sg in seg_list:
         bits = []
         if sg['gainers']:
-            g = sg['gainers'][0]; bits.append(f'top gainer {g["symbol"]} ({g["pct"]:+.2f}%)')
+            g = sg['gainers'][0]; bits.append(f'top gainer {name_of(g)} ({g["pct"]:+.2f}%)')
             allowed += [abs(g['pct'])]
         if sg['losers']:
-            l = sg['losers'][0]; bits.append(f'top loser {l["symbol"]} ({l["pct"]:+.2f}%)')
+            l = sg['losers'][0]; bits.append(f'top loser {name_of(l)} ({l["pct"]:+.2f}%)')
             allowed += [abs(l['pct'])]
         paras.append(f'{sg["name"]}: ' + ', '.join(bits) + '.')
     paras = ['\n'.join(paras),
@@ -699,7 +701,7 @@ def _weekly_post(kind, force):
     lines = []
     for g in gl:
         allowed.append(g['count'])
-        top = ', '.join(f'{r["symbol"]} ({r["week_pct"]:+.2f}%)' for r in g['rows'][:3])
+        top = ', '.join(f'{name_of(r)} ({r["week_pct"]:+.2f}%)' for r in g['rows'][:3])
         allowed += [abs(r['week_pct']) for r in g['rows'][:3]]
         lines.append(f'{g["name"]}: {g["count"]} stock{"s" if g["count"] != 1 else ""}' + (f' - {top}' if top else ''))
     paras = [f'{total} stocks across the four market-cap groups made a new {what} in the week of {label}.',

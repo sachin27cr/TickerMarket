@@ -15,6 +15,7 @@ from .. import store, telegram
 from ..render import cards, insight_cards as ic
 from ..render.art import as_post
 from ..sources import insights as src, market
+from ..sources.names import short as short_name
 from ..util import fmt_date, fmt_inr, log, today_ist
 from ..verify.checks import Report
 from ..writer.captions import assemble, tags
@@ -102,14 +103,14 @@ def profits(force=False, st=None):
     day = today_ist()
     names = _names()
     for r in pick:
-        r['name'] = _clean(names.get(r['symbol'], r['symbol']))
+        r['name'] = short_name(r['symbol'], names.get(r['symbol']))
     py_q = pick[0]['py_quarter']
     head = f'Companies with more than *{thr}%* profit growth in *{quarter}*'
     images = [cards.cover({'category': 'Results Season', 'day': day, 'headline': head, 'theme': 'market_up',
                            'seed': f'{quarter}{part}', 'tone': 'up',
                            'stats': [('Companies', str(len(pick)), 0), ('Highest', f'{pick[0]["growth"]:+,.1f}%', 1),
                                      ('Series', f'Part {part}', 0)],
-                           'inside': ['Quick list'] + [r['symbol'] for r in pick[:5]]})]
+                           'inside': ['Quick list'] + [r['name'] for r in pick[:4]]})]
     images.append(ic.list_slide({'category': 'Results Season', 'date_text': f'{quarter} vs {py_q}',
                                  'headline': f'Net profit growth, *{quarter}* vs *{py_q}*', 'theme': 'market_up',
                                  'seed': part, 'tone': 'up',
@@ -119,7 +120,7 @@ def profits(force=False, st=None):
     for i, r in enumerate(pick, 1):
         rows = [('Net profit', ic.cr(r['profit_py']), ic.cr(r['profit']))]
         allowed += [r['growth'], r['profit'], r['profit_py']]
-        line = (f'{i}. {r["name"]} ({r["symbol"]}): net profit up {r["growth"]:,.1f}% from ₹{fmt_inr(r["profit_py"])} crore '
+        line = (f'{i}. {r["name"]}: net profit up {r["growth"]:,.1f}% from ₹{fmt_inr(r["profit_py"])} crore '
                 f'to ₹{fmt_inr(r["profit"])} crore')
         if 'revenue' in r:
             rows.append(('Revenue', ic.cr(r['revenue_py']), ic.cr(r['revenue'])))
@@ -214,13 +215,13 @@ def mcap(force=False, st=None):
     total = sum(r['mcap_cr'] for r in rows)
     lk = lambda v: v / 1e5          # crore -> lakh crore
     for r in rows:
-        r['nm'] = _clean(names.get(r['symbol'], r['name']))
+        r['nm'] = short_name(r['symbol'], names.get(r['symbol'], r['name']))
     head = f"India's *10 most valuable* listed companies"
     gainers = [r for r in rows if r.get('week_cr') is not None]
     top_add = max(gainers, key=lambda r: r['week_cr']) if gainers else None
-    stats = [('Combined', f'₹{lk(total):,.2f} L Cr', 0), ('No. 1', rows[0]['symbol'][:10], 0)]
+    stats = [('Combined', f'₹{lk(total):,.2f} L Cr', 0), ('No. 1', rows[0]['nm'][:14], 0)]
     if top_add:
-        stats.append(('Most added', f'{top_add["symbol"][:9]}', 1 if top_add['week_cr'] > 0 else -1))
+        stats.append(('Most added', f'{top_add["nm"][:14]}', 1 if top_add['week_cr'] > 0 else -1))
     images = [cards.cover({'category': 'Market Cap', 'day': day, 'headline': head, 'theme': 'bank', 'seed': str(day),
                            'stats': stats, 'inside': ['Top 10 ranking', 'Change this week']}),
               ic.hbars({'category': 'Market Cap', 'date_text': fmt_date(day, 'dow'), 'headline': head,
@@ -260,7 +261,7 @@ def wealth(force=False, st=None):
         finish('insight', 'wealth', [], '', report); return None
     names = _names()
     for r in rows:
-        r['nm'] = _clean(names.get(r['symbol'], r['symbol']))
+        r['nm'] = short_name(r['symbol'], names.get(r['symbol']))
         r['lakh'] = round(100000 * (1 + r['pct'] / 100))
     day = today_ist()
     best, worst = rows[:5], rows[-5:][::-1]
@@ -269,8 +270,8 @@ def wealth(force=False, st=None):
     mk = lambda lst: [{'name': r['nm'], 'value': r['lakh'], 'value_text': '₹' + fmt_inr(r['lakh'], 0),
                        'side_text': f'{r["pct"]:+.1f}%', 'side_sign': r['pct']} for r in lst]
     images = [cards.cover({'category': 'One Year', 'day': day, 'headline': head, 'theme': 'market_up', 'seed': str(day),
-                           'tone': 'up', 'stats': [('Best', f'{best[0]["symbol"][:9]} {best[0]["pct"]:+.0f}%', 1),
-                                                   ('Worst', f'{worst[0]["symbol"][:9]} {worst[0]["pct"]:+.0f}%', -1),
+                           'tone': 'up', 'stats': [('Best', f'{best[0]["nm"][:12]} {best[0]["pct"]:+.0f}%', 1),
+                                                   ('Worst', f'{worst[0]["nm"][:12]} {worst[0]["pct"]:+.0f}%', -1),
                                                    ('In the green', f'{up} of {len(rows)}', 0)],
                            'inside': ['Top 5', 'Bottom 5']}),
               ic.hbars({'category': 'One Year', 'date_text': f'Since {fmt_date(ago)}', 'headline': '*Top 5*: ₹1 lakh became',

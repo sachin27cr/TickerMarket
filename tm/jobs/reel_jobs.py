@@ -11,6 +11,8 @@ from pathlib import Path
 from .. import store
 from ..reels import render, voice as V
 from ..render.art import as_post
+from ..render.cards import name_of
+from ..sources.names import short as short_name
 from ..sources import market, nse
 from ..util import fmt_date, fmt_inr, log, now_ist, pct_change, today_ist
 from ..verify.checks import Report
@@ -136,13 +138,13 @@ def morning_reel(force=False):
     except nse.SourceError:
         ipos = []
     if res or ipos:
-        rows = [{'label': r['symbol'], 'sub': 'results today'} for r in res[:4]] + \
+        rows = [{'label': short_name(r['symbol'], r.get('company')), 'sub': 'results today'} for r in res[:4]] + \
                [{'label': (i.get('symbol') or i.get('companyName') or '')[:18], 'sub': 'IPO open for bidding'} for i in ipos[:2]]
-        v = (f'{len(res)} companies announce results today, including {", ".join(r["company"] for r in res[:3])}. ' if res else '') + \
+        v = (f'{len(res)} companies announce results today, including {", ".join(short_name(r["symbol"], r.get("company")) for r in res[:3])}. ' if res else '') + \
             (f'{len(ipos)} IPO{"s are" if len(ipos) > 1 else " is"} open for bidding.' if ipos else '')
         scenes.append({'type': 'rows', 'title': 'On the radar today', 'rows': rows, 'voice': v, 'topic': 'calendar'})
         if res:
-            paras.append(f'Results today ({len(res)}): ' + ', '.join(r['company'] for r in res[:8]) + '.')
+            paras.append(f'Results today ({len(res)}): ' + ', '.join(short_name(r['symbol'], r.get('company')) for r in res[:8]) + '.')
             allowed.append(len(res))
         if ipos:
             paras.append('IPOs open: ' + ', '.join(i.get('companyName') or i.get('symbol') for i in ipos) + '.')
@@ -222,13 +224,13 @@ def evening_reel(force=False):
         if nse.LAST_SOURCE.get('NIFTY 50', 'NSE') != 'NSE':
             report.warn('Nifty 50 movers: prices from Yahoo (NSE stock API unavailable)')
         scenes.append({'type': 'duo', 'title': 'Nifty 50 movers', 'left_title': 'Gainers', 'right_title': 'Losers',
-                       'left': [{'label': x['symbol'], 'pct': x['pct']} for x in gainers],
-                       'right': [{'label': x['symbol'], 'pct': x['pct']} for x in losers],
+                       'left': [{'label': name_of(x), 'pct': x['pct']} for x in gainers],
+                       'right': [{'label': name_of(x), 'pct': x['pct']} for x in losers],
                        'topic': 'movers', 'tone': tone,
-                       'voice': f'Among Nifty stocks, {gainers[0]["symbol"]} was the top gainer, {V.pct(gainers[0]["pct"])} higher, '
-                                f'and {losers[0]["symbol"]} the top loser, down {V.pct(losers[0]["pct"])}.'})
-        paras.append(f'Top Nifty 50 gainer: {gainers[0]["symbol"]} ({gainers[0]["pct"]:+.2f}%). '
-                     f'Top loser: {losers[0]["symbol"]} ({losers[0]["pct"]:+.2f}%).')
+                       'voice': f'Among Nifty stocks, {name_of(gainers[0])} was the top gainer, {V.pct(gainers[0]["pct"])} higher, '
+                                f'and {name_of(losers[0])} the top loser, down {V.pct(losers[0]["pct"])}.'})
+        paras.append(f'Top Nifty 50 gainer: {name_of(gainers[0])} ({gainers[0]["pct"]:+.2f}%). '
+                     f'Top loser: {name_of(losers[0])} ({losers[0]["pct"]:+.2f}%).')
         allowed += [abs(x['pct']) for x in gainers + losers]
     except (nse.SourceError, IndexError) as e:
         report.warn(f'movers unavailable ({e}) - scene left out')
@@ -365,11 +367,11 @@ def _extremes_reel(kind, force):
             continue
         scenes.append({'type': 'rows', 'title': f'{seg}: {g[f"{kind}_count"]} stocks', 'topic': 'highs' if kind == 'ath' else 'lows',
                        'tone': 'up' if kind == 'ath' else 'down',
-                       'rows': [{'label': r['symbol'], 'value': '₹' + fmt_inr(r['close'] if 'close' in r else r.get('last', 0)),
+                       'rows': [{'label': name_of(r), 'value': '₹' + fmt_inr(r['close'] if 'close' in r else r.get('last', 0)),
                                  'pct': r['week_pct']} for r in top],
                        'voice': f'In {seg.lower()}, {g[f"{kind}_count"]} stocks hit a {what} this week, including '
-                                f'{", ".join(r["symbol"] for r in top)}.'})
-        paras.append(f'{seg}: {g[f"{kind}_count"]} - ' + ', '.join(f'{r["symbol"]} ({r["week_pct"]:+.2f}%)' for r in top))
+                                f'{", ".join(name_of(r) for r in top)}.'})
+        paras.append(f'{seg}: {g[f"{kind}_count"]} - ' + ', '.join(f'{name_of(r)} ({r["week_pct"]:+.2f}%)' for r in top))
         allowed += [g[f'{kind}_count']] + [abs(r['week_pct']) for r in top] + \
                    [r.get('close') or r.get('last') or 0 for r in top]
     scenes.insert(0, {'type': 'intro', 'title': label, 'day': today, 'topic': 'highs' if kind == 'ath' else 'lows',

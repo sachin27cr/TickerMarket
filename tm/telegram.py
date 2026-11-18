@@ -78,6 +78,11 @@ def send_video(rel, cover_rel=None):
                 files['thumbnail'].close()
 
 
+def send_audio(path, caption=''):
+    with open(path, 'rb') as f:
+        return _api('sendAudio', files={'audio': f}, chat_id=config.TELEGRAM_CHAT_ID, caption=caption[:1000])
+
+
 def send_draft(d, auto=False):
     """Images (or the reel), then the caption + verification report with buttons.
     auto=True: the post goes out by itself after the cancel window unless you tap Cancel."""

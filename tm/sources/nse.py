@@ -203,7 +203,7 @@ def index_constituents(index='NIFTY 50'):
             _save_raw(f'{short.replace(" ", "_")}_ok', j if len(str(j)) < 400000 else {'note': 'large'})
             LAST_SOURCE[index] = 'NSE'
             ts = parse_nse_date(str(find_field(j, r'timestamp', r'time$') or ''))
-            return rows, ts
+            return _named(rows), ts
         _save_raw(f'{short.replace(" ", "_")}_{params.get("functionName", "old")}', j)
         errors.append(f'{path.rsplit("/", 1)[-1]}: {len(rows)} of {need}+ rows readable')
     try:
@@ -216,7 +216,14 @@ def index_constituents(index='NIFTY 50'):
     LAST_SOURCE[index] = 'NSE list + Yahoo prices'
     from ..util import log as _log
     _log.warning('%s via member list + Yahoo (%s)', index, '; '.join(errors))
-    return rows, None
+    return _named(rows), None
+
+
+def _named(rows):
+    from .names import short
+    for r in rows:
+        r['name'] = short(r['symbol'])
+    return rows
 
 
 LIST_FILES = {'NIFTY 50': ['ind_nifty50list'], 'NIFTY NEXT 50': ['ind_niftynext50list'], 'NIFTY 100': ['ind_nifty100list'],

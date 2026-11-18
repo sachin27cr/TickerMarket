@@ -22,12 +22,12 @@ WHITE = (255, 255, 255)
 FONTS = config.ROOT / 'assets' / 'fonts'
 
 # post kind -> scenes it rotates through
-POOLS = {
-    'global_cues': ['globe', 'tape', 'words'],
-    'day_ahead': ['calendar', 'bell', 'board'],
-    'market_close': ['dalal', 'candles', 'arrows', 'board'],
-    'cap_movers': ['heatmap', 'bars3d', 'tape'],
-    'daily_overview': ['peaks', 'board', 'candles'],
+POOLS = {   # text-free scenes only: pictures with words in them fight with the data on the slide
+    'global_cues': ['globe', 'goldbars', 'candles'],
+    'day_ahead': ['calendar', 'bell', 'candles'],
+    'market_close': ['dalal', 'candles', 'arrows'],
+    'cap_movers': ['heatmap', 'bars3d', 'arrows'],
+    'daily_overview': ['peaks', 'candles', 'bars3d'],
     'fii_dii': ['flows', 'rupee', 'globe'],
     'ipo': ['bell', 'confetti', 'dalal'],
     'ipo_status': ['bell', 'bars3d', 'confetti'],
@@ -35,10 +35,10 @@ POOLS = {
     'weekly_lows': ['peaks', 'arrows'],
     'insight_profits': ['bars3d', 'rupee', 'arrows'],
     'insight_assets': ['goldbars', 'globe', 'coins'],
-    'insight_mcap': ['dalal', 'coins', 'words'],
+    'insight_mcap': ['dalal', 'coins', 'bars3d'],
     'insight_wealth': ['coins', 'rupee', 'peaks'],
-    'insight_sectors': ['heatmap', 'board', 'bars3d'],
-    'news': ['candles', 'dalal', 'tape', 'board', 'words', 'arrows'],
+    'insight_sectors': ['heatmap', 'bars3d', 'candles'],
+    'news': ['candles', 'dalal', 'arrows', 'bars3d', 'globe', 'rupee'],
 }
 # background words per post kind (faint, decorative)
 WORDS = {
@@ -108,12 +108,12 @@ def tri(d, x, y, s, up, fill):
 
 # ---------------------------------------------------------------- word layer (all scenes)
 
-def words(im, rng, kind, alpha=22, y_max=0.5):
+def words(im, rng, kind, alpha=14, y_max=0.32):
     w, h = im.size
     lay = layer(w, h)
     d = ImageDraw.Draw(lay)
     terms = WORDS.get(kind) or WORDS['news']
-    for _ in range(5):
+    for _ in range(3):
         t = rng.choice(terms)
         f = _font('BebasNeue-Regular.ttf', rng.randint(70, 190))
         x, y = rng.randint(-120, w - 200), rng.randint(-20, int(h * y_max))
@@ -351,8 +351,6 @@ def s_heatmap(im, rng, up, colr):
     w, h = im.size
     lay = layer(w, h)
     d = ImageDraw.Draw(lay)
-    f = _font('BarlowCondensed-Bold.ttf', 34)
-    names = ['IT', 'BANK', 'AUTO', 'PHARMA', 'FMCG', 'METAL', 'REALTY', 'ENERGY', 'MEDIA', 'INFRA', 'PSU', 'OIL & GAS']
 
     def split(x0, y0, x1, y1, depth):
         if depth == 0 or (x1 - x0) < 160 or (y1 - y0) < 110:
@@ -361,8 +359,6 @@ def s_heatmap(im, rng, up, colr):
             base = UP if u else DOWN
             c = tuple(int(v * k) for v in base)
             d.rectangle([x0 + 3, y0 + 3, x1 - 3, y1 - 3], fill=c + (215,))
-            if (x1 - x0) > 150 and (y1 - y0) > 60:
-                d.text((x0 + 14, y0 + 30), rng.choice(names), font=f, fill=(255, 255, 255, 200), anchor='lm')
             return
         if (x1 - x0) > (y1 - y0):
             m = rng.randint(int(x0 + (x1 - x0) * 0.35), int(x0 + (x1 - x0) * 0.65))

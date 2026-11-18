@@ -230,7 +230,7 @@ def weekly_extremes(week_monday, n=10):
             if len(h) < 53:
                 young += 1; continue
             cur, prev_close = h.iloc[-1], float(h['Close'].iloc[-2])
-            wk = {'symbol': sym, 'close': float(cur['Close']),
+            wk = {'symbol': sym, 'name': nse_by[sym].get('name') or sym, 'close': float(cur['Close']),
                   'week_pct': (float(cur['Close']) - prev_close) / prev_close * 100}
             r = nse_by[sym]
             if float(cur['High']) > float(h['High'].iloc[:-1].max()):

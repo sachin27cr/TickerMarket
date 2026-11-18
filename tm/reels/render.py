@@ -48,9 +48,9 @@ TOPIC_PHOTO = {
     'lows': 'a deep canyon at dusk with long shadows and a red sky',
     'outro': 'Mumbai skyline at night with glowing towers and reflections on the sea',
 }
-TOPIC_SCENE = {'intro': 'dalal', 'intro_pm': 'dalal', 'intro_week': 'board', 'global': 'globe',
-               'commodities': 'goldbars', 'indices': 'board', 'flows': 'flows', 'calendar': 'calendar',
-               'sectors': 'heatmap', 'movers': 'tape', 'highs': 'peaks', 'lows': 'peaks', 'outro': 'candles'}
+TOPIC_SCENE = {'intro': 'dalal', 'intro_pm': 'dalal', 'intro_week': 'bars3d', 'global': 'globe',
+               'commodities': 'goldbars', 'indices': 'candles', 'flows': 'flows', 'calendar': 'calendar',
+               'sectors': 'heatmap', 'movers': 'arrows', 'highs': 'peaks', 'lows': 'peaks', 'outro': 'candles'}
 
 
 def _font(kind, size):
@@ -249,7 +249,7 @@ def build(scenes, label, out_path, seed='reel'):
                         '-ar', '44100', '-ac', '1', str(wav)], check=True)
         wavs.append(wav)
     if engine:
-        rep.append(('ok', f'voice-over: {engine} ({voice.VOICE if engine == "edge" else "Google, Indian accent"})'))
+        rep.append(('ok', f'voice-over: {voice.current()[0] if engine == "edge" else "Google (fallback voice)"}'))
     else:
         rep.append(('warn', 'voice-over unavailable - reel has background music only'))
     lst = work / 'list.txt'
