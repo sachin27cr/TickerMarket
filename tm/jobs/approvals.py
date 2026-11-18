@@ -18,6 +18,7 @@ HELP = """<b>Ticker Market bot</b>
 /dayahead - day-ahead card
 /ipo - IPO carousels
 /iposubs - live IPO subscription
+/reelam /reelpm /reelweek /reelath /reellows - make a reel now
 /innovative - next data story (Insights); /innovative list for tags, e.g. /innovative profits
 /queue - drafts waiting for you
 /flagged - recently blocked drafts
@@ -31,8 +32,12 @@ def approve(did):
         return 'draft not found'
     if d['status'] not in ('pending', 'auto'):
         return f'already {d["status"]}'
-    urls = [store.media_url(p) for p in d['images']]
-    res = meta.publish_all(urls, d['caption'], d['threads_text'])
+    if d.get('video'):
+        res = meta.publish_reel(config.DATA_DIR / d['video'], store.media_url(d['video']), d['caption'],
+                                d['threads_text'], store.media_url(d['images'][0]) if d['images'] else None)
+    else:
+        urls = [store.media_url(p) for p in d['images']]
+        res = meta.publish_all(urls, d['caption'], d['threads_text'])
     d['posted'] = res
     errors = {k: v for k, v in res.items() if str(v).startswith('error')}
     d['status'] = 'posted' if not errors else ('partial' if len(errors) < len(res) else 'failed')
@@ -56,8 +61,12 @@ def reject(did):
     return 'rejected'
 
 
-def _dispatch_insight(arg):
-    """Insights can take ~10 minutes (results scan), so they run as their own workflow, not inside approvals."""
+REEL_CMDS = {'/reelam': 'reel_morning', '/reelpm': 'reel_evening', '/reelweek': 'reel_weekly',
+             '/reelath': 'reel_ath', '/reellows': 'reel_lows'}
+
+
+def _dispatch_insight(arg, job='insights'):
+    """Long jobs (insights, reels) run as their own workflow, not inside the 5-minute approvals run."""
     import os
     import requests
     repo, token = os.environ.get('GITHUB_REPOSITORY'), os.environ.get('GITHUB_TOKEN')
@@ -65,7 +74,7 @@ def _dispatch_insight(arg):
         return False
     r = requests.post(f'https://api.github.com/repos/{repo}/actions/workflows/scheduler.yml/dispatches',
                       headers={'Authorization': f'Bearer {token}', 'Accept': 'application/vnd.github+json'},
-                      json={'ref': 'main', 'inputs': {'job': 'insights', 'force': True, 'arg': arg}}, timeout=20)
+                      json={'ref': 'main', 'inputs': {'job': job, 'force': True, 'arg': arg}}, timeout=20)
     if r.status_code != 204:
         log.warning('insight dispatch failed: %s %s', r.status_code, r.text[:200])
     return r.status_code == 204
@@ -73,6 +82,16 @@ def _dispatch_insight(arg):
 
 def run_command(cmd, arg=''):
     from . import insight_jobs, market_jobs, news_jobs
+    if cmd in REEL_CMDS:
+        if _dispatch_insight('', REEL_CMDS[cmd]):
+            telegram.send_text(f'Making the reel ({REEL_CMDS[cmd]}) - it arrives here in about 3 minutes.')
+        else:
+            from . import reel_jobs
+            telegram.send_text('Making the reel ...')
+            {'reel_morning': reel_jobs.morning_reel, 'reel_evening': reel_jobs.evening_reel,
+             'reel_weekly': reel_jobs.weekly_reel, 'reel_ath': reel_jobs.ath_reel,
+             'reel_lows': reel_jobs.lows_reel}[REEL_CMDS[cmd]](force=True)
+        return
     if cmd in ('/innovative', '/insight', '/insights'):
         if arg.lower() in ('list', 'help', '?'):
             insight_jobs.run_tag('list')

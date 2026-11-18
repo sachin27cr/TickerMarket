@@ -16,6 +16,7 @@
 // [days (0=Sun..6=Sat), "HH:MM" IST, job]
 const SCHEDULE = [
   ['12345', '07:25', 'global_cues'],
+  ['12345', '07:35', 'reel_morning'],   // ready to approve before 8 AM
   ['12345', '08:35', 'day_ahead'],
   ['12345', '09:10', 'ipo'],
   ['12345', '10:05', 'news'],
@@ -23,6 +24,7 @@ const SCHEDULE = [
   ['12345', '15:50', 'market_close'],
   ['12345', '16:15', 'cap_movers'],
   ['12345', '16:35', 'daily_overview'],
+  ['12345', '16:50', 'reel_evening'],
   ['12345', '17:20', 'ipo_status'],
   ['12345', '17:45', 'news'],
   ['12345', '18:20', 'fii_dii'],
@@ -31,7 +33,10 @@ const SCHEDULE = [
   ['12345', '21:05', 'news'],
   ['6', '10:05', 'news'],
   ['6', '11:05', 'weekly_ath'],
+  ['6', '11:20', 'reel_ath'],
+  ['6', '12:35', 'reel_weekly'],
   ['6', '17:05', 'weekly_lows'],
+  ['6', '17:20', 'reel_lows'],
   ['0', '18:05', 'news'],
   ['0123456', '18:40', 'insights'],   // posts every other day; skips itself on the days in between
 ];

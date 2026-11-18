@@ -28,6 +28,22 @@ A draft with any ⚠️ warning (e.g. single-source data) never auto-posts; it w
 | Sat 11:05 AM | **Weekly all-time highs** carousel, up to 10 stocks per market-cap group | Yahoo full price history, level confirmed against NSE 52-week high |
 | Sat 5:05 PM | **Weekly 52-week lows** carousel, up to 10 stocks per group | Yahoo price history, confirmed against NSE 52-week low |
 
+### Reels (vertical video with voice-over)
+
+| Time (IST) | Reel | Content |
+| --- | --- | --- |
+| 7:35 AM (Mon-Fri) | **Morning Brief** - ready to approve before 8 AM | global markets, crude/gold/rupee, last close, FII/DII, results and IPOs today |
+| 4:50 PM (Mon-Fri) | **Closing Bell** | indices, breadth, best/weakest sectors, Nifty 50 movers, new highs/lows |
+| Sat 11:20 AM | **All-Time Highs** of the week | count and top names per market-cap group |
+| Sat 12:35 PM | **Week in Review** | weekly change of Nifty/Sensex/Bank Nifty, FII/DII for the week, highs/lows |
+| Sat 5:20 PM | **52-Week Lows** of the week | count and top names per market-cap group |
+
+Voice: Microsoft Edge neural voice `en-IN-NeerjaNeural` (free, via edge-tts; set variable `TM_VOICE=en-IN-PrabhatNeural`
+for a male voice), Google TTS with an Indian accent as fallback. The voice script, captions and on-screen numbers are
+written by code from verified data (no AI). A soft generated music bed sits under the voice (no copyrighted music).
+Reels always wait for approval in Telegram; Instagram and Facebook receive the file directly, Threads reads it from the
+data branch. Telegram: `/reelam` `/reelpm` `/reelweek` `/reelath` `/reellows`.
+
 ### Insights (every other day, or on demand with `/innovative`)
 
 | Tag | Post | Checks |

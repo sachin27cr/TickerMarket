@@ -65,10 +65,26 @@ def send_images(paths):
             f.close()
 
 
+def send_video(rel, cover_rel=None):
+    with open(config.DATA_DIR / rel, 'rb') as f:
+        files = {'video': f}
+        if cover_rel:
+            files['thumbnail'] = open(config.DATA_DIR / cover_rel, 'rb')
+        try:
+            return _api('sendVideo', files=files, chat_id=config.TELEGRAM_CHAT_ID, supports_streaming='true',
+                        width=1080, height=1920)
+        finally:
+            if cover_rel:
+                files['thumbnail'].close()
+
+
 def send_draft(d, auto=False):
-    """Images, then the caption + verification report with buttons.
+    """Images (or the reel), then the caption + verification report with buttons.
     auto=True: the post goes out by itself after the cancel window unless you tap Cancel."""
-    send_images(d['images'])
+    if d.get('video'):
+        send_video(d['video'], d['images'][0] if d['images'] else None)
+    else:
+        send_images(d['images'])
     head = (f'<b>AUTO-POST {d["id"]}</b> - {html.escape(d["kind"])} - posts in about {config.AUTO_DELAY_MIN} min'
             if auto else f'<b>DRAFT {d["id"]}</b> - {html.escape(d["kind"])}')
     text = f'{head}\n\n{html.escape(d["caption"])}\n\n<b>Checks</b>\n{html.escape(d["report_text"])}'

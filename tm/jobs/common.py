@@ -84,3 +84,32 @@ def finish(kind, title, images, caption, report: Report, allowed_numbers=None, m
     telegram.send_draft(d, auto=auto)
     log.info('draft %s sent (%s%s)', d['id'], kind, ', auto-post' if auto else '')
     return d
+
+
+def finish_video(kind, title, video_path, cover, caption, report, allowed_numbers=None):
+    """Same checks as finish(); the reel (mp4) and its cover frame go to Telegram for approval.
+    Reels always wait for your approval (they are not auto-posted)."""
+    import shutil
+    if allowed_numbers is not None:
+        body = caption.rsplit('\n\n', 1)[0]
+        check_numbers(body, list(allowed_numbers) + date_numbers(now_ist().date()), report)
+    check_banned(caption, report)
+    if not report.passed:
+        log.warning('BLOCKED %s %s\n%s', kind, title, report.text())
+        telegram.send_blocked(kind, title, report.text())
+        telegram.send_text(f'⛔ Blocked before review: <b>{kind}</b> - {title}\n\n{report.text()[-1500:]}')
+        return None
+    import secrets
+    hint = f'{kind}-{now_ist().strftime("%H%M%S")}-{secrets.token_hex(2)}'
+    cover_rel = store.media_path(hint, 'cover')
+    cover.convert('RGB').save(store.config.DATA_DIR / cover_rel, 'JPEG', quality=90)
+    vid_rel = str(cover_rel).replace('_cover.jpg', '.mp4')
+    shutil.copy(video_path, store.config.DATA_DIR / vid_rel)
+    d = store.new_draft(kind, [cover_rel], caption, captions.threads_text(caption), [list(r) for r in report],
+                        {'video': vid_rel})
+    d['video'] = vid_rel
+    d['report_text'] = report.text()
+    store.save_draft(d)
+    telegram.send_draft(d)
+    log.info('reel draft %s sent (%s)', d['id'], kind)
+    return d

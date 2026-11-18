@@ -239,11 +239,30 @@ def insights_test():
     print('insights: 5 tags built, NSE/Yahoo mismatch left out, every-other-day gate works')
 
 
+def reels_test():
+    from tm.jobs import reel_jobs
+    fake_sources()
+    reel_jobs._week_change = lambda ysym: {'start': 24000.0, 'end': {'^NSEI': 24612.40, '^BSESN': 80915.62,
+                                                                     '^NSEBANK': 52310.55}[ysym], 'pct': 1.23,
+                                           'last_date': today_ist()}
+    for name, fn in [('reel_morning', reel_jobs.morning_reel), ('reel_evening', reel_jobs.evening_reel),
+                     ('reel_weekly', reel_jobs.weekly_reel), ('reel_ath', reel_jobs.ath_reel)]:
+        n = len(drafts())
+        fn(force=True)
+        ds = [d for d in drafts() if d['kind'] == name]
+        assert len(drafts()) == n + 1 and ds, f'{name}: no draft (see flagged)'
+        d = ds[-1]
+        assert (config.DATA_DIR / d['video']).exists() and d['status'] == 'pending'
+        print(f'--- {name}: {d["report_text"].splitlines()[-1]}\n{d["caption"]}\n')
+    print('reels: morning, evening, weekly and all-time-high reels built')
+
+
 if __name__ == '__main__':
     unit()
     run()
     auto_post()
     duplicate_guard()
     insights_test()
+    reels_test()
     print('ALL PIPELINE TESTS PASSED')
 

@@ -174,6 +174,10 @@ def daily_overview(force=False):
     hi = sum(groups[g]['hi52_count'] for g in order)
     lo = sum(groups[g]['lo52_count'] for g in order)
     n50 = next((q for q in board if q['name'] == 'NIFTY 50'), board[0])
+    store.write_json(f'daily/{day}/highslows.json', {          # for the evening reel
+        'ath': ath, 'hi52': hi, 'lo52': lo,
+        'groups': {g: {'ath': [r['symbol'] for r in groups[g]['ath'][:3]], 'ath_count': groups[g]['ath_count'],
+                       'hi52_count': groups[g]['hi52_count'], 'lo52_count': groups[g]['lo52_count']} for g in order}})
     up = n50['chg'] >= 0
     theme, tone = ('market_up', 'up') if up else ('market_down', 'down')
     if ath:
@@ -596,6 +600,8 @@ def cap_movers(force=False):
         return
     segs, rep2 = market.cap_movers(5)
     report.extend(rep2)
+    store.write_json(f'daily/{today_ist()}/capmovers.json', {
+        s_: {'gainers': v['gainers'][:3], 'losers': v['losers'][:3]} for s_, v in segs.items()})
     if len(segs) < 4 and not force:
         report.fail('need all 4 market-cap groups for this post')
     if not report.passed:

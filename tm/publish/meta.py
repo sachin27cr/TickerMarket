@@ -95,3 +95,84 @@ def publish_all(image_urls, caption, threads_text):
             log.error('%s publish failed: %s', name, msg)
             out[name] = f'error: {msg}'
     return out
+
+
+# ---------------------------------------------------------------- reels (video)
+
+def _wait_video(container_id, token, base=G, tries=60):
+    for _ in range(tries):
+        r = requests.get(f'{base}/{container_id}', params={'fields': 'status_code,status', 'access_token': token},
+                         timeout=30)
+        j = r.json()
+        s = j.get('status_code')
+        if s == 'FINISHED':
+            return
+        if s == 'ERROR':
+            raise PublishError(f'video processing failed: {j.get("status", "")}'[:200])
+        time.sleep(6)
+    raise PublishError('video not processed in time')
+
+
+def instagram_reel(path, caption, cover_url=None):
+    """Resumable upload: the file goes straight to Meta (no public video link needed)."""
+    tok, uid = config.META_PAGE_TOKEN, config.IG_USER_ID
+    params = {'media_type': 'REELS', 'upload_type': 'resumable', 'caption': caption, 'share_to_feed': 'true',
+              'access_token': tok}
+    if cover_url:
+        params['cover_url'] = cover_url
+    j = _post(f'{G}/{uid}/media', **params)
+    data = open(path, 'rb').read()
+    r = requests.post(j.get('uri') or f'https://rupload.facebook.com/ig-api-upload/{config.GRAPH_VERSION}/{j["id"]}',
+                      headers={'Authorization': f'OAuth {tok}', 'offset': '0', 'file_size': str(len(data))},
+                      data=data, timeout=300)
+    if r.status_code != 200:
+        raise PublishError(f'reel upload HTTP {r.status_code}: {r.text[:200]}')
+    _wait_video(j['id'], tok)
+    return _post(f'{G}/{uid}/media_publish', creation_id=j['id'], access_token=tok)['id']
+
+
+def facebook_reel(path, caption):
+    tok, pid = config.META_PAGE_TOKEN, config.META_PAGE_ID
+    start = _post(f'{G}/{pid}/video_reels', upload_phase='start', access_token=tok)
+    vid = start['video_id']
+    data = open(path, 'rb').read()
+    r = requests.post(start.get('upload_url') or f'https://rupload.facebook.com/video-upload/{config.GRAPH_VERSION}/{vid}',
+                      headers={'Authorization': f'OAuth {tok}', 'offset': '0', 'file_size': str(len(data))},
+                      data=data, timeout=300)
+    if r.status_code != 200:
+        raise PublishError(f'FB reel upload HTTP {r.status_code}: {r.text[:200]}')
+    _post(f'{G}/{pid}/video_reels', upload_phase='finish', video_id=vid, video_state='PUBLISHED',
+          description=caption, access_token=tok)
+    return vid
+
+
+def threads_video(video_url, text):
+    tok, uid = config.THREADS_TOKEN, config.THREADS_USER_ID
+    c = _post(f'{T}/{uid}/threads', media_type='VIDEO', video_url=video_url, text=text, access_token=tok)['id']
+    for _ in range(40):                       # Threads processes the video from the public link
+        r = requests.get(f'{T}/{c}', params={'fields': 'status', 'access_token': tok}, timeout=30).json()
+        if r.get('status') == 'FINISHED':
+            break
+        if r.get('status') == 'ERROR':
+            raise PublishError('Threads video processing failed')
+        time.sleep(6)
+    return _post(f'{T}/{uid}/threads_publish', creation_id=c, access_token=tok)['id']
+
+
+def publish_reel(path, video_url, caption, threads_text, cover_url=None):
+    out = {}
+    jobs = {'instagram': lambda: instagram_reel(path, caption, cover_url),
+            'facebook': lambda: facebook_reel(path, caption),
+            'threads': lambda: threads_video(video_url, threads_text)}
+    for name in config.POST_TO:
+        if config.DRY_RUN:
+            out[name] = 'dry-run'
+            continue
+        try:
+            out[name] = jobs[name]()
+        except Exception as e:                       # noqa: BLE001
+            from ..util import scrub
+            msg = scrub(type(e).__name__ if 'access_token' in str(e) else str(e))
+            log.error('%s reel publish failed: %s', name, msg)
+            out[name] = f'error: {msg}'
+    return out

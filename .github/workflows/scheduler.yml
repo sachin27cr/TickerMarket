@@ -20,6 +20,11 @@ on:
     - cron: '35 11 * * 6'     # Sat 17:05 IST weekly 52-week lows (by market cap)
     - cron: '35 12 * * 0'     # Sun 18:05 IST news
     - cron: '10 13 * * *'     # 18:40 IST every day: Insights (posts every other day)
+    - cron: '5 2 * * 1-5'     # 07:35 IST morning reel
+    - cron: '20 11 * * 1-5'   # 16:50 IST closing bell reel
+    - cron: '5 7 * * 6'       # Sat 12:35 IST week in review reel
+    - cron: '50 5 * * 6'      # Sat 11:20 IST all-time highs reel
+    - cron: '50 11 * * 6'     # Sat 17:20 IST 52-week lows reel
     - cron: '50 11 * * 1-5'   # 17:20 IST live IPO subscription
   workflow_dispatch:
     inputs:
@@ -27,7 +32,7 @@ on:
         description: 'Job to run'
         required: true
         type: choice
-        options: [news, global_cues, day_ahead, ipo, ipo_status, market_close, cap_movers, daily_overview, fii_dii, weekly_ath, weekly_lows, insights]
+        options: [news, global_cues, day_ahead, ipo, ipo_status, market_close, cap_movers, daily_overview, fii_dii, weekly_ath, weekly_lows, insights, reel_morning, reel_evening, reel_weekly, reel_ath, reel_lows]
       force:
         description: 'Run even if already posted today / no session today'
         type: boolean
@@ -61,6 +66,11 @@ jobs:
             '35 5 * * 6')       JOB=weekly_ath ;;
             '35 11 * * 6')      JOB=weekly_lows ;;
             '10 13 * * *')      JOB=insights ;;
+            '5 2 * * 1-5')      JOB=reel_morning ;;
+            '20 11 * * 1-5')    JOB=reel_evening ;;
+            '5 7 * * 6')        JOB=reel_weekly ;;
+            '50 5 * * 6')       JOB=reel_ath ;;
+            '50 11 * * 6')      JOB=reel_lows ;;
             '50 11 * * 1-5')    JOB=ipo_status ;;
             '')                 JOB='${{ inputs.job }}' ;;
             *)                  JOB=news ;;
@@ -74,6 +84,10 @@ jobs:
           cache: pip
 
       - run: pip install -r requirements.txt
+
+      - name: Video tools (reels)
+        if: startsWith(steps.pick.outputs.job, 'reel_')
+        run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
 
       - name: Load bot state
         run: bash scripts/data.sh pull
