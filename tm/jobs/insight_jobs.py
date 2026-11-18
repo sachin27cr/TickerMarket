@@ -25,13 +25,14 @@ STATE = 'insights/state.json'
 EVERY_DAYS = 2                      # scheduled run posts if the last insight is at least this old
 
 TAGS = {
+    'spotlight': 'Results spotlight: the best quarterly results of the last few days (profit +20%, revenue +10%)',
     'profits': 'Results season: companies whose quarterly profit more than doubled (series, part by part)',
     'assets': 'How major assets did last month (Nifty, Sensex, gold, silver, crude, rupee, Nasdaq, bitcoin)',
     'mcap': "India's 10 most valuable listed companies and their change this week",
     'wealth': 'Nifty 50 over one year: what Rs 1 lakh became in the best and worst stocks',
     'sectors': 'Sector scorecard: 1-week, 1-month and 1-year change of 16 sector indices',
 }
-MIN_GAP = {'profits': 2, 'assets': 25, 'mcap': 7, 'wealth': 14, 'sectors': 7}
+MIN_GAP = {'spotlight': 0, 'profits': 2, 'assets': 25, 'mcap': 7, 'wealth': 14, 'sectors': 7}
 
 
 def _state():
@@ -340,13 +341,84 @@ def sectors(force=False, st=None):
     return d
 
 
+@as_post('insight_profits')
+def results_spotlight(force=False):
+    """Daily (8:05 PM): the best quarterly results among companies that reported in the last 3 days.
+    'Good' = net profit up 20%+ and revenue up 10%+ year on year, profit positive in both quarters."""
+    from datetime import timedelta
+    from ..sources import nse
+    today = today_ist()
+    key = f'spotlight:{today}'
+    if store.seen('post', key) and not force:
+        return None
+    report = Report()
+    try:
+        ev = [e for e in nse.event_calendar() if today - timedelta(days=3) <= e['date'] <= today
+              and 'result' in (e['purpose'] or '').lower()]
+    except nse.SourceError as e:
+        log.info('event calendar unavailable: %s', e); return None
+    done = set(store.read_json('insights/spotlight_done.json', []) or [])
+    good = []
+    for e in ev:
+        if e['symbol'] in done:
+            continue
+        try:
+            r, rep = src.verified_results(e['symbol'], allow_single=True)
+        except Exception as ex:                      # noqa: BLE001 - one company never stops the post
+            log.info('results %s: %s', e['symbol'], ex); continue
+        if not r or r['q_end'] < today - timedelta(days=130) or r['profit_py'] <= 0 or r['profit'] <= 0:
+            continue
+        rev_g = ((r['revenue'] - r['revenue_py']) / r['revenue_py'] * 100) if r.get('revenue_py') else None
+        if r.get('growth', 0) >= 20 and (rev_g is None or rev_g >= 10):
+            r['rev_growth'] = round(rev_g, 1) if rev_g is not None else None
+            r['name'] = short_name(e['symbol'], e.get('company'))
+            report.extend(rep)
+            good.append(r)
+    good.sort(key=lambda r: r['growth'], reverse=True)
+    pick = good[:6]
+    if len(pick) < (1 if force else 2):
+        log.info('results spotlight: %d strong results - not enough today', len(pick)); return None
+    quarter = pick[0]['quarter']
+    head = f'Strong *{quarter}* results: *{len(pick)} companies* that grew profit and revenue'
+    images = [cards.cover({'category': 'Results Spotlight', 'day': today, 'headline': head, 'theme': 'market_up',
+                           'seed': f'spot{today}', 'tone': 'up',
+                           'stats': [('Companies', str(len(pick)), 0), ('Top profit growth', f'{pick[0]["growth"]:+,.1f}%', 1)],
+                           'inside': [r['name'] for r in pick[:4]]})]
+    allowed, lines = [len(pick), 20, 10], []
+    for i, r in enumerate(pick, 1):
+        rows = [('Net profit', ic.cr(r['profit_py']), ic.cr(r['profit']))]
+        allowed += [r['growth'], r['profit'], r['profit_py']]
+        line = f'{i}. {r["name"]}: net profit {r["growth"]:+,.1f}% to ₹{fmt_inr(r["profit"])} crore'
+        if r.get('revenue') is not None:
+            rows.append(('Revenue', ic.cr(r['revenue_py']), ic.cr(r['revenue'])))
+            allowed += [r['revenue'], r['revenue_py']] + ([r['rev_growth']] if r['rev_growth'] is not None else [])
+            if r['rev_growth'] is not None:
+                line += f', revenue {r["rev_growth"]:+,.1f}%'
+        lines.append(line + f' ({r["quarter"]} vs {r["py_quarter"]}).')
+        images.append(ic.growth_slide({'n': i, 'total': len(pick), 'name': r['name'], 'symbol': r['symbol'],
+                                       'growth': r['growth'], 'rows': rows, 'basis': r.get('basis', ''),
+                                       'period_parts': [r['py_quarter'], ic.ARROW, r['quarter']],
+                                       'date_text': fmt_date(today, 'dow'), 'category': 'Results Spotlight',
+                                       'seed': r['symbol']}))
+    paras = [f'Companies that reported results in the last few days with net profit up at least 20% and revenue '
+             f'up at least 10% year on year.', '\n'.join(lines),
+             'Figures in ₹ crore, latest quarter versus the same quarter last year. One quarter does not make a trend.']
+    caption = assemble(f'Strong {quarter} results: {len(pick)} companies that grew profit and revenue', paras, '',
+                       tags('#QuarterlyResults', '#EarningsSeason', '#StockMarketIndia', '#ProfitGrowth', '#ShareMarket'))
+    d = finish('insight', f'spotlight {today}', images, caption, report, allowed)
+    if d:
+        store.write_json('insights/spotlight_done.json', sorted(done | {r['symbol'] for r in pick}))
+        store.mark_seen('post', key)
+    return d
+
+
 def market_jobs_label(name):
     from .market_jobs import sector_label
     n = name.replace(' INDEX', '')
     return sector_label(n) if n.startswith('NIFTY') else n.title()
 
 
-RUNNERS = {'profits': profits, 'assets': assets, 'mcap': mcap, 'wealth': wealth, 'sectors': sectors}
+RUNNERS = {'spotlight': results_spotlight, 'profits': profits, 'assets': assets, 'mcap': mcap, 'wealth': wealth, 'sectors': sectors}
 
 
 # ---------------------------------------------------------------- scheduling and on-demand

@@ -46,6 +46,13 @@ def fake_sources():
     nse.index_constituents = lambda index='NIFTY 50': (S.CAP_ROWS[index], datetime.now(IST))
     nse.fii_dii = lambda: {'date': today_ist(), 'fii': 4870.25, 'dii': -2310.65}
     nse.trading_holidays = lambda: set()
+    from tm.sources import calendar as cal
+    now = datetime.now(IST)
+    cal.events_today = lambda: [{'when': now.replace(hour=19, minute=0), 'country': 'US', 'title': 'CPI m/m'},
+                                {'when': now.replace(hour=23, minute=30), 'country': 'US', 'title': 'FOMC Statement'}]
+    cal.results_schedule = lambda days=6: {today_ist(): [('XYZBANK', 'XYZ Bank Ltd')],
+                                           today_ist() + timedelta(days=1): [('INFY', 'Infosys Limited'), ('ABCTECH', 'ABC Technologies Limited')],
+                                           today_ist() + timedelta(days=2): [('TCS', 'Tata Consultancy Services Limited')]}
     nse.event_calendar = lambda: [{'symbol': 'XYZBANK', 'company': 'XYZ Bank Ltd', 'purpose': 'Financial Results', 'date': today_ist()}]
     nse.corporate_actions = lambda a, b: [{'symbol': 'LMN', 'company': 'LMN Ltd', 'subject': 'Dividend - Rs 5 Per Share', 'ex_date': today_ist()}]
     t = datetime.now(IST)
@@ -237,6 +244,23 @@ def insights_test():
     st['last_post'] = '2000-01-01'; store.write_json(ij.STATE, st)
     ij.insights(); assert len(drafts()) == n, 'nothing new should be due (all tags inside their gap)'
     print('insights: 5 tags built, NSE/Yahoo mismatch left out, every-other-day gate works')
+    # results spotlight: strong results of the last few days
+    from tm.sources import insights as src
+    from datetime import date
+    nse.event_calendar = lambda: [{'symbol': s_, 'company': c_, 'purpose': 'Financial Results', 'date': today_ist()}
+                                  for s_, c_ in [('DIAMONDPOW', 'Diamond Power Infrastructure Limited'), ('PRIMEFOCUS', 'Prime Focus Limited'),
+                                                 ('SLOWCO', 'Slow Growth Co Limited')]]
+    def vr(sym, yq=None, nq=None, allow_single=False):
+        base = {'DIAMONDPOW': (27.73, 107.88, 438.33, 1031.90), 'PRIMEFOCUS': (14.0, 58.0, 1061.0, 1429.0),
+                'SLOWCO': (100.0, 105.0, 500.0, 510.0)}[sym]
+        r = {'symbol': sym, 'q_end': date(2026, 9, 30), 'py_end': date(2025, 9, 30), 'quarter': 'Q2 FY27',
+             'py_quarter': 'Q2 FY26', 'profit_py': base[0], 'profit': base[1], 'revenue_py': base[2], 'revenue': base[3],
+             'basis': 'Consolidated', 'growth': round((base[1] - base[0]) / base[0] * 100, 1)}
+        return r, [('ok', f'{sym}: NSE = Yahoo')]
+    src.verified_results = vr
+    n = len(drafts()); d = ij.results_spotlight(force=True)
+    assert d and len(drafts()) == n + 1 and 'Slow Growth' not in d['caption'], 'spotlight'
+    print('--- spotlight\n' + d['caption'])
 
 
 def reels_test():

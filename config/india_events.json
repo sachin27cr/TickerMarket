@@ -1,0 +1,7 @@
+{
+  "_note": "India events shown in the Day Ahead post and Morning Brief reel. Add official dates here (date = the announcement day). Source of RBI dates: RBI press release 2025-2026/2306 (23 Mar 2026).",
+  "events": [
+    {"date": "2026-12-04", "time": "10:00", "title": "RBI policy decision (repo rate)", "country": "India"},
+    {"date": "2027-02-05", "time": "10:00", "title": "RBI policy decision (repo rate)", "country": "India"}
+  ]
+}

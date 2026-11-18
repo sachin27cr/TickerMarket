@@ -54,7 +54,7 @@ COMMON = {
     'PRESTIGE': 'Prestige', 'PHOENIXLTD': 'Phoenix Mills',
 }
 _DROP = re.compile(r'\s*\((?:india|i)\)|\b(limited|ltd\.?|ltd|pvt\.?|private|co\.?)\s*$', re.I)
-MAX = 26
+MAX = 30
 USED = set()                 # names shown this run (their digits are allowed in captions)
 _master = None
 

@@ -20,6 +20,7 @@ HELP = """<b>Ticker Market bot</b>
 /ipo - IPO carousels
 /iposubs - live IPO subscription
 /reelam /reelpm /reelweek /reelath /reellows - make a reel now
+/spotlight - best quarterly results of the last few days
 /voices - hear the voice options; /voice name - choose one
 /innovative - next data story (Insights); /innovative list for tags, e.g. /innovative profits
 /queue - drafts waiting for you
@@ -63,7 +64,7 @@ def reject(did):
     return 'rejected'
 
 
-REEL_CMDS = {'/reelam': 'reel_morning', '/reelpm': 'reel_evening', '/reelweek': 'reel_weekly',
+REEL_CMDS = {'/spotlight': 'results_spotlight', '/reelam': 'reel_morning', '/reelpm': 'reel_evening', '/reelweek': 'reel_weekly',
              '/reelath': 'reel_ath', '/reellows': 'reel_lows'}
 
 
@@ -106,13 +107,13 @@ def run_command(cmd, arg=''):
         return
     if cmd in REEL_CMDS:
         if _dispatch_insight('', REEL_CMDS[cmd]):
-            telegram.send_text(f'Making the reel ({REEL_CMDS[cmd]}) - it arrives here in about 3 minutes.')
+            telegram.send_text(f'Running {REEL_CMDS[cmd]} - the draft arrives here in a few minutes.')
         else:
             from . import reel_jobs
             telegram.send_text('Making the reel ...')
             {'reel_morning': reel_jobs.morning_reel, 'reel_evening': reel_jobs.evening_reel,
              'reel_weekly': reel_jobs.weekly_reel, 'reel_ath': reel_jobs.ath_reel,
-             'reel_lows': reel_jobs.lows_reel}[REEL_CMDS[cmd]](force=True)
+             'reel_lows': reel_jobs.lows_reel, 'results_spotlight': insight_jobs.results_spotlight}[REEL_CMDS[cmd]](force=True)
         return
     if cmd in ('/innovative', '/insight', '/insights'):
         if arg.lower() in ('list', 'help', '?'):

@@ -15,7 +15,7 @@ A draft with any ⚠️ warning (e.g. single-source data) never auto-posts; it w
 | Time (IST) | Post | How the numbers are made |
 | --- | --- | --- |
 | 7:25 AM | Global cues (US close, crude, gold, USD/INR) | Yahoo Finance data, fixed caption template |
-| 8:35 AM | Market day ahead (results, ex-dates, IPOs open) | NSE event calendar, corporate actions, IPO list |
+| 8:35 AM | Market day ahead: results today, ex-dates, IPOs open, **global & India events today** (IST), **results calendar for the week** | NSE event calendar, corporate actions, IPO list; ForexFactory high-impact events (US, Eurozone, UK, Japan, China); RBI dates in `config/india_events.json` |
 | 9:10 AM | IPO cards for issues opening today/tomorrow | NSE IPO list |
 | 10:05 AM, 12:35 PM, 5:45 PM, 9:05 PM | News (2 per run, set `TM_NEWS_PER_RUN`) | AI writes from sources, code checks every fact |
 | 3:50 PM | **Closing Bell** carousel: date/day cover with the hook, key indices + breadth, sectors, Nifty 50 movers, rupee/crude/gold/VIX | NSE closing data, cross-checked with Yahoo |
@@ -23,6 +23,7 @@ A draft with any ⚠️ warning (e.g. single-source data) never auto-posts; it w
 | 4:35 PM | **Highs & Lows** carousel: index scorecard, then new all-time highs / 52-week highs / 52-week lows per market-cap group | NSE 52-week levels; all-time highs from Yahoo full history, confirmed against NSE |
 | 5:20 PM | **Live IPO subscription** (only while an IPO is open) | NSE category-wise bids; times re-computed from bids / shares offered |
 | 6:20–8:20 PM | FII/DII carousel with FII positions in F&O (posts once, when NSE publishes) | NSE provisional data + NSE participant OI file |
+| 8:05 PM (Mon-Fri) | **Results Spotlight**: best results of the last few days (net profit +20% and revenue +10% YoY), one slide per company | NSE results cross-checked with Yahoo; if NSE is unavailable, Yahoo-only figures are flagged on the draft |
 | 6:40 PM daily | **Insights** data story, every other day (see below) | NSE + Yahoo, always needs your approval |
 | Sat 10:05 AM, Sun 6:05 PM | Weekend news | as above |
 | Sat 11:05 AM | **Weekly all-time highs** carousel, up to 10 stocks per market-cap group | Yahoo full price history, level confirmed against NSE 52-week high |

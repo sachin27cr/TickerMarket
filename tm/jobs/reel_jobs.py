@@ -174,6 +174,30 @@ def morning_reel(force=False):
         if ipos:
             paras.append('IPOs open: ' + ', '.join(i.get('companyName') or i.get('symbol') for i in ipos) + '.')
             allowed.append(len(ipos))
+    # global & India events today, and the results calendar for the week
+    from ..sources import calendar as cal
+    evs = cal.events_today()
+    if evs:
+        scenes.append({'type': 'rows', 'title': 'Events to watch today (IST)', 'topic': 'global',
+                       'rows': [{'label': e['title'][:30], 'sub': f'{e["country"]}, {e["when"].strftime("%-I:%M %p")}'}
+                                for e in evs[:5]],
+                       'voice': f'{len(evs)} major economic event{"s" if len(evs) > 1 else ""} to watch today. '
+                                f'The first is from {evs[0]["country"]} at {evs[0]["when"].strftime("%-I:%M %p")}, India time.'})
+        paras.append('Events to watch today (IST): ' + '; '.join(
+            f'{e["when"].strftime("%-I:%M %p")} {e["country"]}: {e["title"]}' for e in evs[:6]) + '.')
+        allowed += [len(evs)] + [float(e['when'].strftime('%-I')) for e in evs] + [float(e['when'].strftime('%M')) for e in evs]
+    sched = cal.results_schedule(6)
+    if sched:
+        total = sum(len(v) for v in sched.values())
+        rows = []
+        for d_, items in list(sched.items())[:5]:
+            top = [short_name(sym, comp) for sym, comp in cal.well_known_first(items)[:2]]
+            rows.append({'label': ('Today' if d_ == today else d_.strftime('%a, ') + fmt_date(d_, 'daymonth')),
+                         'value': str(len(items)), 'sub': ', '.join(top)})
+        scenes.append({'type': 'rows', 'title': 'Results calendar this week', 'rows': rows, 'topic': 'calendar',
+                       'voice': f'{total} companies announce quarterly results over the next few days. The calendar is on screen.'})
+        paras.append('Results calendar: ' + '; '.join(f'{r["label"]}: {r["value"]} companies ({r["sub"]})' for r in rows) + '.')
+        allowed += [total] + [float(r['value']) for r in rows] + [d_.day for d_ in sched]
     if len(scenes) < 2:
         report.fail('not enough confirmed data for the morning reel')
         finish_video('reel_morning', key, None, None, '', report); return

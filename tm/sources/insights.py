@@ -87,7 +87,7 @@ def _basis_label(b):
     return 'Consolidated' if b.startswith('c') else 'Standalone' if b.startswith('s') else ''
 
 
-def verified_results(symbol, yq=None, nq=None):
+def verified_results(symbol, yq=None, nq=None, allow_single=False):
     """Latest quarter vs the same quarter a year earlier, in rupees crore.
     Both quarters' net profit must agree between Yahoo and NSE (2%). Revenue is shown only if it
     agrees too. Returns (result or None, [report lines])."""
@@ -103,7 +103,16 @@ def verified_results(symbol, yq=None, nq=None):
     try:
         rows = nq if nq is not None else nse_quarters(symbol)[0]
     except nse.SourceError as e:
-        return None, [('warn', f'{symbol}: NSE results unavailable ({e}) - left out')]
+        if not allow_single:
+            return None, [('warn', f'{symbol}: NSE results unavailable ({e}) - left out')]
+        res = {'symbol': symbol, 'q_end': q_end, 'py_end': py_end, 'quarter': fy_quarter(q_end),
+               'py_quarter': fy_quarter(py_end), 'profit': round(y_now['profit'] / CR, 2),
+               'profit_py': round(y_py['profit'] / CR, 2), 'basis': '', 'single': True}
+        if y_now.get('revenue') and y_py.get('revenue'):
+            res['revenue'], res['revenue_py'] = round(y_now['revenue'] / CR, 2), round(y_py['revenue'] / CR, 2)
+        if res['profit_py'] > 0:
+            res['growth'] = round((res['profit'] - res['profit_py']) / res['profit_py'] * 100, 1)
+        return res, [('warn', f'{symbol} {res["quarter"]}: Yahoo figures only (NSE results unavailable) - please check')]
     best = None
     for unit_name, unit in UNITS.items():
         for basis in sorted({r['basis'] for r in rows}):

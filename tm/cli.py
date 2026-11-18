@@ -22,6 +22,7 @@ JOBS = {
     'weekly_ath': market_jobs.weekly_ath,
     'weekly_lows': market_jobs.weekly_lows,
     'insights': insight_jobs.insights,
+    'results_spotlight': insight_jobs.results_spotlight,
     'reel_morning': reel_jobs.morning_reel,
     'reel_evening': reel_jobs.evening_reel,
     'reel_weekly': reel_jobs.weekly_reel,

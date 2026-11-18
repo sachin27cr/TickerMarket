@@ -385,12 +385,44 @@ def day_ahead(force=False):
         groups.append(('IPOs open for bidding', lines[:5]))
     except nse.SourceError as e:
         report.warn(f'IPO list unavailable ({e})')
-    if not any(g[1] for g in groups):
+    from ..sources import calendar as cal
+    evs = cal.events_today()
+    if evs is None:
+        report.warn('global events calendar unavailable - left out')
+    elif evs:
+        groups.append(('Global & India events today (IST)',
+                       [f'{e["when"].strftime("%-I:%M %p")}  {e["country"]}: {e["title"]}'[:52] for e in evs][:6]))
+        report.ok(f'{len(evs)} high-impact events today (global calendar + RBI schedule)')
+    sched = cal.results_schedule(6)
+    week_groups = []
+    if sched:
+        for d_, items in sched.items():
+            if d_ == today:
+                continue
+            names_ = [short_name(sym, comp) for sym, comp in cal.well_known_first(items)]
+            lines_, cur = [], ''
+            for n_ in names_:
+                if len(cur) + len(n_) + 2 > 50:
+                    lines_.append(cur); cur = n_
+                else:
+                    cur = f'{cur}, {n_}' if cur else n_
+            if cur:
+                lines_.append(cur)
+            more = len(names_) - sum(len(l_.split(', ')) for l_ in lines_[:2])
+            week_groups.append((f'{d_.strftime("%a")}, {fmt_date(d_, "daymonth")}  ({len(items)} compan{"y" if len(items) == 1 else "ies"})',
+                                lines_[:2] + ([f'+ {more} more'] if more > 0 else [])))
+        report.ok(f'results calendar: {sum(len(v) for v in sched.values())} companies in the next 6 days')
+    if not any(g[1] for g in groups) and not week_groups:
         log.info('nothing notable for day ahead'); return
     head = f'What is on for the market on *{fmt_date(today, "daymonth")}*'
     images = cards.day_ahead({'date_text': fmt_date(today, 'dow'), 'headline': head, 'groups': groups,
                               'theme': 'market_up', 'seed': str(today),
                               'source': 'NSE event calendar, corporate actions, IPO list'})
+    if week_groups:
+        images += cards.day_ahead({'date_text': fmt_date(today, 'dow'), 'headline': 'Results calendar: *the week ahead*',
+                                   'groups': week_groups[:5], 'theme': 'market_up', 'seed': str(today) + 'w',
+                                   'source': 'NSE event calendar'})
+        groups.append(('Results coming up', [f'{t.split("  (")[0]}: ' + ', '.join(ls[:1]) for t, ls in week_groups[:5]]))
     counts = {t: len(ls) for t, ls in groups}
     dstats = [(t.split(' /')[0].replace(' today', '').replace(' for bidding', ''), str(c), 0) for t, c in counts.items()][:3]
     images = [cards.cover({'category': 'Market Day Ahead', 'day': today, 'headline': head, 'stats': dstats,
