@@ -34,8 +34,9 @@ def approve(did):
     d = store.load_draft(did)
     if not d:
         return 'draft not found'
-    if d['status'] not in ('pending', 'auto'):
+    if d['status'] not in ('pending', 'auto', 'failed'):          # failed = nothing went out, safe to retry
         return f'already {d["status"]}'
+    telegram.mark_message(d.get('telegram_message_id'), '⏳ Posting… please wait')
     if d.get('video'):
         res = meta.publish_reel(config.DATA_DIR / d['video'], store.media_url(d['video']), d['caption'],
                                 d['threads_text'], store.media_url(d['images'][0]) if d['images'] else None)
@@ -47,7 +48,7 @@ def approve(did):
     d['status'] = 'posted' if not errors else ('partial' if len(errors) < len(res) else 'failed')
     store.save_draft(d)
     label = {'posted': '✅ Posted', 'partial': '⚠️ Partly posted', 'failed': '❌ Post failed'}[d['status']]
-    telegram.mark_message(d.get('telegram_message_id'), label)
+    telegram.mark_message(d.get('telegram_message_id'), label, did if d['status'] == 'failed' else None)
     if errors:
         telegram.send_text(f'{label} {did}\n' + '\n'.join(f'{k}: {html.escape(str(v))}' for k, v in errors.items()))
     return label
@@ -188,19 +189,41 @@ def post_due_autos():
 
 
 def approvals():
-    _handle_updates()
+    import json
+    import os
+    raw = os.environ.get('TM_UPDATE', '').strip()
+    if raw:                                          # instant mode: one update forwarded by the Cloudflare Worker
+        try:
+            u = json.loads(raw)
+        except ValueError:
+            log.warning('bad TM_UPDATE')
+            u = None
+        if u is not None:
+            seen = store.read_json('seen_updates.json', {'ids': []})
+            if u.get('update_id') in seen['ids']:
+                log.info('update %s already handled', u.get('update_id'))
+            else:
+                seen['ids'] = (seen['ids'] + [u.get('update_id')])[-300:]
+                store.write_json('seen_updates.json', seen)
+                _handle_updates([u], instant=True)
+    else:
+        _handle_updates()                            # polling (only works while no webhook is set)
     post_due_autos()
 
 
-def _handle_updates():
-    for u in telegram.get_updates():
+def _handle_updates(updates=None, instant=False):
+    for u in (telegram.get_updates() if updates is None else updates):
         cb = u.get('callback_query')
         if cb:
             if str(cb['message']['chat']['id']) != str(config.TELEGRAM_CHAT_ID):
                 continue
             action, _, did = (cb.get('data') or '').partition(':')
             result = approve(did) if action == 'ap' else reject(did) if action == 'rj' else ''
-            telegram.answer_callback(cb['id'], result or 'ok')
+            if instant:                              # the Worker already answered the tap; report the outcome
+                if result:
+                    telegram.send_text(html.escape(result))
+            else:
+                telegram.answer_callback(cb['id'], result or 'ok')
             log.info('callback %s %s -> %s', action, did, result)
             continue
         msg = u.get('message') or {}

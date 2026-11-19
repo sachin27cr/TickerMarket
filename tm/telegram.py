@@ -128,11 +128,15 @@ def answer_callback(cb_id, text):
         log.warning('answerCallbackQuery: %s', e)
 
 
-def mark_message(message_id, label):
+def mark_message(message_id, label, retry_did=None):
+    """Replace a draft's buttons with a status label (and a Retry button after a failed post)."""
     if not message_id:
         return
+    rows = [[{'text': label, 'callback_data': 'noop'}]]
+    if retry_did:
+        rows.append([{'text': '🔁 Retry posting', 'callback_data': f'ap:{retry_did}'}])
     try:
         _api('editMessageReplyMarkup', chat_id=config.TELEGRAM_CHAT_ID, message_id=message_id,
-             reply_markup=json.dumps({'inline_keyboard': [[{'text': label, 'callback_data': 'noop'}]]}))
+             reply_markup=json.dumps({'inline_keyboard': rows}))
     except Exception as e:                           # noqa: BLE001
         log.warning('editMessageReplyMarkup: %s', e)

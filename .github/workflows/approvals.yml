@@ -6,13 +6,25 @@ on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
+    inputs:
+      update:
+        description: 'Telegram update forwarded by the Worker (instant replies)'
+        required: false
+        default: ''
+      update_id:
+        required: false
+        default: ''
+      lock:
+        description: 'taps on the same draft run one after another (no double posts)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
   actions: write      # lets /innovative start the Insights workflow
 
 concurrency:
-  group: approvals
+  group: approvals-${{ github.event.inputs.lock || github.event.inputs.update_id || 'poll' }}
   cancel-in-progress: false
 
 jobs:
@@ -24,8 +36,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          cache: pip
-      - run: pip install -r requirements.txt
+      - name: Restore installed packages
+        id: venv
+        uses: actions/cache@v4
+        with:
+          path: ~/venv
+          key: venv-${{ runner.os }}-py312-${{ hashFiles('requirements.txt') }}
+      - name: Install packages (only when requirements change)
+        if: steps.venv.outputs.cache-hit != 'true'
+        run: python -m venv ~/venv && ~/venv/bin/pip install -q -r requirements.txt
+      - run: echo "$HOME/venv/bin" >> "$GITHUB_PATH"
       - name: Load bot state
         run: bash scripts/data.sh pull
         env:
@@ -38,6 +58,7 @@ jobs:
           TM_DATA_DIR: ${{ github.workspace }}/data
           TM_NEWS_PER_RUN: ${{ vars.TM_NEWS_PER_RUN || '3' }}
           TM_POST_TO: ${{ vars.TM_POST_TO || 'instagram,facebook,threads' }}
+          TM_UPDATE: ${{ github.event.inputs.update }}
           TM_AUTO_POST: ${{ vars.TM_AUTO_POST || '' }}
           TM_AUTO_DELAY_MIN: ${{ vars.TM_AUTO_DELAY_MIN || '10' }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
