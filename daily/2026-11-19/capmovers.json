@@ -1,0 +1,314 @@
+{
+  "Large Cap": {
+    "gainers": [
+      {
+        "symbol": "MARUTI",
+        "last": 13589.0,
+        "chg": 957.0,
+        "pct": 7.58,
+        "prev": 12632.0,
+        "year_high": 17370.0,
+        "year_low": 10985.0,
+        "day_high": 13617.0,
+        "day_low": 12602.0,
+        "name": "Maruti Suzuki"
+      },
+      {
+        "symbol": "HYUNDAI",
+        "last": 2219.2,
+        "chg": 121.7,
+        "pct": 5.8,
+        "prev": 2097.5,
+        "year_high": 2463.5,
+        "year_low": 1658.0,
+        "day_high": 2235.6,
+        "day_low": 2082.6,
+        "name": "Hyundai India"
+      },
+      {
+        "symbol": "TVSMOTOR",
+        "last": 4601.4,
+        "chg": 232.4,
+        "pct": 5.32,
+        "prev": 4369.0,
+        "year_high": 4636.1,
+        "year_low": 3228.0,
+        "day_high": 4601.4,
+        "day_low": 4375.5,
+        "name": "TVS Motor"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "TCS",
+        "last": 2342.7,
+        "chg": -36.8,
+        "pct": -1.55,
+        "prev": 2379.5,
+        "year_high": 3350.0,
+        "year_low": 1976.8,
+        "day_high": 2385.6,
+        "day_low": 2327.7,
+        "name": "TCS"
+      },
+      {
+        "symbol": "TECHM",
+        "last": 1723.0,
+        "chg": -27.0,
+        "pct": -1.54,
+        "prev": 1750.0,
+        "year_high": 1860.0,
+        "year_low": 1304.1,
+        "day_high": 1735.9,
+        "day_low": 1698.5,
+        "name": "Tech Mahindra"
+      },
+      {
+        "symbol": "INFY",
+        "last": 1091.9,
+        "chg": -16.9,
+        "pct": -1.52,
+        "prev": 1108.8,
+        "year_high": 1728.0,
+        "year_low": 980.4,
+        "day_high": 1097.0,
+        "day_low": 1072.6,
+        "name": "Infosys"
+      }
+    ]
+  },
+  "Mid Cap": {
+    "gainers": [
+      {
+        "symbol": "VOLTAS",
+        "last": 1237.0,
+        "chg": 102.4,
+        "pct": 9.03,
+        "prev": 1134.6,
+        "year_high": 1582.5,
+        "year_low": 930.5,
+        "day_high": 1243.7,
+        "day_low": 1131.0,
+        "name": "Voltas"
+      },
+      {
+        "symbol": "BLUESTARCO",
+        "last": 1764.0,
+        "chg": 142.2,
+        "pct": 8.77,
+        "prev": 1621.8,
+        "year_high": 2029.6,
+        "year_low": 1432.3,
+        "day_high": 1775.2,
+        "day_low": 1621.8,
+        "name": "Blue Star"
+      },
+      {
+        "symbol": "IREDA",
+        "last": 129.8,
+        "chg": 10.0,
+        "pct": 8.35,
+        "prev": 119.8,
+        "year_high": 151.0,
+        "year_low": 98.78,
+        "day_high": 133.6,
+        "day_low": 119.7,
+        "name": "IREDA"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "PAYTM",
+        "last": 1725.9,
+        "chg": -164.1,
+        "pct": -8.68,
+        "prev": 1890.0,
+        "year_high": 1960.0,
+        "year_low": 930.6,
+        "day_high": 1808.9,
+        "day_low": 1664.3,
+        "name": "Paytm"
+      },
+      {
+        "symbol": "BHARTIHEXA",
+        "last": 1632.0,
+        "chg": -34.3,
+        "pct": -2.06,
+        "prev": 1666.3,
+        "year_high": 1860.0,
+        "year_low": 1359.2,
+        "day_high": 1680.7,
+        "day_low": 1627.0,
+        "name": "Bharti Hexacom"
+      },
+      {
+        "symbol": "POLICYBZR",
+        "last": 1015.0,
+        "chg": -20.2,
+        "pct": -1.95,
+        "prev": 1035.2,
+        "year_high": 1964.2,
+        "year_low": 916.0,
+        "day_high": 1027.1,
+        "day_low": 970.4,
+        "name": "Policybazaar"
+      }
+    ]
+  },
+  "Small Cap": {
+    "gainers": [
+      {
+        "symbol": "WOCKPHARMA",
+        "last": 2187.0,
+        "prev": 2026.6,
+        "chg": 160.4,
+        "pct": 7.914734037303864,
+        "day_high": 2197.0,
+        "day_low": 1992.5999755859375,
+        "year_high": 2422.300048828125,
+        "year_low": 1086.699951171875,
+        "name": "Wockhardt"
+      },
+      {
+        "symbol": "AMBER",
+        "last": 6697.0,
+        "prev": 6236.5,
+        "chg": 460.5,
+        "pct": 7.383949330553996,
+        "day_high": 6755.0,
+        "day_low": 6241.0,
+        "year_high": 8974.0,
+        "year_low": 5400.5,
+        "name": "Amber Enterprises India"
+      },
+      {
+        "symbol": "PGEL",
+        "last": 578.25,
+        "prev": 539.2,
+        "chg": 39.05,
+        "pct": 7.242210682492573,
+        "day_high": 580.3499755859375,
+        "day_low": 539.2999877929688,
+        "year_high": 644.4000244140625,
+        "year_low": 436.54998779296875,
+        "name": "PG Electroplast"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "CREDITACC",
+        "last": 970.6,
+        "prev": 1046.2,
+        "chg": -75.6,
+        "pct": -7.226151787421145,
+        "day_high": 1052.199951171875,
+        "day_low": 965.7000122070312,
+        "year_high": 1634.0,
+        "year_low": 965.7000122070312,
+        "name": "Creditaccess Grameen"
+      },
+      {
+        "symbol": "PINELABS",
+        "last": 161.24,
+        "prev": 169.35,
+        "chg": -8.11,
+        "pct": -4.788898730439909,
+        "day_high": 166.0,
+        "day_low": 158.82000732421875,
+        "year_high": 254.75,
+        "year_low": 134.72999572753906,
+        "name": "Pine Labs"
+      },
+      {
+        "symbol": "PFOCUS",
+        "last": 267.15,
+        "prev": 275.75,
+        "chg": -8.6,
+        "pct": -3.1187669990933897,
+        "day_high": 282.3999938964844,
+        "day_low": 265.5,
+        "year_high": 367.0,
+        "year_low": 165.0,
+        "name": "Prime Focus"
+      }
+    ]
+  },
+  "Micro Cap": {
+    "gainers": [
+      {
+        "symbol": "V2RETAIL",
+        "last": 157.36,
+        "prev": 141.61,
+        "chg": 15.75,
+        "pct": 11.122095897182401,
+        "day_high": 162.0,
+        "day_low": 136.33999633789062,
+        "year_high": 259.25,
+        "year_low": 122.7300033569336,
+        "name": "V2 Retail"
+      },
+      {
+        "symbol": "SJS",
+        "last": 2246.8,
+        "prev": 2052.2,
+        "chg": 194.6,
+        "pct": 9.482506578306227,
+        "day_high": 2270.300048828125,
+        "day_low": 2052.199951171875,
+        "year_high": 2590.0,
+        "year_low": 1503.0,
+        "name": "S.J.S. Enterprises"
+      },
+      {
+        "symbol": "KWIL",
+        "last": 44.42,
+        "prev": 41.55,
+        "chg": 2.87,
+        "pct": 6.907340553549951,
+        "day_high": 44.58000183105469,
+        "day_low": 42.16999816894531,
+        "year_high": 50.68000030517578,
+        "year_low": 22.239999771118164,
+        "name": "Kwality Wall's"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "SUBROS",
+        "last": 651.6,
+        "prev": 693.25,
+        "chg": -41.65,
+        "pct": -6.007933645870895,
+        "day_high": 679.9500122070312,
+        "day_low": 645.0,
+        "year_high": 921.0,
+        "year_low": 572.0999755859375,
+        "name": "Subros"
+      },
+      {
+        "symbol": "IIFLCAPS",
+        "last": 333.45,
+        "prev": 353.1,
+        "chg": -19.65,
+        "pct": -5.564995751911649,
+        "day_high": 362.0,
+        "day_low": 328.29998779296875,
+        "year_high": 411.29998779296875,
+        "year_low": 240.39999389648438,
+        "name": "IIFL Capital Services"
+      },
+      {
+        "symbol": "E2E",
+        "last": 500.25,
+        "prev": 526.45,
+        "chg": -26.2,
+        "pct": -4.976730933611937,
+        "day_high": 526.0,
+        "day_low": 500.1499938964844,
+        "year_high": 765.0,
+        "year_low": 183.36000061035156,
+        "name": "E2E Networks"
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "11191616-d96cd",
+  "kind": "cap_movers",
+  "created": "2026-11-19T16:16:20.673072+05:30",
+  "images": [
+    "media/2026-11-19/cap_movers-161620-7005_1.jpg",
+    "media/2026-11-19/cap_movers-161620-7005_2.jpg",
+    "media/2026-11-19/cap_movers-161620-7005_3.jpg",
+    "media/2026-11-19/cap_movers-161620-7005_4.jpg",
+    "media/2026-11-19/cap_movers-161620-7005_5.jpg",
+    "media/2026-11-19/cap_movers-161620-7005_6.jpg",
+    "media/2026-11-19/cap_movers-161620-7005_7.jpg",
+    "media/2026-11-19/cap_movers-161620-7005_8.jpg"
+  ],
+  "caption": "TOP GAINERS AND LOSERS BY MARKET CAP: 19 NOVEMBER 2026\n\nLarge Cap: top gainer Maruti Suzuki (+7.58%), top loser TCS (-1.55%).\nMid Cap: top gainer Voltas (+9.03%), top loser Paytm (-8.68%).\nSmall Cap: top gainer Wockhardt (+7.91%), top loser Creditaccess Grameen (-7.23%).\nMicro Cap: top gainer V2 Retail (+11.12%), top loser Subros (-6.01%).\n\nGroups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the top 5 in each group.\n\nFor information only. Not investment advice.\n\n#TopGainers #TopLosers #StockMarketIndia #SmallCap #ShareMarket",
+  "threads_text": "TOP GAINERS AND LOSERS BY MARKET CAP: 19 NOVEMBER 2026\n\nLarge Cap: top gainer Maruti Suzuki (+7.58%), top loser TCS (-1.55%).\nMid Cap: top gainer Voltas (+9.03%), top loser Paytm (-8.68%).\nSmall Cap: top gainer Wockhardt (+7.91%), top loser Creditaccess Grameen (-7.23%).\nMicro Cap: top gainer V2 Retail (+11.12%), top loser Subros (-6.01%).\n\n#TopGainers #TopLosers #StockMarketIndia #SmallCap #ShareMarket",
+  "report": [
+    [
+      "ok",
+      "Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed"
+    ],
+    [
+      "ok",
+      "Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed"
+    ],
+    [
+      "warn",
+      "Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)"
+    ],
+    [
+      "warn",
+      "Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)"
+    ],
+    [
+      "ok",
+      "caption: all 11 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 289,
+  "posted": {},
+  "report_text": "✅ Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed\n⚠️ Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n⚠️ Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n✅ caption: all 11 numbers match source data\n✅ no advice, prediction or rumour language"
+}
