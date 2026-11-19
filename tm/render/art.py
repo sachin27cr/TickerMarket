@@ -168,7 +168,7 @@ def background(theme, w=1080, h=1350, seed=0, tone=None):
     from . import own_bg, photo
     mine = own_bg.pick(own_bg.folder_for(kind), 'down' if down else 'up', seed)
     if mine is not None:                         # your own pictures in assets/backgrounds come first
-        return _photo_background(own_bg.cover(mine, w, w), w, h)
+        return _full_photo(own_bg.cover(mine, w, h), w, h)
     if photo.enabled():                          # photo-realistic scene when Cloudflare is set up
         pic = photo.get(photo.prompt_for(kind, 'down' if down else 'up', seed))
         if pic is not None:
@@ -212,6 +212,18 @@ def background(theme, w=1080, h=1350, seed=0, tone=None):
             cd.rectangle([x, y, x + rng.randint(4, 10), y + rng.randint(8, 16)], fill=c + (rng.randint(120, 230),))
         im.alpha_composite(conf)
     return _finish(im, rng, w, h)
+
+
+def _full_photo(pic, w, h):
+    """Your own picture, full-bleed: slightly darker overall and fading to dark at the bottom (footer)."""
+    from PIL import ImageEnhance
+    pic = ImageEnhance.Brightness(pic.convert('RGB')).enhance(0.92).convert('RGBA')
+    fade = np.zeros((h, w, 4), np.uint8)
+    fade[..., :3] = (3, 10, 23)
+    t = np.clip((np.arange(h) - h * 0.55) / (h * 0.45), 0, 1) ** 1.3
+    fade[..., 3] = (t[:, None] * 215).astype(np.uint8)
+    pic.alpha_composite(Image.fromarray(fade, 'RGBA'))
+    return pic.convert('RGB')
 
 
 def _photo_background(pic, w, h):

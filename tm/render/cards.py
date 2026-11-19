@@ -126,7 +126,7 @@ def base(category, date_text, sample=False, theme=None, seed=0, dim=0.0, tone=No
     if theme:
         from .art import background
         im = background(theme, W, H, seed, tone)
-        if dim:                                   # content slides: blur + darken so nothing in the art competes with data
+        if dim >= 0.2:                            # content slides: blur + darken so nothing in the art competes with data
             from PIL import ImageFilter
             im = im.filter(ImageFilter.GaussianBlur(22))
             im = Image.blend(im, Image.new('RGB', (W, H), BG), max(dim, 0.62))
