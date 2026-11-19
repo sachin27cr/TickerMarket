@@ -1,0 +1,149 @@
+{
+  "ath": 8,
+  "hi52": 17,
+  "lo52": 8,
+  "groups": {
+    "Large Cap": {
+      "ath": [],
+      "hi52": [
+        {
+          "name": "PNB",
+          "pct": 3.53
+        },
+        {
+          "name": "Kotak Bank",
+          "pct": 1.65
+        },
+        {
+          "name": "GAIL",
+          "pct": 1.11
+        },
+        {
+          "name": "Union Bank",
+          "pct": 1.02
+        }
+      ],
+      "lo52": [
+        {
+          "name": "Tata Motors Passenger Vehicles",
+          "pct": 4.34
+        }
+      ],
+      "ath_count": 0,
+      "hi52_count": 4,
+      "lo52_count": 1
+    },
+    "Mid Cap": {
+      "ath": [
+        {
+          "name": "Gujarat Fluorochemicals",
+          "pct": 3.1
+        },
+        {
+          "name": "Bank of Maharashtra",
+          "pct": 2.06
+        },
+        {
+          "name": "UNO Minda",
+          "pct": 1.09
+        }
+      ],
+      "hi52": [],
+      "lo52": [
+        {
+          "name": "PI Industries",
+          "pct": 0.37
+        },
+        {
+          "name": "KEI Industries",
+          "pct": 2.72
+        }
+      ],
+      "ath_count": 3,
+      "hi52_count": 3,
+      "lo52_count": 2
+    },
+    "Small Cap": {
+      "ath": [
+        {
+          "name": "Craftsman Automation",
+          "pct": 5.156456588805641
+        },
+        {
+          "name": "Asahi India Glass",
+          "pct": 3.0026786485785886
+        },
+        {
+          "name": "Navin Fluorine International",
+          "pct": -0.7297139521307647
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Sun TV Network",
+          "pct": -0.10770445896460114
+        },
+        {
+          "name": "PVR INOX",
+          "pct": -0.9099393373775161
+        }
+      ],
+      "lo52": [
+        {
+          "name": "Creditaccess Grameen",
+          "pct": -7.226151787421145
+        },
+        {
+          "name": "Aadhar Housing Finance",
+          "pct": -1.4604606981714638
+        }
+      ],
+      "ath_count": 3,
+      "hi52_count": 5,
+      "lo52_count": 2
+    },
+    "Micro Cap": {
+      "ath": [
+        {
+          "name": "Neogen Chemicals",
+          "pct": 3.8954032084022803
+        },
+        {
+          "name": "Indo Count Industries",
+          "pct": -0.09539502211429271
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Shadowfax Technologies",
+          "pct": 5.005859701992314
+        },
+        {
+          "name": "DCB Bank",
+          "pct": 3.3077092027234793
+        },
+        {
+          "name": "Westlife Foodworld",
+          "pct": 1.3629629629629696
+        }
+      ],
+      "lo52": [
+        {
+          "name": "Praj Industries",
+          "pct": -0.9058799085809295
+        },
+        {
+          "name": "ABFRL",
+          "pct": 0.21893814997262806
+        },
+        {
+          "name": "Indian Metals & Ferro Alloys",
+          "pct": 0.44414405715940025
+        }
+      ],
+      "ath_count": 2,
+      "hi52_count": 5,
+      "lo52_count": 3
+    }
+  }
+}
