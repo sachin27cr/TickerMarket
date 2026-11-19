@@ -22,6 +22,7 @@ HELP = """<b>Ticker Market bot</b>
 /reelam /reelpm /reelweek /reelath /reellows - make a reel now
 /spotlight - best quarterly results of the last few days
 /voices - hear the voice options; /voice name - choose one; /say text - hear how a line is pronounced
+/metacheck - check the Instagram/Facebook keys (posts nothing)
 /innovative - next data story (Insights); /innovative list for tags, e.g. /innovative profits
 /queue - drafts waiting for you
 /flagged - recently blocked drafts
@@ -101,6 +102,12 @@ def run_command(cmd, arg=''):
                 telegram.send_audio(path, f'{name}{" (current)" if name == cur else ""} - {desc}. Pick: /voice {name}')
             except Exception as e:                   # noqa: BLE001
                 telegram.send_text(f'{name}: sample failed ({type(e).__name__})')
+        return
+    if cmd == '/metacheck':
+        from ..publish import meta
+        lines = meta.check_setup()
+        telegram.send_text('Meta setup check (nothing was posted):\n' +
+                           '\n'.join(('✅ ' if ok else '❌ ') + html.escape(m) for ok, m in lines))
         return
     if cmd == '/say':
         import tempfile

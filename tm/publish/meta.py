@@ -176,3 +176,49 @@ def publish_reel(path, video_url, caption, threads_text, cover_url=None):
             log.error('%s reel publish failed: %s', name, msg)
             out[name] = f'error: {msg}'
     return out
+
+
+def check_setup():
+    """Read-only check of the Meta keys (posts nothing). Returns a list of (ok, message); never shows a token."""
+    out = []
+    tok, pid, uid = config.META_PAGE_TOKEN, config.META_PAGE_ID, config.IG_USER_ID
+    if not (tok and pid):
+        return [(False, 'META_PAGE_ID / META_PAGE_TOKEN secrets are not set')]
+
+    def get(path, **p):
+        r = requests.get(f'{G}/{path}', params={**p, 'access_token': tok}, timeout=30)
+        j = r.json()
+        if 'error' in j:
+            raise PublishError(j['error'].get('message', 'error'))
+        return j
+    try:
+        page = get(pid, fields='name,instagram_business_account')
+        out.append((True, f'Facebook Page: {page.get("name")}'))
+        linked = (page.get('instagram_business_account') or {}).get('id')
+        if not linked:
+            out.append((False, 'No Instagram professional account is linked to this Page'))
+        elif uid and linked != uid:
+            out.append((False, f'IG_USER_ID does not match the Instagram account linked to the Page ({linked})'))
+        else:
+            ig = get(linked, fields='username')
+            out.append((True, f'Instagram: @{ig.get("username")}' + ('' if uid else f' - set IG_USER_ID to {linked}')))
+    except (PublishError, requests.RequestException) as e:
+        out.append((False, f'Meta said: {util_scrub(str(e))}'))
+        return out
+    try:
+        dbg = get('debug_token', input_token=tok).get('data', {})
+        exp = dbg.get('expires_at', 0)
+        out.append((exp == 0, 'Page token never expires' if exp == 0 else
+                    f'Page token expires {time.strftime("%d %b %Y", time.localtime(exp))} - make a never-expiring one'))
+        need = {'pages_manage_posts', 'pages_read_engagement', 'instagram_basic', 'instagram_content_publish'}
+        missing = need - set(dbg.get('scopes') or [])
+        out.append((not missing, 'All posting permissions granted' if not missing else
+                    'Missing permissions: ' + ', '.join(sorted(missing))))
+    except (PublishError, requests.RequestException) as e:
+        out.append((False, f'Could not check token expiry: {util_scrub(str(e))}'))
+    return out
+
+
+def util_scrub(s):
+    from ..util import scrub
+    return scrub(s)
