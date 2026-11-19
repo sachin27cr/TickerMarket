@@ -35,10 +35,27 @@ HELP = """<b>Ticker Market bot</b>
 NAMES = {'instagram': 'Instagram', 'facebook': 'Facebook', 'threads': 'Threads'}
 
 
-def approve(did):
-    d = store.load_draft(did)
+def _wait_for_draft(did, tries=10, pause=20):
+    """A draft tapped seconds after it arrived may not be saved to the data branch yet (the job that made it
+    saves at its very end). Pull the latest state a few times before giving up (about 3 minutes)."""
+    import subprocess
+    import time
+    for _ in range(tries):
+        d = store.load_draft(did)
+        if d:
+            return d
+        time.sleep(pause)
+        subprocess.run(['git', '-C', str(config.DATA_DIR), '-c', 'user.name=bot', '-c', 'user.email=bot@x', 'pull', '--quiet', '--rebase', '--autostash', 'origin', 'data'],
+                       capture_output=True)
+    return store.load_draft(did)
+
+
+def approve(did, msg_id=None):
+    d = store.load_draft(did) or _wait_for_draft(did)
     if not d:
-        return 'draft not found'
+        if msg_id:                                   # put the buttons back so it can be tapped again
+            telegram.restore_buttons(msg_id, did)
+        return 'draft not found - it may still be saving; tap Approve again in a minute'
     if d['status'] not in ('pending', 'auto', 'failed', 'partial'):
         return f'already {d["status"]}'
     done = {k: v for k, v in (d.get('posted') or {}).items() if not str(v).startswith('error')}
@@ -74,7 +91,7 @@ def approve(did):
 
 
 def reject(did):
-    d = store.load_draft(did)
+    d = store.load_draft(did) or _wait_for_draft(did, tries=4)
     if not d:
         return 'draft not found'
     if d['status'] not in ('pending', 'auto'):
@@ -249,9 +266,10 @@ def _handle_updates(updates=None, instant=False):
             if str(cb['message']['chat']['id']) != str(config.TELEGRAM_CHAT_ID):
                 continue
             action, _, did = (cb.get('data') or '').partition(':')
-            result = approve(did) if action == 'ap' else reject(did) if action == 'rj' else ''
+            mid = (cb.get('message') or {}).get('message_id')
+            result = approve(did, mid) if action == 'ap' else reject(did) if action == 'rj' else ''
             if instant:                              # the Worker already answered the tap; the button shows the outcome
-                if result and result.startswith(('already', 'draft not')):
+                if result and result.startswith(('already', 'draft not')):  # noqa
                     telegram.send_text(html.escape(result))
             else:
                 telegram.answer_callback(cb['id'], result or 'ok')

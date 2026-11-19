@@ -140,3 +140,12 @@ def mark_message(message_id, label, retry_did=None):
              reply_markup=json.dumps({'inline_keyboard': rows}))
     except Exception as e:                           # noqa: BLE001
         log.warning('editMessageReplyMarkup: %s', e)
+
+
+def restore_buttons(message_id, did):
+    try:
+        _api('editMessageReplyMarkup', chat_id=config.TELEGRAM_CHAT_ID, message_id=message_id,
+             reply_markup=json.dumps({'inline_keyboard': [[{'text': '✅ Approve & post', 'callback_data': f'ap:{did}'},
+                                                           {'text': '❌ Reject', 'callback_data': f'rj:{did}'}]]}))
+    except Exception as e:                           # noqa: BLE001
+        log.warning('restore buttons: %s', e)
