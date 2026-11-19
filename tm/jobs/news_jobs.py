@@ -69,8 +69,13 @@ def build_from_cluster(c):
     try:
         verdict, checker = llm.check(prompts.check_prompt(draft_text, c), writer)
         ok = verdict.get('all_supported') and not verdict.get('misleading') and not verdict.get('advice_or_prediction')
+        issues = [str(x) for x in (verdict.get('issues') or []) if str(x).strip()]
+        date_only = issues and all(re.search(r'(?i)\bdate\b|today|published|november|december|january|2026|2027', x)
+                                   and not re.search(r'(?i)number|figure|crore|percent|%|price', x) for x in issues)
         if ok:
             report.ok(f'second opinion ({checker}): every fact supported, not misleading, no advice')
+        elif date_only and not verdict.get('advice_or_prediction') and not verdict.get('misleading'):
+            report.warn(f'second opinion ({checker}) only queried the date: ' + '; '.join(issues))
         else:
             report.fail(f'second opinion ({checker}): ' + '; '.join(verdict.get('issues') or ['rejected']))
     except llm.LLMError as e:

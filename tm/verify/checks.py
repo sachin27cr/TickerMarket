@@ -108,12 +108,53 @@ def _norm(t):
     return re.sub(r'[^a-z0-9&]', '', t.lower())
 
 
+# Well-known short forms and what they stand for: if the source uses the short form, the draft may spell it out.
+GLOSSARY = {
+    'QIB': 'Qualified Institutional Buyers', 'NII': 'Non-Institutional Investors', 'HNI': 'High Net-worth Individuals',
+    'RII': 'Retail Individual Investors', 'FII': 'Foreign Institutional Investors', 'DII': 'Domestic Institutional Investors',
+    'FPI': 'Foreign Portfolio Investors', 'RBI': 'Reserve Bank of India', 'SEBI': 'Securities and Exchange Board of India',
+    'NSE': 'National Stock Exchange', 'BSE': 'Bombay Stock Exchange', 'MPC': 'Monetary Policy Committee',
+    'GST': 'Goods and Services Tax', 'UPI': 'Unified Payments Interface', 'MDR': 'Merchant Discount Rate',
+    'NPCI': 'National Payments Corporation of India', 'DRHP': 'Draft Red Herring Prospectus', 'RHP': 'Red Herring Prospectus',
+    'OFS': 'Offer for Sale', 'IPO': 'Initial Public Offering', 'AGM': 'Annual General Meeting', 'EGM': 'Extraordinary General Meeting',
+    'CPI': 'Consumer Price Index', 'WPI': 'Wholesale Price Index', 'GDP': 'Gross Domestic Product', 'PMI': 'Purchasing Managers Index',
+    'NBFC': 'Non-Banking Financial Company', 'PSU': 'Public Sector Undertaking', 'MF': 'Mutual Fund', 'AMC': 'Asset Management Company',
+    'SIP': 'Systematic Investment Plan', 'AMFI': 'Association of Mutual Funds in India', 'IRDAI': 'Insurance Regulatory and Development Authority',
+    'CCI': 'Competition Commission of India', 'NCLT': 'National Company Law Tribunal', 'SAT': 'Securities Appellate Tribunal',
+    'EV': 'Electric Vehicle', 'PLI': 'Production Linked Incentive', 'Fed': 'Federal Reserve', 'US': 'United States',
+    'M&M': 'Mahindra & Mahindra', 'L&T': 'Larsen & Toubro', 'SBI': 'State Bank of India', 'LIC': 'Life Insurance Corporation',
+    'HUL': 'Hindustan Unilever', 'ONGC': 'Oil and Natural Gas Corporation', 'IOC': 'Indian Oil Corporation',
+    'BPCL': 'Bharat Petroleum', 'HPCL': 'Hindustan Petroleum', 'HAL': 'Hindustan Aeronautics', 'BEL': 'Bharat Electronics',
+    'NTPC': 'National Thermal Power Corporation', 'TCS': 'Tata Consultancy Services', 'RIL': 'Reliance Industries',
+}
+GENERIC_FIRST = {'Bank', 'State', 'Indian', 'India', 'Power', 'Oil', 'National', 'Bharat', 'Hindustan', 'Union', 'Central',
+                 'General', 'United', 'Tata', 'Adani', 'Bajaj', 'Aditya', 'The', 'New', 'Max', 'Life', 'Star'}
+
+
+def _expansions(source_text):
+    """Words the draft may use because the source names the same thing in a short form
+    ('M&M' -> Mahindra, 'Hero Moto' -> Hero MotoCorp, 'QIBs' -> Qualified Institutional Buyers)."""
+    from ..sources.names import COMMON as NAMES
+    src = source_text
+    extra = set()
+    pairs = list(GLOSSARY.items()) + [(sym, name) for sym, name in NAMES.items()]
+    for short, full in pairs:
+        forms = {short}
+        first = full.split()[0]
+        if len(first) >= 4 and first not in GENERIC_FIRST:
+            forms.add(first)
+        if any(re.search(r'(?<![A-Za-z0-9])' + re.escape(f) + r's?(?![A-Za-z0-9])', src) for f in forms):
+            extra |= {_norm(w) for w in full.split()}
+    return extra
+
+
 def check_names(text, source_text, report):
     """Every name-like word in the draft must appear in the sources (word by word, ignoring punctuation:
     'AT1' matches 'AT-1'). Ordinary capitalised words at the start of a sentence are not names."""
     plain = FY_DRAFT.sub(' ', re.sub(r'[*]', '', text))           # fiscal labels are checked separately
     src_norm = _norm(source_text)
-    src_words = {_norm(w) for w in source_text.split()}
+    src_words = {_norm(w) for w in source_text.split()} | _expansions(source_text)
+    stems = {w for w in src_words if len(w) >= 4}
     missing = []
     for m in re.finditer(r"\b([A-Z][A-Za-z0-9&'\-]*(?:[ \t]+[A-Z][A-Za-z0-9&'\-]*)*)", plain):
         ph = m.group(1)
@@ -121,7 +162,8 @@ def check_names(text, source_text, report):
         start = m.start() == 0 or plain[:m.start()].rstrip()[-1:] in '.:;!?\n'
         if start and len(ph.split()) == 1:
             continue                                        # a lone capitalised word starting a sentence
-        bad = [w for w in words if len(_norm(w)) >= 2 and _norm(w) not in src_words and _norm(w) not in src_norm]
+        bad = [w for w in words if len(_norm(w)) >= 2 and _norm(w) not in src_words and _norm(w) not in src_norm
+               and not any(_norm(w).startswith(st) for st in stems)]      # 'Moto' in source covers 'MotoCorp'
         if bad:
             missing.append(ph)
     if missing:

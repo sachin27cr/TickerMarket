@@ -31,8 +31,14 @@ Return JSON with exactly these keys:
 
 
 def check_prompt(draft_text, cluster):
-    sources = '\n'.join(f'- [{i["outlet"]}] {i["title"]}. {i["summary"]}' for i in cluster['items'][:6])
+    from ..util import fmt_date, today_ist
+    sources = '\n'.join(f'- [{i["outlet"]}, published {fmt_date(i["published"])}] {i["title"]}. {i["summary"]}'
+                         for i in cluster['items'][:6])
     return f"""You are a strict fact-checker for a financial news page. Compare the DRAFT with the SOURCES.
+Today is {fmt_date(today_ist())}; the post is dated today, so today's date and the publication dates are supported.
+A full name for a short form in the sources counts as supported (M&M = Mahindra & Mahindra, Hero Moto = Hero MotoCorp,
+QIBs = Qualified Institutional Buyers, RBI = Reserve Bank of India). Only flag real problems: a fact, number or name
+that is NOT in the sources or contradicts them.
 
 SOURCES:
 {sources}
