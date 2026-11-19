@@ -17,11 +17,11 @@ class PublishError(Exception):
     pass
 
 
-def _post(url, **params):
-    r = requests.post(url, data=params, timeout=60)
+def _post(endpoint, **params):
+    r = requests.post(endpoint, data=params, timeout=60)
     j = r.json() if r.headers.get('content-type', '').startswith(('application/json', 'text/javascript')) else {}
     if r.status_code != 200 or 'error' in j:
-        raise PublishError(f'{url.split("/")[-1]}: {j.get("error", {}).get("message", r.text[:200])}')
+        raise PublishError(f'{endpoint.split("/")[-1]}: {j.get("error", {}).get("message", r.text[:200])}')
     return j
 
 
@@ -77,13 +77,14 @@ def threads(image_urls, text):
     return _post(f'{T}/{uid}/threads_publish', creation_id=c, access_token=tok)['id']
 
 
-def publish_all(image_urls, caption, threads_text):
-    """Returns {platform: id or 'error: ...'}; one platform failing does not stop the others."""
+def publish_all(image_urls, caption, threads_text, only=None):
+    """Returns {platform: id or 'error: ...'}; one platform failing does not stop the others.
+    only: post just to these platforms (used to retry the ones that failed)."""
     out = {}
     jobs = {'instagram': lambda: instagram(image_urls, caption),
             'facebook': lambda: facebook(image_urls, caption),
             'threads': lambda: threads(image_urls, threads_text)}
-    for name in config.POST_TO:
+    for name in (only or config.POST_TO):
         if config.DRY_RUN:
             out[name] = 'dry-run'
             continue
@@ -159,12 +160,12 @@ def threads_video(video_url, text):
     return _post(f'{T}/{uid}/threads_publish', creation_id=c, access_token=tok)['id']
 
 
-def publish_reel(path, video_url, caption, threads_text, cover_url=None):
+def publish_reel(path, video_url, caption, threads_text, cover_url=None, only=None):
     out = {}
     jobs = {'instagram': lambda: instagram_reel(path, caption, cover_url),
             'facebook': lambda: facebook_reel(path, caption),
             'threads': lambda: threads_video(video_url, threads_text)}
-    for name in config.POST_TO:
+    for name in (only or config.POST_TO):
         if config.DRY_RUN:
             out[name] = 'dry-run'
             continue

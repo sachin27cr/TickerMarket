@@ -30,27 +30,39 @@ HELP = """<b>Ticker Market bot</b>
 /pause, /resume - stop or restart all scheduled posts"""
 
 
+NAMES = {'instagram': 'Instagram', 'facebook': 'Facebook', 'threads': 'Threads'}
+
+
 def approve(did):
     d = store.load_draft(did)
     if not d:
         return 'draft not found'
-    if d['status'] not in ('pending', 'auto', 'failed'):          # failed = nothing went out, safe to retry
+    if d['status'] not in ('pending', 'auto', 'failed', 'partial'):
         return f'already {d["status"]}'
+    done = {k: v for k, v in (d.get('posted') or {}).items() if not str(v).startswith('error')}
+    todo = [p for p in config.POST_TO if p not in done]          # a retry only posts where it failed
+    if not todo:
+        return 'already posted'
     telegram.mark_message(d.get('telegram_message_id'), '⏳ Posting… please wait')
     if d.get('video'):
         res = meta.publish_reel(config.DATA_DIR / d['video'], store.media_url(d['video']), d['caption'],
-                                d['threads_text'], store.media_url(d['images'][0]) if d['images'] else None)
+                                d['threads_text'], store.media_url(d['images'][0]) if d['images'] else None, only=todo)
     else:
         urls = [store.media_url(p) for p in d['images']]
-        res = meta.publish_all(urls, d['caption'], d['threads_text'])
-    d['posted'] = res
-    errors = {k: v for k, v in res.items() if str(v).startswith('error')}
-    d['status'] = 'posted' if not errors else ('partial' if len(errors) < len(res) else 'failed')
+        res = meta.publish_all(urls, d['caption'], d['threads_text'], only=todo)
+    d['posted'] = {**(d.get('posted') or {}), **res}
+    errors = {k: v for k, v in d['posted'].items() if str(v).startswith('error')}
+    d['status'] = 'posted' if not errors else ('partial' if len(errors) < len(d['posted']) else 'failed')
     store.save_draft(d)
-    label = {'posted': '✅ Posted', 'partial': '⚠️ Partly posted', 'failed': '❌ Post failed'}[d['status']]
-    telegram.mark_message(d.get('telegram_message_id'), label, did if d['status'] == 'failed' else None)
+    ok = [NAMES.get(k, k) for k, v in d['posted'].items() if not str(v).startswith('error')]
+    bad = [NAMES.get(k, k) for k in errors]
+    label = {'posted': '✅ Posted on ' + ' & '.join(ok),
+             'partial': '⚠️ Posted on ' + ' & '.join(ok) + ' · ' + ' & '.join(bad) + ' failed',
+             'failed': '❌ Post failed'}[d['status']]
+    telegram.mark_message(d.get('telegram_message_id'), label, did if errors else None)
     if errors:
-        telegram.send_text(f'{label} {did}\n' + '\n'.join(f'{k}: {html.escape(str(v))}' for k, v in errors.items()))
+        telegram.send_text(f'{label}\n' + '\n'.join(f'{NAMES.get(k, k)}: {html.escape(str(v))}' for k, v in errors.items())
+                           + '\nTap 🔁 Retry posting to try again (only where it failed).')
     return label
 
 
@@ -219,8 +231,8 @@ def _handle_updates(updates=None, instant=False):
                 continue
             action, _, did = (cb.get('data') or '').partition(':')
             result = approve(did) if action == 'ap' else reject(did) if action == 'rj' else ''
-            if instant:                              # the Worker already answered the tap; report the outcome
-                if result:
+            if instant:                              # the Worker already answered the tap; the button shows the outcome
+                if result and result.startswith(('already', 'draft not')):
                     telegram.send_text(html.escape(result))
             else:
                 telegram.answer_callback(cb['id'], result or 'ok')
