@@ -73,8 +73,9 @@ def facebook(image_urls, caption):
         except PublishError as e:
             last = e
             log.warning('facebook multi-photo (%s) failed: %s', extra, e)
+    pid_ = _post(f'{G}/{pid}/photos', url=image_urls[0], caption=caption, access_token=tok)['id']
     FB_NOTE['facebook'] = f'cover only - Facebook refused the multi-photo post ({str(last)[:90]})'
-    return _post(f'{G}/{pid}/photos', url=image_urls[0], caption=caption, access_token=tok)['id']
+    return pid_
 
 
 def threads(image_urls, text):
