@@ -29,6 +29,10 @@ FOLDER = {
     'weekly_ath': 'highs', 'reel_ath': 'highs', 'weekly_lows': 'lows', 'reel_lows': 'lows',
     'reel_weekly': 'weekly', 'news': 'news',
 }
+# reel scene topics -> reels/<folder> first (pictures made for reels), then the post folder
+REEL = {'intro': 'morning', 'global': 'morning', 'calendar': 'morning', 'intro_pm': 'evening', 'indices': 'evening',
+        'movers': 'evening', 'intro_week': 'weekly', 'flows': 'flows', 'commodities': 'flows', 'sectors': 'sectors',
+        'highs': 'highs', 'lows': 'lows'}
 # reel scene topics -> folder
 TOPIC = {'intro': 'morning', 'intro_pm': 'close', 'intro_week': 'weekly', 'global': 'morning',
          'commodities': 'money', 'indices': 'close', 'flows': 'money', 'calendar': 'morning',
