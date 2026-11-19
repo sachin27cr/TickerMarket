@@ -223,3 +223,26 @@ def check_setup():
 def util_scrub(s):
     from ..util import scrub
     return scrub(s)
+
+
+def links(posted):
+    """Public links for what was just posted: {platform: url}. Asks Meta, so a link proves the post is live."""
+    out = {}
+    tok = config.META_PAGE_TOKEN
+    for name, mid in (posted or {}).items():
+        if str(mid).startswith(('error', 'dry-run')) or not tok:
+            continue
+        try:
+            if name == 'instagram':
+                j = requests.get(f'{G}/{mid}', params={'fields': 'permalink,username,timestamp', 'access_token': tok},
+                                 timeout=30).json()
+                if j.get('permalink'):
+                    out[name] = f'{j["permalink"]} (@{j.get("username")})'
+                else:
+                    out[name] = 'not found: ' + str((j.get('error') or {}).get('message', 'no permalink'))[:120]
+            elif name == 'facebook':
+                j = requests.get(f'{G}/{mid}', params={'fields': 'permalink_url', 'access_token': tok}, timeout=30).json()
+                out[name] = j.get('permalink_url') or f'https://www.facebook.com/{mid}'
+        except requests.RequestException as e:
+            out[name] = f'could not check ({type(e).__name__})'
+    return out

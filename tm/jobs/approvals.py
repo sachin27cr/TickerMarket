@@ -24,6 +24,7 @@ HELP = """<b>Ticker Market bot</b>
 /voices - hear the voice options; /voice name - choose one; /say text - hear how a line is pronounced
 /metacheck - check the Instagram/Facebook keys (posts nothing)
 /retry id - post a draft again where it failed
+/where id - live links of a posted draft
 /innovative - next data story (Insights); /innovative list for tags, e.g. /innovative profits
 /queue - drafts waiting for you
 /flagged - recently blocked drafts
@@ -61,6 +62,9 @@ def approve(did):
              'partial': '⚠️ Posted on ' + ' & '.join(ok) + ' · ' + ' & '.join(bad) + ' failed',
              'failed': '❌ Post failed'}[d['status']]
     telegram.mark_message(d.get('telegram_message_id'), label, did if errors else None)
+    live = meta.links(res)
+    if live:
+        telegram.send_text(f'{label}\n' + '\n'.join(f'{NAMES.get(k, k)}: {html.escape(v)}' for k, v in live.items()))
     if errors:
         telegram.send_text(f'{label}\n' + '\n'.join(f'{NAMES.get(k, k)}: {html.escape(str(v))}' for k, v in errors.items())
                            + '\nTap 🔁 Retry posting to try again (only where it failed).')
@@ -120,6 +124,14 @@ def run_command(cmd, arg=''):
     if cmd == '/retry':
         did = arg.strip()
         telegram.send_text(html.escape(approve(did) if did else 'Use /retry <draft id>, e.g. /retry 11200010-82448'))
+        return
+    if cmd == '/where':
+        d = store.load_draft(arg.strip()) if arg.strip() else None
+        if not d:
+            telegram.send_text('Use /where <draft id> to get the live links of a posted draft.')
+            return
+        live = meta.links(d.get('posted'))
+        telegram.send_text('\n'.join(f'{NAMES.get(k, k)}: {html.escape(v)}' for k, v in live.items()) or 'Not posted yet.')
         return
     if cmd == '/metacheck':
         from ..publish import meta
