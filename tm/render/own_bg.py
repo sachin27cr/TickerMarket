@@ -46,6 +46,8 @@ def _files(folder, tone=None):
             out = sorted(p for p in d.iterdir() if p.suffix.lower() in EXT)
             if out:
                 return out
+    if (ROOT / folder).is_dir():                       # no tone given: use up/ and down/ together
+        out = sorted(p for p in (ROOT / folder).rglob('*') if p.suffix.lower() in EXT)
     return out
 
 
