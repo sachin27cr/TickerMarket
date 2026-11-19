@@ -23,6 +23,7 @@ HELP = """<b>Ticker Market bot</b>
 /spotlight - best quarterly results of the last few days
 /voices - hear the voice options; /voice name - choose one; /say text - hear how a line is pronounced
 /metacheck - check the Instagram/Facebook keys (posts nothing)
+/retry id - post a draft again where it failed
 /innovative - next data story (Insights); /innovative list for tags, e.g. /innovative profits
 /queue - drafts waiting for you
 /flagged - recently blocked drafts
@@ -115,6 +116,10 @@ def run_command(cmd, arg=''):
                 telegram.send_audio(path, f'{name}{" (current)" if name == cur else ""} - {desc}. Pick: /voice {name}')
             except Exception as e:                   # noqa: BLE001
                 telegram.send_text(f'{name}: sample failed ({type(e).__name__})')
+        return
+    if cmd == '/retry':
+        did = arg.strip()
+        telegram.send_text(html.escape(approve(did) if did else 'Use /retry <draft id>, e.g. /retry 11200010-82448'))
         return
     if cmd == '/metacheck':
         from ..publish import meta
