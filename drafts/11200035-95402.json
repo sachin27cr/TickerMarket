@@ -1,0 +1,40 @@
+{
+  "id": "11200035-95402",
+  "kind": "fii_dii",
+  "created": "2026-11-20T00:35:32.981267+05:30",
+  "images": [
+    "media/2026-11-20/fii_dii-003532-7bac_1.jpg",
+    "media/2026-11-20/fii_dii-003532-7bac_2.jpg",
+    "media/2026-11-20/fii_dii-003532-7bac_3.jpg",
+    "media/2026-11-20/fii_dii-003532-7bac_4.jpg"
+  ],
+  "caption": "FIIS NET BUYERS AT ₹7,411.41 CRORE ON 19 NOV\n\nOn 19 November 2026, foreign institutional investors (FIIs) were net buyers of ₹7,411.41 crore in the cash market, while domestic institutional investors (DIIs) were net sellers of ₹1,356.57 crore.\n\nNovember so far (4 sessions): FIIs +22,338.25 crore, DIIs -7,838.59 crore.\n\nFor information only. Not investment advice.\n\n#FII #DII #StockMarketIndia #Nifty50 #ShareMarket",
+  "threads_text": "FIIS NET BUYERS AT ₹7,411.41 CRORE ON 19 NOV\n\nOn 19 November 2026, foreign institutional investors (FIIs) were net buyers of ₹7,411.41 crore in the cash market, while domestic institutional investors (DIIs) were net sellers of ₹1,356.57 crore.\n\nNovember so far (4 sessions): FIIs +22,338.25 crore, DIIs -7,838.59 crore.\n\nFor information only. Not investment advice.\n\n#FII #DII #StockMarketIndia #Nifty50 #ShareMarket",
+  "report": [
+    [
+      "ok",
+      "NSE provisional data for 19 November 2026: FII +7,411.41, DII -1,356.57 crore"
+    ],
+    [
+      "warn",
+      "F&O file does not add up (opt_idx_call_long: 4768556 vs 4768557) - section left out"
+    ],
+    [
+      "ok",
+      "month FII total: total 22,338.25 = sum of rows"
+    ],
+    [
+      "ok",
+      "caption: all 9 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 381,
+  "posted": {},
+  "report_text": "✅ NSE provisional data for 19 November 2026: FII +7,411.41, DII -1,356.57 crore\n⚠️ F&O file does not add up (opt_idx_call_long: 4768556 vs 4768557) - section left out\n✅ month FII total: total 22,338.25 = sum of rows\n✅ caption: all 9 numbers match source data\n✅ no advice, prediction or rumour language"
+}
