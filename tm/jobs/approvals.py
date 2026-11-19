@@ -21,7 +21,7 @@ HELP = """<b>Ticker Market bot</b>
 /iposubs - live IPO subscription
 /reelam /reelpm /reelweek /reelath /reellows - make a reel now
 /spotlight - best quarterly results of the last few days
-/voices - hear the voice options; /voice name - choose one
+/voices - hear the voice options; /voice name - choose one; /say text - hear how a line is pronounced
 /innovative - next data story (Insights); /innovative list for tags, e.g. /innovative profits
 /queue - drafts waiting for you
 /flagged - recently blocked drafts
@@ -89,12 +89,28 @@ def run_command(cmd, arg=''):
         import tempfile
         from ..reels import voice as V
         cur = (store.get_flag('voice') or V.DEFAULT).lower()
+        have = V.available()
+        missing = [n for n, (vid, _, _) in V.VOICES.items() if have and vid not in have]
+        if missing:
+            telegram.send_text('Not offered by the free voice service right now: ' + ', '.join(missing))
         for name, (vid, _, desc) in V.VOICES.items():
+            if name in missing:
+                continue
             try:
                 path = V.sample(name, Path(tempfile.mkdtemp()) / f'{name}.mp3')
                 telegram.send_audio(path, f'{name}{" (current)" if name == cur else ""} - {desc}. Pick: /voice {name}')
             except Exception as e:                   # noqa: BLE001
                 telegram.send_text(f'{name}: sample failed ({type(e).__name__})')
+        return
+    if cmd == '/say':
+        import tempfile
+        from ..reels import voice as V
+        text = arg.strip() or V.SAMPLE
+        path, engine = V.speak(V.speech(text), Path(tempfile.mkdtemp()) / 'say.mp3')
+        if path:
+            telegram.send_audio(path, 'Spoken as: ' + V.speech(text)[:900])
+        else:
+            telegram.send_text(f'Could not make audio ({engine}).')
         return
     if cmd == '/voice':
         from ..reels import voice as V

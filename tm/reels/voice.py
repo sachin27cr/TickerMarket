@@ -13,15 +13,32 @@ from .. import config
 from ..util import log
 
 # Male voices to choose from in Telegram (/voices plays a sample of each, /voice <name> picks one).
+# Indian voices first. Some newer ones are not on the free service everywhere - /voices only lists those
+# that are actually available on the day.
 VOICES = {
-    'prabhat': ('en-IN-PrabhatNeural', '+4%', 'Indian English, male'),
-    'andrew': ('en-US-AndrewMultilingualNeural', '+0%', 'most natural conversational voice, American accent'),
+    'prabhat': ('en-IN-PrabhatNeural', '+4%', 'Indian English, male, news-reader style'),
+    'aarav': ('en-IN-AaravNeural', '+2%', 'Indian English, male, young and conversational'),
+    'kunal': ('en-IN-KunalNeural', '+2%', 'Indian English, male, warm'),
+    'rehaan': ('en-IN-RehaanNeural', '+2%', 'Indian English, male, energetic'),
+    'madhur': ('hi-IN-MadhurNeural', '+0%', 'Hindi male voice reading English, strong Indian accent'),
+    'arjun': ('hi-IN-ArjunNeural', '+0%', 'Hindi male voice reading English, Indian accent'),
+    'neerja': ('en-IN-NeerjaExpressiveNeural', '+2%', 'Indian English, female, expressive'),
+    'andrew': ('en-US-AndrewMultilingualNeural', '+0%', 'very natural conversational voice, American accent'),
     'brian': ('en-US-BrianMultilingualNeural', '+0%', 'warm conversational voice, American accent'),
-    'madhur': ('hi-IN-MadhurNeural', '+0%', 'Hindi male voice reading English, Indian accent'),
 }
 DEFAULT = config.env('TM_VOICE', 'prabhat')
-SAMPLE = ('Good morning. The Nifty closed at 24,612, up 118 points, or 0.48 percent. Foreign investors were net '
-          'buyers of 4,870 crore rupees. Here is what to watch today.')
+SAMPLE = ('Good morning. The Nifty closed at 24,612, up 118 points, or 0.48%. FIIs sold ₹2,350 cr while DIIs '
+          'bought ₹3,120 cr. HDFC Bank, ICICI Bank and L&T led the gains; SEBI and RBI updates are due. '
+          'Here is what to watch today.')
+
+
+def available():
+    """Voice ids the free service offers today (empty set if the list can't be fetched)."""
+    try:
+        import edge_tts
+        return {v['ShortName'] for v in asyncio.run(edge_tts.list_voices())}
+    except Exception:                                  # noqa: BLE001
+        return set()
 
 
 def current():
@@ -59,7 +76,7 @@ def _edge(text, path, voice_id=None):
 
 def sample(name, path):
     """A short sample of one voice for /voices."""
-    _edge(SAMPLE, path, VOICES[name][0])
+    _edge(speech(SAMPLE), path, VOICES[name][0])
     return path
 
 
@@ -122,11 +139,39 @@ def clean(text):
     return text.strip()
 
 
+# How market terms should be SPOKEN (subtitles keep the short forms). Order matters: longer first.
+SAY = [
+    (r'\bFIIs?\b', 'foreign institutions'), (r'\bFPIs?\b', 'foreign investors'),
+    (r'\bDIIs?\b', 'domestic institutions'), (r'\bMFs\b', 'mutual funds'),
+    (r'\bF&Os?\b|\bF and O\b', 'F and O'), (r'\bM&M\b|\bM and M\b', 'Mahindra and Mahindra'),
+    (r'\bL&T\b|\bL and T\b', 'L and T'), (r'\bLTIMindtree\b', 'L T I Mindtree'),
+    (r'\bSEBI\b|\bSebi\b', 'Sebi'), (r'\bGAIL\b', 'Gail'), (r'\bIREDA\b', 'Ireda'),
+    (r'\bNALCO\b', 'Nalco'), (r'\bOPEC\+?', 'Opec'), (r'\bNASDAQ\b|\bNasdaq\b', 'Nazdaq'),
+    (r'\bSENSEX\b', 'Sensex'), (r'\bNIFTY\b', 'Nifty'), (r'\bBANKNIFTY\b', 'Bank Nifty'),
+    (r'\bMIDCAP\b|\bMidcap\b', 'mid cap'), (r'\bSMALLCAP\b|\bSmallcap\b', 'small cap'),
+    (r'\bmcap\b|\bm-cap\b', 'market cap'), (r'\bATHs?\b', 'all-time high'),
+    (r'\b52-week\b|\b52-wk\b|\b52 wk\b', 'fifty-two week'),
+    (r'\bYoY\b|\byoy\b', 'year on year'), (r'\bQoQ\b|\bqoq\b', 'quarter on quarter'),
+    (r'\bMoM\b', 'month on month'), (r'\bbps\b', 'basis points'), (r'\bvs\.?\b', 'versus'),
+    (r'\bQ([1-4])\s?FY\s?(\d{2})\b', r'Q\1 of F Y \2'), (r'\bFY\s?(\d{2})\b', r'F Y \1'),
+    (r'\bQ([1-4])\b', r'Q \1'), (r'\bRs\.?\s?', ''), (r'\bcr\b|\bCr\b', 'crore'),
+    (r'\blakh cr\b', 'lakh crore'), (r'\bbn\b', 'billion'), (r'\bmn\b', 'million'),
+    (r'\bIPOs\b', 'I P Os'), (r'\bPSUs\b', 'P S Us'), (r'\bPSBs?\b', 'public sector banks'),
+    (r'\bNBFCs\b', 'N B F Cs'), (r'\bETFs\b', 'E T Fs'), (r'\bEVs\b', 'E Vs'),
+    (r'\bUS\b', 'U S'), (r'\bUK\b', 'U K'), (r'\bInc\.?', ''), (r'\bLtd\.?', ''),
+]
+# All-capital short forms (NSE, RBI, HDFC, ICICI, TCS, IPO...) are spelt out letter by letter;
+# these are said as words instead.
+WORDS = {'NIFTY', 'SENSEX', 'OPEC', 'NATO', 'ASEAN', 'COVID', 'GIFT', 'BRICS', 'NASA', 'UNESCO'}
+
+
 def speech(text):
-    """What the voice reads: like the subtitles, plus spellings that help pronunciation."""
-    t = clean(text)
-    t = re.sub(r'\bFIIs\b', 'F I Is', t)
-    t = re.sub(r'\bDIIs\b', 'D I Is', t)
-    t = re.sub(r'\bFII\b', 'F I I', t)
-    t = re.sub(r'\bDII\b', 'D I I', t)
-    return t
+    """What the voice reads: like the subtitles, but with market short forms said the way people say them
+    (FIIs -> foreign institutions, SEBI -> Sebi, HDFC -> H D F C, Q2 FY27 -> Q 2 of F Y 27)."""
+    t = text
+    for pat, rep in SAY:
+        t = re.sub(pat, rep, t)
+    t = clean(t)
+    t = re.sub(r'\b([A-Z]{2,6})(s?)\b',
+               lambda m: m.group(0) if m.group(1) in WORDS else ' '.join(m.group(1)) + m.group(2), t)
+    return re.sub(r'\s+', ' ', t).strip()
