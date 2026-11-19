@@ -214,10 +214,20 @@ def background(theme, w=1080, h=1350, seed=0, tone=None):
     return _finish(im, rng, w, h)
 
 
+def calm(pic, blur=4, colour=0.45, bright=0.6, tint=0.22):
+    """Tone a picture down so it never competes with the text: soft blur, muted colour, darker, navy tint."""
+    from PIL import ImageEnhance, ImageFilter
+    pic = pic.convert('RGB')
+    if blur:
+        pic = pic.filter(ImageFilter.GaussianBlur(blur))
+    pic = ImageEnhance.Color(pic).enhance(colour)
+    pic = ImageEnhance.Brightness(pic).enhance(bright)
+    return Image.blend(pic, Image.new('RGB', pic.size, (3, 10, 23)), tint)
+
+
 def _full_photo(pic, w, h):
     """Your own picture, full-bleed: slightly darker overall and fading to dark at the bottom (footer)."""
-    from PIL import ImageEnhance
-    pic = ImageEnhance.Brightness(pic.convert('RGB')).enhance(0.92).convert('RGBA')
+    pic = calm(pic, blur=3).convert('RGBA')
     fade = np.zeros((h, w, 4), np.uint8)
     fade[..., :3] = (3, 10, 23)
     t = np.clip((np.arange(h) - h * 0.55) / (h * 0.45), 0, 1) ** 1.3
@@ -227,10 +237,9 @@ def _full_photo(pic, w, h):
 
 
 def _photo_background(pic, w, h):
-    from PIL import ImageEnhance
     side = w
     pic = pic.resize((side, side), Image.LANCZOS)
-    pic = ImageEnhance.Brightness(pic).enhance(0.88)
+    pic = calm(pic, blur=3)
     im = Image.new('RGBA', (w, h), (3, 10, 23, 255))
     im.paste(pic, (0, 0))
     fade = np.zeros((h, w, 4), np.uint8)

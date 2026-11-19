@@ -72,7 +72,7 @@ def background(topic, tone, seed):
     else:
         im = art._scene_background(TOPIC_SCENE.get(topic, 'candles'), 'reel', 1188, 2112, random.Random(seed),
                                    tone != 'down', art.UP if tone != 'down' else art.DOWN)
-    im = im.convert('RGB')
+    im = art.calm(im, blur=6, colour=0.45, bright=0.68, tint=0.2)    # muted, so the data stands out
     # darken top and bottom for the header and subtitles
     a = np.zeros((2112, 1188, 4), np.uint8)
     y = np.arange(2112)[:, None]
