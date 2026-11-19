@@ -233,6 +233,14 @@ def check_setup():
         missing = need - set(dbg.get('scopes') or [])
         out.append((not missing, 'All posting permissions granted' if not missing else
                     'Missing permissions: ' + ', '.join(sorted(missing))))
+        # granted for WHICH Page? (a permission can be granted for one Page and not another)
+        for g in dbg.get('granular_scopes') or []:
+            if g.get('scope') in ('pages_manage_posts', 'pages_read_engagement') and g.get('target_ids'):
+                ok = str(pid) in [str(t) for t in g['target_ids']]
+                out.append((ok, f'{g["scope"]} covers this Page' if ok else
+                            f'{g["scope"]} is granted for other Pages only - re-grant it with Ticker Market ticked'))
+        acc = get('me', fields='id,name')
+        out.append((True, f'Token acts as: {acc.get("name")}'))
     except (PublishError, requests.RequestException) as e:
         out.append((False, f'Could not check token expiry: {util_scrub(str(e))}'))
     return out
