@@ -25,7 +25,7 @@ Return JSON with exactly these keys:
  "companies": up to 3 NSE-listed companies the story is about, written exactly as named in the sources (empty list if none),
  "label": a 2-3 word banner for the card, no numbers, e.g. "Q2 RESULT IMPACT", "THE SELLOFF", "BIG ORDER WIN", "RBI POLICY",
  "tone": "up" if the news is about prices/results rising, "down" if falling, else "neutral",
- "sector": one of "banking","energy","it","auto","pharma","metals","oil","gold","fmcg","realty","telecom","ipo","economy","global","other",
+ "sector": one of "banking","energy","it","auto","pharma","metals","oil","gold","fmcg","realty","telecom","ipo","results","economy","global","markets","other" (results = quarterly results story, markets = Sensex/Nifty/broad market move),
  "image_scene": one sentence describing a realistic photo that fits the story (a place, industry, product or object), max 30 words. No people's faces, no named or real persons, no company names, no logos, no text or numbers in the image
 }}"""
 

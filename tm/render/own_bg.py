@@ -9,14 +9,16 @@ Folders (any can be empty - then the next option is used):
   highs     - all-time highs          lows - 52-week lows
   insights  - Insights and Results Spotlight
   weekly    - weekly roundup reel
-  news      - news posts
-  common    - used by anything whose own folder is empty
+  news/<sector>/ - news posts, matched to the story: banking, it, auto, pharma, metals, energy, oil, gold,
+                   fmcg, realty, telecom, ipo, economy, global, results, markets (general market stories)
+If a folder is empty, the AI picture (when set up) or a drawn scene is used - never a random picture.
 """
 import hashlib
 from pathlib import Path
 
 from PIL import Image
 
+NEWS_SECTOR = None             # set by the news job for the story being drawn
 ROOT = Path(__file__).resolve().parents[2] / 'assets' / 'backgrounds'
 EXT = ('.jpg', '.jpeg', '.png', '.webp')
 
@@ -51,10 +53,23 @@ def _files(folder, tone=None):
     return out
 
 
+def news_folder(sector):
+    sector = (sector or 'other').lower()
+    if sector in ('other', 'economy', ''):
+        return ['news/' + sector, 'news/markets'] if sector else ['news/markets']
+    return ['news/' + sector]
+
+
 def pick(folder, tone=None, seed=0):
-    """An image from the folder (or common/), different each day and for each slide seed."""
+    """An image from the folder, different each day and for each slide seed (None if the folder is empty)."""
     from ..util import today_ist
-    files = _files(folder, tone) or _files('common')
+    folders = news_folder(NEWS_SECTOR) if folder == 'news' else [folder]
+    files = []
+    for f in folders:
+        files = _files(f, tone)
+        if files:
+            folder = f
+            break
     if not files:
         return None
     h = int(hashlib.md5(f'{folder}-{today_ist().toordinal()}-{seed}'.encode()).hexdigest(), 16)

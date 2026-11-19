@@ -99,6 +99,8 @@ def build_from_cluster(c):
     if not scene or any(n and n in scene.lower() for n in names):      # never a company name in the picture
         scene = photo.SECTOR_SCENES.get(sector) or photo.SECTOR_SCENES['economy']
     photo.PHOTO_PROMPT = scene
+    from ..render import own_bg
+    own_bg.NEWS_SECTOR = 'results' if category == 'Earnings' and sector in ('other', 'economy') else sector
     try:
         images = cards.news_hero({'category': category, 'date_text': fmt_date(newest.date(), 'dow'), 'theme': theme,
                                   'seed': c['key'], 'tone': tone, 'quotes': quotes, 'label': label,
@@ -106,6 +108,7 @@ def build_from_cluster(c):
                                   'source': ('NSE prices, ' if quotes else '') + outlets})
     finally:
         photo.PHOTO_PROMPT = None
+        own_bg.NEWS_SECTOR = None
     outlets = ('NSE prices, ' if quotes else '') + outlets
     caption = assemble(headline, body, outlets, hashtags)
     report.ok(f'written by {writer}; sources: ' + ' | '.join(i['link'] or i['outlet'] for i in c['items'][:4]))
