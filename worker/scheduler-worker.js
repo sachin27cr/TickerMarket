@@ -17,6 +17,7 @@
  *   https://<your-worker>.workers.dev/setup?key=<RUN_KEY>
  * Telegram then sends every tap/command straight here; the Worker answers at once and starts the job.
  *
+ * Check it:   https://<your-worker>.workers.dev/check?key=<RUN_KEY>
  * Manual run from a browser:  https://<your-worker>.workers.dev/run?job=news&key=<RUN_KEY>
  */
 
@@ -131,6 +132,18 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     if (url.pathname === '/tg' && request.method === 'POST') return onTelegram(request, env, ctx);
+    if (url.pathname === '/check') {                        // is the instant-reply link working?
+      if (!env.RUN_KEY || url.searchParams.get('key') !== env.RUN_KEY) return new Response('wrong key', { status: 403 });
+      const missing = ['GH_REPO', 'GH_TOKEN', 'TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID', 'TG_SECRET'].filter(k => !env[k]);
+      const info = env.TELEGRAM_BOT_TOKEN ? (await tg(env, 'getWebhookInfo', {})).result || {} : {};
+      const lines = [
+        missing.length ? `Missing Worker settings: ${missing.join(', ')}` : 'All Worker settings present',
+        info.url ? `Instant replies: ON (${info.url})` : 'Instant replies: OFF - open /setup?key=... once',
+        `Waiting updates: ${info.pending_update_count ?? '-'}`,
+        info.last_error_message ? `Last Telegram error: ${info.last_error_message}` : 'No Telegram delivery errors',
+      ];
+      return new Response(lines.join('\n'));
+    }
     if (url.pathname === '/setup' || url.pathname === '/unsetup') {
       if (!env.RUN_KEY || url.searchParams.get('key') !== env.RUN_KEY) return new Response('wrong key', { status: 403 });
       if (url.pathname === '/unsetup') {
