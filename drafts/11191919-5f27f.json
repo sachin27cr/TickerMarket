@@ -1,0 +1,61 @@
+{
+  "id": "11191919-5f27f",
+  "kind": "news",
+  "created": "2026-11-19T19:19:49.470562+05:30",
+  "images": [
+    "media/2026-11-19/news-191949-1db3_1.jpg"
+  ],
+  "caption": "20% CAPEX BOOST LIFTS DEFENCE STOCKS\n\nThe Defence Ministry has asked for a 20% increase in capital spending for FY27‑28. For FY27, defence capital allocation reached ₹2.19 lakh crore, a 22% rise over the FY26 estimate of ₹1.8 lakh crore.\nAnalysts note that HAL, BEL, L&T, Bharat Forge and BEML could see higher orders as the higher budget translates into more procurement for the armed forces.\n\nFor information only. Not investment advice.\n\n#DefenceStocks #IndiaCapex #MarketNews #StockWatch #InvestingIndia",
+  "threads_text": "20% CAPEX BOOST LIFTS DEFENCE STOCKS\n\nThe Defence Ministry has asked for a 20% increase in capital spending for FY27‑28. For FY27, defence capital allocation reached ₹2.19 lakh crore, a 22% rise over the FY26 estimate of ₹1.8 lakh crore.\nAnalysts note that HAL, BEL, L&T, Bharat Forge and BEML could see higher orders as the higher budget translates into more procurement for the armed forces.\n\nFor information only.\n\n#DefenceStocks #IndiaCapex #MarketNews #StockWatch #InvestingIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: CNBC-TV18, Mint"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.2 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 10 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "fiscal years match the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"L&T\" - no price box for it"
+    ],
+    [
+      "ok",
+      "BHARATFORG ₹1,729.20 (+2.65%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "BEML ₹2,034.00 (+0.68%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.livemint.com/market/stock-market-news/beyond-bel-and-hal-l-t-bharat-forge-beml-bel-among-6-defence-stocks-to-benefit-from-centres-proposed-20-capex-11795089244463.html | https://www.cnbctv18.com/market/defence-stocks-hal-bel-bdl-shares-ministry-seeks-hike-in-fy28-capex-20037338.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 315,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, Mint\n✅ fresh: newest source 0.2 h old\n✅ headline/banner/points/body: all 10 numbers match source data\n✅ all names appear in the sources\n✅ fiscal years match the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"L&T\" - no price box for it\n✅ BHARATFORG ₹1,729.20 (+2.65%): NSE = Yahoo\n✅ BEML ₹2,034.00 (+0.68%): NSE = Yahoo\n✅ written by groq; sources: https://www.livemint.com/market/stock-market-news/beyond-bel-and-hal-l-t-bharat-forge-beml-bel-among-6-defence-stocks-to-benefit-from-centres-proposed-20-capex-11795089244463.html | https://www.cnbctv18.com/market/defence-stocks-hal-bel-bdl-shares-ministry-seeks-hike-in-fy28-capex-20037338.htm\n✅ no advice, prediction or rumour language"
+}

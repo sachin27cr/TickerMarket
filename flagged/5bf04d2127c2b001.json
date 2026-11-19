@@ -1,0 +1,5 @@
+{
+  "kind": "news",
+  "title": "US stock market today: Nasdaq-100 futures lead gains ahead of Anthropic IPO debut",
+  "report": "✅ confirmed by 4 outlets: BusinessLine, CNBC-TV18, CXO Digitalpulse, NPR\n✅ fresh: newest source 1.2 h old\n✅ headline/banner/points/body: all 7 numbers match source data\n✅ all names appear in the sources\n❌ second opinion (groq (backup)): The draft claims the IPO raised 'the largest for an AI company', but the sources only state it is a 'record-setting IPO' or 'record for AI listings' (implied by context of 'record IPO' and 'blockbuster AI listing'), not explicitly the largest ever for an AI company specifically in a comparative sense against all previous AI IPOs, though 'record' usually implies this. However, a clearer issue is the final sentence.; The draft states the event 'may influence global market sentiment and Indian tech stocks'. The sources do not mention Indian tech stocks or specific influence on them; this is an unsupported extrapolation/prediction.\n✅ no advice, prediction or rumour language"
+}

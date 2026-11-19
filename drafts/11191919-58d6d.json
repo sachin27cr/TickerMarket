@@ -1,0 +1,49 @@
+{
+  "id": "11191919-58d6d",
+  "kind": "news",
+  "created": "2026-11-19T19:19:59.508911+05:30",
+  "images": [
+    "media/2026-11-19/news-191959-50a0_1.jpg"
+  ],
+  "caption": "ADANI ENERGY SOLUTIONS WINS BIHAR TRANSMISSION PROJECT\n\nAdani Energy Solutions has been awarded a transmission project in Bihar for a 2,400 MW thermal power plant. The work will strengthen the state’s transmission network and improve reliability of power supply. The contract adds to Adani Energy Solutions’ transmission capex, taking it to ₹91,500 crore, and highlights growing investment in India’s power grid infrastructure.\n\nFor information only. Not investment advice.\n\n#AdaniEnergy #BiharInfrastructure #PowerTransmission #IndianMarkets #EnergySector",
+  "threads_text": "ADANI ENERGY SOLUTIONS WINS BIHAR TRANSMISSION PROJECT\n\nAdani Energy Solutions has been awarded a transmission project in Bihar for a 2,400 MW thermal power plant. The work will strengthen the state’s transmission network and improve reliability of power supply.\n\n#AdaniEnergy #BiharInfrastructure #PowerTransmission #IndianMarkets #EnergySector",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: BusinessLine, CNBC-TV18"
+    ],
+    [
+      "ok",
+      "fresh: newest source 2.3 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 4 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "ADANIENSOL ₹1,473.40 (-1.11%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.thehindubusinessline.com/companies/adani-energy-solutions-wins-bihar-transmission-project/article71719644.ece | https://www.cnbctv18.com/market/adani-energy-solutions-transmission-capex-rises-to-rs-91500-crore-with-bihar-project-20037702.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 317,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: BusinessLine, CNBC-TV18\n✅ fresh: newest source 2.3 h old\n✅ headline/banner/points/body: all 4 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ ADANIENSOL ₹1,473.40 (-1.11%): NSE = Yahoo\n✅ written by groq; sources: https://www.thehindubusinessline.com/companies/adani-energy-solutions-wins-bihar-transmission-project/article71719644.ece | https://www.cnbctv18.com/market/adani-energy-solutions-transmission-capex-rises-to-rs-91500-crore-with-bihar-project-20037702.htm\n✅ no advice, prediction or rumour language"
+}
