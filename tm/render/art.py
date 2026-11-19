@@ -165,7 +165,10 @@ def background(theme, w=1080, h=1350, seed=0, tone=None):
         down = tone == 'down'
     colr = DOWN if down else UP
     kind = POST_KIND or 'news'
-    from . import photo
+    from . import own_bg, photo
+    mine = own_bg.pick(own_bg.folder_for(kind), 'down' if down else 'up', seed)
+    if mine is not None:                         # your own pictures in assets/backgrounds come first
+        return _photo_background(own_bg.cover(mine, w, w), w, h)
     if photo.enabled():                          # photo-realistic scene when Cloudflare is set up
         pic = photo.get(photo.prompt_for(kind, 'down' if down else 'up', seed))
         if pic is not None:

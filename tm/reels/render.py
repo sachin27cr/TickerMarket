@@ -59,9 +59,12 @@ def _font(kind, size):
 
 def background(topic, tone, seed):
     """Full-frame picture for a scene: photo if Cloudflare is set up, else a drawn scene. 1188x2112 (zoom room)."""
-    from ..render import art, photo
-    pic = photo.get(TOPIC_PHOTO.get(topic)) if photo.enabled() else None
-    if pic is not None:
+    from ..render import art, own_bg, photo
+    mine = own_bg.pick(own_bg.TOPIC.get(topic, 'common'), tone if tone in ('up', 'down') else None, seed)
+    pic = None if mine is not None else (photo.get(TOPIC_PHOTO.get(topic)) if photo.enabled() else None)
+    if mine is not None:
+        im = own_bg.cover(mine, 1188, 2112)
+    elif pic is not None:
         side = 2112
         im = pic.resize((side, side), Image.LANCZOS).crop(((side - 1188) // 2, 0, (side - 1188) // 2 + 1188, 2112))
     else:
