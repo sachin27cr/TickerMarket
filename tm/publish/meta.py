@@ -52,15 +52,29 @@ def instagram(image_urls, caption):
     return _post(f'{G}/{uid}/media_publish', creation_id=c, access_token=tok)['id']
 
 
+FB_NOTE = {}
+
+
 def facebook(image_urls, caption):
+    """Single photo, or a multi-photo post. Multi-photo needs unpublished uploads, which some Pages refuse
+    ('must be posted as the page itself'); then try temporary uploads, and last the cover photo alone."""
     tok, pid = config.META_PAGE_TOKEN, config.META_PAGE_ID
+    FB_NOTE.clear()
     if len(image_urls) == 1:
         return _post(f'{G}/{pid}/photos', url=image_urls[0], caption=caption, access_token=tok)['id']
-    media = [_post(f'{G}/{pid}/photos', url=u, published='false', access_token=tok)['id'] for u in image_urls[:10]]
-    params = {'message': caption, 'access_token': tok}
-    for i, m in enumerate(media):
-        params[f'attached_media[{i}]'] = f'{{"media_fbid":"{m}"}}'
-    return _post(f'{G}/{pid}/feed', **params)['id']
+    last = None
+    for extra in ({'published': 'false'}, {'published': 'false', 'temporary': 'true'}):
+        try:
+            media = [_post(f'{G}/{pid}/photos', url=u, access_token=tok, **extra)['id'] for u in image_urls[:10]]
+            params = {'message': caption, 'access_token': tok}
+            for i, m in enumerate(media):
+                params[f'attached_media[{i}]'] = f'{{"media_fbid":"{m}"}}'
+            return _post(f'{G}/{pid}/feed', **params)['id']
+        except PublishError as e:
+            last = e
+            log.warning('facebook multi-photo (%s) failed: %s', extra, e)
+    FB_NOTE['facebook'] = f'cover only - Facebook refused the multi-photo post ({str(last)[:90]})'
+    return _post(f'{G}/{pid}/photos', url=image_urls[0], caption=caption, access_token=tok)['id']
 
 
 def threads(image_urls, text):
@@ -208,6 +222,9 @@ def check_setup():
         return out
     try:
         dbg = get('debug_token', input_token=tok).get('data', {})
+        kind = str(dbg.get('type', '')).upper()
+        out.append((kind == 'PAGE', 'Token type: Page token' if kind == 'PAGE' else
+                    f'Token type: {kind or "unknown"} - META_PAGE_TOKEN must be the Page access_token from me/accounts'))
         exp = dbg.get('expires_at', 0)
         out.append((exp == 0, 'Page token never expires' if exp == 0 else
                     f'Page token expires {time.strftime("%d %b %Y", time.localtime(exp))} - make a never-expiring one'))

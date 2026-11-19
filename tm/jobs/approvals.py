@@ -63,6 +63,8 @@ def approve(did):
              'failed': '❌ Post failed'}[d['status']]
     telegram.mark_message(d.get('telegram_message_id'), label, did if errors else None)
     live = meta.links(res)
+    for k, note in getattr(meta, 'FB_NOTE', {}).items():
+        live[k] = live.get(k, '') + f'  ({note})'
     if live:
         telegram.send_text(f'{label}\n' + '\n'.join(f'{NAMES.get(k, k)}: {html.escape(v)}' for k, v in live.items()))
     if errors:
