@@ -760,11 +760,14 @@ def highs_lows_group(data):
     d.text((60, y + 10), data['summary'], font=hind(27), fill=MUTED, anchor='lm')
     y += 46
 
-    def rows_block(title, rows, colour, empty, tag_fn, y):
+    def rows_block(title, rows, colour, empty, tag_fn, y, level='day_high', level_name="DAY'S HIGH"):
         y = section(d, title, y)
         if not rows:
             d.text((60, y + 18), empty, font=hind(28), fill=MUTED)
             return y + 70
+        d.text((760, y + 4), level_name, font=cond(22), fill=MUTED, anchor='rm')
+        d.text((W - 84, y + 4), 'CHANGE AT CLOSE', font=cond(22), fill=MUTED, anchor='rm')
+        y += 26
         for r in rows:
             d.rounded_rectangle([60, y, W - 60, y + 60], radius=10, fill=PANEL)
             d.rectangle([60, y, 68, y + 60], fill=colour)
@@ -774,7 +777,8 @@ def highs_lows_group(data):
                 tw = d.textlength(tag, font=cond(22)) + 20
                 d.rounded_rectangle([420, y + 16, 420 + tw, y + 44], radius=6, fill=GOLD)
                 d.text((430, y + 30), tag, font=cond(22), fill=BG, anchor='lm')
-            d.text((760, y + 30), '₹' + fmt_inr(r['last']), font=hind(28, 'SemiBold'), fill=MUTED, anchor='rm')
+            d.text((760, y + 30), '₹' + fmt_inr(r.get(level) or r['last']), font=hind(28, 'SemiBold'), fill=MUTED,
+                   anchor='rm')
             d.text((W - 84, y + 30), f'{r["pct"]:+.2f}%', font=bebas(44), fill=col(r['pct']), anchor='rm')
             y += 68
         return y + 10
@@ -782,8 +786,10 @@ def highs_lows_group(data):
     highs = [dict(r, _ath=True) for r in data['ath']] + [dict(r, _ath=False) for r in data['hi52']]
     y = rows_block('New highs today', highs[:6], GOLD, 'No stock in this group made a new 52-week high today.',
                    lambda r: 'ALL-TIME HIGH' if r['_ath'] else '52-WEEK HIGH', y)
-    rows_block('New 52-week lows today', data['lo52'][:5], DOWN, 'No stock in this group made a new 52-week low today.',
-               lambda r: None, y)
+    y = rows_block('New 52-week lows today', data['lo52'][:5], DOWN,
+                   'No stock in this group made a new 52-week low today.', lambda r: None, y, 'day_low', "DAY'S LOW")
+    d.text((60, min(y + 10, H - 190)), 'Highs and lows were touched during the day; a stock can recover and close up '
+           'or down.', font=hind(24), fill=MUTED, anchor='lm')
     footer(im, d, data['source'])
     return im.convert('RGB')
 

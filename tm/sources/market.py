@@ -423,17 +423,30 @@ def daily_extremes(day, n=6):
             report.append(('warn', f'{seg}: NSE stock API unavailable - prices and 52-week levels from Yahoo'))
         hi52 = [r for r in rows if r.get('day_high') and r.get('year_high') and r['day_high'] >= r['year_high'] * 0.9995]
         lo52 = [r for r in rows if r.get('day_low') and r.get('year_low') and r['day_low'] <= r['year_low'] * 1.0005]
-        hist = daily_history([r['symbol'] for r in hi52])
-        ath, mismatch = [], 0
+        hist = daily_history([r['symbol'] for r in hi52 + lo52])
+        ath, mismatch, ok_hi, ok_lo = [], 0, [], []
         for r in hi52:
             h = hist.get(r['symbol'])
             if h is None or len(h) < 250 or h.index[-1].date() != day:
-                continue
-            y_hi = float(h['High'].iloc[-1])
-            if abs(y_hi - r['day_high']) / r['day_high'] * 100 > 0.5:
                 mismatch += 1; continue
+            y_hi = float(h['High'].iloc[-1])
+            # second source: Yahoo's high today agrees with NSE, and is at/above the past year's highs
+            if abs(y_hi - r['day_high']) / r['day_high'] * 100 > 0.5 or \
+                    y_hi < float(h['High'].iloc[-252:-1].max()) * 0.9995:
+                mismatch += 1; continue
+            ok_hi.append(r)
             if r['day_high'] > float(h['High'].iloc[:-1].max()):
                 ath.append(r)
+        for r in lo52:
+            h = hist.get(r['symbol'])
+            if h is None or len(h) < 250 or h.index[-1].date() != day:
+                mismatch += 1; continue
+            y_lo = float(h['Low'].iloc[-1])
+            if abs(y_lo - r['day_low']) / r['day_low'] * 100 > 0.5 or \
+                    y_lo > float(h['Low'].iloc[-252:-1].min()) * 1.0005:
+                mismatch += 1; continue
+            ok_lo.append(r)
+        hi52, lo52 = ok_hi, ok_lo
         key = lambda x: x['pct']
         result[seg] = {'index': index, 'count': len(rows),
                        'ath': sorted(ath, key=key, reverse=True)[:n], 'ath_count': len(ath),
@@ -441,7 +454,7 @@ def daily_extremes(day, n=6):
                        'hi52_count': len(hi52),
                        'lo52': sorted(lo52, key=key)[:n], 'lo52_count': len(lo52)}
         report.append(('ok', f'{seg} ({index}): {len(hi52)} at 52-week high ({len(ath)} all-time high), '
-                             f'{len(lo52)} at 52-week low' + (f'; {mismatch} dropped (Yahoo/NSE differ)' if mismatch else '')))
+                             f'{len(lo52)} at 52-week low (all checked against Yahoo history)' + (f'; {mismatch} dropped (Yahoo/NSE differ)' if mismatch else '')))
     return result, report
 
 

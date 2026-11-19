@@ -70,10 +70,12 @@ def _list_scenes(hl, tone):
         highs = sorted(_pick(hl, 'hi52'), key=lambda r: r['pct'], reverse=True)
         title = f'52-week highs today ({hl["hi52"]})'
     lows = sorted(_pick(hl, 'lo52'), key=lambda r: r['pct'])
-    for t, rows, topic in ((title, highs, 'highs'), (f'52-week lows today ({hl["lo52"]})', lows, 'lows')):
+    for t, rows, topic, lvl in ((title, highs, 'highs', 'day_high'), (f'52-week lows today ({hl["lo52"]})', lows, 'lows', 'day_low')):
         if rows:
             scenes.append({'type': 'rows', 'title': t, 'topic': topic, 'tone': tone, 'voice': '', 'hold': 3.4,
-                           'rows': [{'label': r['name'], 'sub': r['seg'], 'pct': r['pct']} for r in rows[:6]]})
+                           'rows': [{'label': r['name'], 'pct': r['pct'],
+                                     'sub': r['seg'] + (' · touched a new high today' if lvl == 'day_high' else ' · touched a new low today')}
+                                    for r in rows[:6]]})
     return scenes
 
 
