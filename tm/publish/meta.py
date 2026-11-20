@@ -223,11 +223,15 @@ def check_setup():
             raise PublishError(j['error'].get('message', 'error'))
         return j
     try:
-        page = get(pid, fields='name,instagram_business_account')
+        page = get(pid, fields='name,instagram_business_account,connected_instagram_account')
         out.append((True, f'Facebook Page: {page.get("name")}'))
         linked = (page.get('instagram_business_account') or {}).get('id')
+        other = (page.get('connected_instagram_account') or {}).get('id')
+        if not linked and other:
+            linked = other
         if not linked:
-            out.append((False, 'No Instagram professional account is linked to this Page'))
+            out.append((False, 'No Instagram professional account is linked to this Page'
+                               + (f' (IG_USER_ID is set to {uid})' if uid else '')))
         elif uid and linked != uid:
             out.append((False, f'IG_USER_ID does not match the Instagram account linked to the Page ({linked})'))
         else:
