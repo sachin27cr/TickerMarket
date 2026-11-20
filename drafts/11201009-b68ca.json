@@ -41,9 +41,12 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "partial",
   "meta": {},
   "telegram_message_id": 440,
-  "posted": {},
+  "posted": {
+    "instagram": "18066305123561045",
+    "facebook": "error: photos: (#200) Permissions error"
+  },
   "report_text": "✅ confirmed by 2 outlets: Equitymaster, News18 on MSN\n✅ fresh: newest source 0.3 h old\n✅ headline/banner/points/body: all 10 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"BSE Power\" - no price box for it\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMipwJBVV95cUxPY0hmUE44elR2MnBFZHZyc2FQQjJoSUU3ZDB2UHBwR2UwcWp3UElVMHhNN2ZKZWR1Yjh3WnQ0ODhFZnFlS2c4LUQ5MlB4U2x1VWJvQXh3MnkwWFVjNFU4OWhOWjZTVkdGb2VRelVpaHNnQTFvd1AyNnluLUlpWmp3SEhXQW1PN2RVVmNkQ1kyNEdLY09xaVpmYjhMcldXSk5yX0s0WTBBNVJJeXllQUxKTkJITjFIdTI4d1JDVVBjVDhxbkRwYUdFNTRmVDdLZi1QbUNjWFhodk9kZ283bkF1LXZEYmVLNHpGcjA2YmVibVBrY0hDTHhJbkxrTzIzSmZ4SkxXU053eDFXV2xYZm1QNmZLWjZIdmphX2lKc3lJTDhScGpVdnNB?oc=5 | http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6affce201a61470491198bb6fa5aa1af&url=https%3a%2f%2fwww.msn.com%2fen-in%2fmoney%2ftop-stocks%2fmarkets-today-sensex-falls-376-points-nifty-opens-below-25-400-metal-realty-stocks-drag%2far-AA2hOUmk&c=6647811716018729410&mkt=en-in\n✅ no advice, prediction or rumour language"
 }
