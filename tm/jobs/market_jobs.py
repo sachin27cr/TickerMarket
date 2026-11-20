@@ -278,18 +278,31 @@ def global_cues(force=False):
 # ---------------------------------------------------------------- FII / DII (polls 6-9 PM)
 
 @as_post('fii_dii')
+def _start_evening_reel(final=False):
+    """The closing-bell reel waits for FII/DII data; start it once that is in (or at the last attempt, 8 PM+)."""
+    if store.seen('post', f'reel-pm:{today_ist()}') or today_ist().weekday() >= 5:
+        return
+    if final and now_ist().hour < 20:
+        return
+    from .approvals import _dispatch_insight
+    if _dispatch_insight('', 'reel_evening'):
+        log.info('evening reel started')
+
+
 def fii_dii(force=False):
     report = Report()
     try:
         f = nse.fii_dii()
     except nse.SourceError as e:
         log.info('FII/DII not available yet: %s', e)
+        _start_evening_reel(final=True)
         return
     key = f'fii:{f["date"]}'
     if store.seen('post', key) and not force:
         return
     if f['date'] != today_ist() and not force:
         log.info('FII/DII still shows %s - waiting for today', f['date'])
+        _start_evening_reel(final=True)
         return
     report.ok(f'NSE provisional data for {fmt_date(f["date"])}: FII {f["fii"]:+,.2f}, DII {f["dii"]:+,.2f} crore')
     fno = market.fii_fno(f['date'], report)
@@ -346,6 +359,8 @@ def fii_dii(force=False):
                        tags('#FII', '#DII', '#StockMarketIndia', '#Nifty50', '#ShareMarket'))
     if finish('fii_dii', key, images, caption, report, allowed):
         store.mark_seen('post', key)
+    if f['date'] == today_ist():
+        _start_evening_reel()
 
 
 # ---------------------------------------------------------------- day ahead (8:30 AM)

@@ -319,9 +319,9 @@ def scene_tiles(sc):
         lg = lg.resize((640, int(lg.height * 640 / lg.width)), Image.LANCZOS)
         tiles.append(Tile(lg.convert('RGBA'), (W - 640) // 2, 520, 0.1))
         card, d = _glass(W - 120, 300)
-        d.text(((W - 120) // 2, 78), 'FOLLOW FOR DAILY MARKET DATA', font=_font('bebas', 72), fill=WHITE, anchor='mm')
-        d.text(((W - 120) // 2, 146), 'Indian stock market news, every day', font=_font('SemiBold', 40), fill=MUTE,
-               anchor='mm')
+        d.text(((W - 120) // 2, 78), 'VISIT THE PAGE FOR FULL DETAILS', font=_font('bebas', 70), fill=WHITE, anchor='mm')
+        d.text(((W - 120) // 2, 146), 'Charts, data and news on every post - follow!', font=_font('SemiBold', 38),
+               fill=MUTE, anchor='mm')
 
         def live(dd, x, y0, t, e):                  # pulsing follow button
             import math

@@ -39,8 +39,27 @@ def _q(quotes, name):
     return q, pct_change(q['close'], q['chg']) if q else None
 
 
-def _outro(line='Follow Ticker Market India for daily market updates.'):
+def _outro(line='For more market data, visit our page and follow Ticker Market India.'):
     return {'type': 'outro', 'topic': 'outro', 'voice': line}
+
+
+def _fii_for(day):
+    """FII/DII net for `day` from the same store the FII/DII post uses (NSE provisional data), else NSE directly."""
+    hist = store.read_json('fii/history.json', {}) or {}
+    rec = hist.get(str(day))
+    if not rec:
+        try:
+            f = nse.fii_dii()
+            if f['date'] == day:
+                rec = {'fii': f['fii'], 'dii': f['dii']}
+                hist[str(day)] = rec
+        except nse.SourceError:
+            return None
+    if not rec:
+        return None
+    month = [k for k in hist if k.startswith(day.strftime('%Y-%m')) and k <= str(day)]
+    return {'fii': rec['fii'], 'dii': rec['dii'], 'sessions': len(month),
+            'm_fii': round(sum(hist[k]['fii'] for k in month), 2), 'm_dii': round(sum(hist[k]['dii'] for k in month), 2)}
 
 
 def _commodity_line(com):
@@ -312,6 +331,26 @@ def evening_reel(force=False):
         allowed += [abs(x['pct']) for x in gainers + losers]
     except (nse.SourceError, IndexError) as e:
         report.warn(f'movers unavailable ({e}) - scene left out')
+    fii = _fii_for(day)
+    if fii is None and now_ist().hour < 20 and not force:
+        log.info('FII/DII for %s not published yet - the reel is made once it is (the FII/DII job starts it)', day)
+        return
+    if fii:
+        f, d_, mf, md, nses = fii['fii'], fii['dii'], fii['m_fii'], fii['m_dii'], fii['sessions']
+        sgn = lambda v: f'{"+" if v >= 0 else "-"}₹{fmt_inr(abs(v), 0)} cr'
+        frows = [{'label': 'FIIs today', 'value': sgn(f)}, {'label': 'DIIs today', 'value': sgn(d_)}]
+        if nses > 1:
+            frows += [{'label': f'FIIs, last {nses} sessions', 'value': sgn(mf)},
+                      {'label': f'DIIs, last {nses} sessions', 'value': sgn(md)}]
+        scenes.append({'type': 'rows', 'title': 'FII / DII flows', 'topic': 'flows', 'tone': 'up' if f >= 0 else 'down',
+                       'rows': frows,
+                       'voice': f'Foreign investors {"bought" if f >= 0 else "sold"} {V.crore(f)} of shares today, '
+                                f'and domestic institutions {"bought" if d_ >= 0 else "sold"} {V.crore(d_)}.'})
+        paras.append(f'FII/DII (NSE provisional): FIIs net {"bought" if f >= 0 else "sold"} ₹{fmt_inr(abs(f))} crore, '
+                     f'DIIs net {"bought" if d_ >= 0 else "sold"} ₹{fmt_inr(abs(d_))} crore.')
+        allowed += [abs(f), abs(d_), round(abs(f)), round(abs(d_)), abs(mf), abs(md), round(abs(mf)), round(abs(md)), nses]
+    else:
+        report.warn('FII/DII data not published by 8 PM - scene left out')
     hl = store.read_json(f'daily/{day}/highslows.json')
     if hl:
         scenes.append({'type': 'rows', 'title': 'New highs and lows', 'topic': 'highs' if hl['ath'] or hl['hi52'] >= hl['lo52'] else 'lows',
@@ -332,7 +371,8 @@ def evening_reel(force=False):
         spoken += f', and {sector_label(lead["name"])} {"led the charge" if up else "dragged the most"}'
     scenes.insert(0, {'type': 'intro', 'title': 'Closing Bell', 'day': day, 'hook': hook, 'topic': 'intro_pm', 'tone': tone,
                       'voice': spoken + '. Here is how the day played out.'})
-    scenes.append(_outro('Follow for the closing bell every evening.'))
+    scenes.append(_outro('For the full details, visit our page, and follow Ticker Market India for the closing bell '
+                         'every evening.'))
     caption = assemble(f'Closing Bell: {hook}', paras, '',
                        tags('#StockMarketIndia', '#Nifty50', '#Sensex', '#MarketClose', '#ShareMarket'))
     if _make('reel_evening', key, 'Closing Bell', scenes, caption, report, allowed, str(day)):

@@ -45,6 +45,7 @@ on:
 
 permissions:
   contents: write
+  actions: write      # the FII/DII job starts the closing-bell reel
 
 jobs:
   run:
@@ -99,6 +100,7 @@ jobs:
       - name: Run ${{ steps.pick.outputs.job }}
         run: python -m tm.cli ${{ steps.pick.outputs.job }} ${{ inputs.force && '--force' || '' }}
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TM_PAGE: india
           TM_ARG: ${{ inputs.arg }}
           TM_DATA_DIR: ${{ github.workspace }}/data
