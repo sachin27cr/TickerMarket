@@ -1,0 +1,45 @@
+{
+  "id": "11201010-e5262",
+  "kind": "news",
+  "created": "2026-11-20T10:10:04.730784+05:30",
+  "images": [
+    "media/2026-11-20/news-101004-da96_1.jpg"
+  ],
+  "caption": "GOLD DROPS TO $3,588.20 HITTING 14‑MONTH LOW\n\nOn 20 November 2026, spot gold fell to $3,607.47 per ounce, a 0.4% drop, while the price slipped further to $3,588.20 per ounce, a 14‑month low.\nThe fall was linked to a stronger US dollar and growing expectations of a Federal Reserve rate increase in December, factors that can affect Indian market sentiment and gold‑linked investments.\n\nFor information only. Not investment advice.\n\n#GoldPrices #MarketUpdate #FedRateHike #GlobalMarkets #InvestingIndia",
+  "threads_text": "GOLD DROPS TO $3,588.20 HITTING 14‑MONTH LOW\n\nOn 20 November 2026, spot gold fell to $3,607.47 per ounce, a 0.4% drop, while the price slipped further to $3,588.20 per ounce, a 14‑month low.\nThe fall was linked to a stronger US dollar and growing expectations of a Federal Reserve rate increase in December, factors that can affect Indian market sentiment and gold‑linked investments.\n\nFor information only.\n\n#GoldPrices #MarketUpdate #FedRateHike #GlobalMarkets #InvestingIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: BusinessLine, CNBC-TV18, Economic Times"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.2 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 14 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.thehindubusinessline.com/markets/gold/gold-set-for-worst-week-since-march-as-rate-hike-expectations-grow/article71722965.ece | https://www.cnbctv18.com/market/commodities/gold-falls-to-lowest-levels-in-14-months-as-us-dollar-strengthens-amid-fed-rate-hike-worries-20038187.htm | https://economictimes.indiatimes.com/markets/commodities/news/gold-set-for-worst-week-since-march-as-rate-hike-expectations-grow/articleshow/136009768.cms"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 442,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: BusinessLine, CNBC-TV18, Economic Times\n✅ fresh: newest source 1.2 h old\n✅ headline/banner/points/body: all 14 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://www.thehindubusinessline.com/markets/gold/gold-set-for-worst-week-since-march-as-rate-hike-expectations-grow/article71722965.ece | https://www.cnbctv18.com/market/commodities/gold-falls-to-lowest-levels-in-14-months-as-us-dollar-strengthens-amid-fed-rate-hike-worries-20038187.htm | https://economictimes.indiatimes.com/markets/commodities/news/gold-set-for-worst-week-since-march-as-rate-hike-expectations-grow/articleshow/136009768.cms\n✅ no advice, prediction or rumour language"
+}

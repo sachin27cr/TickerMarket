@@ -1,0 +1,57 @@
+{
+  "id": "11201011-3f081",
+  "kind": "news",
+  "created": "2026-11-20T10:11:55.801230+05:30",
+  "images": [
+    "media/2026-11-20/news-101155-ebd9_1.jpg"
+  ],
+  "caption": "GOLD PRICES SLIDE, TITAN AND MUTHOOT FALL\n\nTitan, Muthoot Finance and Kalyan Jewellers saw their stocks drop up to 4% on 20 November 2026 as gold prices slipped. Analysts say the price correction could force jewellery makers to sell higher‑cost inventory, risking losses.\n\nFor information only. Not investment advice.\n\n#GoldPrices #IndianStocks #MarketMove #JewellerySector #StockDrop",
+  "threads_text": "GOLD PRICES SLIDE, TITAN AND MUTHOOT FALL\n\nTitan, Muthoot Finance and Kalyan Jewellers saw their stocks drop up to 4% on 20 November 2026 as gold prices slipped. Analysts say the price correction could force jewellery makers to sell higher‑cost inventory, risking losses.\n\nFor information only. Not investment advice.\n\n#GoldPrices #IndianStocks #MarketMove #JewellerySector #StockDrop",
+  "report": [
+    [
+      "ok",
+      "reported by a trusted outlet: Business Standard"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.1 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 4 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "TITAN ₹4,553.90 (-3.11%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "MUTHOOTFIN ₹2,562.50 (-2.12%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "KALYANKJIL ₹627.30 (-5.10%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.business-standard.com/markets/news/titan-muthoot-finance-kalyan-jewellers-fall-up-to-4-as-gold-prices-slide-126112000238_1.html"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 444,
+  "posted": {},
+  "report_text": "✅ reported by a trusted outlet: Business Standard\n✅ fresh: newest source 0.1 h old\n✅ headline/banner/points/body: all 4 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ TITAN ₹4,553.90 (-3.11%): NSE = Yahoo\n✅ MUTHOOTFIN ₹2,562.50 (-2.12%): NSE = Yahoo\n✅ KALYANKJIL ₹627.30 (-5.10%): NSE = Yahoo\n✅ written by groq; sources: https://www.business-standard.com/markets/news/titan-muthoot-finance-kalyan-jewellers-fall-up-to-4-as-gold-prices-slide-126112000238_1.html\n✅ no advice, prediction or rumour language"
+}

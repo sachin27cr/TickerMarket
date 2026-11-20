@@ -1,0 +1,49 @@
+{
+  "id": "11201009-b68ca",
+  "kind": "news",
+  "created": "2026-11-20T10:09:55.747613+05:30",
+  "images": [
+    "media/2026-11-20/news-100955-b3fb_1.jpg"
+  ],
+  "caption": "SENSEX SLIDES AS NIFTY DIPS BELOW 25,400\n\nThe domestic equity markets opened lower on Friday, with the Sensex down about 376 points and the Nifty trading below the 25,400 mark. BSE Power dropped 1.36% while metal and realty stocks added to the decline.\nWeak global market cues pressured Indian shares, making the broad market move notable for investors tracking overall sentiment.\n\nFor information only. Not investment advice.\n\n#Sensex #Nifty #IndianStocks #MarketUpdate #BSEPower",
+  "threads_text": "SENSEX SLIDES AS NIFTY DIPS BELOW 25,400\n\nThe domestic equity markets opened lower on Friday, with the Sensex down about 376 points and the Nifty trading below the 25,400 mark. BSE Power dropped 1.36% while metal and realty stocks added to the decline.\nWeak global market cues pressured Indian shares, making the broad market move notable for investors tracking overall sentiment.\n\nFor information only. Not investment advice.\n\n#Sensex #Nifty #IndianStocks #MarketUpdate #BSEPower",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: Equitymaster, News18 on MSN"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.3 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 10 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"BSE Power\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMipwJBVV95cUxPY0hmUE44elR2MnBFZHZyc2FQQjJoSUU3ZDB2UHBwR2UwcWp3UElVMHhNN2ZKZWR1Yjh3WnQ0ODhFZnFlS2c4LUQ5MlB4U2x1VWJvQXh3MnkwWFVjNFU4OWhOWjZTVkdGb2VRelVpaHNnQTFvd1AyNnluLUlpWmp3SEhXQW1PN2RVVmNkQ1kyNEdLY09xaVpmYjhMcldXSk5yX0s0WTBBNVJJeXllQUxKTkJITjFIdTI4d1JDVVBjVDhxbkRwYUdFNTRmVDdLZi1QbUNjWFhodk9kZ283bkF1LXZEYmVLNHpGcjA2YmVibVBrY0hDTHhJbkxrTzIzSmZ4SkxXU053eDFXV2xYZm1QNmZLWjZIdmphX2lKc3lJTDhScGpVdnNB?oc=5 | http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6affce201a61470491198bb6fa5aa1af&url=https%3a%2f%2fwww.msn.com%2fen-in%2fmoney%2ftop-stocks%2fmarkets-today-sensex-falls-376-points-nifty-opens-below-25-400-metal-realty-stocks-drag%2far-AA2hOUmk&c=6647811716018729410&mkt=en-in"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 440,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: Equitymaster, News18 on MSN\n✅ fresh: newest source 0.3 h old\n✅ headline/banner/points/body: all 10 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"BSE Power\" - no price box for it\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMipwJBVV95cUxPY0hmUE44elR2MnBFZHZyc2FQQjJoSUU3ZDB2UHBwR2UwcWp3UElVMHhNN2ZKZWR1Yjh3WnQ0ODhFZnFlS2c4LUQ5MlB4U2x1VWJvQXh3MnkwWFVjNFU4OWhOWjZTVkdGb2VRelVpaHNnQTFvd1AyNnluLUlpWmp3SEhXQW1PN2RVVmNkQ1kyNEdLY09xaVpmYjhMcldXSk5yX0s0WTBBNVJJeXllQUxKTkJITjFIdTI4d1JDVVBjVDhxbkRwYUdFNTRmVDdLZi1QbUNjWFhodk9kZ283bkF1LXZEYmVLNHpGcjA2YmVibVBrY0hDTHhJbkxrTzIzSmZ4SkxXU053eDFXV2xYZm1QNmZLWjZIdmphX2lKc3lJTDhScGpVdnNB?oc=5 | http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6affce201a61470491198bb6fa5aa1af&url=https%3a%2f%2fwww.msn.com%2fen-in%2fmoney%2ftop-stocks%2fmarkets-today-sensex-falls-376-points-nifty-opens-below-25-400-metal-realty-stocks-drag%2far-AA2hOUmk&c=6647811716018729410&mkt=en-in\n✅ no advice, prediction or rumour language"
+}
