@@ -129,14 +129,29 @@ def _wait_video(container_id, token, base=G, tries=60):
     raise PublishError('video not processed in time')
 
 
-def instagram_reel(path, caption, cover_url=None):
-    """Resumable upload: the file goes straight to Meta (no public video link needed)."""
+def _video_links(url):
+    """The same file on jsDelivr (served as video/mp4, which Instagram prefers), then GitHub raw."""
+    import re
+    if not url:
+        return []
+    m = re.match(r'https://raw\.githubusercontent\.com/([^/]+)/([^/]+)/([^/]+)/(.+)', url)
+    return ([f'https://cdn.jsdelivr.net/gh/{m[1]}/{m[2]}@{m[3]}/{m[4]}'] if m else []) + [url]
+
+
+def instagram_reel(path, caption, cover_url=None, video_url=None):
+    """Instagram fetches the video from its public link on the data branch; if that fails, upload the file."""
     tok, uid = config.META_PAGE_TOKEN, config.IG_USER_ID
-    params = {'media_type': 'REELS', 'upload_type': 'resumable', 'caption': caption, 'share_to_feed': 'true',
-              'access_token': tok}
+    base = {'media_type': 'REELS', 'caption': caption, 'share_to_feed': 'true', 'access_token': tok}
     if cover_url:
-        params['cover_url'] = cover_url
-    j = _post(f'{G}/{uid}/media', **params)
+        base['cover_url'] = cover_url
+    for link in _video_links(video_url):
+        try:
+            j = _post(f'{G}/{uid}/media', video_url=link, **base)
+            _wait_video(j['id'], tok)
+            return _post(f'{G}/{uid}/media_publish', creation_id=j['id'], access_token=tok)['id']
+        except PublishError as e:
+            log.warning('instagram reel from %s failed (%s)', link.split('/')[2], e)
+    j = _post(f'{G}/{uid}/media', upload_type='resumable', **base)
     data = open(path, 'rb').read()
     r = requests.post(j.get('uri') or f'https://rupload.facebook.com/ig-api-upload/{config.GRAPH_VERSION}/{j["id"]}',
                       headers={'Authorization': f'OAuth {tok}', 'offset': '0', 'file_size': str(len(data))},
@@ -177,7 +192,7 @@ def threads_video(video_url, text):
 
 def publish_reel(path, video_url, caption, threads_text, cover_url=None, only=None):
     out = {}
-    jobs = {'instagram': lambda: instagram_reel(path, caption, cover_url),
+    jobs = {'instagram': lambda: instagram_reel(path, caption, cover_url, video_url),
             'facebook': lambda: facebook_reel(path, caption),
             'threads': lambda: threads_video(video_url, threads_text)}
     for name in (only or config.POST_TO):
