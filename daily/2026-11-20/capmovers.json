@@ -1,0 +1,314 @@
+{
+  "Large Cap": {
+    "gainers": [
+      {
+        "symbol": "APOLLOHOSP",
+        "last": 9200.0,
+        "chg": 462.0,
+        "pct": 5.29,
+        "prev": 8738.0,
+        "year_high": 9282.5,
+        "year_low": 6696.5,
+        "day_high": 9282.5,
+        "day_low": 8800.0,
+        "name": "Apollo Hospitals"
+      },
+      {
+        "symbol": "AXISBANK",
+        "last": 1446.0,
+        "chg": 65.2,
+        "pct": 4.72,
+        "prev": 1380.8,
+        "year_high": 1450.0,
+        "year_low": 1150.3,
+        "day_high": 1450.0,
+        "day_low": 1368.8,
+        "name": "Axis Bank"
+      },
+      {
+        "symbol": "UNIONBANK",
+        "last": 218.85,
+        "chg": 8.85,
+        "pct": 4.21,
+        "prev": 210.0,
+        "year_high": 219.1,
+        "year_low": 145.87,
+        "day_high": 219.1,
+        "day_low": 206.76,
+        "name": "Union Bank"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "MUTHOOTFIN",
+        "last": 2550.5,
+        "chg": -67.5,
+        "pct": -2.58,
+        "prev": 2618.0,
+        "year_high": 4149.5,
+        "year_low": 2305.0,
+        "day_high": 2576.4,
+        "day_low": 2480.0,
+        "name": "Muthoot Finance"
+      },
+      {
+        "symbol": "CGPOWER",
+        "last": 792.0,
+        "chg": -20.9,
+        "pct": -2.57,
+        "prev": 812.9,
+        "year_high": 980.9,
+        "year_low": 525.5,
+        "day_high": 802.0,
+        "day_low": 785.1,
+        "name": "CG Power"
+      },
+      {
+        "symbol": "VEDL",
+        "last": 238.04,
+        "chg": -5.66,
+        "pct": -2.32,
+        "prev": 243.7,
+        "year_high": 795.0,
+        "year_low": 221.6,
+        "day_high": 238.2,
+        "day_low": 231.85,
+        "name": "Vedanta"
+      }
+    ]
+  },
+  "Mid Cap": {
+    "gainers": [
+      {
+        "symbol": "INDUSINDBK",
+        "last": 1003.0,
+        "chg": 79.35,
+        "pct": 8.59,
+        "prev": 923.65,
+        "year_high": 1077.85,
+        "year_low": 750.5,
+        "day_high": 1003.0,
+        "day_low": 906.0,
+        "name": "IndusInd Bank"
+      },
+      {
+        "symbol": "ASTERDM",
+        "last": 777.5,
+        "chg": 38.2,
+        "pct": 5.17,
+        "prev": 739.3,
+        "year_high": 891.3,
+        "year_low": 519.1,
+        "day_high": 781.85,
+        "day_low": 729.0,
+        "name": "Aster DM Quality Care"
+      },
+      {
+        "symbol": "PERSISTENT",
+        "last": 6124.0,
+        "chg": 244.0,
+        "pct": 4.15,
+        "prev": 5880.0,
+        "year_high": 6599.0,
+        "year_low": 4244.5,
+        "day_high": 6215.0,
+        "day_low": 5831.0,
+        "name": "Persistent"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "KALYANKJIL",
+        "last": 638.7,
+        "chg": -22.3,
+        "pct": -3.37,
+        "prev": 661.0,
+        "year_high": 729.35,
+        "year_low": 327.05,
+        "day_high": 648.9,
+        "day_low": 617.0,
+        "name": "Kalyan Jewellers"
+      },
+      {
+        "symbol": "MCX",
+        "last": 3535.0,
+        "chg": -110.0,
+        "pct": -3.02,
+        "prev": 3645.0,
+        "year_high": 3774.0,
+        "year_low": 1929.9,
+        "day_high": 3605.0,
+        "day_low": 3497.0,
+        "name": "MCX"
+      },
+      {
+        "symbol": "SWIGGY",
+        "last": 178.2,
+        "chg": -5.1,
+        "pct": -2.78,
+        "prev": 183.3,
+        "year_high": 421.6,
+        "year_low": 174.2,
+        "day_high": 182.62,
+        "day_low": 177.95,
+        "name": "Swiggy"
+      }
+    ]
+  },
+  "Small Cap": {
+    "gainers": [
+      {
+        "symbol": "EIHOTEL",
+        "last": 334.15,
+        "prev": 310.0,
+        "chg": 24.15,
+        "pct": 7.790322580645154,
+        "day_high": 337.25,
+        "day_low": 309.0,
+        "year_high": 391.8999938964844,
+        "year_low": 271.1499938964844,
+        "name": "EIH"
+      },
+      {
+        "symbol": "NAVA",
+        "last": 563.95,
+        "prev": 530.55,
+        "chg": 33.4,
+        "pct": 6.295353878051096,
+        "day_high": 571.25,
+        "day_low": 520.9500122070312,
+        "year_high": 739.4000244140625,
+        "year_low": 456.0,
+        "name": "NAVA"
+      },
+      {
+        "symbol": "CUB",
+        "last": 248.8,
+        "prev": 234.16,
+        "chg": 14.64,
+        "pct": 6.252135292107967,
+        "day_high": 251.0,
+        "day_low": 230.14999389648438,
+        "year_high": 251.0,
+        "year_low": 169.83749389648438,
+        "name": "City Union Bank"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "MTARTECH",
+        "last": 5614.5,
+        "prev": 5954.0,
+        "chg": -339.5,
+        "pct": -5.702049042660396,
+        "day_high": 5842.5,
+        "day_low": 5577.0,
+        "year_high": 8714.0,
+        "year_low": 2238.199951171875,
+        "name": "Mtar Technologies"
+      },
+      {
+        "symbol": "PFOCUS",
+        "last": 252.7,
+        "prev": 267.15,
+        "chg": -14.45,
+        "pct": -5.40894628485869,
+        "day_high": 269.20001220703125,
+        "day_low": 248.0,
+        "year_high": 367.0,
+        "year_low": 165.0,
+        "name": "Prime Focus"
+      },
+      {
+        "symbol": "IIFL",
+        "last": 611.95,
+        "prev": 644.45,
+        "chg": -32.5,
+        "pct": -5.043059973620917,
+        "day_high": 633.0,
+        "day_low": 610.0,
+        "year_high": 705.0,
+        "year_low": 409.1000061035156,
+        "name": "IIFL Finance"
+      }
+    ]
+  },
+  "Micro Cap": {
+    "gainers": [
+      {
+        "symbol": "SGMART",
+        "last": 1097.05,
+        "prev": 1010.5,
+        "chg": 86.55,
+        "pct": 8.565066798614543,
+        "day_high": 1107.5999755859375,
+        "day_low": 1008.5499877929688,
+        "year_high": 1107.5999755859375,
+        "year_low": 313.1000061035156,
+        "name": "SG Mart"
+      },
+      {
+        "symbol": "THYROCARE",
+        "last": 528.45,
+        "prev": 504.85,
+        "chg": 23.6,
+        "pct": 4.674655838367836,
+        "day_high": 554.7000122070312,
+        "day_low": 504.0,
+        "year_high": 662.0,
+        "year_low": 342.54998779296875,
+        "name": "Thyrocare Technologies"
+      },
+      {
+        "symbol": "DBL",
+        "last": 402.45,
+        "prev": 386.15,
+        "chg": 16.3,
+        "pct": 4.221157581250813,
+        "day_high": 414.70001220703125,
+        "day_low": 392.0,
+        "year_high": 497.0,
+        "year_low": 352.79998779296875,
+        "name": "Dilip Buildcon"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "EBGNG",
+        "last": 470.35,
+        "prev": 515.45,
+        "chg": -45.1,
+        "pct": -8.74963624017849,
+        "day_high": 511.5,
+        "day_low": 468.0,
+        "year_high": 775.8499755859375,
+        "year_low": 239.0,
+        "name": "GNG Electronics"
+      },
+      {
+        "symbol": "IIFLCAPS",
+        "last": 311.45,
+        "prev": 333.45,
+        "chg": -22.0,
+        "pct": -6.597690808217124,
+        "day_high": 334.0,
+        "day_low": 306.0,
+        "year_high": 411.29998779296875,
+        "year_low": 240.39999389648438,
+        "name": "IIFL Capital Services"
+      },
+      {
+        "symbol": "SHILPAMED",
+        "last": 849.15,
+        "prev": 900.7,
+        "chg": -51.55,
+        "pct": -5.723326301765301,
+        "day_high": 890.0,
+        "day_low": 836.7000122070312,
+        "year_high": 1095.0,
+        "year_low": 259.5,
+        "name": "Shilpa Medicare"
+      }
+    ]
+  }
+}
