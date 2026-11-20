@@ -31,7 +31,7 @@ TAGS = {
     'mcap': "India's 10 most valuable listed companies and their change this week",
     'wealth': 'Nifty 50 over one year: what Rs 1 lakh became in the best and worst stocks',
     'sectors': 'Sector scorecard: 1-week, 1-month and 1-year change of 16 sector indices',
-    'hundredx': '10-year 100-baggers: stocks that turned Rs 1 lakh into Rs 1 crore or more',
+    'hundredx': '10-year 100-baggers: stocks that turned Rs 1 lakh into Rs 1 crore or more (any size: /innovative 25x, 50x 5y)',
 }
 MIN_GAP = {'spotlight': 0, 'profits': 2, 'assets': 25, 'mcap': 7, 'wealth': 14, 'sectors': 7, 'hundredx': 60}
 
@@ -301,24 +301,25 @@ def wealth(force=False, st=None):
 # ---------------------------------------------------------------- 100-baggers over 10 years
 
 @as_post('insight_wealth')
-def hundredx(force=False, st=None):
+def hundredx(force=False, st=None, multiple=100, years=10):
     st = st or _state()
     report = Report()
-    rows, ago, rep = src.hundred_baggers()
+    rows, ago, rep = src.hundred_baggers(years=years, multiple=multiple)
     report.extend(rep)
     if len(rows) < 3:
         report.fail(f'only {len(rows)} stocks confirmed - need at least 3')
-        finish('insight', 'hundredx', [], '', report); return None
+        finish('insight', f'{multiple}x', [], '', report); return None
     names = _names()
     for r in rows:
         r['nm'] = short_name(r['symbol'], names.get(r['symbol']))
         r['value'] = round(r['multiple'] * 100000)          # same rounding as the 'x' shown
     report.warn('long-period scan: open 2-3 names on NSE/Screener to confirm before approving')
     day = today_ist()
-    cr_text = lambda v: f'₹{v / 1e7 + 1e-9:,.2f} cr'        # +1e-9: 1.015 shows as 1.02 (half up)
+    cr_text = lambda v: (f'₹{v / 1e7 + 1e-9:,.2f} cr' if v >= 1e7 else f'₹{v / 1e5 + 1e-9:,.1f} lakh')   # half up
     xt = lambda m: f'{m:,.1f}x' if m < 1000 else f'{m:,.0f}x'
-    head = f'₹1 lakh to *₹1 crore*: the {len(rows)} stocks that did it in *10 years*'
-    images = [cards.cover({'category': '10-Year Wealth', 'day': day, 'headline': head, 'theme': 'market_up',
+    target = cr_text(multiple * 100000).replace('.00 cr', ' crore').replace('.0 lakh', ' lakh')
+    head = f'₹1 lakh to *{target}*: the {len(rows)} stocks that did it in *{years} years*'
+    images = [cards.cover({'category': f'{years}-Year Wealth', 'day': day, 'headline': head, 'theme': 'market_up',
                            'seed': 'hx' + str(day), 'tone': 'up',
                            'stats': [('Stocks', str(len(rows)), 0), ('Best', xt(rows[0]['multiple']), 1),
                                      ('₹1 lakh in best', cr_text(rows[0]['value']), 1)],
@@ -328,29 +329,31 @@ def hundredx(force=False, st=None):
     per = -(-len(shown) // npg)                              # even pages: 10 -> 5 + 5
     pages = [shown[i:i + per] for i in range(0, len(shown), per)]
     for n, pg in enumerate(pages):
-        images.append(ic.hbars({'category': '10-Year Wealth', 'date_text': f'{fmt_date(ago)} to {fmt_date(day)}',
+        images.append(ic.hbars({'category': f'{years}-Year Wealth', 'date_text': f'{fmt_date(ago)} to {fmt_date(day)}',
                                 'headline': '*₹1 lakh* became' + (f' ({n + 1}/{len(pages)})' if len(pages) > 1 else ''),
                                 'rows': [{'name': r['nm'], 'value': r['value'], 'value_text': cr_text(r['value']),
                                           'side_text': xt(r['multiple']), 'side_sign': 1} for r in pg],
                                 'colour': 'up', 'theme': 'market_up', 'tone': 'up', 'seed': f'hx{n}', 'swipe': True,
-                                'start': 1 + n * per, 'max': rows[0]['value'],
+                                'start': 1 + n * per,
                                 'note': 'Price change only, split/bonus-adjusted; dividends not included.'}))
-    allowed = [1, 10, 100, 100000, len(rows), ago.day, ago.year, day.day, day.year]
+    allowed = [1, years, multiple, 100000, len(rows), ago.day, ago.year, day.day, day.year, multiple * 100000 / 1e5,
+               multiple / 100]
     for r in rows:
-        allowed += [r['multiple'], round(r['multiple']), r['value'] / 1e7, round(r['value'] / 1e7 + 1e-9, 2), r['then'], r['now']] \
+        allowed += [r['multiple'], round(r['multiple']), r['value'] / 1e7, round(r['value'] / 1e7 + 1e-9, 2),
+                    round(r['value'] / 1e5 + 1e-9, 1), r['then'], r['now']] \
             + _name_numbers(r['nm'])
     top = rows[:10]
-    paras = [f'Stocks in today\'s Nifty 500 and Nifty Microcap 250 whose share price rose 100 times or more between '
-             f'{fmt_date(ago)} and {fmt_date(day)}. ₹1 lakh invested in each would now be worth ₹1 crore or more '
+    paras = [f'Stocks in today\'s Nifty 500 and Nifty Microcap 250 whose share price rose {multiple} times or more between '
+             f'{fmt_date(ago)} and {fmt_date(day)}. ₹1 lakh invested in each would now be worth {target} or more '
              f'(price change only, split and bonus adjusted, dividends not included).',
              f'{len(rows)} stocks made the list. Top {len(top)}:\n' + '\n'.join(
                  f'{r["nm"]}: {xt(r["multiple"])}, ₹1 lakh became {cr_text(r["value"])}' for r in top),
              'Companies that were delisted or fell out of these indices are not included, so this is not the full '
              'picture of the market. Past returns are history, not a guide to the future.']
-    caption = assemble(f'₹1 lakh to ₹1 crore: {len(rows)} Indian stocks that rose 100x in 10 years', paras, '',
+    caption = assemble(f'₹1 lakh to {target}: {len(rows)} Indian stocks that rose {multiple}x in {years} years', paras, '',
                        tags('#WealthCreation', '#LongTermInvesting', '#NSE'))
-    d = finish('insight', f'hundredx {day}', images, caption, report, allowed,
-               meta={'topic_keyword': '100x stocks in 10 years'})
+    d = finish('insight', f'{multiple}x {years}y {day}', images, caption, report, allowed,
+               meta={'topic_keyword': f'{multiple}x stocks in {years} years'})
     if d:
         _done('hundredx', st)
     return d
@@ -527,6 +530,14 @@ def run_tag(arg):
                 return d
         telegram.send_text('No insight could be built right now - see the messages above.')
         return None
+    m = re.fullmatch(r'(?:x\s*(\d+)|(\d+)\s*x)(?:\s+(\d+)\s*y(?:ears?)?)?', arg)   # e.g. 25x, x25, 25x 5y
+    if m:
+        mult = int(m.group(1) or m.group(2))
+        yrs = int(m.group(3) or 10)
+        d = hundredx(force=True, multiple=mult, years=yrs)
+        if d is None:
+            telegram.send_text(f'{mult}x in {yrs} years: nothing could be confirmed right now.')
+        return d
     if arg not in RUNNERS:
         telegram.send_text(f'Unknown tag "{arg}". Try /innovative list')
         return None
