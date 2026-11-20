@@ -1,0 +1,182 @@
+{
+  "ath": 16,
+  "hi52": 22,
+  "lo52": 11,
+  "groups": {
+    "Large Cap": {
+      "ath": [
+        {
+          "name": "Apollo Hospitals",
+          "pct": 5.29
+        },
+        {
+          "name": "Axis Bank",
+          "pct": 4.72
+        },
+        {
+          "name": "Kotak Bank",
+          "pct": 2.54
+        },
+        {
+          "name": "ICICI Bank",
+          "pct": 1.93
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Union Bank",
+          "pct": 4.21
+        },
+        {
+          "name": "DLF",
+          "pct": 2.21
+        }
+      ],
+      "lo52": [],
+      "ath_count": 4,
+      "hi52_count": 6,
+      "lo52_count": 0
+    },
+    "Mid Cap": {
+      "ath": [
+        {
+          "name": "Indian Hotels (Taj)",
+          "pct": 2.51
+        },
+        {
+          "name": "Federal Bank",
+          "pct": 2.47
+        },
+        {
+          "name": "Coforge",
+          "pct": 2.24
+        },
+        {
+          "name": "Phoenix Mills",
+          "pct": 2.14
+        },
+        {
+          "name": "Bank of Maharashtra",
+          "pct": 1.5
+        },
+        {
+          "name": "Gujarat Fluorochemicals",
+          "pct": -0.98
+        }
+      ],
+      "hi52": [
+        {
+          "name": "LIC Housing Finance",
+          "pct": 0.8
+        }
+      ],
+      "lo52": [
+        {
+          "name": "PI Industries",
+          "pct": -2.0
+        }
+      ],
+      "ath_count": 6,
+      "hi52_count": 7,
+      "lo52_count": 1
+    },
+    "Small Cap": {
+      "ath": [
+        {
+          "name": "City Union Bank",
+          "pct": 6.252135292107967
+        },
+        {
+          "name": "Welspun Living",
+          "pct": 6.1783993047325545
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Poonawalla Fincorp",
+          "pct": 2.704309063893012
+        }
+      ],
+      "lo52": [
+        {
+          "name": "Inox Wind",
+          "pct": -2.6505178163945904
+        },
+        {
+          "name": "KEC International",
+          "pct": -2.11968041741399
+        },
+        {
+          "name": "Atul",
+          "pct": -0.1382306477093207
+        },
+        {
+          "name": "Aadhar Housing Finance",
+          "pct": 0.4699361368839592
+        },
+        {
+          "name": "Creditaccess Grameen",
+          "pct": 1.1436225015454382
+        }
+      ],
+      "ath_count": 2,
+      "hi52_count": 3,
+      "lo52_count": 5
+    },
+    "Micro Cap": {
+      "ath": [
+        {
+          "name": "SG Mart",
+          "pct": 8.565066798614543
+        },
+        {
+          "name": "Pearl Global Industries",
+          "pct": 2.2363079552738476
+        },
+        {
+          "name": "Neogen Chemicals",
+          "pct": 1.0974554266920484
+        },
+        {
+          "name": "Indo Count Industries",
+          "pct": 0.7378472222222222
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Greaves Cotton",
+          "pct": 1.825426944971538
+        },
+        {
+          "name": "DCB Bank",
+          "pct": -0.7015902712815739
+        }
+      ],
+      "lo52": [
+        {
+          "name": "ION Exchange",
+          "pct": -3.3814839133289594
+        },
+        {
+          "name": "Borosil Renewables",
+          "pct": -2.5118358758548163
+        },
+        {
+          "name": "Praj Industries",
+          "pct": -1.9163836121944031
+        },
+        {
+          "name": "Happiest Minds Technologies",
+          "pct": -0.7860846295367004
+        },
+        {
+          "name": "ABFRL",
+          "pct": 3.085745494265436
+        }
+      ],
+      "ath_count": 4,
+      "hi52_count": 6,
+      "lo52_count": 5
+    }
+  }
+}

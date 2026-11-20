@@ -1,0 +1,96 @@
+{
+  "id": "11201636-f2125",
+  "kind": "daily_overview",
+  "created": "2026-11-20T16:36:22.214382+05:30",
+  "images": [
+    "media/2026-11-20/daily_overview-163622-944f_1.jpg",
+    "media/2026-11-20/daily_overview-163622-944f_2.jpg",
+    "media/2026-11-20/daily_overview-163622-944f_3.jpg",
+    "media/2026-11-20/daily_overview-163622-944f_4.jpg",
+    "media/2026-11-20/daily_overview-163622-944f_5.jpg",
+    "media/2026-11-20/daily_overview-163622-944f_6.jpg",
+    "media/2026-11-20/daily_overview-163622-944f_7.jpg",
+    "media/2026-11-20/daily_overview-163622-944f_8.jpg"
+  ],
+  "caption": "16 STOCKS HIT ALL-TIME HIGHS; 11 AT 52-WEEK LOWS\n\nNew highs and lows on 20 November 2026: 16 stocks across the four market-cap groups touched an all-time high, 22 a 52-week high and 11 a 52-week low.\n\nLarge Cap: 6 at 52-week highs (4 all-time highs), 0 at 52-week lows. Highs include Apollo Hospitals, Axis Bank, Kotak Bank.\nMid Cap: 7 at 52-week highs (6 all-time highs), 1 at 52-week lows. Highs include Indian Hotels (Taj), Federal Bank, Coforge.\nSmall Cap: 3 at 52-week highs (2 all-time highs), 5 at 52-week lows. Highs include City Union Bank, Welspun Living.\nMicro Cap: 6 at 52-week highs (4 all-time highs), 5 at 52-week lows. Highs include SG Mart, Pearl Global Industries, Neogen Chemicals.\n\nGroups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the index scorecard and each group.\n\nFor information only. Not investment advice.\n\n#AllTimeHigh #52WeekHigh #StockMarketIndia #Nifty50 #ShareMarket",
+  "threads_text": "16 STOCKS HIT ALL-TIME HIGHS; 11 AT 52-WEEK LOWS\n\nNew highs and lows on 20 November 2026: 16 stocks across the four market-cap groups touched an all-time high, 22 a 52-week high and 11 a 52-week low.\n\nLarge Cap: 6 at 52-week highs (4 all-time highs), 0 at 52-week lows. Highs include Apollo Hospitals, Axis Bank, Kotak Bank. Mid Cap: 7 at 52-week highs (6 all-time highs), 1 at 52-week lows.\n\n#AllTimeHigh #52WeekHigh #StockMarketIndia #Nifty50 #ShareMarket",
+  "report": [
+    [
+      "ok",
+      "NIFTY 50 25,800.60: NSE (official)"
+    ],
+    [
+      "ok",
+      "SENSEX 83,919.71: BSE = Yahoo (gap 0.000%)"
+    ],
+    [
+      "ok",
+      "NIFTY NEXT 50 73,207.25: NSE (official)"
+    ],
+    [
+      "ok",
+      "NIFTY 100 26,662.85: NSE (official)"
+    ],
+    [
+      "ok",
+      "NIFTY MIDCAP 150 22,750.80: NSE (official)"
+    ],
+    [
+      "ok",
+      "NIFTY SMALLCAP 250 17,785.50: NSE (official)"
+    ],
+    [
+      "ok",
+      "NIFTY MICROCAP 250 25,065.35: NSE (official)"
+    ],
+    [
+      "ok",
+      "NIFTY 500 24,088.80: NSE (official)"
+    ],
+    [
+      "ok",
+      "NIFTY BANK 64,635.20: NSE (official)"
+    ],
+    [
+      "ok",
+      "INDIA VIX 17.33: NSE (official)"
+    ],
+    [
+      "ok",
+      "Large Cap (NIFTY 100): 6 at 52-week high (4 all-time high), 0 at 52-week low (all checked against Yahoo history)"
+    ],
+    [
+      "ok",
+      "Mid Cap (NIFTY MIDCAP 150): 7 at 52-week high (6 all-time high), 1 at 52-week low (all checked against Yahoo history); 1 dropped (Yahoo/NSE differ)"
+    ],
+    [
+      "warn",
+      "Small Cap: NSE stock API unavailable - prices and 52-week levels from Yahoo"
+    ],
+    [
+      "ok",
+      "Small Cap (NIFTY SMALLCAP 250): 3 at 52-week high (2 all-time high), 5 at 52-week low (all checked against Yahoo history)"
+    ],
+    [
+      "warn",
+      "Micro Cap: NSE stock API unavailable - prices and 52-week levels from Yahoo"
+    ],
+    [
+      "ok",
+      "Micro Cap (NIFTY MICROCAP 250): 6 at 52-week high (4 all-time high), 5 at 52-week low (all checked against Yahoo history); 1 dropped (Yahoo/NSE differ)"
+    ],
+    [
+      "ok",
+      "caption: all 30 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 493,
+  "posted": {},
+  "report_text": "✅ NIFTY 50 25,800.60: NSE (official)\n✅ SENSEX 83,919.71: BSE = Yahoo (gap 0.000%)\n✅ NIFTY NEXT 50 73,207.25: NSE (official)\n✅ NIFTY 100 26,662.85: NSE (official)\n✅ NIFTY MIDCAP 150 22,750.80: NSE (official)\n✅ NIFTY SMALLCAP 250 17,785.50: NSE (official)\n✅ NIFTY MICROCAP 250 25,065.35: NSE (official)\n✅ NIFTY 500 24,088.80: NSE (official)\n✅ NIFTY BANK 64,635.20: NSE (official)\n✅ INDIA VIX 17.33: NSE (official)\n✅ Large Cap (NIFTY 100): 6 at 52-week high (4 all-time high), 0 at 52-week low (all checked against Yahoo history)\n✅ Mid Cap (NIFTY MIDCAP 150): 7 at 52-week high (6 all-time high), 1 at 52-week low (all checked against Yahoo history); 1 dropped (Yahoo/NSE differ)\n⚠️ Small Cap: NSE stock API unavailable - prices and 52-week levels from Yahoo\n✅ Small Cap (NIFTY SMALLCAP 250): 3 at 52-week high (2 all-time high), 5 at 52-week low (all checked against Yahoo history)\n⚠️ Micro Cap: NSE stock API unavailable - prices and 52-week levels from Yahoo\n✅ Micro Cap (NIFTY MICROCAP 250): 6 at 52-week high (4 all-time high), 5 at 52-week low (all checked against Yahoo history); 1 dropped (Yahoo/NSE differ)\n✅ caption: all 30 numbers match source data\n✅ no advice, prediction or rumour language"
+}
