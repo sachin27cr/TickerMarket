@@ -37,9 +37,12 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "partial",
   "meta": {},
   "telegram_message_id": 504,
-  "posted": {},
+  "posted": {
+    "instagram": "error: media: Unsupported post request. Object with ID '1374383985767580' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api",
+    "facebook": "122109711657544503"
+  },
   "report_text": "✅ confirmed by 4 outlets: Business Today on MSN, DD India, Equitymaster, Public TV English\n✅ fresh: newest source 1.3 h old\n✅ headline/banner/points/body: all 12 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMi0AFBVV95cUxOcmRDbV9YWlVweG9GdExIaV8yUlVRbk1lNW84MDRvRTNTbFo2WUJmZm5lNDJuS0VvWlhvTDZYWkpvaVQ4Uzd0ckdiSGNFRG1CRXFuXzFxZmw1X0FVV2VqcDh0R1A0bV9jeXQyS0Q1M3ZodDFpOU5KaC1qYVJIb0Z4X2xscThMV3J5VUpESkw2NXhtekFKVzR3T2JvNzRpQklSUFQtQ29vSE5DN2RJckVZdXppNnFVRmJnT2xLWlZRejhsRVE4aXIxZ1lSU2xVVTRu?oc=5 | https://news.google.com/rss/articles/CBMi7wFBVV95cUxQdWNOVk1HMmJNZ2pmdHZ1Smlub1NnaVluZ0lWQkxmTTk1MVlSNHNrM205dUh4bmM1ejh2Yl96Q3E2YzlMUWswc2dBWDYzc1BTNXB2ak5Ca3N6NkQtb3VKbXdWdUQ2bXFEUTl4UnhOenBkb2NkVEh6MHVlZjZ3RWNGblBWVHF2UFdjeGhjcllNbzJxTEFzVUIwbGFIajZzMnZlaG0wbnR4QThFbFR6ekc1dl9aOWdWY1lTOENXUVlZSmZscUtrRldUakVaMUlacmJTUW1ScDhFR0xndUFCSjg5ak55VTlPaWVIenAtcDlxdw?oc=5 | https://news.google.com/rss/articles/CBMiwAFBVV95cUxOU0o2aFl2MDVxTGRMM2RKYzZQS0dmdXJubVZLbk9GVGRLWVNyVzBFaUJkOHEzekExakUzeWloRDZhUG5IX3htdkFJR2VuUllzVXJhbUZDVGFTY3ZKbGtjQWw5OUFFcWJ5MklKMFZCNEpQY1Zqd19nai01ZjBkNlpvQ04xM0dpa2x6MGRBVmp6YTYxSlFUNnV1YWdnb3MxSjlMN1pyc09Lak9FWkd0NDdOdG5xVUdzMzN1eF9yb2o5Yzc?oc=5 | http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6b0039f4989b42ff90bd906fe7871a83&url=https%3a%2f%2fwww.msn.com%2fen-in%2fmoney%2feconomy%2fbt-closing-bell-markets-extend-gains-as-sensex-jumps-898-points-nifty-reclaims-25-800%2far-AA2hQOWE&c=3396820302673783197&mkt=en-in\n✅ no advice, prediction or rumour language"
 }
