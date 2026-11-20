@@ -57,6 +57,8 @@ def with_closing_slides(images, caption):
 
 def finish(kind, title, images, caption, report: Report, allowed_numbers=None, meta=None, notify=True):
     """Final checks shared by every post, then hand to Telegram. Returns draft or None."""
+    from ..writer import seo
+    caption = seo.optimise(kind, caption, (meta or {}).get('topic_keyword'))
     if allowed_numbers is not None:
         body = caption.rsplit('\n\n', 1)[0]                      # hashtags excluded
         check_numbers(body, list(allowed_numbers) + date_numbers(now_ist().date()) + _name_digits(), report)
@@ -82,6 +84,8 @@ def finish(kind, title, images, caption, report: Report, allowed_numbers=None, m
         paths.append(rel)
     d = store.new_draft(kind, paths, caption, captions.threads_text(caption), [list(r) for r in report], meta)
     d['report_text'] = report.text()
+    d['topic_keyword'] = seo.topic_keyword(kind, caption) if not (meta or {}).get('topic_keyword') else meta['topic_keyword']
+    d['alt_text'] = seo.alt_text(kind, caption, len(paths), d['topic_keyword'])
     auto = store.config.auto_posts(kind) and not any(s == 'warn' for s, _ in report)
     if auto:
         d['status'] = 'auto'                        # approvals job posts it after the cancel window
@@ -95,6 +99,8 @@ def finish_video(kind, title, video_path, cover, caption, report, allowed_number
     """Same checks as finish(); the reel (mp4) and its cover frame go to Telegram for approval.
     Reels always wait for your approval (they are not auto-posted)."""
     import shutil
+    from ..writer import seo
+    caption = seo.optimise(kind, caption)
     if allowed_numbers is not None:
         body = caption.rsplit('\n\n', 1)[0]
         check_numbers(body, list(allowed_numbers) + date_numbers(now_ist().date()) + _name_digits(), report)
@@ -115,6 +121,7 @@ def finish_video(kind, title, video_path, cover, caption, report, allowed_number
     d['video'] = vid_rel
     d['script'] = script or []
     d['report_text'] = report.text()
+    d['topic_keyword'] = seo.topic_keyword(kind, caption)
     store.save_draft(d)
     telegram.send_draft(d)
     log.info('reel draft %s sent (%s)', d['id'], kind)

@@ -24,6 +24,7 @@ from ..util import log
 from . import voice
 
 W, H, FPS = 1080, 1920, 30
+MAX_LEN = 45                       # seconds; reels of 15-45 s get watched to the end
 CARD = (250, 250, 252)
 INK = (12, 20, 40)
 MUTED = (92, 102, 122)
@@ -481,6 +482,14 @@ def build(scenes, label, out_path, seed='reel'):
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *src, '-af', 'adelay=350,apad', '-t', str(d),
                         '-ar', '44100', '-ac', '1', str(wav)], check=True)
         wavs.append(wav)
+    # Instagram favours reels watched to the end: keep it to MAX_LEN by dropping optional scenes (highest first)
+    while sum(durs) > MAX_LEN:
+        opt = [(sc.get('optional') or 0, i) for i, sc in enumerate(scenes) if sc.get('optional')]
+        if not opt:
+            break
+        _, i = max(opt)
+        rep.append(('ok', f'left out "{scenes[i].get("title", scenes[i]["type"])}" to keep the reel under {MAX_LEN} s'))
+        del scenes[i], durs[i], wavs[i]
     if engine:
         rep.append(('ok', f'voice-over: {voice.current()[0] if engine == "edge" else "Google (fallback voice)"}'))
     else:

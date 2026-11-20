@@ -37,13 +37,24 @@ def _wait_ready(container_id, token, base=G, tries=30):
     raise PublishError(f'container {container_id} not ready in time')
 
 
-def instagram(image_urls, caption):
+def _media(uid, tok, alt, **params):
+    """Create an image container with alt text; if this API version refuses alt text, without it."""
+    if alt:
+        try:
+            return _post(f'{G}/{uid}/media', alt_text=alt, access_token=tok, **params)['id']
+        except PublishError as e:
+            if 'alt' not in str(e).lower():
+                raise
+            log.warning('alt text not accepted (%s) - posting without it', e)
+    return _post(f'{G}/{uid}/media', access_token=tok, **params)['id']
+
+
+def instagram(image_urls, caption, alt=None):
     tok, uid = config.META_PAGE_TOKEN, config.IG_USER_ID
     if len(image_urls) == 1:
-        c = _post(f'{G}/{uid}/media', image_url=image_urls[0], caption=caption, access_token=tok)['id']
+        c = _media(uid, tok, alt, image_url=image_urls[0], caption=caption)
     else:
-        kids = [_post(f'{G}/{uid}/media', image_url=u, is_carousel_item='true', access_token=tok)['id']
-                for u in image_urls[:10]]
+        kids = [_media(uid, tok, alt, image_url=u, is_carousel_item='true') for u in image_urls[:10]]
         for k in kids:
             _wait_ready(k, tok)
         c = _post(f'{G}/{uid}/media', media_type='CAROUSEL', children=','.join(kids), caption=caption,
@@ -92,11 +103,11 @@ def threads(image_urls, text):
     return _post(f'{T}/{uid}/threads_publish', creation_id=c, access_token=tok)['id']
 
 
-def publish_all(image_urls, caption, threads_text, only=None):
+def publish_all(image_urls, caption, threads_text, only=None, alt=None):
     """Returns {platform: id or 'error: ...'}; one platform failing does not stop the others.
     only: post just to these platforms (used to retry the ones that failed)."""
     out = {}
-    jobs = {'instagram': lambda: instagram(image_urls, caption),
+    jobs = {'instagram': lambda: instagram(image_urls, caption, alt),
             'facebook': lambda: facebook(image_urls, caption),
             'threads': lambda: threads(image_urls, threads_text)}
     for name in (only or config.POST_TO):

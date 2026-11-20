@@ -26,6 +26,7 @@ HELP = """<b>Ticker Market bot</b>
 /voices - hear the voice options; /voice name - choose one; /say text - hear how a line is pronounced
 /metacheck - check the Instagram/Facebook keys (posts nothing)
 /threadscheck - check the Threads key and days left
+/review - weekly Insights review (also every Sunday 11 AM)
 /retry id - post a draft again where it failed
 /idea text - research an idea and make a carousel (or send a photo with caption 'idea: ...')
 /custompost name - post a carousel written in chat
@@ -93,7 +94,7 @@ def publish(did):
                                 d['threads_text'], store.media_url(d['images'][0]) if d['images'] else None, only=todo)
     else:
         urls = [store.media_url(p) for p in d['images']]
-        res = meta.publish_all(urls, d['caption'], d['threads_text'], only=todo)
+        res = meta.publish_all(urls, d['caption'], d['threads_text'], only=todo, alt=d.get('alt_text'))
     d['posted'] = {**(d.get('posted') or {}), **res}
     errors = {k: v for k, v in d['posted'].items() if str(v).startswith('error')}
     d['status'] = 'posted' if not errors else ('partial' if len(errors) < len(d['posted']) else 'failed')
@@ -179,6 +180,10 @@ def run_command(cmd, arg=''):
             return
         live = meta.links(d.get('posted'))
         telegram.send_text('\n'.join(f'{NAMES.get(k, k)}: {html.escape(v)}' for k, v in live.items()) or 'Not posted yet.')
+        return
+    if cmd == '/review':
+        from . import review_jobs
+        review_jobs.weekly_review()
         return
     if cmd == '/threadscheck':
         ok, m = meta.threads_status()
@@ -343,6 +348,14 @@ def approvals():
     else:
         _handle_updates()                            # polling (only works while no webhook is set)
     post_due_autos()
+    try:                                             # Sunday 11 AM: weekly Insights review
+        n = now_ist()
+        if n.weekday() == 6 and n.hour >= 11 and store.get_flag('last_review') != str(n.date()):
+            store.set_flag('last_review', str(n.date()))
+            from . import review_jobs
+            review_jobs.weekly_review()
+    except Exception as e:                           # noqa: BLE001
+        log.warning('weekly review: %s', e)
     try:
         meta.threads_reminder()
     except Exception as e:                           # noqa: BLE001

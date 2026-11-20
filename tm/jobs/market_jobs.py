@@ -295,9 +295,11 @@ def _merge_into_cap_movers(day, fii_slides, fii_paras, fii_allowed, fii_report):
     d = max(cands, key=lambda x: x['created'])
     m = d['meta']
     content = [Image.open(config.DATA_DIR / p).convert('RGB') for p in d['images'][:m.get('n_content', len(d['images']))]]
-    head = m['headline'].replace('Top gainers and losers by market cap', 'Gainers & losers by market cap + FII/DII')
+    head = m['headline'].replace('Top gainers and losers by market cap', 'Top gainers and losers today by market cap + FII/DII data')
     caption = assemble(head, list(m['paras']) + list(fii_paras), 'NSE closing data; NSE provisional FII/DII data',
                        tags('#TopGainers', '#TopLosers', '#FII', '#DII', '#StockMarketIndia'))
+    from ..writer import seo
+    caption = seo.optimise('cap_movers', caption, 'Top gainers and losers today')
     rep = R([tuple(x) for x in d['report']] + [tuple(x) for x in fii_report])
     check_numbers(caption.rsplit('\n\n', 1)[0], list(m['allowed']) + list(fii_allowed) + date_numbers(now_ist().date())
                   + _name_digits(), rep)
@@ -315,6 +317,7 @@ def _merge_into_cap_movers(day, fii_slides, fii_paras, fii_allowed, fii_report):
         paths.append(str(rel))
     old_msg = d.get('telegram_message_id')
     d.update({'images': paths, 'caption': caption, 'threads_text': captions.threads_text(caption),
+              'alt_text': seo.alt_text('cap_movers', caption, len(paths), 'Top gainers and losers today'),
               'report': [list(x) for x in rep], 'report_text': rep.text()})
     d['meta']['awaiting_fii'] = None
     store.save_draft(d)

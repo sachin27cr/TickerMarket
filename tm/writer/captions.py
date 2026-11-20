@@ -7,7 +7,7 @@ DISCLAIMER = 'For information only. Not investment advice.'
 
 
 def plain(headline):
-    return re.sub(r'\*', '', headline).upper()
+    return re.sub(r'\*', '', headline).strip()
 
 
 def assemble(headline, paragraphs, source, hashtags):

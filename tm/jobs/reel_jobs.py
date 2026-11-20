@@ -89,9 +89,11 @@ def _list_scenes(hl, tone):
         highs = sorted(_pick(hl, 'hi52'), key=lambda r: r['pct'], reverse=True)
         title = f'52-week highs today ({hl["hi52"]})'
     lows = sorted(_pick(hl, 'lo52'), key=lambda r: r['pct'])
-    for t, rows, topic, lvl in ((title, highs, 'highs', 'day_high'), (f'52-week lows today ({hl["lo52"]})', lows, 'lows', 'day_low')):
+    for t, rows, topic, lvl, opt in ((title, highs, 'highs', 'day_high', 0),
+                                     (f'52-week lows today ({hl["lo52"]})', lows, 'lows', 'day_low', 2)):
         if rows:
-            scenes.append({'type': 'rows', 'title': t, 'topic': topic, 'tone': tone, 'voice': '', 'hold': 3.4,
+            scenes.append({'type': 'rows', 'title': t, 'topic': topic, 'tone': tone, 'voice': '', 'hold': 3.0,
+                           'optional': opt,
                            'rows': [{'label': r['name'], 'pct': r['pct'],
                                      'sub': r['seg'] + (' · touched a new high today' if lvl == 'day_high' else ' · touched a new low today')}
                                     for r in rows[:6]]})
@@ -99,6 +101,11 @@ def _list_scenes(hl, tone):
 
 
 def _make(kind, title, label, scenes, caption, report, allowed, seed):
+    from ..writer import seo
+    kw = seo.topic_keyword(kind)
+    if scenes and scenes[0].get('type') == 'intro' and scenes[0].get('voice') and not seo._has(kw, scenes[0]['voice']):
+        v = scenes[0]['voice']                          # say the search keyword in the first seconds (IG transcribes audio)
+        scenes[0]['voice'] = f'{kw}. {v}'
     out = Path(tempfile.mkdtemp()) / f'{kind}.mp4'
     path, cover, rep, _ = render.build(scenes, label, out, seed)
     report.extend(rep)
@@ -310,7 +317,7 @@ def evening_reel(force=False):
         scenes.append({'type': 'duo', 'title': 'Sectors', 'left_title': 'Best', 'right_title': 'Weakest',
                        'left': [{'label': sector_label(x['name']).replace('Nifty ', ''), 'pct': x['pct']} for x in top],
                        'right': [{'label': sector_label(x['name']).replace('Nifty ', ''), 'pct': x['pct']} for x in bot],
-                       'topic': 'sectors', 'tone': tone,
+                       'topic': 'sectors', 'tone': tone, 'optional': 1,
                        'voice': f'{sector_label(top[0]["name"])} led, {V.signed(top[0]["pct"])}. '
                                 f'{sector_label(bot[0]["name"])} {"lagged" if bot[0]["pct"] >= 0 else "was the biggest drag"}.'})
         paras.append(f'Best sector: {sector_label(top[0]["name"])} ({top[0]["pct"]:+.2f}%). '
