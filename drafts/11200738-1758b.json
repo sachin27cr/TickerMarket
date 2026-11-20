@@ -53,13 +53,13 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "failed",
+  "status": "partial",
   "meta": {
     "video": "media/2026-11-20/reel_morning-073803-950a.mp4"
   },
   "telegram_message_id": 424,
   "posted": {
-    "instagram": "error: reel upload HTTP 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}",
+    "instagram": "17976387954071465",
     "facebook": "error: video_reels: (#200) Subject does not have permission to post videos on this target"
   },
   "video": "media/2026-11-20/reel_morning-073803-950a.mp4",
