@@ -1,0 +1,47 @@
+{
+  "id": "11202322-87a5d",
+  "kind": "insight",
+  "created": "2026-11-20T23:22:01.104926+05:30",
+  "images": [
+    "media/2026-11-20/insight-232201-33bd_1.jpg",
+    "media/2026-11-20/insight-232201-33bd_2.jpg",
+    "media/2026-11-20/insight-232201-33bd_3.jpg",
+    "media/2026-11-20/insight-232201-33bd_4.jpg",
+    "media/2026-11-20/insight-232201-33bd_5.jpg",
+    "media/2026-11-20/insight-232201-33bd_6.jpg",
+    "media/2026-11-20/insight-232201-33bd_7.jpg"
+  ],
+  "caption": "₹1 lakh to ₹25 lakh: 33 Indian stocks that rose 25x in 10 years\n\nStocks in today's Nifty 500 and Nifty Microcap 250 whose share price rose 25 times or more between 20 November 2016 and 20 November 2026. ₹1 lakh invested in each would now be worth ₹25 lakh or more (price change only, split and bonus adjusted, dividends not included).\n\n33 stocks made the list. Top 10:\nCupid: 148.8x, ₹1 lakh became ₹1.49 cr\nTips Music: 138.9x, ₹1 lakh became ₹1.39 cr\nAdani Enterprises: 77.3x, ₹1 lakh became ₹77.3 lakh\nRefex Industries: 75.2x, ₹1 lakh became ₹75.2 lakh\nSigma Advanced Systems: 70.3x, ₹1 lakh became ₹70.3 lakh\nBlack Box: 57.3x, ₹1 lakh became ₹57.3 lakh\nLloyds Engineering Works: 52.7x, ₹1 lakh became ₹52.7 lakh\nPG Electroplast: 45.3x, ₹1 lakh became ₹45.3 lakh\nAdani Power: 43.2x, ₹1 lakh became ₹43.2 lakh\nGravita India: 42.2x, ₹1 lakh became ₹42.2 lakh\n\nCompanies that were delisted or fell out of these indices are not included, so this is not the full picture of the market. Past returns are history, not a guide to the future.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #WealthCreation #LongTermInvesting #NSE #TickerMarketIndia",
+  "threads_text": "₹1 lakh to ₹25 lakh: 33 Indian stocks that rose 25x in 10 years\n\nStocks in today's Nifty 500 and Nifty Microcap 250 whose share price rose 25 times or more between 20 November 2016 and 20 November 2026. ₹1 lakh invested in each would now be worth ₹25 lakh or more (price change only, split and bonus adjusted, dividends not included).\n\n33 stocks made the list.\n\n#StockMarketIndia #WealthCreation #LongTermInvesting #NSE #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "749 stocks scanned (NIFTY 500, NIFTY MICROCAP 250), 33 rose 25x or more in 10 years; 292 not listed 10 years ago; 17 left out (Yahoo/NSE price differ)"
+    ],
+    [
+      "warn",
+      "1 possible 100x stocks left out because their price history has a one-day jump over 60% (likely an unadjusted split/bonus): MBAPL"
+    ],
+    [
+      "warn",
+      "long-period scan: open 2-3 names on NSE/Screener to confirm before approving"
+    ],
+    [
+      "ok",
+      "caption: all 44 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "topic_keyword": "25x stocks in 10 years"
+  },
+  "telegram_message_id": 630,
+  "posted": {},
+  "report_text": "✅ 749 stocks scanned (NIFTY 500, NIFTY MICROCAP 250), 33 rose 25x or more in 10 years; 292 not listed 10 years ago; 17 left out (Yahoo/NSE price differ)\n⚠️ 1 possible 100x stocks left out because their price history has a one-day jump over 60% (likely an unadjusted split/bonus): MBAPL\n⚠️ long-period scan: open 2-3 names on NSE/Screener to confirm before approving\n✅ caption: all 44 numbers match source data\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "25x stocks in 10 years",
+  "alt_text": "25x stocks in 10 years: Ticker Market India carousel - ₹1 lakh to ₹25 lakh: 33 Indian stocks that rose 25x in 10 years"
+}
