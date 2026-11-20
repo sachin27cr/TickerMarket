@@ -378,3 +378,67 @@ def sector_scorecard():
         out.append(row)
     rep.append(('ok', f'{len(out)} indices with 1-week, 1-month and 1-year change from NSE'))
     return out, rep
+
+
+# ---------------------------------------------------------------- 6. 100-baggers over 10 years
+
+def hundred_baggers(years=10, multiple=100, universes=('NIFTY 500', 'NIFTY MICROCAP 250')):
+    """Stocks of today's Nifty 500 + Microcap 250 whose price rose `multiple` times or more over `years` years
+    (₹1 lakh -> ₹1 crore at 100x). Split/bonus-adjusted price change, dividends not included.
+    Checks: today's price is NSE's and Yahoo's latest close must agree within 0.5%; the stock must have traded
+    `years` ago; histories with a one-day jump of more than 60% (usually a missed split/bonus adjustment in the
+    data) are left out and reported, not guessed."""
+    import yfinance as yf
+    t = today_ist()
+    ago = t.replace(year=t.year - years) if not (t.month == 2 and t.day == 29) else t.replace(year=t.year - years, day=28)
+    rows, rep, seen = [], [], set()
+    for u in universes:
+        try:
+            got, _ = nse.index_constituents(u)
+        except nse.SourceError as e:
+            rep.append(('warn', f'{u}: list unavailable ({e})'))
+            continue
+        for r in got:
+            if r['symbol'] not in seen and r.get('last'):
+                seen.add(r['symbol'])
+                rows.append(r)
+    if not rows:
+        return [], ago, rep + [('fail', 'no stock list available')]
+    syms = [r['symbol'] for r in rows]
+    out, bad, young, jumpy = [], 0, 0, []
+    for i in range(0, len(syms), 150):                      # Yahoo in batches
+        part = syms[i:i + 150]
+        df = yf.download([s + '.NS' for s in part], start=ago - timedelta(days=12), interval='1d', auto_adjust=False,
+                         group_by='ticker', threads=True, progress=False)
+        for s in part:
+            r = next(x for x in rows if x['symbol'] == s)
+            try:
+                h = df[s + '.NS'].dropna(subset=['Close'])
+            except KeyError:
+                continue
+            if h.empty:
+                continue
+            old = h[[d.date() <= ago for d in h.index]]
+            if old.empty:
+                young += 1; continue
+            if not _close(float(h['Close'].iloc[-1]), r['last'], 0.5):
+                bad += 1; continue
+            base = float(old['Close'].iloc[-1])
+            if base <= 0:
+                continue
+            mult = r['last'] / base
+            if mult < multiple:
+                continue
+            ch = h['Close'].pct_change().abs()
+            if (ch > 0.6).any():
+                jumpy.append(s); continue
+            out.append({'symbol': s, 'then': round(base, 2), 'then_date': old.index[-1].date(), 'now': r['last'],
+                        'multiple': round(mult, 1), 'value': round(100000 * mult)})
+    out.sort(key=lambda x: x['multiple'], reverse=True)
+    rep.append(('ok', f'{len(rows)} stocks scanned ({", ".join(universes)}), {len(out)} rose {multiple}x or more in '
+                      f'{years} years' + (f'; {young} not listed {years} years ago' if young else '')
+                      + (f'; {bad} left out (Yahoo/NSE price differ)' if bad else '')))
+    if jumpy:
+        rep.append(('warn', f'{len(jumpy)} possible 100x stocks left out because their price history has a one-day '
+                            f'jump over 60% (likely an unadjusted split/bonus): ' + ', '.join(jumpy[:10])))
+    return out, ago, rep

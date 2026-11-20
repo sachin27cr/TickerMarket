@@ -31,8 +31,9 @@ TAGS = {
     'mcap': "India's 10 most valuable listed companies and their change this week",
     'wealth': 'Nifty 50 over one year: what Rs 1 lakh became in the best and worst stocks',
     'sectors': 'Sector scorecard: 1-week, 1-month and 1-year change of 16 sector indices',
+    'hundredx': '10-year 100-baggers: stocks that turned Rs 1 lakh into Rs 1 crore or more',
 }
-MIN_GAP = {'spotlight': 0, 'profits': 2, 'assets': 25, 'mcap': 7, 'wealth': 14, 'sectors': 7}
+MIN_GAP = {'spotlight': 0, 'profits': 2, 'assets': 25, 'mcap': 7, 'wealth': 14, 'sectors': 7, 'hundredx': 60}
 
 
 def _state():
@@ -297,6 +298,64 @@ def wealth(force=False, st=None):
     return d
 
 
+# ---------------------------------------------------------------- 100-baggers over 10 years
+
+@as_post('insight_wealth')
+def hundredx(force=False, st=None):
+    st = st or _state()
+    report = Report()
+    rows, ago, rep = src.hundred_baggers()
+    report.extend(rep)
+    if len(rows) < 3:
+        report.fail(f'only {len(rows)} stocks confirmed - need at least 3')
+        finish('insight', 'hundredx', [], '', report); return None
+    names = _names()
+    for r in rows:
+        r['nm'] = short_name(r['symbol'], names.get(r['symbol']))
+        r['value'] = round(r['multiple'] * 100000)          # same rounding as the 'x' shown
+    report.warn('long-period scan: open 2-3 names on NSE/Screener to confirm before approving')
+    day = today_ist()
+    cr_text = lambda v: f'₹{v / 1e7 + 1e-9:,.2f} cr'        # +1e-9: 1.015 shows as 1.02 (half up)
+    xt = lambda m: f'{m:,.1f}x' if m < 1000 else f'{m:,.0f}x'
+    head = f'₹1 lakh to *₹1 crore*: the {len(rows)} stocks that did it in *10 years*'
+    images = [cards.cover({'category': '10-Year Wealth', 'day': day, 'headline': head, 'theme': 'market_up',
+                           'seed': 'hx' + str(day), 'tone': 'up',
+                           'stats': [('Stocks', str(len(rows)), 0), ('Best', xt(rows[0]['multiple']), 1),
+                                     ('₹1 lakh in best', cr_text(rows[0]['value']), 1)],
+                           'inside': ['Ranked by how many times ₹1 lakh grew', 'Then vs now price']})]
+    shown = rows[:32]
+    npg = -(-len(shown) // 8)
+    per = -(-len(shown) // npg)                              # even pages: 10 -> 5 + 5
+    pages = [shown[i:i + per] for i in range(0, len(shown), per)]
+    for n, pg in enumerate(pages):
+        images.append(ic.hbars({'category': '10-Year Wealth', 'date_text': f'{fmt_date(ago)} to {fmt_date(day)}',
+                                'headline': '*₹1 lakh* became' + (f' ({n + 1}/{len(pages)})' if len(pages) > 1 else ''),
+                                'rows': [{'name': r['nm'], 'value': r['value'], 'value_text': cr_text(r['value']),
+                                          'side_text': xt(r['multiple']), 'side_sign': 1} for r in pg],
+                                'colour': 'up', 'theme': 'market_up', 'tone': 'up', 'seed': f'hx{n}', 'swipe': True,
+                                'start': 1 + n * per, 'max': rows[0]['value'],
+                                'note': 'Price change only, split/bonus-adjusted; dividends not included.'}))
+    allowed = [1, 10, 100, 100000, len(rows), ago.day, ago.year, day.day, day.year]
+    for r in rows:
+        allowed += [r['multiple'], round(r['multiple']), r['value'] / 1e7, round(r['value'] / 1e7 + 1e-9, 2), r['then'], r['now']] \
+            + _name_numbers(r['nm'])
+    top = rows[:10]
+    paras = [f'Stocks in today\'s Nifty 500 and Nifty Microcap 250 whose share price rose 100 times or more between '
+             f'{fmt_date(ago)} and {fmt_date(day)}. ₹1 lakh invested in each would now be worth ₹1 crore or more '
+             f'(price change only, split and bonus adjusted, dividends not included).',
+             f'{len(rows)} stocks made the list. Top {len(top)}:\n' + '\n'.join(
+                 f'{r["nm"]}: {xt(r["multiple"])}, ₹1 lakh became {cr_text(r["value"])}' for r in top),
+             'Companies that were delisted or fell out of these indices are not included, so this is not the full '
+             'picture of the market. Past returns are history, not a guide to the future.']
+    caption = assemble(f'₹1 lakh to ₹1 crore: {len(rows)} Indian stocks that rose 100x in 10 years', paras, '',
+                       tags('#WealthCreation', '#LongTermInvesting', '#NSE'))
+    d = finish('insight', f'hundredx {day}', images, caption, report, allowed,
+               meta={'topic_keyword': '100x stocks in 10 years'})
+    if d:
+        _done('hundredx', st)
+    return d
+
+
 # ---------------------------------------------------------------- 5. sector scorecard
 
 @as_post('insight_sectors')
@@ -418,7 +477,8 @@ def market_jobs_label(name):
     return sector_label(n) if n.startswith('NIFTY') else n.title()
 
 
-RUNNERS = {'spotlight': results_spotlight, 'profits': profits, 'assets': assets, 'mcap': mcap, 'wealth': wealth, 'sectors': sectors}
+RUNNERS = {'spotlight': results_spotlight, 'profits': profits, 'assets': assets, 'mcap': mcap, 'wealth': wealth, 'sectors': sectors,
+           'hundredx': hundredx}
 
 
 # ---------------------------------------------------------------- scheduling and on-demand

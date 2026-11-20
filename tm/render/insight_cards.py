@@ -152,11 +152,11 @@ def hbars(data):
         y += 62
     rows = data['rows'][:10]
     rh = min(150, (H - 275 - y) // max(1, len(rows)))
-    mx = max(abs(r['value']) for r in rows) or 1
+    mx = data.get('max') or max(abs(r['value']) for r in rows) or 1
     x_bar, max_bw = 330, W - 60 - 330 - 10
     for i, r in enumerate(rows):
         cy = y + rh // 2
-        d.text((60, cy), str(i + 1), font=bebas(40), fill=GOLD, anchor='lm')
+        d.text((60, cy), str(i + data.get('start', 1)), font=bebas(40), fill=GOLD, anchor='lm')
         im.alpha_composite(monogram(48, r['name']), (108, cy - 24))
         nm = r['name']
         while d.textlength(nm, font=hind(27, 'SemiBold')) > x_bar - 170 and len(nm) > 4:
@@ -234,7 +234,7 @@ def summary_slide(data):
                  data.get('tone'))
     im = scrim(im.convert('RGBA'), 160, 1190, 195)
     d = ImageDraw.Draw(im)
-    y = headline(d, data.get('headline', 'The day *in short*'), 190, size=92, max_lines=2) + 30
+    y = headline(d, data.get('headline', '*In short*'), 190, size=92, max_lines=2) + 30
     pts = data['points'][:6]
     size = 34 if sum(len(p) for p in pts) < 520 else 30
     f, lh = hind(size, 'SemiBold'), int(size * 1.35)
