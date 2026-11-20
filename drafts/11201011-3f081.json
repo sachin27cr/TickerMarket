@@ -49,9 +49,12 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "partial",
   "meta": {},
   "telegram_message_id": 444,
-  "posted": {},
+  "posted": {
+    "instagram": "18115507355150410",
+    "facebook": "error: photos: (#200) Permissions error"
+  },
   "report_text": "✅ reported by a trusted outlet: Business Standard\n✅ fresh: newest source 0.1 h old\n✅ headline/banner/points/body: all 4 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ TITAN ₹4,553.90 (-3.11%): NSE = Yahoo\n✅ MUTHOOTFIN ₹2,562.50 (-2.12%): NSE = Yahoo\n✅ KALYANKJIL ₹627.30 (-5.10%): NSE = Yahoo\n✅ written by groq; sources: https://www.business-standard.com/markets/news/titan-muthoot-finance-kalyan-jewellers-fall-up-to-4-as-gold-prices-slide-126112000238_1.html\n✅ no advice, prediction or rumour language"
 }
