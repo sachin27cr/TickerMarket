@@ -82,7 +82,7 @@ async function tg(env, method, body) {
 }
 
 const LONG = new Set(['/news', '/close', '/overview', '/fii', '/dayahead', '/global', '/ipo', '/iposubs', '/capmovers', '/ath', '/lows',
-  '/innovative', '/insight', '/insights', '/reelam', '/reelpm', '/reelweek', '/reelath', '/reellows', '/spotlight']);
+  '/innovative', '/insight', '/insights', '/idea', '/custompost', '/customreel', '/reelam', '/reelpm', '/reelweek', '/reelath', '/reellows', '/spotlight']);
 
 async function onTelegram(request, env, ctx) {
   if (request.headers.get('X-Telegram-Bot-Api-Secret-Token') !== env.TG_SECRET) return new Response('no', { status: 403 });
@@ -110,6 +110,9 @@ async function onTelegram(request, env, ctx) {
     const cmd = msg.text.trim().split(/\s+/)[0].split('@')[0].toLowerCase();
     work.push(tg(env, 'sendMessage', { chat_id: chat, disable_notification: true,
       text: LONG.has(cmd) ? `⏳ ${cmd} started - the draft arrives in a few minutes.` : `⏳ ${cmd} - on it…` }));
+  } else if (msg && msg.photo && /^\/?idea\b/i.test(msg.caption || '')) {
+    work.push(tg(env, 'sendMessage', { chat_id: chat, disable_notification: true,
+      text: '⏳ Got your reference image - researching and designing a carousel…' }));
   } else {
     return new Response('ok');
   }

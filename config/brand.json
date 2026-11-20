@@ -1,7 +1,7 @@
 {
   "india": {
     "name": "Ticker Market India",
-    "handle": "@tickermarket.india",
+    "handle": "@tickermarketindia",
     "logo": "assets/logos/india_logo_dark.png",
     "tricolour_strip": true,
     "hashtag_base": ["#StockMarketIndia", "#Nifty50", "#Sensex", "#ShareMarket", "#NSE"]

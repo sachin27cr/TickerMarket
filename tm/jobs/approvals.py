@@ -1,5 +1,7 @@
 """Runs every few minutes: handles Approve/Reject taps and Telegram commands."""
 import html
+import json
+import re
 from pathlib import Path
 
 from .. import config, schedule, store, telegram
@@ -23,7 +25,10 @@ HELP = """<b>Ticker Market bot</b>
 /spotlight - best quarterly results of the last few days
 /voices - hear the voice options; /voice name - choose one; /say text - hear how a line is pronounced
 /metacheck - check the Instagram/Facebook keys (posts nothing)
+/threadscheck - check the Threads key and days left
 /retry id - post a draft again where it failed
+/idea text - research an idea and make a carousel (or send a photo with caption 'idea: ...')
+/custompost name - post a carousel written in chat
 /customreel name - make an explainer reel written for you (e.g. /customreel gold-ai-selloff)
 /where id - live links of a posted draft
 /innovative - next data story (Insights); /innovative list for tags, e.g. /innovative profits
@@ -175,6 +180,10 @@ def run_command(cmd, arg=''):
         live = meta.links(d.get('posted'))
         telegram.send_text('\n'.join(f'{NAMES.get(k, k)}: {html.escape(v)}' for k, v in live.items()) or 'Not posted yet.')
         return
+    if cmd == '/threadscheck':
+        ok, m = meta.threads_status()
+        telegram.send_text(('✅ ' if ok else '❌ ') + html.escape(m))
+        return
     if cmd == '/metacheck':
         from ..publish import meta
         lines = meta.check_setup()
@@ -199,6 +208,19 @@ def run_command(cmd, arg=''):
             return
         store.set_flag('voice', name)
         telegram.send_text(f'Reels will now use the {name} voice ({V.VOICES[name][2]}).')
+        return
+    if cmd in ('/custompost', '/idea'):
+        job = 'custom_post' if cmd == '/custompost' else 'idea_post'
+        if cmd == '/idea' and not arg.strip():
+            telegram.send_text('Send /idea followed by your idea, e.g. /idea Top 10 Indian companies by cash reserves. '
+                               'Or send a photo of a post you like with the caption "idea: ..." (used for topic and '
+                               'format only, never copied).')
+            return
+        if _dispatch_insight(arg.strip() if cmd == '/custompost' else json.dumps({'text': arg.strip()}), job):
+            telegram.send_text('Researching and designing the carousel - the draft arrives here in a few minutes.'
+                               if cmd == '/idea' else 'Making the post - the draft arrives here in a few minutes.')
+        else:
+            telegram.send_text('Could not start the job.')
         return
     if cmd == '/customreel':
         if _dispatch_insight(arg.strip(), 'reel_custom'):
@@ -321,6 +343,10 @@ def approvals():
     else:
         _handle_updates()                            # polling (only works while no webhook is set)
     post_due_autos()
+    try:
+        meta.threads_reminder()
+    except Exception as e:                           # noqa: BLE001
+        log.warning('threads reminder: %s', e)
 
 
 def _handle_updates(updates=None, instant=False):
@@ -343,6 +369,14 @@ def _handle_updates(updates=None, instant=False):
         if str(msg.get('chat', {}).get('id')) != str(config.TELEGRAM_CHAT_ID):
             continue
         text = (msg.get('text') or '').strip()
+        cap = (msg.get('caption') or '').strip()
+        if msg.get('photo') and re.match(r'(?i)/?idea\b', cap):         # reference image + idea
+            fid = msg['photo'][-1]['file_id']
+            idea = re.sub(r'(?i)^/?idea\s*:?\s*', '', cap)
+            if _dispatch_insight(json.dumps({'text': idea, 'file_id': fid}), 'idea_post'):
+                telegram.send_text('Got the reference - researching the topic and designing our own carousel. '
+                                   'The draft arrives in a few minutes.')
+            continue
         if text.startswith('/'):
             try:
                 parts = text.split(maxsplit=1)

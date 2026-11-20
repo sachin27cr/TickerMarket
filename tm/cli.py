@@ -6,7 +6,7 @@ import traceback
 from . import store, telegram
 import os
 
-from .jobs import approvals, insight_jobs, market_jobs, news_jobs, reel_jobs
+from .jobs import approvals, idea_jobs, insight_jobs, market_jobs, news_jobs, reel_jobs
 from .util import log
 
 JOBS = {
@@ -29,6 +29,8 @@ JOBS = {
     'reel_ath': reel_jobs.ath_reel,
     'reel_lows': reel_jobs.lows_reel,
     'reel_custom': reel_jobs.custom_reel,
+    'custom_post': idea_jobs.custom_post,
+    'idea_post': idea_jobs.idea_post,
     'approvals': approvals.approvals,
 }
 

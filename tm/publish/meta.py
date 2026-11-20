@@ -179,15 +179,22 @@ def facebook_reel(path, caption):
 
 def threads_video(video_url, text):
     tok, uid = config.THREADS_TOKEN, config.THREADS_USER_ID
-    c = _post(f'{T}/{uid}/threads', media_type='VIDEO', video_url=video_url, text=text, access_token=tok)['id']
-    for _ in range(40):                       # Threads processes the video from the public link
-        r = requests.get(f'{T}/{c}', params={'fields': 'status', 'access_token': tok}, timeout=30).json()
-        if r.get('status') == 'FINISHED':
-            break
-        if r.get('status') == 'ERROR':
-            raise PublishError('Threads video processing failed')
-        time.sleep(6)
-    return _post(f'{T}/{uid}/threads_publish', creation_id=c, access_token=tok)['id']
+    last = None
+    for link in _video_links(video_url):      # jsDelivr serves it as video/mp4, then GitHub raw
+        try:
+            c = _post(f'{T}/{uid}/threads', media_type='VIDEO', video_url=link, text=text, access_token=tok)['id']
+            for _ in range(40):               # Threads processes the video from the public link
+                r = requests.get(f'{T}/{c}', params={'fields': 'status', 'access_token': tok}, timeout=30).json()
+                if r.get('status') == 'FINISHED':
+                    return _post(f'{T}/{uid}/threads_publish', creation_id=c, access_token=tok)['id']
+                if r.get('status') == 'ERROR':
+                    raise PublishError('Threads video processing failed')
+                time.sleep(6)
+            raise PublishError('Threads video not processed in time')
+        except PublishError as e:
+            last = e
+            log.warning('threads video from %s failed: %s', link.split('/')[2], e)
+    raise last or PublishError('no video link')
 
 
 def publish_reel(path, video_url, caption, threads_text, cover_url=None, only=None):
@@ -293,3 +300,49 @@ def links(posted):
         except requests.RequestException as e:
             out[name] = f'could not check ({type(e).__name__})'
     return out
+
+
+def threads_status():
+    """(ok, message). Threads tokens last 60 days; the bot remembers when it first saw this token."""
+    import hashlib
+    from .. import store
+    from ..util import now_ist
+    tok, uid = config.THREADS_TOKEN, config.THREADS_USER_ID
+    if not (tok and uid):
+        return False, 'Threads keys not set (THREADS_USER_ID, THREADS_TOKEN)'
+    h = hashlib.sha256(tok.encode()).hexdigest()[:12]           # only a fingerprint is stored, never the token
+    seen = store.read_json('threads_token.json', {}) or {}
+    if seen.get('hash') != h:
+        seen = {'hash': h, 'since': now_ist().date().isoformat(), 'reminded': ''}
+        store.write_json('threads_token.json', seen)
+    from datetime import date
+    age = (now_ist().date() - date.fromisoformat(seen['since'])).days
+    try:
+        j = requests.get(f'{T}/me', params={'fields': 'id,username', 'access_token': tok}, timeout=30).json()
+    except requests.RequestException as e:
+        return False, f'Threads not reachable ({type(e).__name__})'
+    if 'error' in j:
+        return False, f'Threads said: {util_scrub(j["error"].get("message", "error"))}'
+    left = 60 - age
+    note = f'token about {left} days left - renew it before then' if left <= 10 else f'token about {left} days left'
+    return str(j.get('id')) == str(uid), f'Threads: @{j.get("username")} ({note})' + (
+        '' if str(j.get('id')) == str(uid) else f' - THREADS_USER_ID should be {j.get("id")}')
+
+
+def threads_reminder():
+    """Once a day: warn 10 days before the 60-day Threads token runs out."""
+    from .. import store, telegram
+    from ..util import now_ist
+    if 'threads' not in config.POST_TO or not config.THREADS_TOKEN:
+        return
+    seen = store.read_json('threads_token.json', {}) or {}
+    today = now_ist().date().isoformat()
+    if not seen or seen.get('reminded') == today:
+        return
+    from datetime import date
+    age = (now_ist().date() - date.fromisoformat(seen['since'])).days
+    if age >= 50:
+        telegram.send_text(f'🔑 Threads token is {age} days old and expires at 60 days. Make a new long-lived token '
+                           'and update the THREADS_TOKEN secret in GitHub. Check with /threadscheck.')
+        seen['reminded'] = today
+        store.write_json('threads_token.json', seen)

@@ -230,7 +230,7 @@ def list_slide(data):
 
 def summary_slide(data):
     """'In short' slide: key points taken from the (already verified) caption. data: date_text, points, theme, seed, tone"""
-    im, d = base('In Short', data['date_text'], False, data.get('theme', 'market_up'), data.get('seed', 0), 0.6,
+    im, d = base(data.get('category', 'In Short'), data['date_text'], False, data.get('theme', 'market_up'), data.get('seed', 0), 0.6,
                  data.get('tone'))
     im = scrim(im.convert('RGBA'), 160, 1190, 195)
     d = ImageDraw.Draw(im)
