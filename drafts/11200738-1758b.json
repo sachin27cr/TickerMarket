@@ -53,12 +53,15 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "failed",
   "meta": {
     "video": "media/2026-11-20/reel_morning-073803-950a.mp4"
   },
   "telegram_message_id": 424,
-  "posted": {},
+  "posted": {
+    "instagram": "error: reel upload HTTP 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}",
+    "facebook": "error: video_reels: (#200) Subject does not have permission to post videos on this target"
+  },
   "video": "media/2026-11-20/reel_morning-073803-950a.mp4",
   "script": [
     "1. Wall Street slipped. crude slid 2.27 percent. Your 60-second brief before the bell.",
