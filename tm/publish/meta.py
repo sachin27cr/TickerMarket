@@ -255,7 +255,9 @@ def check_setup():
                 out.append((ok, f'{g["scope"]} covers this Page' if ok else
                             f'{g["scope"]} is granted for other Pages only - re-grant it with Ticker Market ticked'))
         acc = get('me', fields='id,name')
-        out.append((True, f'Token acts as: {acc.get("name")}'))
+        same = str(acc.get('id')) == str(pid)
+        out.append((same, f'Token acts as: {acc.get("name")}' + ('' if same else
+                    ' - this is ANOTHER Page\'s token. Copy the access_token from the Ticker Market block of me/accounts')))
     except (PublishError, requests.RequestException) as e:
         out.append((False, f'Could not check token expiry: {util_scrub(str(e))}'))
     return out
