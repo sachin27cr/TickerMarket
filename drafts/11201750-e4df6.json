@@ -1,0 +1,57 @@
+{
+  "id": "11201750-e4df6",
+  "kind": "news",
+  "created": "2026-11-20T17:50:04.980446+05:30",
+  "images": [
+    "media/2026-11-20/news-175004-64d6_1.jpg"
+  ],
+  "caption": "NIFTY POSTS BIGGEST 4‑WEEK RALLY IN SIX YEARS\n\nNifty posted its biggest 4‑week rally in six years, rising over 14% in a month, while Bank Nifty hit a record high.\nThe rally was driven by gains in large‑cap banks and auto and healthcare stocks such as SBI, Maruti Suzuki and Max Healthcare, while mid‑and small‑caps lagged.\n\nFor information only. Not investment advice.\n\n#Nifty #BankNifty #IndianStocks #MarketRally #InvestingIndia",
+  "threads_text": "NIFTY POSTS BIGGEST 4‑WEEK RALLY IN SIX YEARS\n\nNifty posted its biggest 4‑week rally in six years, rising over 14% in a month, while Bank Nifty hit a record high.\nThe rally was driven by gains in large‑cap banks and auto and healthcare stocks such as SBI, Maruti Suzuki and Max Healthcare, while mid‑and small‑caps lagged.\n\nFor information only. Not investment advice.\n\n#Nifty #BankNifty #IndianStocks #MarketRally #InvestingIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: CNBC-TV18, LinkedIn"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.9 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 4 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"SBI\" - no price box for it"
+    ],
+    [
+      "ok",
+      "MARUTI ₹14,011.00 (+3.11%): NSE = Yahoo"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"Max Healthcare\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMiugFBVV95cUxQSkdJamI1WVkyXzIwaVFQcWFFS1ZTTVNBZ0diLVZMSUZlVjJjRUMzV3V2eDB2NlJFWF9fZ1ZvUnFtYlo0MjJVQTBEV0p2amUtS0V4NzVGYjBTUTVEZVJjVkpjMGhkbmlqOUpmNFpWcGpjRTRoOW5zMFVocmtZSFZJaDZaSC0yQU5HMURzYnpJQS0yWTRoZGJHT21sS0p6LWxVYklCaldMWHJnVGcwd1Rjckc0Tk0xY2JKcEE?oc=5 | https://www.cnbctv18.com/market/nifty-posts-biggest-4-week-rally-in-6-years-sbi-maruti-max-healthcare-lead-gains-20038660.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 506,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, LinkedIn\n✅ fresh: newest source 1.9 h old\n✅ headline/banner/points/body: all 4 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"SBI\" - no price box for it\n✅ MARUTI ₹14,011.00 (+3.11%): NSE = Yahoo\n⚠️ no NSE listing matched \"Max Healthcare\" - no price box for it\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMiugFBVV95cUxQSkdJamI1WVkyXzIwaVFQcWFFS1ZTTVNBZ0diLVZMSUZlVjJjRUMzV3V2eDB2NlJFWF9fZ1ZvUnFtYlo0MjJVQTBEV0p2amUtS0V4NzVGYjBTUTVEZVJjVkpjMGhkbmlqOUpmNFpWcGpjRTRoOW5zMFVocmtZSFZJaDZaSC0yQU5HMURzYnpJQS0yWTRoZGJHT21sS0p6LWxVYklCaldMWHJnVGcwd1Rjckc0Tk0xY2JKcEE?oc=5 | https://www.cnbctv18.com/market/nifty-posts-biggest-4-week-rally-in-6-years-sbi-maruti-max-healthcare-lead-gains-20038660.htm\n✅ no advice, prediction or rumour language"
+}
