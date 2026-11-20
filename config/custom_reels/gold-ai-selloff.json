@@ -1,0 +1,72 @@
+{
+  "label": "Market Explainer",
+  "headline": "Gold, silver slide and the US AI sell-off: what it means for Indian markets",
+  "paras": [
+    "Gold and silver fell again on Thursday, 19 November 2026. COMEX December gold settled 1.51% lower at $3,685.50 an ounce and silver fell 2.37% to $43.99, its lowest since September 2025. On Friday morning MCX gold was down 3.94% at ₹1,22,435 per 10 grams and MCX silver down 6% at ₹1,48,034 per kg.",
+    "Why metals are falling: markets are pricing a December rate hike by the US Federal Reserve after hawkish Fed minutes, the dollar index has risen for eight straight sessions to 103.96, and the 10-year US Treasury yield is near 5.05%. The World Gold Council also points to selling by leveraged investors.",
+    "The AI sell-off: on Thursday the Nasdaq fell 2.25% to 23,879, the S&P 500 fell 2.02% to 7,176 and the Dow fell 2.19% to 49,097. Nvidia fell 3.30% despite strong quarterly results. On Friday Japan's Nikkei fell 4.28% and Korea's Kospi about 4.3%.",
+    "India: after a nine-month high on Thursday (Nifty 25,514.30, Sensex 83,021.75), the Nifty opened 0.57% lower at 25,368 and the Sensex 0.56% lower at 82,558.25 on Friday. IT stocks such as TCS and HCLTech gained in early trade, while Titan, JSW Steel and Tata Steel were among the top losers. FIIs bought ₹7,411 crore on 19 November, their eighth straight session of net buying."
+  ],
+  "tags": ["#Gold", "#Silver", "#AIStocks", "#Nasdaq", "#Nifty50", "#Sensex", "#StockMarketIndia"],
+  "sources": [
+    "investrade.com market review 19 Nov 2026 (COMEX settles)",
+    "TradingView / Moody's market open 20 Nov 2026 (MCX, Nifty movers, dollar, yields, FII)",
+    "Motley Fool / StockTitan 19 Nov 2026 (US closes, Nvidia)",
+    "USAGOLD 17 Nov 2026 (World Gold Council, leveraged selling)",
+    "Business Today 20 Nov 2026 (Nikkei), Upstox / ANI 20 Nov 2026 (Nifty, Sensex open)"
+  ],
+  "scenes": [
+    {"type": "intro", "title": "Market Explainer", "day": "2026-11-20", "topic": "intro", "tone": "down",
+     "hook": "Gold at a 14-month low. AI stocks sinking. What it means for India",
+     "voice": "Gold just hit a fourteen month low, and Wall Street's AI trade is cracking. Here's what it means for Indian markets."},
+    {"type": "rows", "title": "Gold and silver slide", "topic": "commodities", "tone": "down",
+     "rows": [
+       {"label": "COMEX gold (Thu)", "value": "$3,685.50", "pct": -1.51},
+       {"label": "COMEX silver (Thu)", "value": "$43.99", "pct": -2.37},
+       {"label": "MCX gold (Fri AM)", "value": "₹1,22,435", "pct": -3.94},
+       {"label": "MCX silver (Fri AM)", "value": "₹1,48,034", "pct": -6.0}
+     ],
+     "voice": "Gold fell one and a half percent on Thursday, and silver hit its lowest level since September 2025. This morning, MCX gold is down almost four percent."},
+    {"type": "rows", "title": "Why metals are falling", "topic": "flows", "tone": "down",
+     "rows": [
+       {"label": "Fed rate hike bets", "sub": "Hawkish Fed minutes; December hike priced in"},
+       {"label": "Strong dollar", "sub": "Dollar index up 8 sessions in a row"},
+       {"label": "US yields near 5%", "sub": "10-year Treasury yield around 5.05%"},
+       {"label": "Leveraged selling", "sub": "Forced selling deepened the fall"}
+     ],
+     "voice": "The reason? Markets now expect the Fed to raise rates in December. A stronger dollar and US bond yields near five percent make gold, which pays no interest, less attractive."},
+    {"type": "rows", "title": "US AI sell-off (Thursday)", "topic": "global", "tone": "down",
+     "rows": [
+       {"label": "Nasdaq", "value": "23,879", "pct": -2.25},
+       {"label": "S&P 500", "value": "7,176", "pct": -2.02},
+       {"label": "Dow Jones", "value": "49,097", "pct": -2.19},
+       {"label": "Nvidia", "value": "$145.98", "pct": -3.30}
+     ],
+     "voice": "On Wall Street, the Nasdaq fell over two percent. Nvidia dropped more than three percent, even after strong results, as investors question how fast AI spending will pay off."},
+    {"type": "rows", "title": "Asia this morning", "topic": "global", "tone": "down",
+     "rows": [
+       {"label": "Nikkei 225", "value": "56,928", "pct": -4.28},
+       {"label": "Kospi", "pct": -4.3}
+     ],
+     "voice": "Asia took the hit this morning. Japan and Korea both fell more than four percent."},
+    {"type": "rows", "title": "India: Friday open", "topic": "indices", "tone": "down",
+     "rows": [
+       {"label": "Nifty 50", "value": "25,368", "pct": -0.57},
+       {"label": "Sensex", "value": "82,558", "pct": -0.56}
+     ],
+     "voice": "India is holding up far better. The Nifty opened only about half a percent lower, a day after hitting a nine month high."},
+    {"type": "duo", "title": "Early movers (Nifty 50)", "topic": "movers", "tone": "down",
+     "left_title": "Gainers", "right_title": "Losers",
+     "left": [{"label": "Max Healthcare", "pct": 2.93}, {"label": "Apollo Hospitals", "pct": 2.01}, {"label": "TCS", "pct": 1.36}, {"label": "HCLTech", "pct": 0.95}],
+     "right": [{"label": "Titan", "pct": -2.38}, {"label": "JSW Steel", "pct": -2.36}, {"label": "L&T", "pct": -1.76}, {"label": "Tata Steel", "pct": -1.75}],
+     "voice": "Metal stocks slipped with global commodity prices, while IT and hospital stocks gained."},
+    {"type": "rows", "title": "Why India is holding up", "topic": "flows", "tone": "up",
+     "rows": [
+       {"label": "FIIs keep buying", "sub": "₹7,411 crore on 19 Nov, 8th straight day"},
+       {"label": "Banks in focus", "sub": "Foreign buying mainly in banking majors"},
+       {"label": "Cheaper metals", "sub": "Drawing buying in autos and durables"}
+     ],
+     "voice": "Foreign investors bought seven thousand four hundred crore rupees of Indian shares on Thursday, their eighth straight day of buying, mostly in banks. Cheaper metals have also drawn buying in auto stocks."},
+    {"type": "outro", "topic": "outro", "voice": "Follow Ticker Market India for daily market updates."}
+  ]
+}

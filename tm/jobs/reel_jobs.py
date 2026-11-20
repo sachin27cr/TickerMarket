@@ -479,3 +479,36 @@ def ath_reel(force=False):
 @as_post('reel_lows')
 def lows_reel(force=False):
     _extremes_reel('low', force)
+
+
+# ---------------------------------------------------------------- explainer reels written in the repo
+CUSTOM_DIR = Path(__file__).resolve().parents[2] / 'config' / 'custom_reels'
+
+
+def custom_reel(force=False, name=None):
+    """Explainer reel from config/custom_reels/<name>.json (scenes + caption, facts checked when written).
+    Started from Telegram with /customreel <name>; goes to approval like every reel."""
+    import json
+    import os
+    name = (name or os.environ.get('TM_ARG', '')).strip()
+    files = sorted(p.stem for p in CUSTOM_DIR.glob('*.json'))
+    if not name:
+        name = files[-1] if files else ''
+    path = CUSTOM_DIR / f'{name}.json'
+    if not path.exists():
+        from .. import telegram
+        telegram.send_text('Custom reels available: ' + (', '.join(files) or 'none'))
+        return
+    spec = json.loads(path.read_text())
+    from datetime import date
+    scenes = []
+    for sc in spec['scenes']:
+        sc = dict(sc)
+        if sc['type'] == 'intro':
+            sc['day'] = date.fromisoformat(sc['day'])
+        scenes.append(sc)
+    report = Report()
+    report.ok('explainer reel: facts taken from the sources listed in the file ' + ', '.join(spec.get('sources', [])[:4]))
+    caption = assemble(spec['headline'], spec['paras'], '', tags(*spec.get('tags', [])))
+    return _make('reel_custom', spec['headline'], spec.get('label', 'Market Explainer'), scenes, caption, report,
+                 None, name)

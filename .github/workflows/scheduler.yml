@@ -33,7 +33,7 @@ on:
         description: 'Job to run'
         required: true
         type: choice
-        options: [news, global_cues, day_ahead, ipo, ipo_status, market_close, cap_movers, daily_overview, fii_dii, weekly_ath, weekly_lows, insights, reel_morning, reel_evening, reel_weekly, reel_ath, reel_lows, results_spotlight]
+        options: [news, global_cues, day_ahead, ipo, ipo_status, market_close, cap_movers, daily_overview, fii_dii, weekly_ath, weekly_lows, insights, reel_morning, reel_evening, reel_weekly, reel_ath, reel_lows, reel_custom, results_spotlight]
       force:
         description: 'Run even if already posted today / no session today'
         type: boolean

@@ -28,6 +28,7 @@ JOBS = {
     'reel_weekly': reel_jobs.weekly_reel,
     'reel_ath': reel_jobs.ath_reel,
     'reel_lows': reel_jobs.lows_reel,
+    'reel_custom': reel_jobs.custom_reel,
     'approvals': approvals.approvals,
 }
 

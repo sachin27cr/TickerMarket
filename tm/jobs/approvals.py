@@ -24,6 +24,7 @@ HELP = """<b>Ticker Market bot</b>
 /voices - hear the voice options; /voice name - choose one; /say text - hear how a line is pronounced
 /metacheck - check the Instagram/Facebook keys (posts nothing)
 /retry id - post a draft again where it failed
+/customreel name - make an explainer reel written for you (e.g. /customreel gold-ai-selloff)
 /where id - live links of a posted draft
 /innovative - next data story (Insights); /innovative list for tags, e.g. /innovative profits
 /queue - drafts waiting for you
@@ -176,6 +177,12 @@ def run_command(cmd, arg=''):
             return
         store.set_flag('voice', name)
         telegram.send_text(f'Reels will now use the {name} voice ({V.VOICES[name][2]}).')
+        return
+    if cmd == '/customreel':
+        if _dispatch_insight(arg.strip(), 'reel_custom'):
+            telegram.send_text('Making the explainer reel - the draft arrives here in a few minutes.')
+        else:
+            telegram.send_text('Could not start the reel job.')
         return
     if cmd in REEL_CMDS:
         if _dispatch_insight('', REEL_CMDS[cmd]):
