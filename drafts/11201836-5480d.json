@@ -32,9 +32,12 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 551,
-  "posted": {},
+  "posted": {
+    "instagram": "18122255431949991",
+    "facebook": "1374383985767580_122109725067544503"
+  },
   "report_text": "✅ NSE provisional data for 20 November 2026: FII +10,308.42, DII -4,859.80 crore\n⚠️ F&O positions not published yet (participant OI 2026-11-20: HTTP 404)\n✅ month FII total: total 32,646.67 = sum of rows\n✅ caption: all 9 numbers match source data\n✅ no advice, prediction or rumour language"
 }
