@@ -102,10 +102,10 @@ async function onTelegram(request, env, ctx) {
     lock = 'd-' + did;                                     // taps on one draft never run in parallel
     // swap the buttons for a status at once, so a second tap can't post twice
     work.push(tg(env, 'editMessageReplyMarkup', { chat_id: chat, message_id: cb.message.message_id,
-      reply_markup: { inline_keyboard: [[{ text: action === 'ap' ? '⏳ Approved - posting…' : '⏳ Rejecting…',
+      reply_markup: { inline_keyboard: [[{ text: action === 'ap' ? '⏳ Approved - working on it…' : '⏳ Cancelling…',
         callback_data: 'noop' }]] } }));
     work.push(tg(env, 'answerCallbackQuery', { callback_query_id: cb.id,
-      text: action === 'ap' ? '✅ Approved - posting now. The button will show Posted when done.' : 'Rejected' }));
+      text: action === 'ap' ? '✅ Approved - the button will show when it goes live.' : 'Cancelled' }));
   } else if (msg && (msg.text || '').startsWith('/')) {
     const cmd = msg.text.trim().split(/\s+/)[0].split('@')[0].toLowerCase();
     work.push(tg(env, 'sendMessage', { chat_id: chat, disable_notification: true,
@@ -116,7 +116,7 @@ async function onTelegram(request, env, ctx) {
   } else {
     return new Response('ok');
   }
-  // forward the update to GitHub (keep it small: drop the message photos/entities we don't use)
+  // forward the update to GitHub
   const slim = JSON.stringify(u).slice(0, 60000);
   work.push(dispatch(env, 'approvals.yml', { update: slim, update_id: String(u.update_id), lock }));
   ctx.waitUntil(Promise.all(work));
