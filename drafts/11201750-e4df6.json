@@ -49,9 +49,12 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 506,
-  "posted": {},
+  "posted": {
+    "instagram": "18160731850452030",
+    "facebook": "122109720255544503"
+  },
   "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, LinkedIn\n✅ fresh: newest source 1.9 h old\n✅ headline/banner/points/body: all 4 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"SBI\" - no price box for it\n✅ MARUTI ₹14,011.00 (+3.11%): NSE = Yahoo\n⚠️ no NSE listing matched \"Max Healthcare\" - no price box for it\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMiugFBVV95cUxQSkdJamI1WVkyXzIwaVFQcWFFS1ZTTVNBZ0diLVZMSUZlVjJjRUMzV3V2eDB2NlJFWF9fZ1ZvUnFtYlo0MjJVQTBEV0p2amUtS0V4NzVGYjBTUTVEZVJjVkpjMGhkbmlqOUpmNFpWcGpjRTRoOW5zMFVocmtZSFZJaDZaSC0yQU5HMURzYnpJQS0yWTRoZGJHT21sS0p6LWxVYklCaldMWHJnVGcwd1Rjckc0Tk0xY2JKcEE?oc=5 | https://www.cnbctv18.com/market/nifty-posts-biggest-4-week-rally-in-6-years-sbi-maruti-max-healthcare-lead-gains-20038660.htm\n✅ no advice, prediction or rumour language"
 }
