@@ -99,9 +99,12 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "partial",
   "meta": {},
   "telegram_message_id": 475,
-  "posted": {},
+  "posted": {
+    "instagram": "18027753269930257",
+    "facebook": "error: photos: (#200) Permissions error"
+  },
   "report_text": "✅ NIFTY 50 25,800.60: NSE = Yahoo (gap 0.000%)\n✅ SENSEX 83,919.71: BSE = Yahoo (gap 0.000%)\n✅ NIFTY BANK 64,635.20: NSE = Yahoo (gap 0.000%)\n✅ NIFTY MIDCAP 100 62,031.00: NSE (official)\n✅ NIFTY SMALLCAP 100 19,443.60: NSE (official)\n✅ INDIA VIX 17.33: NSE (official)\n✅ IT 31,322.65: NSE = Yahoo (gap 0.000%)\n✅ BANK 64,635.20: NSE = Yahoo (gap 0.000%)\n✅ AUTO 28,787.65: NSE = Yahoo (gap 0.000%)\n✅ PHARMA 28,386.90: NSE = Yahoo (gap 0.000%)\n✅ FMCG 48,535.70: NSE = Yahoo (gap 0.000%)\n✅ METAL 12,271.10: NSE = Yahoo (gap 0.000%)\n✅ REALTY 938.90: NSE = Yahoo (gap 0.000%)\n✅ ENERGY 37,321.25: NSE = Yahoo (gap 0.000%)\n✅ PSU BANK 9,881.05: NSE = Yahoo (gap 0.000%)\n✅ MEDIA 1,755.75: NSE (official)\n✅ FIN SERVICE 28,871.20: NSE (official)\n✅ OIL & GAS 11,539.35: NSE (official)\n✅ Nifty 50 movers from NSE\n✅ caption: all 19 numbers match source data\n✅ no advice, prediction or rumour language"
 }
