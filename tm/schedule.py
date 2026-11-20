@@ -12,11 +12,11 @@ SPACING = timedelta(minutes=29)          # at least ~30 minutes between two post
 
 WEEKDAY = {                              # Mon-Fri
     'market_close': '17:30',             # day performance
-    'cap_movers': '18:00',
-    'ipo_status': '18:30',
+    'ipo_status': '18:00',
     'daily_overview': '18:45',           # all-time highs / 52-week lows
     'reel_evening': '19:15',
-    'fii_dii': '19:45',
+    'cap_movers': '19:45',               # gainers & losers by market cap + FII/DII (one post)
+    'fii_dii': '19:45',                  # only if it could not be added to the post above
     'results_spotlight': '20:15',
     'insights': '20:45',
 }

@@ -132,6 +132,11 @@ def run():
                      ('day_ahead', market_jobs.day_ahead), ('ipo', market_jobs.ipo), ('ipo_status', market_jobs.ipo_status), ('news', run_news)]:
         fn()
         ds = drafts()
+        if name == 'fii_dii':                    # FII/DII is merged into the gainers & losers post
+            cm = [x for x in ds if x['kind'] == 'cap_movers'][0]
+            assert len(ds) == n0 and 'FII/DII' in cm['caption'] and not cm['meta'].get('awaiting_fii'), cm['caption'][:200]
+            print(f'--- fii_dii merged into cap_movers: {len(cm["images"])} slides\n{cm["caption"]}\n')
+            continue
         assert len(ds) == n0 + 1, f'{name}: expected a draft, flagged={list((config.DATA_DIR / "flagged").glob("*"))}'
         d = ds[-1] if ds[-1]['kind'] == name else [x for x in ds if x['kind'] == name][0]
         assert all((config.DATA_DIR / p).exists() for p in d['images'])

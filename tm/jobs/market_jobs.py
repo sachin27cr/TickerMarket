@@ -278,6 +278,52 @@ def global_cues(force=False):
 # ---------------------------------------------------------------- FII / DII (polls 6-9 PM)
 
 @as_post('fii_dii')
+def _merge_into_cap_movers(day, fii_slides, fii_paras, fii_allowed, fii_report):
+    """Add the FII/DII slides and text to the day's 'gainers & losers by market cap' post (one combined post).
+    Returns True if merged; False if that post is already out or missing (then FII/DII posts on its own)."""
+    from PIL import Image
+    from ..verify.checks import Report as R
+    from .. import config, telegram
+    from ..writer import captions
+    from .common import with_closing_slides
+    from ..verify.checks import check_banned, check_numbers
+    from .common import date_numbers, _name_digits
+    cands = [d for d in store.list_drafts() if d['kind'] == 'cap_movers' and d['status'] in ('auto', 'pending', 'queued')
+             and (d.get('meta') or {}).get('awaiting_fii') == str(day)]
+    if not cands:
+        return False
+    d = max(cands, key=lambda x: x['created'])
+    m = d['meta']
+    content = [Image.open(config.DATA_DIR / p).convert('RGB') for p in d['images'][:m.get('n_content', len(d['images']))]]
+    head = m['headline'].replace('Top gainers and losers by market cap', 'Gainers & losers by market cap + FII/DII')
+    caption = assemble(head, list(m['paras']) + list(fii_paras), 'NSE closing data; NSE provisional FII/DII data',
+                       tags('#TopGainers', '#TopLosers', '#FII', '#DII', '#StockMarketIndia'))
+    rep = R([tuple(x) for x in d['report']] + [tuple(x) for x in fii_report])
+    check_numbers(caption.rsplit('\n\n', 1)[0], list(m['allowed']) + list(fii_allowed) + date_numbers(now_ist().date())
+                  + _name_digits(), rep)
+    check_banned(caption, rep)
+    if not rep.passed:
+        log.warning('combined cap movers + FII blocked:\n%s', rep.text())
+        return False
+    images = with_closing_slides(content + list(fii_slides), caption)
+    import secrets
+    hint = f'cap_movers-fii-{now_ist().strftime("%H%M%S")}-{secrets.token_hex(2)}'
+    paths = []
+    for i, im in enumerate(images):
+        rel = store.media_path(hint, i + 1)
+        im.convert('RGB').save(config.DATA_DIR / rel, 'JPEG', quality=93)
+        paths.append(str(rel))
+    old_msg = d.get('telegram_message_id')
+    d.update({'images': paths, 'caption': caption, 'threads_text': captions.threads_text(caption),
+              'report': [list(x) for x in rep], 'report_text': rep.text()})
+    d['meta']['awaiting_fii'] = None
+    store.save_draft(d)
+    telegram.mark_message(old_msg, '↻ Updated with FII/DII - see the new preview below')
+    telegram.send_draft(d, auto=d['status'] == 'auto')
+    log.info('FII/DII merged into %s', d['id'])
+    return True
+
+
 def _start_evening_reel(final=False):
     """The closing-bell reel waits for FII/DII data; start it once that is in (or at the last attempt, 8 PM+)."""
     if store.seen('post', f'reel-pm:{today_ist()}') or today_ist().weekday() >= 5:
@@ -357,7 +403,9 @@ def fii_dii(force=False):
                totals['dii_total']] + fno_nums
     caption = assemble(head, paras, 'NSE provisional data (cash market)',
                        tags('#FII', '#DII', '#StockMarketIndia', '#Nifty50', '#ShareMarket'))
-    if finish('fii_dii', key, images, caption, report, allowed):
+    if _merge_into_cap_movers(f['date'], images[1:], paras, allowed, report):
+        store.mark_seen('post', key)
+    elif finish('fii_dii', key, images, caption, report, allowed):
         store.mark_seen('post', key)
     if f['date'] == today_ist():
         _start_evening_reel()
@@ -691,9 +739,13 @@ def cap_movers(force=False):
     paras = ['\n'.join(paras),
              'Groups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, '
              'Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the top 5 in each group.']
-    caption = assemble(f'Top gainers and losers by market cap: {fmt_date(day)}', paras, 'NSE closing data',
+    head = f'Top gainers and losers by market cap: {fmt_date(day)}'
+    caption = assemble(head, paras, 'NSE closing data',
                        tags('#TopGainers', '#TopLosers', '#StockMarketIndia', '#SmallCap', '#ShareMarket'))
-    if finish('cap_movers', key, images, caption, report, allowed):
+    # this post goes live with the day's FII/DII data added (the FII/DII job merges it in when NSE publishes)
+    meta = {'awaiting_fii': str(day), 'allowed': allowed, 'headline': head, 'paras': paras,
+            'n_content': len(images)}
+    if finish('cap_movers', key, images, caption, report, allowed, meta=meta):
         store.mark_seen('post', key)
 
 

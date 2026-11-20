@@ -277,6 +277,8 @@ def post_due():
             store.save_draft(d)
             telegram.mark_message(d.get('telegram_message_id'), '⌛ Expired - not posted')
             continue
+        if (d.get('meta') or {}).get('awaiting_fii') and (now.hour, now.minute) < (20, 35):
+            continue                                       # waits for FII/DII to be added (posts alone after 8:35 PM)
         at = schedule.slot(d['kind'], created.date())
         (fixed if at else free).append((at, created, d))
     for at, _, d in sorted(fixed, key=lambda x: x[0]):
