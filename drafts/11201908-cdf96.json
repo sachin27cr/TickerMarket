@@ -25,9 +25,12 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 599,
-  "posted": {},
+  "posted": {
+    "instagram": "18147221161612415",
+    "facebook": "1374383985767580_122109745965544503"
+  },
   "report_text": "✅ NIFTY 50: 50 stocks with 1-year price return\n✅ caption: all 30 numbers match source data\n✅ no advice, prediction or rumour language"
 }
