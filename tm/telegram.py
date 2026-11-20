@@ -90,8 +90,12 @@ def send_draft(d, auto=False):
         send_video(d['video'], d['images'][0] if d['images'] else None)
     else:
         send_images(d['images'])
-    head = (f'<b>AUTO-POST {d["id"]}</b> - {html.escape(d["kind"])} - posts in about {config.AUTO_DELAY_MIN} min'
-            if auto else f'<b>DRAFT {d["id"]}</b> - {html.escape(d["kind"])}')
+    from . import schedule
+    at = schedule.slot(d['kind'])
+    when = f'posts at {schedule.label(at)}' if at and at > schedule.now_ist() else f'posts in about {config.AUTO_DELAY_MIN} min'
+    head = (f'<b>AUTO-POST {d["id"]}</b> - {html.escape(d["kind"])} - {when}'
+            if auto else f'<b>DRAFT {d["id"]}</b> - {html.escape(d["kind"])}'
+            + (f' - goes live at {schedule.label(at)} once approved' if at and at > schedule.now_ist() else ''))
     script = ('\n\n<b>Voice-over</b>\n' + html.escape('\n'.join(d['script']))) if d.get('script') else ''
     text = f'{head}\n\n{html.escape(d["caption"])}{script}\n\n<b>Checks</b>\n{html.escape(d["report_text"])}'
     buttons = ([[{'text': '🚀 Post now', 'callback_data': f'ap:{d["id"]}'},
@@ -128,11 +132,15 @@ def answer_callback(cb_id, text):
         log.warning('answerCallbackQuery: %s', e)
 
 
-def mark_message(message_id, label, retry_did=None):
-    """Replace a draft's buttons with a status label (and a Retry button after a failed post)."""
+def mark_message(message_id, label, retry_did=None, post_now_did=None):
+    """Replace a draft's buttons with a status label (and a Retry button after a failed post,
+    or Post now / Cancel while it waits for its slot)."""
     if not message_id:
         return
     rows = [[{'text': label, 'callback_data': 'noop'}]]
+    if post_now_did:
+        rows.append([{'text': '🚀 Post now', 'callback_data': f'ap:{post_now_did}'},
+                     {'text': '✋ Cancel', 'callback_data': f'rj:{post_now_did}'}])
     if retry_did:
         rows.append([{'text': '🔁 Retry posting', 'callback_data': f'ap:{retry_did}'}])
     try:

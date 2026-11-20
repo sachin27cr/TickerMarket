@@ -2,10 +2,10 @@
 import html
 from pathlib import Path
 
-from .. import config, store, telegram
+from .. import config, schedule, store, telegram
 from ..publish import meta
 from ..sources import news as news_src
-from ..util import log
+from ..util import log, now_ist
 
 HELP = """<b>Ticker Market bot</b>
 /news - run a news scan now
@@ -52,12 +52,31 @@ def _wait_for_draft(did, tries=10, pause=20):
 
 
 def approve(did, msg_id=None):
+    """A tap on Approve: news/reels are queued for their slot (or the next free gap) and post from there.
+    A tap on a queued or auto draft ('Post now') publishes at once."""
     d = store.load_draft(did) or _wait_for_draft(did)
     if not d:
         if msg_id:                                   # put the buttons back so it can be tapped again
             telegram.restore_buttons(msg_id, did)
         return 'draft not found - it may still be saving; tap Approve again in a minute'
-    if d['status'] not in ('pending', 'auto', 'failed', 'partial'):
+    if d['status'] == 'pending':
+        d['status'] = 'queued'
+        d['approved_at'] = now_ist().isoformat()
+        store.save_draft(d)
+        at = schedule.slot(d['kind'])
+        when = (f'goes live at {schedule.label(at)}' if at and at > now_ist() else 'goes live in the next free slot')
+        telegram.mark_message(d.get('telegram_message_id'), f'✅ Approved - {when}', post_now_did=did)
+        post_due()
+        d = store.load_draft(did)
+        return '' if d['status'] == 'queued' else f'posted ({d["status"]})'
+    return publish(did)
+
+
+def publish(did):
+    d = store.load_draft(did)
+    if not d:
+        return 'draft not found'
+    if d['status'] not in ('auto', 'queued', 'failed', 'partial'):
         return f'already {d["status"]}'
     done = {k: v for k, v in (d.get('posted') or {}).items() if not str(v).startswith('error')}
     todo = [p for p in config.POST_TO if p not in done]          # a retry only posts where it failed
@@ -73,7 +92,10 @@ def approve(did, msg_id=None):
     d['posted'] = {**(d.get('posted') or {}), **res}
     errors = {k: v for k, v in d['posted'].items() if str(v).startswith('error')}
     d['status'] = 'posted' if not errors else ('partial' if len(errors) < len(d['posted']) else 'failed')
+    d['posted_at'] = now_ist().isoformat()
     store.save_draft(d)
+    if not errors or len(errors) < len(d['posted']):
+        store.set_flag('last_post_at', now_ist().isoformat())
     ok = [NAMES.get(k, k) for k, v in d['posted'].items() if not str(v).startswith('error')]
     bad = [NAMES.get(k, k) for k in errors]
     label = {'posted': '✅ Posted on ' + ' & '.join(ok),
@@ -95,7 +117,7 @@ def reject(did):
     d = store.load_draft(did) or _wait_for_draft(did, tries=4)
     if not d:
         return 'draft not found'
-    if d['status'] not in ('pending', 'auto'):
+    if d['status'] not in ('pending', 'auto', 'queued'):
         return f'already {d["status"]}'
     d['status'] = 'rejected'
     store.save_draft(d)
@@ -213,7 +235,7 @@ def run_command(cmd, arg=''):
         telegram.send_text(f'Running {cmd} ...')
         jobs[cmd]()
     elif cmd == '/queue':
-        pend = store.list_drafts('pending') + store.list_drafts('auto')
+        pend = store.list_drafts('pending') + store.list_drafts('auto') + store.list_drafts('queued')
         telegram.send_text('No drafts waiting.' if not pend else
                            'Waiting for you:\n' + '\n'.join(f'{d["id"]} - {d["kind"]}: {html.escape(d["caption"].splitlines()[0])}' for d in pend[-15:]))
     elif cmd == '/flagged':
@@ -234,13 +256,46 @@ def run_command(cmd, arg=''):
 
 
 def post_due_autos():
-    """Auto-post drafts whose cancel window has passed (images are public by now)."""
+    post_due()
+
+
+def post_due():
+    """Publish what is due (runs every 5 minutes and right after an approval):
+    - posts with a slot (data posts, reels) go live at their slot, or at once if the slot has passed;
+    - news and other posts without a slot go out after the cancel window, keeping ~30 minutes from the last
+      post and from the next slotted post, one at a time."""
     from datetime import datetime, timedelta
-    from ..util import now_ist
-    for d in store.list_drafts('auto'):
-        if now_ist() - datetime.fromisoformat(d['created']) >= timedelta(minutes=config.AUTO_DELAY_MIN):
-            log.info('auto-posting %s', d['id'])
-            approve(d['id'])
+    now = now_ist()
+    ready = store.list_drafts('auto') + store.list_drafts('queued')
+    last = store.get_flag('last_post_at')
+    last = datetime.fromisoformat(last) if last else None
+    fixed, free = [], []
+    for d in ready:
+        created = datetime.fromisoformat(d['created'])
+        if now - created > timedelta(hours=20):          # stale: never post yesterday's card
+            d['status'] = 'expired'
+            store.save_draft(d)
+            telegram.mark_message(d.get('telegram_message_id'), '⌛ Expired - not posted')
+            continue
+        at = schedule.slot(d['kind'], created.date())
+        (fixed if at else free).append((at, created, d))
+    for at, _, d in sorted(fixed, key=lambda x: x[0]):
+        if now >= at:
+            log.info('posting %s at its %s slot', d['id'], schedule.label(at))
+            publish(d['id'])
+            last = now
+    upcoming = [at for at, _, _ in fixed if now < at <= now + schedule.SPACING]
+    for at, created, d in sorted(free, key=lambda x: x[1]):
+        wait = (timedelta(minutes=config.AUTO_DELAY_MIN) if d['status'] == 'auto' else timedelta(0))
+        if now - created < wait:
+            continue
+        if d['kind'] == 'news' and ((last and now - last < schedule.SPACING) or upcoming):
+            continue                                       # keep news 30 minutes away from other posts
+        log.info('posting %s', d['id'])
+        publish(d['id'])
+        last = now
+        if d['kind'] == 'news':
+            break                                          # one news post per cycle
 
 
 def approvals():

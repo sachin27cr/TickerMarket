@@ -1,3 +1,5 @@
+import os
+os.environ.setdefault('TM_AUTO_POST', 'none')   # tests check approval drafts; auto-posting is tested on its own
 """Offline end-to-end test: every job runs with fake sources/LLMs in dry-run mode.
 
 Run: TM_DRY_RUN=1 TM_DATA_DIR=/tmp/tmdata python -m tests.test_pipeline
@@ -161,17 +163,24 @@ def auto_post():
     market_jobs.market_close()
     d = max([x for x in drafts() if x['kind'] == 'market_close'], key=lambda x: x['created'])
     assert d['status'] == 'auto', d['status']
-    approvals.post_due_autos()                       # cancel window not over yet
+    from datetime import datetime as _dt
+    from tm import schedule
+    real = approvals.now_ist
+    day = _dt.fromisoformat(d['created']).date()
+    approvals.now_ist = lambda: _dt.combine(day, _dt.min.time(), tzinfo=schedule.IST).replace(hour=17, minute=10)
+    d['created'] = approvals.now_ist().replace(hour=16).isoformat(); store.save_draft(d)
+    approvals.post_due_autos()                       # before its 5:30 PM slot
     assert store.load_draft(d['id'])['status'] == 'auto'
-    d['created'] = '2000-01-01T00:00:00+05:30'; store.save_draft(d)
+    approvals.now_ist = lambda: _dt.combine(day, _dt.min.time(), tzinfo=schedule.IST).replace(hour=17, minute=31)
     approvals.post_due_autos()
     assert store.load_draft(d['id'])['status'] == 'posted'
+    approvals.now_ist = real
     # news never auto-posts with the 'data' setting
     shutil.rmtree(config.DATA_DIR / 'seen' / 'news', ignore_errors=True); fake_llm()
     run_news()
     assert [x for x in drafts() if x['kind'] == 'news'][-1]['status'] == 'pending'
     C.AUTO_POST = set()
-    print('auto-post: data card posted after cancel window, news still waits for approval')
+    print('auto-post: data card posted at its 5:30 PM slot, news still waits for approval')
 
 
 def unit():

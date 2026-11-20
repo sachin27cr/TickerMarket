@@ -51,11 +51,14 @@ NEWS_MAX_AGE_HOURS = float(env('TM_NEWS_MAX_AGE_HOURS', '18'))
 # news still needs approval. 'all' = everything posts on its own. Or a comma list of job names.
 DATA_KINDS = {'global_cues', 'day_ahead', 'ipo', 'ipo_status', 'market_close', 'cap_movers', 'daily_overview', 'fii_dii',
               'weekly_ath', 'weekly_lows'}
-_auto = env('TM_AUTO_POST', '').strip().lower()
+_auto = env('TM_AUTO_POST', 'default').strip().lower()
 AUTO_POST = (DATA_KINDS if _auto == 'data' else {'*'} if _auto == 'all' else
              {k.strip() for k in _auto.split(',') if k.strip() and k.strip() not in ('none', 'off')})
 AUTO_DELAY_MIN = int(env('TM_AUTO_DELAY_MIN', '10'))   # cancel window before an auto post goes out
 
 
 def auto_posts(kind):
+    """Default: everything posts on its own except news and reels (those need your tap)."""
+    if _auto in ('default', 'data', ''):
+        return not (kind == 'news' or kind.startswith(('reel_', 'custom')))
     return '*' in AUTO_POST or kind in AUTO_POST
