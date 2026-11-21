@@ -17,6 +17,73 @@ THEMES = {'banking': 'bank', 'energy': 'solar', 'ipo': 'ipo', 'oil': 'oil', 'gol
 CATEGORIES = {'Market News', 'Earnings', 'IPO Watch', 'Economy', 'Regulation', 'Global Markets', 'Corporate Action'}
 
 
+def _txt(s):
+    """Plain text the card fonts can draw: no-break hyphens, dashes and odd spaces become normal ones."""
+    s = str(s or '')
+    s = re.sub('[\u2010\u2011\u2012\u2212]', '-', s)
+    s = re.sub('[\u2013\u2014\u2015]', ' - ', s)
+    s = re.sub('[\u00a0\u2007\u202f\u2009\u200a]', ' ', s)
+    s = s.replace('\u2018', "'").replace('\u2019', "'").replace('\u201c', '"').replace('\u201d', '"')
+    return re.sub(r'[ \t]+', ' ', s).strip()
+
+
+# ---------------------------------------------------------------- variety: no repeats, no near-duplicates
+RECENT = 'news_recent.json'
+RECENT_HOURS = 48
+BUCKETS = [   # (bucket, pattern) - at most one story per bucket per day, so the feed stays varied
+    ('index_move', r'\b(sensex|nifty|markets?|indices|benchmark|dalal street)\b.*\b(rise|rises|rose|gain|gains|jump|jumps|'
+                   r'fall|falls|fell|drop|drops|slip|slips|surge|surges|rally|rallies|crash|tank|tanks|high|highs|low|'
+                   r'lows|close|closes|ends|opens|snap|extend|climb|climbs|soar|soars|record)\b'),
+    ('rupee_forex', r'\b(rupee|forex|dollar index)\b'),
+    ('gold_metals', r'\b(gold|silver|bullion)\b'),
+    ('crude_oil', r'\b(crude|brent|opec|oil prices?)\b'),
+    ('fii_flows', r'\b(fii|fpi|foreign (portfolio|institutional) investors?|foreign inflows?)\b'),
+    ('rbi_rates', r'\b(rbi|repo rate|monetary policy|inflation|cpi|gdp)\b'),
+    ('global', r'\b(wall street|nasdaq|dow|s&p 500|fed|nikkei|hang seng)\b'),
+]
+
+
+def _bucket(title):
+    t = title.lower()
+    for name, pat in BUCKETS:
+        if re.search(pat, t):
+            return name
+    return None
+
+
+def _recent():
+    from datetime import datetime, timedelta
+    keep = [r for r in (store.read_json(RECENT, []) or [])
+            if now_ist() - datetime.fromisoformat(r['when']) < timedelta(hours=RECENT_HOURS)]
+    return keep
+
+
+def _similar(a, b):
+    a, b = set(a), set(b)
+    return len(a & b) / max(1, min(len(a), len(b)))
+
+
+def _repeat_of(c, recent):
+    """Why this story would repeat something already drafted in the last 48 hours (or this run), else None."""
+    toks = set(news_src.tokens(' '.join(i['title'] for i in c['items'][:3])))
+    lead = set(news_src.tokens(c['lead']['title']))
+    bucket = _bucket(c['lead']['title'])
+    today = str(today_ist())
+    for r in recent:
+        if _similar(lead, r['lead']) >= 0.5 or _similar(toks, r['tokens']) >= 0.45:
+            return f'same story as an earlier post: "{r["title"][:60]}"'
+        if bucket and r.get('bucket') == bucket and r['when'][:10] == today:
+            return f'already one {bucket.replace("_", " ")} story today: "{r["title"][:60]}"'
+    return None
+
+
+def _remember(c, recent):
+    recent.append({'when': now_ist().isoformat(), 'title': c['lead']['title'], 'bucket': _bucket(c['lead']['title']),
+                   'lead': sorted(news_src.tokens(c['lead']['title'])),
+                   'tokens': sorted(news_src.tokens(' '.join(i['title'] for i in c['items'][:3])))})
+    store.write_json(RECENT, recent[-200:])
+
+
 def build_from_cluster(c):
     """Returns (images, caption, report, title) - report may contain failures."""
     report = Report()
@@ -29,10 +96,10 @@ def build_from_cluster(c):
     if not out.get('relevant', False):
         report.fail('writer marked the story as not relevant for the page')
         return None, None, report, title
-    headline = str(out.get('headline', '')).strip()
-    points = [str(p).strip() for p in out.get('points', [])][:3]
+    headline = _txt(out.get('headline', ''))
+    points = [_txt(p) for p in out.get('points', [])][:3]
     body = out.get('body') or []
-    body = [body] if isinstance(body, str) else [str(b) for b in body][:2]
+    body = [_txt(body)] if isinstance(body, str) else [_txt(b) for b in body][:2]
     hashtags = [h if h.startswith('#') else '#' + h for h in out.get('hashtags', [])][:5]
     category = out.get('category') if out.get('category') in CATEGORIES else 'Market News'
     if not (headline and len(points) >= 2 and body):
@@ -127,11 +194,20 @@ def news(force=False, limit=None):
     items, status = news_src.fetch_all()
     log.info('feeds: %s', status)
     clusters = [c for c in news_src.cluster(items) if not store.seen('news', c['key'])]
-    made, tried, blocked = 0, 0, []
+    # company / sector stories first; broad 'Sensex-Nifty moved' stories last (the data posts already cover them)
+    clusters.sort(key=lambda c: _bucket(c['lead']['title']) == 'index_move')
+    made, tried, blocked, skipped = 0, 0, [], 0
+    recent = _recent()
     for c in clusters:
         if made >= limit or tried >= limit * 5:
             break
         if not c['confirmed']:
+            continue
+        why = _repeat_of(c, recent)
+        if why:                                         # variety: skip repeats and a 2nd story of the same kind
+            log.info('skip %s: %s', c['lead']['title'][:60], why)
+            store.mark_seen('news', c['key'], {'title': c['lead']['title']})
+            skipped += 1
             continue
         tried += 1
         try:
@@ -152,7 +228,8 @@ def news(force=False, limit=None):
             continue
         if finish('news', title, images, caption, report, allowed_numbers=None):
             made += 1
-    log.info('news run: %s drafts from %s candidates', made, tried)
+            _remember(c, recent)
+    log.info('news run: %s drafts from %s candidates (%s repeats skipped)', made, tried, skipped)
     if blocked:
         try:
             from .. import telegram
