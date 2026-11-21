@@ -797,23 +797,32 @@ def highs_lows_group(data):
 def cover(data):
     """Hook slide for a carousel: big day + date, hook headline, up to 3 key numbers, swipe hint.
     data: category, day (date), headline, stats[(label, value_text, sign)], theme, seed, tone, source"""
-    day = data['day']
+    day = data.get('day')
     im, d = base(data['category'], data.get('date_text', ''), data.get('sample'), data.get('theme'), data.get('seed', 0),
                  0.1, data.get('tone'))
     im = im.convert('RGBA')
-    # date block
-    # left-to-right shade behind the date only, so the scene stays visible on the right
-    import numpy as _np
-    a = _np.zeros((250, W, 4), _np.uint8)
-    a[..., :3] = BG
-    a[..., 3] = (_np.clip(1.25 - _np.linspace(0, 1, W) * 1.5, 0, 1) * 185).astype(_np.uint8)[None, :]
-    im.alpha_composite(Image.fromarray(a, 'RGBA'), (0, 150))
-    d = ImageDraw.Draw(im)
-    d.text((60, 200), day.strftime('%A').upper(), font=bebas(66), fill=GOLD, anchor='lm')
-    d.text((60, 300), f'{day.day} {day.strftime("%B %Y")}'.upper(), font=bebas(120), fill=WHITE, anchor='lm')
-    im = scrim(im, 420, 1180, 120)
-    d = ImageDraw.Draw(im)
-    y = headline(d, data['headline'], 470, size=108, max_lines=3) + 40
+    if data.get('day'):
+        # date block
+        # left-to-right shade behind the date only, so the scene stays visible on the right
+        import numpy as _np
+        a = _np.zeros((250, W, 4), _np.uint8)
+        a[..., :3] = BG
+        a[..., 3] = (_np.clip(1.25 - _np.linspace(0, 1, W) * 1.5, 0, 1) * 185).astype(_np.uint8)[None, :]
+        im.alpha_composite(Image.fromarray(a, 'RGBA'), (0, 150))
+        d = ImageDraw.Draw(im)
+        d.text((60, 200), day.strftime('%A').upper(), font=bebas(66), fill=GOLD, anchor='lm')
+        d.text((60, 300), f'{day.day} {day.strftime("%B %Y")}'.upper(), font=bebas(120), fill=WHITE, anchor='lm')
+        im = scrim(im, 420, 1180, 120)
+        d = ImageDraw.Draw(im)
+        hy, hs = 470, 108
+    else:
+        # evergreen post: no date, the hook takes the space
+        im = scrim(im, 200, 1180, 130)
+        d = ImageDraw.Draw(im)
+        if data.get('kicker'):
+            d.text((60, 250), data['kicker'].upper(), font=bebas(60), fill=GOLD, anchor='lm')
+        hy, hs = 330, 124
+    y = headline(d, data['headline'], hy, size=hs, max_lines=4) + 40
     stats = data.get('stats') or []
     if stats:
         n = len(stats[:3])

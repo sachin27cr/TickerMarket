@@ -241,6 +241,71 @@ def list_slide(data):
     return im.convert('RGB')
 
 
+def pointer(d, x, cy, size=22, fill=GOLD):
+    """Gold arrow-head bullet (used instead of 1, 2, 3 numbering)."""
+    h = size // 2
+    d.polygon([(x, cy - h), (x + size - 4, cy), (x, cy + h)], fill=fill)
+    d.polygon([(x - 2, cy - h), (x + 6, cy), (x - 2, cy + h)], fill=PANEL)   # notch, so it reads as a pointer
+
+
+def reveal(data):
+    """Big visual reveal: one panel per stock with start amount -> end amount, the multiple, a one-line about,
+    and a growth curve. data: headline, sub, items[{name, about, start_text, end_text, multiple_text, multiple}]"""
+    im, d = base(data['category'], data['date_text'], False, data.get('theme'), data.get('seed', 0), 0.6, data.get('tone'))
+    im = scrim(im.convert('RGBA'), 160, 1190, 195)
+    d = ImageDraw.Draw(im)
+    y = headline(d, data['headline'], 190, size=92, max_lines=2) + 6
+    if data.get('sub'):
+        d.text((60, y + 18), data['sub'], font=hind(30, 'SemiBold'), fill=MUTED, anchor='lm')
+        y += 50
+    items = data['items'][:3]
+    top, bottom, gap = y + 24, H - 262, 28
+    ph = (bottom - top - gap * (len(items) - 1)) // len(items)
+    for k, it in enumerate(items):
+        y0 = top + k * (ph + gap)
+        layer = Image.new('RGBA', im.size, (0, 0, 0, 0))
+        ld = ImageDraw.Draw(layer)
+        ld.rounded_rectangle([60, y0, W - 60, y0 + ph], radius=26, fill=PANEL + (235,), outline=LINE, width=2)
+        # growth curve, bottom of the panel
+        import math
+        cx0, cx1, cyb, ch = 96, W - 96, y0 + ph - 34, int(ph * 0.34)
+        m = max(float(it.get('multiple') or 100), 2)
+        pts = [(cx0 + (cx1 - cx0) * t / 60, cyb - ch * (m ** (t / 60) - 1) / (m - 1)) for t in range(61)]
+        ld.polygon(pts + [(cx1, cyb), (cx0, cyb)], fill=UP + (70,))
+        ld.line(pts, fill=UP + (255,), width=5)
+        ld.ellipse([cx1 - 11, pts[-1][1] - 11, cx1 + 11, pts[-1][1] + 11], fill=UP + (255,))
+        im.alpha_composite(layer)
+        d = ImageDraw.Draw(im)
+        if data.get('from_label'):
+            d.text((cx0, cyb + 18), data['from_label'], font=hind(22, 'SemiBold'), fill=MUTED, anchor='lm')
+        if data.get('to_label'):
+            d.text((cx1, cyb + 18), data['to_label'], font=hind(22, 'SemiBold'), fill=MUTED, anchor='rm')
+        # name + multiple pill
+        im.alpha_composite(monogram(76, it['name']), (96, y0 + 34))
+        nf = _fit(d, it['name'].upper(), bebas, 84, W - 60 - 200 - 300)
+        d.text((192, y0 + 74), it['name'].upper(), font=nf, fill=WHITE, anchor='lm')
+        mt = it.get('multiple_text', '')
+        if mt:
+            pw = d.textlength(mt, font=bebas(64)) + 48
+            d.rounded_rectangle([W - 96 - pw, y0 + 36, W - 96, y0 + 112], radius=38, fill=UP)
+            d.text((W - 96 - pw / 2, y0 + 76), mt, font=bebas(64), fill=BG, anchor='mm')
+        if it.get('about'):
+            d.text((96, y0 + 146), it['about'], font=_fit(d, it['about'], lambda z: hind(z, 'SemiBold'), 30, W - 192, 22),
+                   fill=MUTED, anchor='lm')
+        # 1 lakh -> 1.49 cr
+        ay = y0 + 232
+        st = it.get('start_text', '')
+        d.text((96, ay), st, font=bebas(70), fill=WHITE, anchor='lm')
+        x = 96 + d.textlength(st, font=bebas(70)) + 26
+        d.line([(x, ay), (x + 70, ay)], fill=GOLD, width=7)
+        d.polygon([(x + 66, ay - 18), (x + 96, ay), (x + 66, ay + 18)], fill=GOLD)
+        d.text((x + 122, ay + 2), it.get('end_text', ''), font=bebas(118), fill=GOLD, anchor='lm')
+    if data.get('note'):
+        d.text((60, H - 232), data['note'], font=hind(24), fill=MUTED, anchor='lm')
+    footer(im, d, '', swipe=data.get('swipe', True))
+    return im.convert('RGB')
+
+
 def summary_slide(data):
     """'In short' slide: key points taken from the (already verified) caption. data: date_text, points, theme, seed, tone"""
     im, d = base(data.get('category', 'In Short'), data['date_text'], False, data.get('theme', 'market_up'), data.get('seed', 0), 0.6,
@@ -249,17 +314,17 @@ def summary_slide(data):
     d = ImageDraw.Draw(im)
     y = headline(d, data.get('headline', '*In short*'), 190, size=92, max_lines=2) + 30
     pts = data['points'][:6]
-    size = 34 if sum(len(p) for p in pts) < 520 else 30
+    n_ch = sum(len(p) for p in pts)
+    size = 38 if n_ch < 380 else 34 if n_ch < 520 else 30
     f, lh = hind(size, 'SemiBold'), int(size * 1.35)
     for i, p in enumerate(pts):
-        lines = wrap(d, p, f, W - 220)
+        lines = wrap(d, p, f, W - 208)
         hgt = len(lines) * lh + 40
         if y + hgt > H - 190:
             break
         d.rounded_rectangle([60, y, W - 60, y + hgt], radius=16, fill=PANEL, outline=LINE, width=2)
-        d.ellipse([84, y + 22, 128, y + 66], fill=GOLD)
-        d.text((106, y + 44), str(i + 1), font=bebas(36), fill=BG, anchor='mm')
-        rich_text(d, 152, y + 22, p, f, W - 220, WHITE, lh)
+        pointer(d, 92, y + 22 + lh // 2)
+        rich_text(d, 140, y + 22, p, f, W - 208, WHITE, lh)
         y += hgt + 16
     footer(im, d, '', swipe=True)
     return im.convert('RGB')

@@ -44,14 +44,15 @@ def summary_points(caption, n=6):
     return out[:n]
 
 
-def with_closing_slides(images, caption):
+def with_closing_slides(images, caption, dated=True):
     from ..render import insight_cards as ic
     day = now_ist().date()
+    dt = fmt_date(day, 'dow') if dated else ''
     pts = summary_points(caption)
     tail, seed = [], f'{day}-end'
     if len(pts) >= 2:
-        tail.append(ic.summary_slide({'date_text': fmt_date(day, 'dow'), 'points': pts, 'seed': seed}))
-    tail.append(ic.follow_slide({'date_text': fmt_date(day, 'dow'), 'seed': seed}))
+        tail.append(ic.summary_slide({'date_text': dt, 'points': pts, 'seed': seed}))
+    tail.append(ic.follow_slide({'date_text': dt, 'seed': seed}))
     return images[:MAX_SLIDES - len(tail)] + tail
 
 
@@ -75,7 +76,7 @@ def finish(kind, title, images, caption, report: Report, allowed_numbers=None, m
         return None
     import secrets
     if len(images) > 1:                                      # carousels end with 'In short' + follow slides
-        images = with_closing_slides(images, caption)
+        images = with_closing_slides(images, caption, (meta or {}).get('dated', True))
     hint = f'{kind}-{now_ist().strftime("%H%M%S")}-{secrets.token_hex(2)}'   # unique even for two drafts in one second
     paths = []
     for i, im in enumerate(images):

@@ -35,7 +35,7 @@ from ..writer.captions import assemble, tags as mktags
 from .common import finish
 
 CUSTOM_DIR = Path(__file__).resolve().parents[2] / 'config' / 'custom_posts'
-TYPES = ('bars', 'list', 'table', 'columns', 'points')
+TYPES = ('bars', 'list', 'table', 'columns', 'points', 'reveal')
 
 
 # ---------------------------------------------------------------- rendering (A and B)
@@ -45,10 +45,13 @@ def render_spec(spec):
     tone = spec.get('tone') if spec.get('tone') in ('up', 'down') else 'up'
     theme = 'market_up' if tone == 'up' else 'market_down'
     cat = spec.get('label') or 'Data Story'
-    base = {'category': cat, 'date_text': fmt_date(day, 'dow'), 'theme': theme, 'tone': tone}
+    dated = bool(spec.get('dated', False))     # idea posts are evergreen: no date unless the spec asks
+    base = {'category': cat, 'date_text': fmt_date(day, 'dow') if dated else '', 'theme': theme, 'tone': tone}
     inside = [re.sub(r'[*]', '', s.get('headline', ''))[:28] for s in spec['slides']][:5]
+    if any(s.get('type') == 'reveal' for s in spec['slides']):
+        inside = []        # a reveal post must not give the answer away on the cover
     stats = [tuple(x) for x in (spec.get('cover_stats') or [])][:3]
-    images = [cards.cover({**base, 'day': day, 'headline': spec['title'], 'stats': stats, 'seed': spec['title'],
+    images = [cards.cover({**base, 'day': day if dated else None, 'kicker': spec.get('kicker'), 'headline': spec['title'], 'stats': stats, 'seed': spec['title'],
                            'inside': inside})]
     for i, s in enumerate(spec['slides']):
         data = {**base, 'seed': f'{spec["title"]}-{i}', 'headline': s.get('headline', '')}
@@ -63,6 +66,9 @@ def render_spec(spec):
                                           'rows': s['rows'][:10], 'note': s.get('note')}))
         elif t == 'columns':
             images.append(ic.vbars({**data, 'items': s['items'][:10], 'note': s.get('note', '')}))
+        elif t == 'reveal':
+            images.append(ic.reveal({**data, 'sub': s.get('sub'), 'note': s.get('note'), 'items': s['items'][:3],
+                                     'from_label': s.get('from_label'), 'to_label': s.get('to_label')}))
         elif t == 'points':
             images.append(ic.summary_slide({**data, 'points': s['points'][:6]}))
     return images
@@ -89,6 +95,9 @@ def _clean(spec):
                 for x in s['items']:
                     x.setdefault('value_text', f'{x["pct"]:+.1f}%')
                 good = len(s['items']) >= 2
+            elif t == 'reveal':
+                s['items'] = [x for x in s.get('items') or [] if x.get('name') and x.get('end_text')]
+                good = 1 <= len(s['items']) <= 3
             elif t == 'points':
                 s['points'] = [str(p) for p in s.get('points') or [] if str(p).strip()]
                 good = len(s['points']) >= 2
@@ -130,7 +139,9 @@ def make_post(spec, report, origin):
         report.ok('sources: ' + ' | '.join(src))
     report.ok(f'made from: {origin}')
     allowed = _spec_numbers(spec) + [today_ist().day, today_ist().year]
-    meta = {'topic_keyword': spec['topic_keyword']} if spec.get('topic_keyword') else None
+    meta = {'dated': bool(spec.get('dated', False))}
+    if spec.get('topic_keyword'):
+        meta['topic_keyword'] = spec['topic_keyword']
     return finish('custom_post', spec['title'], images, caption, report, allowed, meta=meta)
 
 
@@ -163,7 +174,8 @@ Economic Times, Moneycontrol, Mint, Business Standard, Reuters). Rules:
 - India focus. Company names in common short form (e.g. "HDFC Bank", "L&T").
 - 4 to 6 content slides. Pick the slide type that fits the data:
   bars (ranked values), list (ranked names with a value), table (name + up to 3 numeric % columns),
-  columns (up to 10 items with a % change each), points (2-5 short factual bullet points).
+  columns (up to 10 items with a % change each), points (2-5 short factual bullet points),
+  reveal (1-3 big stock panels: name, about, start_text, end_text, multiple_text, multiple - for "which stocks did it" reveals).
 - Cover title max 8 words; mark 1-2 key words with *stars* (shown in gold).
 
 Answer with ONLY a JSON object, no other text:

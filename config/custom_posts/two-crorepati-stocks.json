@@ -32,27 +32,30 @@
       ]
     },
     {
-      "type": "bars",
-      "headline": "The *2 stocks*: ₹1 lakh became",
-      "sub": "20 Nov 2016 to 20 Nov 2026",
-      "colour": "up",
-      "rows": [
+      "type": "reveal",
+      "headline": "The *2 stocks* that did it",
+      "sub": "₹1 lakh invested on 20 Nov 2016, value on 20 Nov 2026",
+      "from_label": "Nov 2016",
+      "to_label": "Nov 2026",
+      "items": [
         {
           "name": "Cupid",
-          "value": 14880000,
-          "value_text": "₹1.49 cr",
-          "side_text": "148.8x",
-          "side_sign": 1
+          "about": "Condoms and personal-care products",
+          "start_text": "₹1 lakh",
+          "end_text": "₹1.49 cr",
+          "multiple_text": "148.8x",
+          "multiple": 148.8
         },
         {
           "name": "Tips Music",
-          "value": 13890000,
-          "value_text": "₹1.39 cr",
-          "side_text": "138.9x",
-          "side_sign": 1
+          "about": "Music label (formerly Tips Industries)",
+          "start_text": "₹1 lakh",
+          "end_text": "₹1.39 cr",
+          "multiple_text": "138.9x",
+          "multiple": 138.9
         }
       ],
-      "note": "About 64% a year, compounded, for 10 years."
+      "note": "About 64% a year, compounded, for 10 years. Split and bonus adjusted."
     },
     {
       "type": "points",
@@ -150,5 +153,6 @@
     "Business Today 30 Dec 2025 - Cupid up over 565% in 2025",
     "Kotak Securities Dec 2025 - Tips Music 52-week high 811.65, low 483",
     "Value Research - Tips price 774.40 on 11 Nov 2026; MoneyWorks4Me - ROE, margin, promoter holding; Alpha Spread - 10:1 split Apr 2023"
-  ]
+  ],
+  "kicker": "Could you have held on?"
 }
