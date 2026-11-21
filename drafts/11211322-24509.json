@@ -49,12 +49,15 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "queued",
+  "status": "posted",
   "meta": {
     "video": "media/2026-11-21/reel_weekly-132230-01bf.mp4"
   },
   "telegram_message_id": 665,
-  "posted": {},
+  "posted": {
+    "instagram": "18076704917768933",
+    "facebook": "1453068283663296"
+  },
   "video": "media/2026-11-21/reel_weekly-132230-01bf.mp4",
   "script": [
     "1. Stock market this week. The Nifty gained 2.61 percent this week. Here is the full week, by index, sector and market cap.",
@@ -70,5 +73,6 @@
   ],
   "report_text": "✅ weekly index changes from NSE closing files: 13 Nov -> 20 Nov, 23 of 24 indices (end close matches NSE live feed)\n✅ corporate actions checked: 3 stock(s) with split/bonus/rights this week left out\n✅ Large Cap (NIFTY 100): 100 of 100 stocks ranked, NSE bhavcopy 13 Nov -> 20 Nov\n✅ Mid Cap (NIFTY MIDCAP 150): 149 of 150 stocks ranked, NSE bhavcopy 13 Nov -> 20 Nov; 1 not traded both days\n✅ Small Cap (NIFTY SMALLCAP 250): 248 of 251 stocks ranked, NSE bhavcopy 13 Nov -> 20 Nov; 3 not traded both days\n✅ Micro Cap (NIFTY MICROCAP 250): 249 of 251 stocks ranked, NSE bhavcopy 13 Nov -> 20 Nov; 1 with split/bonus/rights left out, 1 not traded both days\n✅ voice-over: en-US-BrianMultilingualNeural\n✅ reel: 10 scenes, 93 s, 7.3 MB\n✅ caption: all 51 numbers match source data\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market this week",
-  "approved_at": "2026-11-21T13:24:44.389638+05:30"
+  "approved_at": "2026-11-21T13:24:44.389638+05:30",
+  "posted_at": "2026-11-21T19:16:45.521884+05:30"
 }
