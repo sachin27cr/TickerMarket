@@ -37,11 +37,16 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 688,
-  "posted": {},
+  "posted": {
+    "instagram": "18097342349268473",
+    "facebook": "122110197627544503"
+  },
   "report_text": "✅ confirmed by 2 outlets: India News Network, The Times of India\n✅ fresh: newest source 6.9 h old\n✅ headline/banner/points/body: all 6 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMiqAFBVV95cUxPeTNaZmhxMURpQU5Ddk8xbEhYWWt6Y0FWY1Z2M3FLdkV1TWtXSzdTVi1aRGZfbERwNHJIbF9JLU5Mb01FQnRvU2k1eUZhWkdIdDNrTWEyRXp5S0tqTWNydW9LcUFkeGdaYmpmMWZDU3dkSnJCek5TOE5LbThoYVRfVWp5VEp0WTNsMFFoaTZZSF83NEtqbFNpLUpmRDBrLVRTbm9Zblc4UE4?oc=5 | https://news.google.com/rss/articles/CBMi3AFBVV95cUxQQk42RmdhY2xnQzJsMTZIU24tZ0hBeVV6bHMtLUZkdTZiRWd2c3E1bnJWNVJkVS02cVpfbGsyWWZaQ2V4NXhxWFVVb3Z4OFQzaklXVWZtanlub1pURUR0ajMtZTFZcHNCSlFDSmJ6Rl9pWENVTUZGVWVJa3hiNmZZcldBRFk2QmpGb3BWLUZiWHFCZ0Niem80MFY4RlFPWmQ3SW1XMTFEM2hzYTJwd2xDTWJLU1JBRFd5cm5ZYWZsUi1JSVlwYXBSWjFLUEFmRWUxVEZnbGNMNVhBeGZF0gHiAUFVX3lxTE0zdUhhUnctcWxPVTVjbzF1cTFSYlJZcXNUeHVpa0JCV2huTHVOSlUzOG5iLWJueDZUTGdZY1oxVkFhZEM5eUI2Z0IyZlJJWS1wX0o5QlhpMnFwUTM1ZC1SZW1MbHdTZXJoOHItWWFYZGNWWGlwbTdfRzI4dHNoSGpIMmlqZDZLZFU0N2hEeGY5QnozZUJ6bGE5QUltR0FydUtNX1gzd0UtTGVJaUNjRjF4RlRWdGZJOVRTbGI3N3ZKZVhvOHJ4MjFydl9Qa0R4Yl9zMFNVRy1uZ1k5QlNPQ3ZCNkE?oc=5\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
-  "alt_text": "Stock market news: Ticker Market India image - Record Foreign Inflows lift rupee, Sensex jumps 13%"
+  "alt_text": "Stock market news: Ticker Market India image - Record Foreign Inflows lift rupee, Sensex jumps 13%",
+  "approved_at": "2026-11-21T17:18:36.260052+05:30",
+  "posted_at": "2026-11-21T17:18:54.704666+05:30"
 }
