@@ -1,5 +1,5 @@
 {
   "kind": "weekly_ath",
   "title": "weekly-ath:2026-11-16",
-  "report": "❌ Large Cap (NIFTY 100): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)\n❌ Mid Cap (NIFTY MIDCAP 150): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)\n❌ Small Cap (NIFTY SMALLCAP 250): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)\n❌ Micro Cap (NIFTY MICROCAP 250): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)\n❌ need all 4 market-cap groups for this post\n✅ no advice, prediction or rumour language"
+  "report": "✅ Large Cap (NIFTY 100): 100 stocks checked; 5 all-time highs, 0 52-week lows; 1 listed < 1 year skipped, 1 without data for this week\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks checked; 10 all-time highs, 4 52-week lows; 2 listed < 1 year skipped\n❌ Small Cap (NIFTY SMALLCAP 250): NSE list unavailable (NIFTY SMALLCAP 250: only 161 stocks priced; marketWatchApi: 0 of 225+ rows readable; marketWatchApi: 0 of 225+ rows readable; indexTrackerApi: HTTP 404; equity-stockIndices: HTTP 404)\n❌ Micro Cap (NIFTY MICROCAP 250): NSE list unavailable (NIFTY MICROCAP 250: only 118 stocks priced; marketWatchApi: 0 of 225+ rows readable; marketWatchApi: 0 of 225+ rows readable; indexTrackerApi: HTTP 404; equity-stockIndices: HTTP 404)\n❌ need all 4 market-cap groups for this post\n✅ no advice, prediction or rumour language"
 }
