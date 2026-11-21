@@ -339,6 +339,20 @@
           "close": 413.70001220703125,
           "week_pct": -2.7503483444572323,
           "level": 435.25
+        },
+        {
+          "symbol": "KTKBANK",
+          "name": "Karnataka Bank",
+          "close": 343.5,
+          "week_pct": -5.097392342807287,
+          "level": 370.79998779296875
+        },
+        {
+          "symbol": "JAMNAAUTO",
+          "name": "Jamna Auto Industries",
+          "close": 137.3000030517578,
+          "week_pct": -7.8090312200187775,
+          "level": 156.0
         }
       ],
       "low": [
@@ -411,6 +425,13 @@
           "close": 379.8500061035156,
           "week_pct": 4.068494822880994,
           "level": 338.0
+        },
+        {
+          "symbol": "ARVINDFASN",
+          "name": "Arvind Fashions",
+          "close": 362.04998779296875,
+          "week_pct": 5.708025632983577,
+          "level": 333.95001220703125
         }
       ],
       "ath_count": 12,
