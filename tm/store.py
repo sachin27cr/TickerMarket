@@ -22,7 +22,23 @@ def read_json(rel, default=None):
     p = config.DATA_DIR / rel
     if not p.exists():
         return default
-    return json.loads(p.read_text())
+    text = p.read_text()
+    try:
+        return json.loads(text)
+    except ValueError:
+        pass
+    # a sync clash can leave git conflict markers in a file: keep both sides where possible, never crash
+    import re
+    fixed = re.sub(r'^(<<<<<<<|=======|>>>>>>>).*\n?', '', text, flags=re.M)
+    fixed = re.sub(r'([\d"\]}])\s*\n(\s*[\d"\[{])', r'\1,\n\2', fixed)
+    try:
+        obj = json.loads(fixed)
+    except ValueError:
+        import logging
+        logging.getLogger('tm').warning('%s is unreadable - using the default', rel)
+        return default
+    write_json(rel, obj)
+    return obj
 
 
 def write_json(rel, obj):

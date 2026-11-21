@@ -2,6 +2,7 @@
 import html
 import json
 import re
+import secrets
 from pathlib import Path
 
 from .. import config, schedule, store, telegram
@@ -32,6 +33,7 @@ HELP = """<b>Ticker Market bot</b>
 /custompost name - post a carousel written in chat
 /customreel name - make an explainer reel written for you (e.g. /customreel gold-ai-selloff)
 /where id - live links of a posted draft
+News photo: reply to a news draft with a photo (or send a photo with the draft id as caption) - it goes at the top of the card. Caption 'top' or 'bottom' moves the crop
 /innovative - next data story (Insights); /innovative list for tags, e.g. /innovative profits
 /queue - drafts waiting for you
 /flagged - recently blocked drafts
@@ -52,8 +54,15 @@ def _wait_for_draft(did, tries=10, pause=20):
         if d:
             return d
         time.sleep(pause)
-        subprocess.run(['git', '-C', str(config.DATA_DIR), '-c', 'user.name=bot', '-c', 'user.email=bot@x', 'pull', '--quiet', '--rebase', '--autostash', 'origin', 'data'],
-                       capture_output=True)
+        # fetch only this draft and its pictures - a full pull could clash with files this run has changed
+        git = ['git', '-C', str(config.DATA_DIR)]
+        subprocess.run(git + ['fetch', '--quiet', 'origin', 'data'], capture_output=True)
+        r = subprocess.run(git + ['checkout', 'origin/data', '--', f'drafts/{did}.json'], capture_output=True)
+        if r.returncode == 0:
+            d = store.load_draft(did)
+            files = [p for p in (d or {}).get('images', []) + [(d or {}).get('video') or ''] if p]
+            if files:
+                subprocess.run(git + ['checkout', 'origin/data', '--'] + files, capture_output=True)
     return store.load_draft(did)
 
 
@@ -133,6 +142,71 @@ def reject(did):
 
 REEL_CMDS = {'/spotlight': 'results_spotlight', '/reelam': 'reel_morning', '/reelpm': 'reel_evening', '/reelweek': 'reel_weekly',
              '/reelath': 'reel_ath', '/reellows': 'reel_lows'}
+
+
+DRAFT_ID = re.compile(r'\b(\d{8}-[0-9a-f]{5})\b')
+
+
+def _draft_for_photo(msg):
+    """The draft a photo is meant for: the draft id in its caption, or the draft message it replies to."""
+    m = DRAFT_ID.search(msg.get('caption') or '')
+    if m:
+        return m.group(1)
+    rep = msg.get('reply_to_message') or {}
+    m = DRAFT_ID.search((rep.get('text') or '') + ' ' + (rep.get('caption') or ''))
+    if m:
+        return m.group(1)
+    rid = rep.get('message_id')
+    if rid:
+        for d in store.list_drafts():
+            if rid == d.get('telegram_message_id') or rid in (d.get('telegram_media_ids') or []):
+                return d['id']
+    return None
+
+
+def add_photo(did, file_id, caption=''):
+    """Put your photo at the top of a news card, then send the new preview for approval."""
+    import requests
+    import tempfile
+    from . import news_jobs
+    d = _wait_for_draft(did, tries=3)
+    if not d:
+        return telegram.send_text(f'Draft {did} not found.')
+    if d['kind'] != 'news':
+        return telegram.send_text('Photos can be added to news drafts only.')
+    if d['status'] in ('posted', 'partial'):
+        return telegram.send_text(f'{did} is already posted - the photo was not added.')
+    if d['status'] in ('rejected', 'expired', 'failed'):
+        return telegram.send_text(f'{did} is {d["status"]} - the photo was not added.')
+    dmeta = d.get('meta') or {}
+    if not dmeta.get('card'):
+        return telegram.send_text(f'{did} was made before photos were supported - send the photo with a newer news draft.')
+    info = telegram._api('getFile', file_id=file_id)
+    img = requests.get(f'https://api.telegram.org/file/bot{config.TELEGRAM_TOKEN}/{info["file_path"]}', timeout=60).content
+    tmp = Path(tempfile.mkdtemp()) / 'photo.jpg'
+    tmp.write_bytes(img)
+    low = caption.lower()
+    focus = 0.0 if re.search(r'\btop\b', low) else 1.0 if re.search(r'\bbottom\b', low) else 0.38
+    images = news_jobs.render_with_photo(dmeta, tmp, focus)
+    paths = []
+    for i, im in enumerate(images):
+        rel = store.media_path(f'{did}-photo-{secrets.token_hex(2)}', i + 1)
+        im.save(config.DATA_DIR / rel, 'JPEG', quality=92)
+        paths.append(str(rel))
+    keep = config.DATA_DIR / 'photos' / f'{did}.jpg'      # your original, kept with the data
+    keep.parent.mkdir(parents=True, exist_ok=True)
+    keep.write_bytes(img)
+    old_msg, was = d.get('telegram_message_id'), d['status']
+    d['images'] = paths + d['images'][1:]
+    d['status'] = 'pending'                       # a changed card needs a fresh approval
+    d.setdefault('meta', {})['photo'] = f'photos/{did}.jpg'
+    store.save_draft(d)
+    if old_msg:
+        telegram.mark_message(old_msg, '🖼 Photo added - approve the new preview below')
+    telegram.send_draft(d)
+    if was == 'queued':
+        telegram.send_text('This draft was already approved; the card changed, so approve the new preview again.')
+    log.info('photo added to %s', did)
 
 
 def _dispatch_insight(arg, job='insights'):
@@ -383,6 +457,18 @@ def _handle_updates(updates=None, instant=False):
             continue
         text = (msg.get('text') or '').strip()
         cap = (msg.get('caption') or '').strip()
+        if msg.get('photo') and not re.match(r'(?i)/?idea\b', cap):     # a photo for a news draft
+            did = _draft_for_photo(msg)
+            if did:
+                try:
+                    add_photo(did, msg['photo'][-1]['file_id'], cap)
+                except Exception as e:                   # noqa: BLE001
+                    log.exception('photo failed')
+                    telegram.send_text(f'Could not add the photo: {html.escape(str(e))[:300]}')
+            else:
+                telegram.send_text('To add a photo to a news post, reply to its draft with the photo '
+                                   '(or put the draft id in the caption).')
+            continue
         if msg.get('photo') and re.match(r'(?i)/?idea\b', cap):         # reference image + idea
             fid = msg['photo'][-1]['file_id']
             idea = re.sub(r'(?i)^/?idea\s*:?\s*', '', cap)

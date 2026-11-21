@@ -87,9 +87,13 @@ def send_draft(d, auto=False):
     """Images (or the reel), then the caption + verification report with buttons.
     auto=True: the post goes out by itself after the cancel window unless you tap Cancel."""
     if d.get('video'):
-        send_video(d['video'], d['images'][0] if d['images'] else None)
+        r = send_video(d['video'], d['images'][0] if d['images'] else None)
     else:
-        send_images(d['images'])
+        r = send_images(d['images'])
+    try:                                            # remember the image message(s) so a photo reply finds the draft
+        d['telegram_media_ids'] = [m['message_id'] for m in (r if isinstance(r, list) else [r]) if isinstance(m, dict)]
+    except (TypeError, KeyError):
+        pass
     from . import schedule
     at = schedule.slot(d['kind'])
     when = f'posts at {schedule.label(at)}' if at and at > schedule.now_ist() else f'posts in about {config.AUTO_DELAY_MIN} min'

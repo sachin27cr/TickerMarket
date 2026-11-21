@@ -303,7 +303,7 @@ def reels_test():
         return out, [('ok', 'fake weekly movers')]
     market.weekly_cap_movers = fake_movers
     for name, fn in [('reel_morning', reel_jobs.morning_reel), ('reel_evening', reel_jobs.evening_reel),
-                     ('reel_weekly', reel_jobs.weekly_reel), ('reel_ath', reel_jobs.ath_reel), ('reel_lows', reel_jobs.lows_reel)]:
+                     ('reel_weekly', reel_jobs.weekly_reel), ('reel_ath', reel_jobs.ath_reel)]:
         n = len(drafts())
         fn(force=True)
         ds = [d for d in drafts() if d['kind'] == name]

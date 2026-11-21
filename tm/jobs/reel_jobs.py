@@ -547,48 +547,81 @@ def weekly_reel(force=False):
 
 # ---------------------------------------------------------------- weekly all-time highs / 52-week lows reels
 
+PER_SCENE = 6      # names on screen at once; longer lists continue on the next scene
+
+
+def _extremes_scenes(wkx, kind, report):
+    """Scenes listing EVERY stock the weekly scan found (count in the title = names shown)."""
+    scenes, paras, allowed = [], [], []
+    tone, topic = ('up', 'highs') if kind == 'ath' else ('down', 'lows')
+    what = 'All-time highs' if kind == 'ath' else '52-week lows'
+    for seg, _ in market.CAP_SEGMENTS:
+        g = wkx['groups'][seg]
+        rows = g[kind]
+        n = g[f'{kind}_count']
+        if not rows:
+            continue
+        if len(rows) < n:                      # older scans kept only the top 10
+            report.warn(f'{seg} {what.lower()}: {n} found, {len(rows)} names kept by the scan - title shows the names listed')
+            n = len(rows)
+        chunks = [rows[i:i + PER_SCENE] for i in range(0, len(rows), PER_SCENE)]
+        for k, ch in enumerate(chunks):
+            title = f'{seg}: {n} stock{"s" if n != 1 else ""}' + (f' ({k + 1}/{len(chunks)})' if len(chunks) > 1 else '')
+            scenes.append({'type': 'rows', 'title': title, 'topic': topic, 'tone': tone,
+                           'rows': [{'label': name_of(r), 'value': '₹' + fmt_inr(r['close'] if 'close' in r else r.get('last', 0)),
+                                     'pct': r['week_pct']} for r in ch],
+                           'voice': f'{seg}: {n}.' if k == 0 else '', 'hold': 3.2})
+        more = len(rows) - 6
+        paras.append(f'{seg} ({n}): ' + ', '.join(f'{name_of(r)} ({r["week_pct"]:+.2f}%)' for r in rows[:6])
+                     + (f' and {more} more in the reel' if more > 0 else ''))
+        allowed += [n, max(more, 0)] + [abs(r['week_pct']) for r in rows] + [r.get('close') or r.get('last') or 0 for r in rows]
+    return scenes, paras, allowed
+
+
 def _extremes_reel(kind, force):
+    """One reel for the week: all-time highs, then 52-week lows (kind is kept for the old /reelath, /reellows)."""
     today = today_ist()
     monday = today - timedelta(days=today.weekday())
-    job = 'reel_ath' if kind == 'ath' else 'reel_lows'
-    key = f'{job}:{monday}'
+    key = f'reel_extremes:{monday}'
     if store.seen('post', key) and not force:
         return
     report = Report()
     wkx = store.read_json(f'weekly/{monday}.json')
     if not wkx or len(wkx.get('groups') or {}) != len(market.CAP_SEGMENTS):
-        log.info('%s: weekly scan not ready yet', job); return
+        log.info('highs/lows reel: weekly scan not ready yet'); return
+    cut = any(len(g.get(k) or []) < g.get(f'{k}_count', 0) for g in wkx['groups'].values() for k in ('ath', 'low'))
+    if cut:                                         # saved by an older scan that kept only the top 10: scan again
+        try:
+            groups, rep = market.weekly_extremes(monday, n=40)
+            if len(groups) == len(market.CAP_SEGMENTS):
+                wkx = {'groups': groups, 'report': rep}
+                store.write_json(f'weekly/{monday}.json', wkx)
+        except Exception as e:                       # noqa: BLE001
+            log.warning('re-scan failed: %s', e)
     report.extend([tuple(r) for r in wkx['report']])
-    what = 'all-time high' if kind == 'ath' else '52-week low'
-    label = 'All-Time Highs' if kind == 'ath' else '52-Week Lows'
-    total = sum(g[f'{kind}_count'] for g in wkx['groups'].values())
-    if total == 0 and not force:
-        log.info('%s: no stocks this week', job); return
-    scenes, paras, allowed = [], [], [total, 52, 3, monday.day, monday.year]
-    for seg, _ in market.CAP_SEGMENTS:
-        g = wkx['groups'][seg]
-        top = g[kind][:3]
-        if not top:
-            continue
-        scenes.append({'type': 'rows', 'title': f'{seg}: {g[f"{kind}_count"]} stocks', 'topic': 'highs' if kind == 'ath' else 'lows',
-                       'tone': 'up' if kind == 'ath' else 'down',
-                       'rows': [{'label': name_of(r), 'value': '₹' + fmt_inr(r['close'] if 'close' in r else r.get('last', 0)),
-                                 'pct': r['week_pct']} for r in top],
-                       'voice': f'{seg}: {g[f"{kind}_count"]}.'})
-        paras.append(f'{seg}: {g[f"{kind}_count"]} - ' + ', '.join(f'{name_of(r)} ({r["week_pct"]:+.2f}%)' for r in top))
-        allowed += [g[f'{kind}_count']] + [abs(r['week_pct']) for r in top] + \
-                   [r.get('close') or r.get('last') or 0 for r in top]
-    lead_seg, lead_n = max(((seg, wkx['groups'][seg][f'{kind}_count']) for seg, _ in market.CAP_SEGMENTS), key=lambda x: x[1])
-    scenes.insert(0, {'type': 'intro', 'title': label, 'day': today, 'topic': 'highs' if kind == 'ath' else 'lows',
-                      'tone': 'up' if kind == 'ath' else 'down',
-                      'hook': f'{total} stocks hit a{"n" if kind == "ath" else ""} {what} this week',
-                      'voice': f'{total} stocks hit a{"n" if kind == "ath" else ""} {what} this week. '
-                               f'{lead_seg} led with {lead_n}. Here are the names.'})
+    hi_scenes, hi_paras, hi_allowed = _extremes_scenes(wkx, 'ath', report)
+    lo_scenes, lo_paras, lo_allowed = _extremes_scenes(wkx, 'low', report)
+    n_hi = sum(int(p.split('(')[1].split(')')[0]) for p in hi_paras)
+    n_lo = sum(int(p.split('(')[1].split(')')[0]) for p in lo_paras)
+    if not (n_hi or n_lo) and not force:
+        log.info('highs/lows reel: nothing this week'); return
+    tone = 'up' if n_hi >= n_lo else 'down'
+    scenes = [{'type': 'intro', 'title': 'Highs & Lows', 'day': today, 'topic': 'highs' if tone == 'up' else 'lows',
+               'tone': tone, 'hook': f'{n_hi} all-time highs, {n_lo} 52-week lows this week',
+               'voice': f'This week, {n_hi} stocks hit an all-time high, and {n_lo} sank to a 52-week low. Here are all the names.'}]
+    if hi_scenes:
+        hi_scenes[0]['voice'] = f'First, all-time highs. ' + hi_scenes[0]['voice']
+        scenes += hi_scenes
+    if lo_scenes:
+        lo_scenes[0]['voice'] = f'Now the 52-week lows. ' + lo_scenes[0]['voice']
+        scenes += lo_scenes
     scenes.append(_outro())
-    caption = assemble(f'{total} stocks hit a{"n" if kind == "ath" else ""} {what} this week', paras + ['Weekly % change in brackets.'], '',
-                       tags('#AllTimeHigh' if kind == 'ath' else '#52WeekLow', '#StockMarketIndia', '#Nifty50',
-                            '#SmallCap', '#ShareMarket'))
-    if _make(job, key, label, scenes, caption, report, allowed, f'{kind}{monday}'):
+    paras = ([f'All-time highs this week ({n_hi}):'] + hi_paras if hi_paras else []) + \
+            ([f'52-week lows this week ({n_lo}):'] + lo_paras if lo_paras else []) + ['Weekly % change in brackets.']
+    allowed = [n_hi, n_lo, 52, monday.day, monday.year] + hi_allowed + lo_allowed
+    caption = assemble(f'{n_hi} all-time highs, {n_lo} 52-week lows this week', paras, '',
+                       tags('#AllTimeHigh', '#52WeekLow', '#StockMarketIndia', '#SmallCap', '#ShareMarket'))
+    if _make('reel_ath', key, 'Highs & Lows', scenes, caption, report, allowed, f'hl{monday}', 90):
         store.mark_seen('post', key)
 
 
@@ -599,6 +632,8 @@ def ath_reel(force=False):
 
 @as_post('reel_lows')
 def lows_reel(force=False):
+    """Highs and lows now share one reel (made at the all-time-high slot); this only fills in if that one
+    has not been made yet."""
     _extremes_reel('low', force)
 
 

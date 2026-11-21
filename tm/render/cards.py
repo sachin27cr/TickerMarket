@@ -640,6 +640,41 @@ def extremes(data):
     return slides
 
 
+PHOTO_TOP, PHOTO_BOTTOM = 124, 640
+
+
+def place_photo(im, path, top=PHOTO_TOP, bottom=PHOTO_BOTTOM, focus=0.38):
+    """Your own news photo across the top of the card: cover-cropped edge to edge, fading into the card
+    at the bottom so the label and headline sit cleanly under it. focus: 0 = keep the top, 1 = keep the bottom."""
+    import numpy as np
+    from PIL import ImageOps
+    pic = ImageOps.exif_transpose(Image.open(path)).convert('RGB')
+    h = bottom - top
+    sc = max(W / pic.width, h / pic.height)
+    pic = pic.resize((max(W, round(pic.width * sc)), max(h, round(pic.height * sc))), Image.LANCZOS)
+    x0 = (pic.width - W) // 2
+    y0 = int((pic.height - h) * focus)
+    pic = pic.crop((x0, y0, x0 + W, y0 + h)).convert('RGBA')
+    a = np.full((h, W), 255, np.float32)
+    fade = 190
+    a[-fade:] *= np.linspace(1, 0, fade)[:, None] ** 1.4
+    a[:26] *= np.linspace(0.35, 1, 26)[:, None]
+    pic.putalpha(Image.fromarray(a.astype(np.uint8)))
+    out = im.convert('RGBA')
+    # settle the background behind the photo's fade, so the photo melts into a calm dark card, not busy art
+    y0, y1 = bottom - fade, H
+    b = np.zeros((y1 - y0, W), np.float32)
+    ys = np.arange(y1 - y0)[:, None]
+    b[:] = np.clip(ys / 60, 0, 1) * 245
+    tail = ys > fade + 60
+    b = np.where(tail, np.maximum(245 - (ys - fade - 60) * 0.6, 150), b)
+    shade = Image.new('RGBA', (W, y1 - y0), BG + (0,))
+    shade.putalpha(Image.fromarray(b.astype(np.uint8)))
+    out.alpha_composite(shade, (0, y0))
+    out.alpha_composite(pic, (0, top))
+    return out
+
+
 def news_hero(data):
     """Story card with background art, company quote card(s), headline and key points.
     data: category, date_text, theme, seed, quotes[{name,symbol,price,chg,pct,time_text}], label, headline,
@@ -648,7 +683,14 @@ def news_hero(data):
     im, d = base(data['category'], data['date_text'], data.get('sample'), data['theme'], data.get('seed', 0), 0, data.get('tone'))
     im = im.convert('RGBA')
     qs = data.get('quotes') or []
-    if len(qs) == 1:
+    if data.get('photo'):                     # your photo fills the top; one compact price chip sits on its lower edge
+        im = place_photo(im, data['photo'], focus=data.get('photo_focus', 0.38))
+        if qs:
+            im.alpha_composite(widgets.mini_quote(qs[0], 560), (60, PHOTO_BOTTOM - 210))
+        qs = []
+    if data.get('photo'):
+        pass
+    elif len(qs) == 1:
         im.alpha_composite(widgets.quote_card(qs[0], 620), (60, 190))
     elif qs:
         for i, q in enumerate(qs[:3]):

@@ -771,7 +771,7 @@ def _weekly_data(monday, report):
     if cached and len(cached.get('groups') or {}) == len(market.CAP_SEGMENTS):   # ignore a saved failed scan
         report.extend([tuple(r) for r in cached['report']])
         return cached['groups']
-    groups, rep = market.weekly_extremes(monday)
+    groups, rep = market.weekly_extremes(monday, n=40)      # keep every name for the reel
     report.extend(rep)
     if len(groups) == len(market.CAP_SEGMENTS):          # never cache a failed scan
         store.write_json(f'weekly/{monday}.json', {'groups': groups, 'report': rep})

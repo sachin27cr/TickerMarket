@@ -210,8 +210,24 @@ def _row_tile(r, y, rh, start, big, scale):
     card, d = _glass(w, rh - 20, chg_col(r['pct']) if r.get('pct') is not None else SAFFRON, 24)
     cy = (rh - 20) // 2
     has_bar = r.get('pct') is not None and scale > 0
-    lf = _font('Bold', 46 if big >= 76 else 40)
-    d.text((44, cy - (20 if (r.get('sub') or has_bar) else 0)), r['label'], font=lf, fill=WHITE, anchor='lm')
+    # keep the name clear of the value and the % pill on the right
+    reserve = 34 + 30
+    if r.get('pct') is not None:
+        reserve += d.textlength(f'{r["pct"]:+.2f}%', font=_font('bebas', big - 12)) + 44 + 26
+    if r.get('value'):
+        reserve += d.textlength(r['value'], font=_font('bebas', big))
+    room = w - 44 - reserve
+    size = 46 if big >= 76 else 40
+    label = r['label']
+    while d.textlength(label, font=_font('Bold', size)) > room and size > 30:
+        size -= 2
+    while d.textlength(label, font=_font('Bold', size)) > room and len(label) > 6:
+        label = label[:-2].rstrip() + '.'
+        label = label[:-1]
+    if label != r['label']:
+        label = label.rstrip('.').rstrip() + '.'
+    lf = _font('Bold', size)
+    d.text((44, cy - (20 if (r.get('sub') or has_bar) else 0)), label, font=lf, fill=WHITE, anchor='lm')
     if r.get('sub'):
         d.text((44, cy + 30), r['sub'], font=_font('Medium', 30), fill=MUTE, anchor='lm')
 

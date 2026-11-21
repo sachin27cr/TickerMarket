@@ -1,4 +1,5 @@
 """News posts: discover -> cluster -> AI writes from sources -> code checks every fact -> 2nd AI checks."""
+import json
 import re
 
 from .. import config, store
@@ -122,6 +123,9 @@ def build_from_cluster(c):
         if re.search(r'(?<!\d)(?:20)?' + str(yr)[2:] + r'(?!\d)', src_text) and re.search(r'(?i)(fy|cy|20|\')' + str(yr)[2:] + r'(?!\d)', src_text):
             allowed.append(yr)
     checks.check_numbers(draft_text + '\n' + label, allowed, report, 'headline/banner/points/body')
+    odd = _odd_index_moves(draft_text + '\n' + label)
+    if odd:
+        report.fail('index move looks wrong (no period given; a day/week move this big is very unusual): ' + '; '.join(odd))
     checks.check_names(draft_text, src_text, report)
     checks.check_months(draft_text, src_text, report)
     checks.check_fiscal(draft_text, src_text, report)
@@ -168,11 +172,14 @@ def build_from_cluster(c):
     photo.PHOTO_PROMPT = scene
     from ..render import own_bg
     own_bg.NEWS_SECTOR = 'results' if category == 'Earnings' and sector in ('other', 'economy') else sector
+    card = {'category': category, 'date_text': fmt_date(newest.date(), 'dow'), 'theme': theme,
+            'seed': c['key'], 'tone': tone, 'quotes': quotes, 'label': label,
+            'headline': headline, 'points': points, 'source': ('NSE prices, ' if quotes else '') + outlets}
+    global LAST_CARD
+    LAST_CARD = json.loads(json.dumps({'card': card, 'news_sector': own_bg.NEWS_SECTOR, 'photo_prompt': scene},
+                                      default=str))      # kept with the draft so a photo can be added later
     try:
-        images = cards.news_hero({'category': category, 'date_text': fmt_date(newest.date(), 'dow'), 'theme': theme,
-                                  'seed': c['key'], 'tone': tone, 'quotes': quotes, 'label': label,
-                                  'headline': headline, 'points': points,
-                                  'source': ('NSE prices, ' if quotes else '') + outlets})
+        images = cards.news_hero(card)
     finally:
         photo.PHOTO_PROMPT = None
         own_bg.NEWS_SECTOR = None
@@ -180,6 +187,42 @@ def build_from_cluster(c):
     caption = assemble(headline, body, outlets, hashtags)
     report.ok(f'written by {writer}; sources: ' + ' | '.join(i['link'] or i['outlet'] for i in c['items'][:4]))
     return images, caption, report, title
+
+
+LAST_CARD = None
+
+
+def render_with_photo(meta, photo_path, focus=0.38):
+    """Re-draw a news card from the data kept with its draft, now with your photo at the top."""
+    from ..render import own_bg, photo
+    card = dict(meta['card'], photo=str(photo_path), photo_focus=focus)
+    own_bg.NEWS_SECTOR, photo.PHOTO_PROMPT = meta.get('news_sector'), meta.get('photo_prompt')
+    try:
+        return cards.news_hero(card)
+    finally:
+        own_bg.NEWS_SECTOR, photo.PHOTO_PROMPT = None, None
+
+
+INDEX_WORDS = re.compile(r'(?i)\b(sensex|nifty(?:\s*50|\s*bank)?|bank\s*nifty|midcap|smallcap|indices|index)\b')
+PERIOD_WORDS = re.compile(r'(?i)\b(week|weeks|weekly|year|years|yearly|annual|ytd|month|months|monthly|quarter|decade|since|so far|'
+                          r'fy\d*|cy\d*|20\d\d|november|october|december|january|february|march|april|may|june|'
+                          r'july|august|september|from its|from the|record low|peak|high of|low of)\b')
+BIG_MOVE = 4.0    # a one-day or one-week index move above this is rare enough to need a stated period
+
+
+def _odd_index_moves(text):
+    """'Sensex jumps 13%' with no period is almost always a misread (a yearly/monthly figure, or a stock's move)."""
+    odd = []
+    for sent in re.split(r'(?<=[.!?\n])\s+|\n', text):
+        if PERIOD_WORDS.search(sent):
+            continue
+        for iw in INDEX_WORDS.finditer(sent):
+            near = sent[iw.end():iw.end() + 40]                    # the % right after the index name
+            m = re.search(r'(\d+(?:\.\d+)?)\s*(?:%|per\s*cent|percent)', near)
+            if m and float(m.group(1)) > BIG_MOVE:
+                odd.append(sent.strip()[:90])
+                break
+    return odd
 
 
 @as_post('news')
@@ -226,7 +269,7 @@ def news(force=False, limit=None):
             finish('news', title, [], '', report, notify=False)
             blocked.append((title, next((m for st, m in report if st == 'fail'), 'blocked')))
             continue
-        if finish('news', title, images, caption, report, allowed_numbers=None):
+        if finish('news', title, images, caption, report, allowed_numbers=None, meta=LAST_CARD):
             made += 1
             _remember(c, recent)
     log.info('news run: %s drafts from %s candidates (%s repeats skipped)', made, tried, skipped)

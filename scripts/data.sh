@@ -26,7 +26,11 @@ case "${1:-}" in
     if git diff --cached --quiet; then echo "nothing to save"; exit 0; fi
     git commit --quiet -m "bot: ${TM_JOB:-update} $(date -u +%FT%TZ)"
     for i in 1 2 3 4 5; do
-      git pull --quiet --rebase origin "$BRANCH" 2>/dev/null || true
+      # on a clash keep this run's version of the clashing lines (-X theirs = our commit during a rebase);
+      # never leave conflict markers behind
+      if ! git pull --quiet --rebase -X theirs origin "$BRANCH" 2>/dev/null; then
+        git rebase --abort 2>/dev/null || true
+      fi
       if git push --quiet origin "HEAD:$BRANCH"; then echo "saved"; exit 0; fi
       sleep $((i * 3))
     done

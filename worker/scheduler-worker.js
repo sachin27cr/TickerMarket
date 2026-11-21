@@ -113,6 +113,13 @@ async function onTelegram(request, env, ctx) {
   } else if (msg && msg.photo && /^\/?idea\b/i.test(msg.caption || '')) {
     work.push(tg(env, 'sendMessage', { chat_id: chat, disable_notification: true,
       text: '⏳ Got your reference image - researching and designing a carousel…' }));
+  } else if (msg && msg.photo) {
+    // a photo for a news draft: reply to the draft, or the draft id in the caption
+    const ref = msg.reply_to_message || {};
+    const m = ((msg.caption || '') + ' ' + (ref.text || '') + ' ' + (ref.caption || '')).match(/\b(\d{8}-[0-9a-f]{5})\b/);
+    if (m) lock = 'd-' + m[1];
+    work.push(tg(env, 'sendMessage', { chat_id: chat, disable_notification: true,
+      text: '⏳ Got the photo - adding it to the news card. The new preview arrives in about a minute.' }));
   } else {
     return new Response('ok');
   }
