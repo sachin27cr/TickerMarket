@@ -570,7 +570,9 @@ def _extremes_scenes(wkx, kind, report):
             scenes.append({'type': 'rows', 'title': title, 'topic': topic, 'tone': tone,
                            'rows': [{'label': name_of(r), 'value': '₹' + fmt_inr(r['close'] if 'close' in r else r.get('last', 0)),
                                      'pct': r['week_pct']} for r in ch],
-                           'voice': f'{seg}: {n}.' if k == 0 else '', 'hold': 3.2})
+                           'voice': (f'In {_seg_short(seg)}, {n} stock{"s" if n != 1 else ""} '
+                                     f'{"hit an all-time high" if kind == "ath" else "fell to a 52-week low"}.') if k == 0 else '',
+                           'hold': 3.2})
         more = len(rows) - 6
         paras.append(f'{seg} ({n}): ' + ', '.join(f'{name_of(r)} ({r["week_pct"]:+.2f}%)' for r in rows[:6])
                      + (f' and {more} more in the reel' if more > 0 else ''))

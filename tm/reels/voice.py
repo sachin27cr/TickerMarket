@@ -68,6 +68,10 @@ def _edge(text, path, voice_id=None):
     vid, rate = (voice_id, '+0%') if voice_id else current()
     if voice_id in [v for v, _, _ in VOICES.values()]:
         rate = next(r for v, r, _ in VOICES.values() if v == voice_id)
+    if 'Multilingual' in vid and len(text.split()) < 10:
+        # multilingual voices guess the language from the text itself: a short line like 'Micro Cap: 11'
+        # can come out in Spanish. Short lines use the same speaker's English-only voice.
+        vid = vid.replace('MultilingualNeural', 'Neural')
 
     async def run():
         await edge_tts.Communicate(text, vid, rate=rate, pitch='-2Hz').save(str(path))
