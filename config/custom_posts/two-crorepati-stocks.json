@@ -1,0 +1,154 @@
+{
+  "label": "10-Year Wealth",
+  "topic_keyword": "Stocks that turned 1 lakh into 1 crore",
+  "title": "₹1 lakh became *₹1.4 crore+* in 10 years. Only *2 stocks* did it",
+  "tone": "up",
+  "cover_stats": [
+    [
+      "Stocks",
+      "2",
+      0
+    ],
+    [
+      "Best",
+      "148.8x",
+      1
+    ],
+    [
+      "Period",
+      "10 years",
+      0
+    ]
+  ],
+  "slides": [
+    {
+      "type": "points",
+      "headline": "The *10-year* test",
+      "points": [
+        "We checked every stock in today's Nifty 500 and Nifty Microcap 250.",
+        "Question: which turned ₹1 lakh into ₹1 crore or more from 20 Nov 2016 to 20 Nov 2026?",
+        "That needs a 100x rise. Only 2 stocks made it.",
+        "Price change only, split and bonus adjusted. Dividends not included."
+      ]
+    },
+    {
+      "type": "bars",
+      "headline": "The *2 stocks*: ₹1 lakh became",
+      "sub": "20 Nov 2016 to 20 Nov 2026",
+      "colour": "up",
+      "rows": [
+        {
+          "name": "Cupid",
+          "value": 14880000,
+          "value_text": "₹1.49 cr",
+          "side_text": "148.8x",
+          "side_sign": 1
+        },
+        {
+          "name": "Tips Music",
+          "value": 13890000,
+          "value_text": "₹1.39 cr",
+          "side_text": "138.9x",
+          "side_sign": 1
+        }
+      ],
+      "note": "About 64% a year, compounded, for 10 years."
+    },
+    {
+      "type": "points",
+      "headline": "*Cupid*: 148.8x",
+      "points": [
+        "Makes male and female condoms and personal-care products; supplies female condoms to Brazil.",
+        "Q3 FY26 revenue: ₹93.51 crore, up from ₹46.35 crore a year earlier (+101.7%).",
+        "Share count grew a lot: 10:1 split and 1:1 bonus in April 2024, 4:1 bonus in March 2026.",
+        "The stock rose over 565% in 2025 alone."
+      ]
+    },
+    {
+      "type": "points",
+      "headline": "*Tips Music*: 138.9x",
+      "points": [
+        "One of India's leading music labels (formerly Tips Industries).",
+        "10:1 stock split in April 2023.",
+        "Very high returns on equity: about 85.6% ROE and 53.6% net profit margin.",
+        "Promoters hold about 64% of the company."
+      ]
+    },
+    {
+      "type": "points",
+      "headline": "Why *holding* is the hard part",
+      "points": [
+        "In 2025, Tips Music fell about 40.5%: from a 52-week high of ₹811.65 to a low of ₹483.",
+        "Selling near the low meant missing the recovery: by 11 Nov 2026 it was back at ₹774.40.",
+        "After a 565% rally in one year, like Cupid's in 2025, selling feels like the obvious move.",
+        "A 100x needs you to sit through falls and big profits without selling."
+      ]
+    },
+    {
+      "type": "bars",
+      "headline": "How *compounding* builds it",
+      "sub": "₹1 lakh at 64.9% a year (Cupid's 10-year pace), steady growth",
+      "colour": "gold",
+      "rows": [
+        {
+          "name": "Year 2",
+          "value": 272000,
+          "value_text": "₹2.72 lakh"
+        },
+        {
+          "name": "Year 4",
+          "value": 740000,
+          "value_text": "₹7.40 lakh"
+        },
+        {
+          "name": "Year 6",
+          "value": 2012000,
+          "value_text": "₹20.1 lakh"
+        },
+        {
+          "name": "Year 8",
+          "value": 5471000,
+          "value_text": "₹54.7 lakh"
+        },
+        {
+          "name": "Year 10",
+          "value": 14880000,
+          "value_text": "₹1.49 cr"
+        }
+      ],
+      "note": "Illustration of steady compounding, not the stock's actual path. Over 60% of the money came in the last 2 years.",
+      "plain": true
+    },
+    {
+      "type": "points",
+      "headline": "What to *take away*",
+      "points": [
+        "Big wealth comes late: at this pace money doubles about every 1.4 years, so the final years add the most.",
+        "The road is never smooth: deep falls and sharp rallies both tempt you to sell.",
+        "100x is very rare: only 2 stocks in this scan did it.",
+        "Past returns are history, not a guide to the future. This is not a recommendation."
+      ]
+    }
+  ],
+  "headline": "Stocks that turned 1 lakh into 1 crore in 10 years: only 2 made it",
+  "paras": [
+    "We checked every stock in today's Nifty 500 and Nifty Microcap 250 for a 100x rise between 20 Nov 2016 and 20 Nov 2026. Only 2 stocks turned ₹1 lakh into more than ₹1 crore.",
+    "Cupid: 148.8x, ₹1 lakh became ₹1.49 cr.\nTips Music: 138.9x, ₹1 lakh became ₹1.39 cr.",
+    "The hard part was holding. Tips Music fell about 40.5% in 2025, from ₹811.65 to ₹483, before recovering to ₹774.40 by 11 Nov 2026. Cupid rose over 565% in 2025 alone, the kind of jump that tempts most people to sell early.",
+    "Compounding rewards time: at about 64.9% a year, money doubles roughly every 1.4 years, so most of the wealth arrives in the final years.",
+    "Price change only, split and bonus adjusted, dividends not included. Companies that were delisted or left these indices are not covered. Past returns are history, not a guide to the future."
+  ],
+  "tags": [
+    "#LongTermInvesting",
+    "#Compounding",
+    "#WealthCreation"
+  ],
+  "sources": [
+    "Ticker Market scan of NSE prices + Yahoo Finance history, 20 Nov 2026 (Cupid 148.8x, Tips Music 138.9x)",
+    "DSIJ - Cupid Q3 FY26 revenue, 4:1 bonus (Mar 2026) - insights.dsij.in",
+    "Trendlyne / Goodreturns - Cupid 10:1 split and 1:1 bonus, April 2024",
+    "Business Today 30 Dec 2025 - Cupid up over 565% in 2025",
+    "Kotak Securities Dec 2025 - Tips Music 52-week high 811.65, low 483",
+    "Value Research - Tips price 774.40 on 11 Nov 2026; MoneyWorks4Me - ROE, margin, promoter holding; Alpha Spread - 10:1 split Apr 2023"
+  ]
+}

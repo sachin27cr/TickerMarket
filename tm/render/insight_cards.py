@@ -156,12 +156,15 @@ def hbars(data):
     x_bar, max_bw = 330, W - 60 - 330 - 10
     for i, r in enumerate(rows):
         cy = y + rh // 2
-        d.text((60, cy), str(i + data.get('start', 1)), font=bebas(40), fill=GOLD, anchor='lm')
-        im.alpha_composite(monogram(48, r['name']), (108, cy - 24))
+        plain = data.get('plain')              # timeline rows: no rank number, no logo badge
+        if not plain:
+            d.text((60, cy), str(i + data.get('start', 1)), font=bebas(40), fill=GOLD, anchor='lm')
+            im.alpha_composite(monogram(48, r['name']), (108, cy - 24))
+        nx = 60 if plain else 166
         nm = r['name']
-        while d.textlength(nm, font=hind(27, 'SemiBold')) > x_bar - 170 and len(nm) > 4:
+        while d.textlength(nm, font=hind(27, 'SemiBold')) > x_bar - nx - 4 and len(nm) > 4:
             nm = nm[:-1]
-        d.text((166, cy), nm if nm == r['name'] else nm.rstrip() + '.', font=hind(27, 'SemiBold'), fill=WHITE, anchor='lm')
+        d.text((nx, cy), nm if nm == r['name'] else nm.rstrip() + '.', font=hind(27, 'SemiBold'), fill=WHITE, anchor='lm')
         c = {'gold': GOLD, 'up': UP, 'down': DOWN}.get(data.get('colour', 'gold')) or col(r['value'])
         bw = max(8, int(max_bw * abs(r['value']) / mx * 0.62))
         d.rounded_rectangle([x_bar, cy - 22, x_bar + bw, cy + 22], radius=8, fill=c)
@@ -170,7 +173,17 @@ def hbars(data):
             d.text((W - 60, cy + 2), r['side_text'], font=hind(24, 'SemiBold'), fill=col(r.get('side_sign', 0)), anchor='rm')
         y += rh
     if data.get('note'):
-        d.text((60, min(y + 20, H - 236)), data['note'], font=hind(23), fill=MUTED, anchor='lm')
+        lines, cur = [], ''
+        for w in data['note'].split():         # wrap long notes instead of running off the card
+            t = (cur + ' ' + w).strip()
+            if d.textlength(t, font=hind(23)) > W - 120 and cur:
+                lines.append(cur); cur = w
+            else:
+                cur = t
+        lines.append(cur)
+        ny = min(y + 20, H - 236 - 34 * (len(lines) - 1))
+        for k, ln in enumerate(lines[:3]):
+            d.text((60, ny + 34 * k), ln, font=hind(23), fill=MUTED, anchor='lm')
     footer(im, d, '', swipe=data.get('swipe', False))
     return im.convert('RGB')
 

@@ -55,7 +55,7 @@ def render_spec(spec):
         t = s.get('type')
         if t == 'bars':
             images.append(ic.hbars({**data, 'sub': s.get('sub'), 'note': s.get('note'), 'colour': s.get('colour', 'gold'),
-                                    'rows': s['rows'][:10]}))
+                                    'plain': s.get('plain', False), 'rows': s['rows'][:10]}))
         elif t == 'list':
             images.append(ic.list_slide({**data, 'rows': [tuple(r) for r in s['rows'][:10]]}))
         elif t == 'table':
@@ -130,7 +130,8 @@ def make_post(spec, report, origin):
         report.ok('sources: ' + ' | '.join(src))
     report.ok(f'made from: {origin}')
     allowed = _spec_numbers(spec) + [today_ist().day, today_ist().year]
-    return finish('custom_post', spec['title'], images, caption, report, allowed)
+    meta = {'topic_keyword': spec['topic_keyword']} if spec.get('topic_keyword') else None
+    return finish('custom_post', spec['title'], images, caption, report, allowed, meta=meta)
 
 
 # ---------------------------------------------------------------- A) written in chat
