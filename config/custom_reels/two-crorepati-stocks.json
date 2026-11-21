@@ -1,0 +1,188 @@
+{
+ "label": "10-Year Wealth",
+ "topic_keyword": "Stocks that turned 1 lakh into 1 crore",
+ "max_len": 75,
+ "headline": "Stocks that turned 1 lakh into 1 crore in 10 years: only 2 made it",
+ "paras": [
+  "We checked every stock in today's Nifty 500 and Nifty Microcap 250 for a 100x rise between 20 Nov 2016 and 20 Nov 2026. Only 2 stocks turned ₹1 lakh into more than ₹1 crore.",
+  "Cupid: 148.8x, ₹1 lakh became ₹1.49 cr.\nTips Music: 138.9x, ₹1 lakh became ₹1.39 cr.",
+  "The hard part was holding. Tips Music fell about 40.5% in 2025, from ₹811.65 to ₹483, before recovering to ₹774.40 by 11 Nov 2026. Cupid rose over 565% in 2025 alone, the kind of jump that tempts most people to sell early.",
+  "Compounding rewards time: at about 64.9% a year, money doubles roughly every 1.4 years, so most of the wealth arrives in the final years.",
+  "Price change only, split and bonus adjusted, dividends not included. Companies that were delisted or left these indices are not covered. Past returns are history, not a guide to the future."
+ ],
+ "tags": [
+  "#LongTermInvesting",
+  "#Compounding",
+  "#WealthCreation"
+ ],
+ "sources": [
+  "Ticker Market scan of NSE prices + Yahoo Finance history, 20 Nov 2026 (Cupid 148.8x, Tips Music 138.9x)",
+  "DSIJ - Cupid Q3 FY26 revenue, 4:1 bonus (Mar 2026) - insights.dsij.in",
+  "Trendlyne / Goodreturns - Cupid 10:1 split and 1:1 bonus, April 2024",
+  "Business Today 30 Dec 2025 - Cupid up over 565% in 2025",
+  "Kotak Securities Dec 2025 - Tips Music 52-week high 811.65, low 483",
+  "Value Research - Tips price 774.40 on 11 Nov 2026; MoneyWorks4Me - ROE, margin, promoter holding; Alpha Spread - 10:1 split Apr 2023"
+ ],
+ "scenes": [
+  {
+   "type": "intro",
+   "title": "10-Year Wealth",
+   "kicker": "₹1 lakh. 10 years.",
+   "kicker2": "₹1 crore+",
+   "topic": "highs",
+   "tone": "up",
+   "hook": "Only 2 stocks did it. Can you guess them?",
+   "voice": "Stocks that turned 1 lakh into 1 crore in ten years. Only two stocks did it. Can you guess them?"
+  },
+  {
+   "type": "rows",
+   "title": "The 10-year test",
+   "topic": "indices",
+   "tone": "up",
+   "rows": [
+    {
+     "label": "Every stock checked",
+     "sub": "Today's Nifty 500 and Nifty Microcap 250"
+    },
+    {
+     "label": "20 Nov 2016 to 20 Nov 2026",
+     "sub": "Price change, split and bonus adjusted"
+    },
+    {
+     "label": "Needed: a 100x rise",
+     "sub": "₹1 lakh to ₹1 crore or more"
+    }
+   ],
+   "voice": "We checked every stock in today's Nifty 500 and Microcap 250 over ten years. Turning one lakh into one crore needs a hundred times rise."
+  },
+  {
+   "type": "reveal",
+   "title": "The 2 stocks that did it",
+   "topic": "highs",
+   "tone": "up",
+   "gap": 2.6,
+   "items": [
+    {
+     "name": "Cupid",
+     "about": "Condoms and personal-care products",
+     "start_text": "₹1 lakh",
+     "end_text": "₹1.49 cr",
+     "multiple_text": "148.8x",
+     "multiple": 148.8
+    },
+    {
+     "name": "Tips Music",
+     "about": "Music label (formerly Tips Industries)",
+     "start_text": "₹1 lakh",
+     "end_text": "₹1.39 cr",
+     "multiple_text": "138.9x",
+     "multiple": 138.9
+    }
+   ],
+   "voice": "Number one, Cupid. One lakh became one point four nine crore, about a hundred and forty nine times. Number two, Tips Music. One lakh became one point three nine crore."
+  },
+  {
+   "type": "rows",
+   "title": "Cupid: 148.8x",
+   "topic": "sectors",
+   "tone": "up",
+   "rows": [
+    {
+     "label": "Condoms and personal care",
+     "sub": "Supplies female condoms to Brazil"
+    },
+    {
+     "label": "Q3 FY26 revenue ₹93.51 cr",
+     "sub": "Up 101.7% from ₹46.35 cr a year earlier"
+    },
+    {
+     "label": "Up over 565% in 2025",
+     "sub": "After a 10:1 split and 1:1 bonus in April 2024"
+    }
+   ],
+   "voice": "Cupid makes condoms and personal-care products. Its quarterly revenue doubled in a year, and the stock rose over five hundred and sixty five percent in 2025 alone."
+  },
+  {
+   "type": "rows",
+   "title": "Tips Music: 138.9x",
+   "topic": "sectors",
+   "tone": "up",
+   "rows": [
+    {
+     "label": "One of India's leading music labels",
+     "sub": "Earns from its song library"
+    },
+    {
+     "label": "Return on equity about 85.6%",
+     "sub": "Net profit margin 53.6%"
+    },
+    {
+     "label": "Promoters hold about 64%",
+     "sub": "10:1 stock split in April 2023"
+    }
+   ],
+   "voice": "Tips Music is one of India's leading music labels. It earns a return on equity of about eighty five percent."
+  },
+  {
+   "type": "rows",
+   "title": "Why holding is the hard part",
+   "topic": "lows",
+   "tone": "down",
+   "rows": [
+    {
+     "label": "Tips Music, 2025 low",
+     "value": "₹483",
+     "pct": -40.5,
+     "sub": "Down about 40.5% from its high of ₹811.65"
+    },
+    {
+     "label": "Then the recovery",
+     "value": "₹774.40",
+     "sub": "By 11 Nov 2026: selling near the low missed it"
+    },
+    {
+     "label": "Cupid",
+     "value": "+565%",
+     "sub": "In 2025: a jump that tempts you to sell early"
+    }
+   ],
+   "voice": "Here is the hard part. In 2025, Tips Music fell about forty percent. Selling near the low meant missing the recovery. And after a rally like Cupid's, selling feels like the obvious move."
+  },
+  {
+   "type": "rows",
+   "title": "How compounding builds it",
+   "topic": "flows",
+   "tone": "up",
+   "rows": [
+    {
+     "label": "Year 2",
+     "value": "₹2.72 lakh"
+    },
+    {
+     "label": "Year 4",
+     "value": "₹7.40 lakh"
+    },
+    {
+     "label": "Year 6",
+     "value": "₹20.1 lakh"
+    },
+    {
+     "label": "Year 8",
+     "value": "₹54.7 lakh"
+    },
+    {
+     "label": "Year 10",
+     "value": "₹1.49 cr",
+     "sub": "Steady 64.9% a year, an illustration"
+    }
+   ],
+   "voice": "That is compounding. At about sixty five percent a year, money doubles every one point four years, and over sixty percent of the final amount comes in the last two years."
+  },
+  {
+   "type": "outro",
+   "topic": "outro",
+   "tone": "up",
+   "voice": "Past returns are no guide to the future. Save this, and follow Ticker Market India for more."
+  }
+ ]
+}

@@ -96,12 +96,12 @@ def finish(kind, title, images, caption, report: Report, allowed_numbers=None, m
     return d
 
 
-def finish_video(kind, title, video_path, cover, caption, report, allowed_numbers=None, script=None):
+def finish_video(kind, title, video_path, cover, caption, report, allowed_numbers=None, script=None, keyword=None):
     """Same checks as finish(); the reel (mp4) and its cover frame go to Telegram for approval.
     Reels always wait for your approval (they are not auto-posted)."""
     import shutil
     from ..writer import seo
-    caption = seo.optimise(kind, caption)
+    caption = seo.optimise(kind, caption, keyword)
     if allowed_numbers is not None:
         body = caption.rsplit('\n\n', 1)[0]
         check_numbers(body, list(allowed_numbers) + date_numbers(now_ist().date()) + _name_digits(), report)
@@ -122,7 +122,7 @@ def finish_video(kind, title, video_path, cover, caption, report, allowed_number
     d['video'] = vid_rel
     d['script'] = script or []
     d['report_text'] = report.text()
-    d['topic_keyword'] = seo.topic_keyword(kind, caption)
+    d['topic_keyword'] = keyword or seo.topic_keyword(kind, caption)
     store.save_draft(d)
     telegram.send_draft(d)
     log.info('reel draft %s sent (%s)', d['id'], kind)

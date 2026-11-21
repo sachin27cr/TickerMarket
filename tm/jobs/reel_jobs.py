@@ -100,9 +100,9 @@ def _list_scenes(hl, tone):
     return scenes
 
 
-def _make(kind, title, label, scenes, caption, report, allowed, seed, max_len=None):
+def _make(kind, title, label, scenes, caption, report, allowed, seed, max_len=None, keyword=None):
     from ..writer import seo
-    kw = seo.topic_keyword(kind)
+    kw = keyword or seo.topic_keyword(kind)
     if scenes and scenes[0].get('type') == 'intro' and scenes[0].get('voice') and not seo._has(kw, scenes[0]['voice']):
         v = scenes[0]['voice']                          # say the search keyword in the first seconds (IG transcribes audio)
         scenes[0]['voice'] = f'{kw}. {v}'
@@ -111,7 +111,7 @@ def _make(kind, title, label, scenes, caption, report, allowed, seed, max_len=No
     report.extend(rep)
     script = [voice_line for voice_line in (sc.get('voice') for sc in scenes)]
     script = [(f'{i + 1}. ' + (v or '(on-screen list, no voice)')) for i, v in enumerate(script)]
-    return finish_video(kind, title, path, cover, caption, report, allowed, script)
+    return finish_video(kind, title, path, cover, caption, report, allowed, script, keyword)
 
 
 # ---------------------------------------------------------------- Morning Brief
@@ -626,10 +626,10 @@ def custom_reel(force=False, name=None):
     for sc in spec['scenes']:
         sc = dict(sc)
         if sc['type'] == 'intro':
-            sc['day'] = date.fromisoformat(sc['day'])
+            sc['day'] = date.fromisoformat(sc['day']) if sc.get('day') else None
         scenes.append(sc)
     report = Report()
     report.ok('explainer reel: facts taken from the sources listed in the file ' + ', '.join(spec.get('sources', [])[:4]))
     caption = assemble(spec['headline'], spec['paras'], '', tags(*spec.get('tags', [])))
     return _make('reel_custom', spec['headline'], spec.get('label', 'Market Explainer'), scenes, caption, report,
-                 None, name)
+                 None, name, spec.get('max_len'), spec.get('topic_keyword'))

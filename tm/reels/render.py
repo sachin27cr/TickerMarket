@@ -256,13 +256,54 @@ def _bars_tile(head, rows, colr, y, start, scale):
     return Tile(card, 60, y, start, live)
 
 
+def _reveal_tile(it, y, start):
+    """One stock: name + multiple badge, '1 lakh -> 1.49 cr' with a count-up, and a growth curve drawn live."""
+    import math
+    w, h = W - 120, 440
+    card, d = _glass(w, h, UPC)
+    nf = _font('bebas', 96)
+    d.text((44, 80), it['name'].upper(), font=nf, fill=WHITE, anchor='lm')
+    if it.get('about'):
+        d.text((46, 150), it['about'], font=_font('SemiBold', 34), fill=MUTE, anchor='lm')
+    mt = it.get('multiple_text', '')
+    m = max(float(it.get('multiple') or 100), 2)
+
+    def live(dd, x, y0, t, e):
+        k = ease((t - 0.2) / 1.6)
+        if mt:
+            f = _font('bebas', 70)
+            bw = dd.textlength(mt, font=f) + 50
+            s_ = 1 + 0.08 * max(0, 1 - abs(t - 1.9) * 4)          # small pop when the count finishes
+            cx, cy = x + w - 44 - bw / 2, y0 + 80
+            dd.rounded_rectangle([cx - bw * s_ / 2, cy - 40 * s_, cx + bw * s_ / 2, cy + 40 * s_], radius=40, fill=UPC)
+            dd.text((cx, cy + 2), mt, font=f, fill=INK, anchor='mm')
+        st, en = it.get('start_text', ''), it.get('end_text', '')
+        fs, fe = _font('bebas', 78), _font('bebas', 128)
+        ay = y0 + 255
+        dd.text((x + 44, ay), st, font=fs, fill=WHITE, anchor='lm')
+        ax = x + 44 + dd.textlength(st, font=fs) + 26
+        dd.line([(ax, ay), (ax + 70, ay)], fill=SAFFRON, width=8)
+        dd.polygon([(ax + 64, ay - 20), (ax + 98, ay), (ax + 64, ay + 20)], fill=SAFFRON)
+        dd.text((ax + 124, ay + 4), _num_fmt(en, k), font=fe, fill=SAFFRON, anchor='lm')
+        # growth curve along the bottom, drawn left to right
+        x0, x1, yb, ch = x + 44, x + w - 44, y0 + h - 36, 90
+        n = max(2, int(60 * k))
+        pts = [(x0 + (x1 - x0) * j / 60, yb - ch * (m ** (j / 60) - 1) / (m - 1)) for j in range(n + 1)]
+        if len(pts) > 1:
+            dd.polygon(pts + [(pts[-1][0], yb), (x0, yb)], fill=UPC + (60,))
+            dd.line(pts, fill=UPC, width=6)
+            px, py = pts[-1]
+            dd.ellipse([px - 10, py - 10, px + 10, py + 10], fill=UPC)
+    return Tile(card, 60, y, start, live)
+
+
 def scene_tiles(sc):
     """Tiles for one scene, laid out in the middle of the frame."""
     tiles = []
     kind = sc['type']
     voiced = bool(sc.get('voice'))
     if kind == 'intro':
-        day = sc['day']
+        day = sc.get('day')
         im = Image.new('RGBA', (W - 120, 400), (0, 0, 0, 0))
         d = ImageDraw.Draw(im)
         f = _font('cond', 44)
@@ -270,8 +311,15 @@ def scene_tiles(sc):
         d.rounded_rectangle([0, 0, tw + 70, 66], radius=33, fill=GLASS + (215,), outline=SAFFRON, width=3)
         d.ellipse([20, 24, 38, 42], fill=SAFFRON)
         d.text((50, 34), sc['title'].upper(), font=f, fill=WHITE, anchor='lm')
-        d.text((0, 100), day.strftime('%A').upper(), font=_font('bebas', 100), fill=SAFFRON)
-        d.text((0, 190), f'{day.day} {day.strftime("%B %Y")}'.upper(), font=_font('bebas', 156), fill=WHITE)
+        if day:
+            d.text((0, 100), day.strftime('%A').upper(), font=_font('bebas', 100), fill=SAFFRON)
+            d.text((0, 190), f'{day.day} {day.strftime("%B %Y")}'.upper(), font=_font('bebas', 156), fill=WHITE)
+        else:                                       # evergreen story: a big kicker instead of the date
+            d.text((0, 100), sc.get('kicker', '').upper(), font=_font('bebas', 100), fill=SAFFRON)
+            k2, f2 = sc.get('kicker2', '').upper(), 156
+            while d.textlength(k2, font=_font('bebas', f2)) > W - 130 and f2 > 80:
+                f2 -= 6
+            d.text((0, 190), k2, font=_font('bebas', f2), fill=WHITE)
         tiles.append(Tile(im, 60, 420, 0.05))
         tmp = ImageDraw.Draw(Image.new('RGBA', (10, 10)))
         hf = _font('Bold', 62)
@@ -290,6 +338,12 @@ def scene_tiles(sc):
                 dd.text((px, y0 + 38 + li * 82 + int((1 - k) * 18)), w, font=hf, fill=col + (int(255 * k),))
                 pos[li] = px + dd.textlength(w + ' ', font=hf)
         tiles.append(Tile(card, 60, 860, 0.45, live))
+    elif kind == 'reveal':
+        tiles.append(_title_tile(sc['title'], 380, 0.05))
+        y = 520
+        for i, it in enumerate(sc['items'][:2]):
+            tiles.append(_reveal_tile(it, y, 0.35 + i * float(sc.get('gap', 2.4))))
+            y += 470
     elif kind == 'rows':
         tiles.append(_title_tile(sc['title'], 380, 0.05))
         rows = sc['rows'][:6]
@@ -348,6 +402,8 @@ def scene_tiles(sc):
 
 
 def _min_time(sc):
+    if sc['type'] == 'reveal':
+        return 6.0
     if sc['type'] == 'rows':
         return 1.8 + 0.45 * len(sc.get('rows', []))
     if sc['type'] == 'duo':
