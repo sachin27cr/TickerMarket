@@ -93,6 +93,12 @@ def all_indices():
                 'pct': float(row['percentChange']), 'prev': float(row['previousClose']),
                 'advances': int(row.get('advances') or 0), 'declines': int(row.get('declines') or 0),
             }
+            wk = row.get('oneWeekAgo') or row.get('oneWeekAgoVal')      # NSE's own close one week ago
+            try:
+                if wk not in (None, '', '-') and float(wk) > 0:
+                    out[row['index']]['week_ago'] = float(wk)
+            except (TypeError, ValueError):
+                pass
         except (KeyError, TypeError, ValueError):
             continue
     ts = parse_nse_date(j.get('timestamp', '')) if j.get('timestamp') else None

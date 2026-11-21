@@ -100,14 +100,14 @@ def _list_scenes(hl, tone):
     return scenes
 
 
-def _make(kind, title, label, scenes, caption, report, allowed, seed):
+def _make(kind, title, label, scenes, caption, report, allowed, seed, max_len=None):
     from ..writer import seo
     kw = seo.topic_keyword(kind)
     if scenes and scenes[0].get('type') == 'intro' and scenes[0].get('voice') and not seo._has(kw, scenes[0]['voice']):
         v = scenes[0]['voice']                          # say the search keyword in the first seconds (IG transcribes audio)
         scenes[0]['voice'] = f'{kw}. {v}'
     out = Path(tempfile.mkdtemp()) / f'{kind}.mp4'
-    path, cover, rep, _ = render.build(scenes, label, out, seed)
+    path, cover, rep, _ = render.build(scenes, label, out, seed, max_len)
     report.extend(rep)
     script = [voice_line for voice_line in (sc.get('voice') for sc in scenes)]
     script = [(f'{i + 1}. ' + (v or '(on-screen list, no voice)')) for i, v in enumerate(script)]
@@ -388,16 +388,17 @@ def evening_reel(force=False):
 
 # ---------------------------------------------------------------- Week in Review (Saturday)
 
+WEEKLY_MAX_LEN = 90       # the weekly reel carries much more data than the daily ones
+
+
 def _week_change(ysym):
-    import yfinance as yf
-    h = yf.Ticker(ysym).history(period='1mo', interval='1d', auto_adjust=False).dropna(subset=['Close'])
+    """Kept for tests and the Sensex (BSE is not in NSE's index feed)."""
     mon = today_ist() - timedelta(days=today_ist().weekday())
-    before = h[[d.date() < mon for d in h.index]]
-    week = h[[d.date() >= mon for d in h.index]]
-    if before.empty or week.empty:
-        return None
-    a, b = float(before['Close'].iloc[-1]), float(week['Close'].iloc[-1])
-    return {'start': a, 'end': b, 'pct': (b - a) / a * 100, 'last_date': week.index[-1].date()}
+    return market.week_change_yahoo(ysym, mon)
+
+
+def _seg_short(seg):
+    return seg.replace(' Cap', ' caps').lower()
 
 
 @as_post('reel_weekly')
@@ -409,52 +410,124 @@ def weekly_reel(force=False):
     if store.seen('post', key) and not force:
         return
     report = Report()
-    quotes, _, nse_date, rep = market.market_snapshot()
-    report.extend([r for r in rep if r[0] != 'ok'])
-    rows, allowed, paras = [], [monday.day, friday.day, friday.year], []
-    lines = []
-    for name, ysym, lab in (('NIFTY 50', '^NSEI', 'Nifty 50'), ('SENSEX', '^BSESN', 'Sensex'), ('NIFTY BANK', '^NSEBANK', 'Nifty Bank')):
-        try:
-            w = _week_change(ysym)
-        except Exception as e:                       # noqa: BLE001
-            report.warn(f'{lab}: weekly history unavailable ({type(e).__name__})'); continue
-        q = quotes.get(name)
+    caps = [n for n, _ in market.CAP_INDEX_LABELS]
+    secs = market.WEEK_SECTORS
+    wk, rep = market.weekly_indices(['NIFTY 50', 'NIFTY BANK'] + caps + list(secs.values()), monday)
+    report.extend(rep)
+    rows, allowed, paras, lines = [], [monday.day, friday.day, friday.year], [], []
+    # headline indices: Nifty + Bank from NSE; Sensex from Yahoo, checked against BSE's close
+    head = [('NIFTY 50', 'Nifty 50'), ('SENSEX', 'Sensex'), ('NIFTY BANK', 'Nifty Bank')]
+    for name, lab in head:
+        w = wk.get(name)
+        if name == 'SENSEX':
+            quotes, _, _, rp = market.market_snapshot({'SENSEX': (None, '^BSESN')})
+            q = quotes.get('SENSEX')
+            try:
+                y = _week_change('^BSESN')
+            except Exception as e:                   # noqa: BLE001
+                report.warn(f'Sensex: weekly history unavailable ({type(e).__name__})'); continue
+            if not y or not q or abs(y['end'] - q['close']) / q['close'] * 100 > 0.05:
+                report.warn('Sensex: week close not confirmed by BSE - left out'); continue
+            w = y
         if not w:
             continue
-        if q and abs(w['end'] - q['close']) / q['close'] * 100 > 0.05:
-            report.warn(f'{lab}: Yahoo week close {w["end"]:.2f} vs official {q["close"]:.2f} - left out'); continue
         rows.append({'label': lab, 'value': fmt_inr(w['end'], 0), 'pct': w['pct']})
-        allowed += [w['end'], abs(w['pct'])]
+        allowed += [w['end'], abs(w['pct']), round(w['end'])]
         lines.append(f'{lab}: {fmt_inr(w["end"])} ({w["pct"]:+.2f}% for the week)')
-    if not rows:
-        report.fail('no weekly index data confirmed')
+    if not rows or rows[0]['label'] != 'Nifty 50':
+        report.fail('Nifty 50 weekly change not confirmed')
         finish_video('reel_weekly', key, None, None, '', report); return
     n = rows[0]
     tone = 'up' if n['pct'] >= 0 else 'down'
-    scenes = [{'type': 'rows', 'title': 'The week for indices', 'rows': rows, 'topic': 'indices', 'tone': tone,
-               'voice': f'The Nifty closed the week at {V.pts(float(n["value"].replace(",", "")))}.'
-                        + (lambda b: f' Bank Nifty {"outperformed" if b["pct"] > n["pct"] + 0.05 else "lagged" if b["pct"] < n["pct"] - 0.05 else "kept pace"}, {V.signed(b["pct"])}.'
-                           if b else '')(next((r for r in rows if r['label'] == 'Nifty Bank'), None))}]
+    bank = next((r for r in rows if r['label'] == 'Nifty Bank'), None)
+    v = f'The Nifty closed the week at {V.pts(float(n["value"].replace(",", "")))}.'
+    if bank:
+        rel = 'outperformed' if bank['pct'] > n['pct'] + 0.05 else 'lagged' if bank['pct'] < n['pct'] - 0.05 else 'kept pace'
+        v += f' Bank Nifty {rel}, {V.signed(bank["pct"])}.'
+    scenes = [{'type': 'rows', 'title': 'The week for indices', 'rows': rows, 'topic': 'indices', 'tone': tone, 'voice': v}]
     paras.append('\n'.join(lines))
+
+    # market-cap indices
+    crow = [(lab, wk[nm]) for nm, lab in market.CAP_INDEX_LABELS if nm in wk]
+    if len(crow) >= 3:
+        best = max(crow, key=lambda x: x[1]['pct']); worst = min(crow, key=lambda x: x[1]['pct'])
+        short = lambda lab: lab.split(' (')[0].replace(' Cap', ' caps').lower()
+        voice = (f'By market cap, {short(best[0])} did best, {V.signed(best[1]["pct"])}, '
+                 f'and {short(worst[0])} {"gained the least" if worst[1]["pct"] >= 0 else "fell the most"}, '
+                 f'{V.signed(worst[1]["pct"])}.')
+        scenes.append({'type': 'rows', 'title': 'Market cap indices this week', 'topic': 'sectors', 'tone': tone,
+                       'rows': [{'label': lab.split(' (')[0], 'value': fmt_inr(w['end'], 0), 'pct': w['pct'],
+                                 'sub': lab.split('(')[1].rstrip(')')} for lab, w in crow],
+                       'voice': voice})
+        paras.append('By market cap:\n' + '\n'.join(f'{lab}: {fmt_inr(w["end"])} ({w["pct"]:+.2f}%)' for lab, w in crow))
+        allowed += [x for _, w in crow for x in (w['end'], abs(w['pct']), round(w['end']))] + [100, 150, 250]
+    else:
+        report.warn('market-cap index weekly changes not confirmed - scene left out')
+
+    # sectors
+    srow = sorted([(sector_label(k), wk[v]['pct']) for k, v in secs.items() if v in wk], key=lambda x: x[1], reverse=True)
+    if len(srow) >= 6:
+        top, bot = srow[:4], srow[-4:][::-1]
+        scenes.append({'type': 'duo', 'title': 'Sectors this week', 'left_title': 'Best sectors', 'right_title': 'Weakest sectors',
+                       'left': [{'label': a.replace('Nifty ', ''), 'pct': p} for a, p in top],
+                       'right': [{'label': a.replace('Nifty ', ''), 'pct': p} for a, p in bot],
+                       'topic': 'sectors', 'tone': tone,
+                       'voice': f'Among sectors, {top[0][0]} led, {V.signed(top[0][1])}. '
+                                f'{bot[0][0]} {"lagged" if bot[0][1] >= 0 else "was the weakest"}, {V.signed(bot[0][1])}.'})
+        paras.append('Best sectors: ' + ', '.join(f'{a.replace("Nifty ", "")} {p:+.2f}%' for a, p in top[:3]) +
+                     '. Weakest: ' + ', '.join(f'{a.replace("Nifty ", "")} {p:+.2f}%' for a, p in bot[:3]) + '.')
+        allowed += [abs(p) for _, p in srow]
+    else:
+        report.warn('sector weekly changes not confirmed - scene left out')
+
+    # top 5 gainers and losers in each market-cap group
+    mv, rep = market.weekly_cap_movers(monday, 5)
+    report.extend(rep)
+    store.write_json(f'weekly/{monday}-movers.json', {k: {**v} for k, v in mv.items()})
+    for seg, _ in market.CAP_SEGMENTS:
+        g = mv.get(seg)
+        if not g or not (g['gainers'] or g['losers']):
+            continue
+        gs, ls = g['gainers'], g['losers']
+        bits = []
+        if gs:
+            bits.append(f'{gs[0]["name"]} jumped {V.pct(gs[0]["pct"])}')
+        if ls:
+            bits.append(f'{ls[0]["name"]} fell {V.pct(ls[0]["pct"])}')
+        scenes.append({'type': 'duo', 'title': f'{seg}: top movers this week', 'left_title': f'Top {len(gs)} gainers',
+                       'right_title': f'Top {len(ls)} losers', 'topic': 'movers', 'tone': tone,
+                       'left': [{'label': m['name'], 'pct': m['pct']} for m in gs],
+                       'right': [{'label': m['name'], 'pct': m['pct']} for m in ls],
+                       'voice': f'In {_seg_short(seg)}, ' + ', and '.join(bits) + '.'})
+        paras.append(f'{seg}: ' + ('gainers ' + ', '.join(f'{m["name"]} {m["pct"]:+.2f}%' for m in gs[:3]) if gs else '')
+                     + (' | losers ' + ', '.join(f'{m["name"]} {m["pct"]:+.2f}%' for m in ls[:3]) if ls else ''))
+        allowed += [abs(m['pct']) for m in gs + ls] + [len(gs), len(ls), 100, 150, 250]
+
+    if mv:
+        paras.append('The full top 5 gainers and losers of each market-cap group are in the reel.')
+        allowed.append(5)
+    # FII / DII
     hist = store.read_json('fii/history.json', {}) or {}
-    wk = [d for d in sorted(hist) if str(monday) <= d <= str(friday)]
-    if len(wk) >= 3:
-        fii = round(sum(hist[d]['fii'] for d in wk), 2)
-        dii = round(sum(hist[d]['dii'] for d in wk), 2)
-        scenes.append({'type': 'rows', 'title': f'FII / DII this week ({len(wk)} sessions)', 'topic': 'flows',
-                       'rows': [{'label': 'FII net', 'value': f'₹{fmt_inr(fii, 0)} CR', 'sub': 'buyers' if fii >= 0 else 'sellers'},
-                                {'label': 'DII net', 'value': f'₹{fmt_inr(dii, 0)} CR', 'sub': 'buyers' if dii >= 0 else 'sellers'}],
-                       'voice': f'FIIs {"bought" if fii >= 0 else "sold"} {V.crore(fii)} over the week. '
-                                f'DIIs {"bought" if dii >= 0 else "sold"} {V.crore(dii)}.'})
-        paras.append(f'FII net for the week: ₹{fmt_inr(fii)} crore; DII net: ₹{fmt_inr(dii)} crore ({len(wk)} sessions).')
-        allowed += [abs(fii), abs(dii), round(fii), round(dii), len(wk)]
+    wkd = [d for d in sorted(hist) if str(monday) <= d <= str(friday)]
+    if len(wkd) >= 3:
+        fii = round(sum(hist[d]['fii'] for d in wkd), 2)
+        dii = round(sum(hist[d]['dii'] for d in wkd), 2)
+        sg = lambda x: f'{"+" if x >= 0 else "-"}₹{fmt_inr(abs(x), 0)} CR'
+        scenes.append({'type': 'rows', 'title': f'FII / DII this week ({len(wkd)} sessions)', 'topic': 'flows',
+                       'rows': [{'label': 'FII net', 'value': sg(fii), 'sub': 'buyers' if fii >= 0 else 'sellers'},
+                                {'label': 'DII net', 'value': sg(dii), 'sub': 'buyers' if dii >= 0 else 'sellers'}],
+                       'voice': f'Foreign institutions {"bought" if fii >= 0 else "sold"} {V.crore(fii)} over the week. '
+                                f'Domestic institutions {"bought" if dii >= 0 else "sold"} {V.crore(dii)}.'})
+        paras.append(f'FIIs net {"bought" if fii >= 0 else "sold"} ₹{fmt_inr(abs(fii))} crore and DIIs net '
+                     f'{"bought" if dii >= 0 else "sold"} ₹{fmt_inr(abs(dii))} crore this week ({len(wkd)} sessions).')
+        allowed += [abs(fii), abs(dii), round(abs(fii)), round(abs(dii)), len(wkd)]
     wkx = store.read_json(f'weekly/{monday}.json')
     if wkx and len(wkx.get('groups') or {}) == len(market.CAP_SEGMENTS):
         ath = sum(g['ath_count'] for g in wkx['groups'].values())
         low = sum(g['low_count'] for g in wkx['groups'].values())
         scenes.append({'type': 'rows', 'title': 'Highs and lows this week', 'topic': 'highs' if ath >= low else 'lows',
                        'rows': [{'label': 'All-time highs', 'value': str(ath)}, {'label': '52-week lows', 'value': str(low)}],
-                       'voice': f'{ath} stocks hit record highs this week. {low} sank to 52-week lows.'})
+                       'voice': f'{ath} stocks hit record highs this week. {low} sank to 52-week lows.', 'optional': 1})
         paras.append(f'This week: {ath} stocks at all-time highs and {low} at 52-week lows across the four market-cap groups.')
         allowed += [ath, low, 52]
     label = f'{monday.day}-{friday.day} {friday.strftime("%b")}' if monday.month == friday.month else \
@@ -462,12 +535,13 @@ def weekly_reel(force=False):
     scenes.insert(0, {'type': 'intro', 'title': 'Week in Review', 'day': friday, 'topic': 'intro_week', 'tone': tone,
                       'hook': f'Nifty {"gains" if n["pct"] >= 0 else "falls"} {abs(n["pct"]):.2f}% this week',
                       'voice': f'The Nifty {"gained" if n["pct"] >= 0 else "lost"} {V.pct(n["pct"])} this week. '
-                               f'Here is the week in 30 seconds.'})
+                               f'Here is the full week, by index, sector and market cap.'})
     allowed.append(round(abs(n['pct']), 2))
-    scenes.append(_outro('Follow for the week in review every Saturday.'))
+    scenes.append(_outro('For the full details, visit our page, and follow Ticker Market India for the week in review '
+                         'every Saturday.'))
     caption = assemble(f'Week in Review: {label}', paras, '',
-                       tags('#StockMarketIndia', '#Nifty50', '#WeeklyRecap', '#Sensex', '#ShareMarket'))
-    if _make('reel_weekly', key, 'Week in Review', scenes, caption, report, allowed, str(monday)):
+                       tags('#StockMarketIndia', '#Nifty50', '#WeeklyRecap', '#Sensex', '#SmallCap'))
+    if _make('reel_weekly', key, 'Week in Review', scenes, caption, report, allowed, str(monday), WEEKLY_MAX_LEN):
         store.mark_seen('post', key)
 
 

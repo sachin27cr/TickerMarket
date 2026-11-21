@@ -233,7 +233,7 @@ def _row_tile(r, y, rh, start, big, scale):
 def _bars_tile(head, rows, colr, y, start, scale):
     """Ranked bars (best or weakest): name, growing bar, change."""
     w = W - 120
-    rh = 92
+    rh = 92 if len(rows) <= 4 else 80
     card, d = _glass(w, 96 + rh * len(rows), colr)
     d.text((44, 54), head.upper(), font=_font('cond', 46), fill=colr, anchor='lm')
     for i, r in enumerate(rows):
@@ -311,10 +311,15 @@ def scene_tiles(sc):
                                    start=(0.45 if voiced else 0.15) + i * stagger))
     elif kind == 'duo':
         tiles.append(_title_tile(sc['title'], 380, 0.05))
-        left, right = sc['left'][:4], sc['right'][:4]
+        left, right = sc['left'][:5], sc['right'][:5]
         scale = max([abs(r['pct']) for r in left + right] or [0])
-        tiles.append(_bars_tile(sc['left_title'], left, UPC, 520, 0.35, scale))
-        tiles.append(_bars_tile(sc['right_title'], right, DNC, 520 + 96 + 92 * len(left) + 26, 0.9, scale))
+        y = 520
+        if left:
+            t = _bars_tile(sc['left_title'], left, UPC, y, 0.35, scale)
+            tiles.append(t)
+            y += t.im.height + 26
+        if right:
+            tiles.append(_bars_tile(sc['right_title'], right, DNC, y, 0.9 if left else 0.35, scale))
     elif kind == 'outro':
         lg = cards.logo()
         lg = lg.resize((640, int(lg.height * 640 / lg.width)), Image.LANCZOS)
@@ -456,7 +461,7 @@ def _sweep():
     return Image.fromarray(im, 'RGBA').rotate(12, expand=False)
 
 
-def build(scenes, label, out_path, seed='reel'):
+def build(scenes, label, out_path, seed='reel', max_len=None):
     """scenes: list of dicts (type, voice text, topic, tone, + type fields). Returns (path, report lines)."""
     rep = []
     work = Path(tempfile.mkdtemp(prefix='reel-'))
@@ -483,12 +488,13 @@ def build(scenes, label, out_path, seed='reel'):
                         '-ar', '44100', '-ac', '1', str(wav)], check=True)
         wavs.append(wav)
     # Instagram favours reels watched to the end: keep it to MAX_LEN by dropping optional scenes (highest first)
-    while sum(durs) > MAX_LEN:
+    max_len = max_len or MAX_LEN
+    while sum(durs) > max_len:
         opt = [(sc.get('optional') or 0, i) for i, sc in enumerate(scenes) if sc.get('optional')]
         if not opt:
             break
         _, i = max(opt)
-        rep.append(('ok', f'left out "{scenes[i].get("title", scenes[i]["type"])}" to keep the reel under {MAX_LEN} s'))
+        rep.append(('ok', f'left out "{scenes[i].get("title", scenes[i]["type"])}" to keep the reel under {max_len} s'))
         del scenes[i], durs[i], wavs[i]
     if engine:
         rep.append(('ok', f'voice-over: {voice.current()[0] if engine == "edge" else "Google (fallback voice)"}'))

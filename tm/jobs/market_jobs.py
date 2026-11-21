@@ -14,7 +14,7 @@ from ..writer.captions import assemble, tags
 from .common import finish
 
 
-ACRONYMS = {'IT', 'FMCG', 'PSU', 'VIX'}
+ACRONYMS = {'IT', 'FMCG', 'PSU', 'VIX', 'PSE', 'CPSE'}
 
 
 def sector_label(name):

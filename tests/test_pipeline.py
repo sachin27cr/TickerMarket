@@ -287,6 +287,21 @@ def reels_test():
     reel_jobs._week_change = lambda ysym: {'start': 24000.0, 'end': {'^NSEI': 24612.40, '^BSESN': 80915.62,
                                                                      '^NSEBANK': 52310.55}[ysym], 'pct': 1.23,
                                            'last_date': today_ist()}
+    def fake_weekly(names, monday):
+        import random
+        rnd = random.Random(7)
+        return ({nm: {'end': 1000 + 50 * i, 'start': 1000, 'pct': (24612.40 / 24000 - 1) * 100 if nm == 'NIFTY 50' else round(rnd.uniform(-4, 6), 2),
+                      'source': 'NSE'} | ({'end': 24612.40} if nm == 'NIFTY 50' else {}) for i, nm in enumerate(names)},
+                [('ok', 'fake weekly indices')])
+    market.weekly_indices = fake_weekly
+    def fake_movers(monday, n=5):
+        out = {}
+        for k, (seg, idx) in enumerate(market.CAP_SEGMENTS):
+            g = [{'symbol': f'G{k}{i}', 'name': f'{seg.split()[0]} Gainer {i + 1}', 'pct': 18.4 - 2.3 * i} for i in range(n)]
+            l = [{'symbol': f'L{k}{i}', 'name': f'{seg.split()[0]} Loser {i + 1}', 'pct': -11.2 + 1.7 * i} for i in range(n)]
+            out[seg] = {'index': idx, 'gainers': g, 'losers': l, 'count': 100, 'last_day': str(today_ist())}
+        return out, [('ok', 'fake weekly movers')]
+    market.weekly_cap_movers = fake_movers
     for name, fn in [('reel_morning', reel_jobs.morning_reel), ('reel_evening', reel_jobs.evening_reel),
                      ('reel_weekly', reel_jobs.weekly_reel), ('reel_ath', reel_jobs.ath_reel), ('reel_lows', reel_jobs.lows_reel)]:
         n = len(drafts())

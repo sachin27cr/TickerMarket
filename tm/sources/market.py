@@ -183,6 +183,146 @@ def cap_movers(n=5):
     return out, report
 
 
+# ---------------------------------------------------------------- week in review: indices + top movers
+
+CAP_INDEX_LABELS = [('NIFTY 100', 'Large Cap (Nifty 100)'), ('NIFTY MIDCAP 150', 'Mid Cap (Midcap 150)'),
+                    ('NIFTY SMALLCAP 250', 'Small Cap (Smallcap 250)'), ('NIFTY MICROCAP 250', 'Micro Cap (Microcap 250)')]
+YAHOO_INDEX = {'NIFTY 50': '^NSEI', 'NIFTY BANK': '^NSEBANK', 'NIFTY 100': '^CNX100',
+               'NIFTY MIDCAP 150': 'NIFTYMIDCAP150.NS', 'NIFTY SMALLCAP 250': 'NIFTYSMLCAP250.NS',
+               **{v[0]: v[1] for v in SECTORS.values() if v[1]}}
+WEEK_SECTORS = {**{k: v[0] for k, v in SECTORS.items()}, 'PVT BANK': 'NIFTY PRIVATE BANK',
+                'HEALTHCARE': 'NIFTY HEALTHCARE INDEX', 'CONSUMER DURABLES': 'NIFTY CONSUMER DURABLES',
+                'INFRA': 'NIFTY INFRASTRUCTURE', 'CPSE': 'NIFTY CPSE', 'PSE': 'NIFTY PSE'}
+WEEK_TOL_PCT = 0.1        # NSE week-ago close vs Yahoo's close before Monday
+MAX_WEEK_MOVE = 60        # a bigger weekly move is far more likely a missed split/bonus than real: left out
+
+
+def week_change_yahoo(ysym, monday):
+    """Yahoo: last close before Monday -> last close of the week."""
+    import yfinance as yf
+    h = yf.Ticker(ysym).history(period='1mo', interval='1d', auto_adjust=False).dropna(subset=['Close'])
+    before = h[[d.date() < monday for d in h.index]]
+    week = h[[d.date() >= monday for d in h.index]]
+    if before.empty or week.empty:
+        return None
+    a, b = float(before['Close'].iloc[-1]), float(week['Close'].iloc[-1])
+    return {'start': a, 'end': b, 'pct': (b - a) / a * 100, 'last_date': week.index[-1].date()}
+
+
+def weekly_indices(names, monday):
+    """{nse index name: {'end','start','pct','source'}} for the week starting monday, + report.
+
+    End = NSE official close. Start = NSE's own 'one week ago' close, accepted only after the Nifty 50's
+    week-ago close is confirmed by Yahoo (within 0.1%); otherwise Yahoo's close before Monday is used, and
+    only if Yahoo's week-end close matches NSE's."""
+    report = []
+    try:
+        rows, ts = nse.all_indices()
+    except nse.SourceError as e:
+        return {}, [('fail', f'NSE index feed unavailable ({e})')]
+    if ts and ts.date() < monday:
+        return {}, [('fail', f'NSE index feed is from {ts.date()}, not this week')]
+    ycache = {}
+
+    def y(name):
+        sym = YAHOO_INDEX.get(name)
+        if not sym:
+            return None
+        if sym not in ycache:
+            try:
+                ycache[sym] = week_change_yahoo(sym, monday)
+            except Exception as e:                   # noqa: BLE001
+                log.warning('Yahoo %s: %s', sym, e); ycache[sym] = None
+        return ycache[sym]
+
+    trust = False
+    n50, yn = rows.get('NIFTY 50'), y('NIFTY 50')
+    if n50 and n50.get('week_ago') and yn:
+        gap = abs(n50['week_ago'] - yn['start']) / yn['start'] * 100
+        trust = gap <= WEEK_TOL_PCT
+        report.append(('ok' if trust else 'warn', f'NSE week-ago close for Nifty 50 {n50["week_ago"]:,.2f} vs Yahoo '
+                       f'{yn["start"]:,.2f} (gap {gap:.3f}%)' + ('' if trust else ' - NSE week-ago values not used')))
+    elif n50 and n50.get('week_ago'):
+        report.append(('warn', 'Yahoo unavailable: NSE week-ago closes used without a second source'))
+        trust = True
+    out = {}
+    for name in names:
+        r = rows.get(name)
+        if not r:
+            report.append(('warn', f'{name}: not in the NSE feed - left out')); continue
+        if trust and r.get('week_ago'):
+            out[name] = {'end': r['last'], 'start': r['week_ago'], 'pct': (r['last'] - r['week_ago']) / r['week_ago'] * 100,
+                         'source': 'NSE'}
+            continue
+        w = y(name)
+        if w and abs(w['end'] - r['last']) / r['last'] * 100 <= TOLERANCE_PCT:
+            out[name] = {'end': r['last'], 'start': w['start'], 'pct': (r['last'] - w['start']) / w['start'] * 100,
+                         'source': 'NSE close + Yahoo start'}
+        else:
+            report.append(('warn', f'{name}: weekly change could not be confirmed - left out'))
+    report.append(('ok', f'weekly change for {len(out)} of {len(names)} indices'))
+    return out, report
+
+
+def weekly_cap_movers(monday, n=5):
+    """Per market-cap group: top n weekly gainers and losers. Weekly % = Yahoo close before Monday ->
+    this week's last close; the week's last close must match NSE's price within 0.5%."""
+    import yfinance as yf
+    out, report = {}, []
+    for seg, index in CAP_SEGMENTS:
+        try:
+            rows, _ = nse.index_constituents(index)
+        except nse.SourceError as e:
+            report.append(('fail', f'{seg} ({index}): stock list unavailable ({e})')); continue
+        by = {r['symbol']: r for r in rows}
+        checked = nse.LAST_SOURCE.get(index, 'NSE') == 'NSE'
+        hist = {}
+        syms = list(by)
+        for i in range(0, len(syms), 100):
+            chunk = [s + '.NS' for s in syms[i:i + 100]]
+            try:
+                df = yf.download(chunk, period='1mo', interval='1d', auto_adjust=False, group_by='ticker',
+                                 threads=True, progress=False)
+            except Exception as e:                   # noqa: BLE001
+                log.warning('Yahoo batch failed: %s', e); continue
+            for t in chunk:
+                try:
+                    h = df[t].dropna(subset=['Close'])
+                except KeyError:
+                    continue
+                if len(h):
+                    hist[t[:-3]] = h
+        last_day = max((h.index[-1].date() for h in hist.values()), default=None)
+        moves, mism, big, stale = [], 0, 0, 0
+        for sym, h in hist.items():
+            if last_day is None or last_day < monday or h.index[-1].date() != last_day:
+                stale += 1; continue
+            before = h[[d.date() < monday for d in h.index]]
+            if before.empty:
+                stale += 1; continue
+            a, b = float(before['Close'].iloc[-1]), float(h['Close'].iloc[-1])
+            r = by[sym]
+            if checked and (not r.get('last') or abs(b - r['last']) / r['last'] * 100 > 0.5):
+                mism += 1; continue
+            p = (b - a) / a * 100
+            if abs(p) > MAX_WEEK_MOVE:
+                big += 1; continue
+            moves.append({'symbol': sym, 'name': r.get('name') or _short_name(sym), 'start': a, 'end': b, 'pct': p})
+        if len(moves) < 0.8 * len(rows):
+            report.append(('fail', f'{seg}: weekly prices confirmed for only {len(moves)} of {len(rows)} stocks')); continue
+        moves.sort(key=lambda x: x['pct'], reverse=True)
+        out[seg] = {'index': index, 'gainers': [m for m in moves[:n] if m['pct'] > 0],
+                    'losers': [m for m in reversed(moves[-n:]) if m['pct'] < 0], 'count': len(moves),
+                    'last_day': str(last_day)}
+        extra = ', '.join(x for x in (f'{mism} dropped (Yahoo and NSE prices differ)' if mism else '',
+                                      f'{big} left out (move over {MAX_WEEK_MOVE}% - check for split/bonus)' if big else '',
+                                      f'{stale} without this week\'s data' if stale else '') if x)
+        report.append(('ok' if checked else 'warn',
+                       f'{seg} ({index}): {len(moves)} stocks ranked for the week' + (f'; {extra}' if extra else '') +
+                       ('' if checked else '; NSE prices unavailable - Yahoo only, not cross-checked')))
+    return out, report
+
+
 # ---------------------------------------------------------------- weekly all-time highs / 52-week lows
 
 CROSS_TOL_PCT = 0.5      # Yahoo weekly high/low vs NSE 52-week high/low
