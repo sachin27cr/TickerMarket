@@ -3,6 +3,13 @@
     "index": "NIFTY 100",
     "gainers": [
       {
+        "symbol": "MAXHEALTH",
+        "name": "Max Healthcare",
+        "start": 947.1,
+        "end": 1081.0,
+        "pct": 14.137894625699502
+      },
+      {
         "symbol": "MARUTI",
         "name": "Maruti Suzuki",
         "start": 12854.0,
@@ -12,9 +19,9 @@
       {
         "symbol": "PNB",
         "name": "PNB",
-        "start": 142.80999755859375,
-        "end": 155.3300018310547,
-        "pct": 8.766896216298921
+        "start": 142.81,
+        "end": 155.33,
+        "pct": 8.766893074714663
       },
       {
         "symbol": "AXISBANK",
@@ -29,13 +36,6 @@
         "start": 8526.0,
         "end": 9200.0,
         "pct": 7.9052310579404175
-      },
-      {
-        "symbol": "SBIN",
-        "name": "SBI",
-        "start": 1080.0,
-        "end": 1165.0999755859375,
-        "pct": 7.879627369068287
       }
     ],
     "losers": [
@@ -49,16 +49,16 @@
       {
         "symbol": "VEDL",
         "name": "Vedanta",
-        "start": 259.67999267578125,
-        "end": 238.0399932861328,
-        "pct": -8.333333333333332
+        "start": 259.68,
+        "end": 238.04,
+        "pct": -8.33333333333334
       },
       {
         "symbol": "TMPV",
         "name": "Tata Motors Passenger Vehicles",
-        "start": 287.3999938964844,
-        "end": 266.3500061035156,
-        "pct": -7.324282616564886
+        "start": 287.4,
+        "end": 266.35,
+        "pct": -7.324286708420305
       },
       {
         "symbol": "CUMMINSIND",
@@ -70,12 +70,253 @@
       {
         "symbol": "HINDZINC",
         "name": "Hindustan Zinc",
-        "start": 554.8499755859375,
-        "end": 521.5999755859375,
-        "pct": -5.992610879163696
+        "start": 554.85,
+        "end": 521.6,
+        "pct": -5.992610615481662
       }
     ],
-    "count": 83,
-    "last_day": "2026-11-20"
+    "count": 100,
+    "last_day": "2026-11-20",
+    "prev_day": "2026-11-13"
+  },
+  "Mid Cap": {
+    "index": "NIFTY MIDCAP 150",
+    "gainers": [
+      {
+        "symbol": "BLUESTARCO",
+        "name": "Blue Star",
+        "start": 1587.2,
+        "end": 1791.0,
+        "pct": 12.840221774193544
+      },
+      {
+        "symbol": "IREDA",
+        "name": "IREDA",
+        "start": 118.3,
+        "end": 131.7,
+        "pct": 11.327134404057473
+      },
+      {
+        "symbol": "IDFCFIRSTB",
+        "name": "IDFC First Bank",
+        "start": 79.54,
+        "end": 87.26,
+        "pct": 9.705808398290166
+      },
+      {
+        "symbol": "INDUSINDBK",
+        "name": "IndusInd Bank",
+        "start": 914.4,
+        "end": 1003.0,
+        "pct": 9.689413823272092
+      },
+      {
+        "symbol": "EXIDEIND",
+        "name": "Exide Industries",
+        "start": 373.0,
+        "end": 408.55,
+        "pct": 9.530831099195714
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "PAYTM",
+        "name": "Paytm",
+        "start": 1939.9,
+        "end": 1740.0,
+        "pct": -10.304654879117486
+      },
+      {
+        "symbol": "KALYANKJIL",
+        "name": "Kalyan Jewellers",
+        "start": 697.0,
+        "end": 638.7,
+        "pct": -8.364418938307024
+      },
+      {
+        "symbol": "NATIONALUM",
+        "name": "NALCO",
+        "start": 330.0,
+        "end": 303.2,
+        "pct": -8.121212121212125
+      },
+      {
+        "symbol": "POLICYBZR",
+        "name": "Policybazaar",
+        "start": 1105.0,
+        "end": 1022.8,
+        "pct": -7.438914027149325
+      },
+      {
+        "symbol": "SAIL",
+        "name": "SAIL",
+        "start": 176.2,
+        "end": 164.11,
+        "pct": -6.861520998864913
+      }
+    ],
+    "count": 149,
+    "last_day": "2026-11-20",
+    "prev_day": "2026-11-13"
+  },
+  "Small Cap": {
+    "index": "NIFTY SMALLCAP 250",
+    "gainers": [
+      {
+        "symbol": "DEEPAKFERT",
+        "name": "DEEPAKFERT",
+        "start": 1261.8,
+        "end": 1437.2,
+        "pct": 13.90077666825171
+      },
+      {
+        "symbol": "SIGNATURE",
+        "name": "Signatureglobal",
+        "start": 766.6,
+        "end": 859.4,
+        "pct": 12.105400469606046
+      },
+      {
+        "symbol": "APTUS",
+        "name": "APTUS",
+        "start": 174.98,
+        "end": 195.6,
+        "pct": 11.784203909018178
+      },
+      {
+        "symbol": "VIJAYA",
+        "name": "Vijaya Diagnostic Centre",
+        "start": 1410.1,
+        "end": 1572.3,
+        "pct": 11.502730302815408
+      },
+      {
+        "symbol": "BELRISE",
+        "name": "Belrise Industries",
+        "start": 215.2,
+        "end": 236.33,
+        "pct": 9.818773234200755
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "KAYNES",
+        "name": "Kaynes Technology India",
+        "start": 3430.0,
+        "end": 2910.0,
+        "pct": -15.160349854227405
+      },
+      {
+        "symbol": "CAPLIPOINT",
+        "name": "Caplin Point Laboratories",
+        "start": 2388.7,
+        "end": 2029.1,
+        "pct": -15.054213588981453
+      },
+      {
+        "symbol": "INOXWIND",
+        "name": "Inox Wind",
+        "start": 64.45,
+        "end": 55.46,
+        "pct": -13.948797517455395
+      },
+      {
+        "symbol": "STLTECH",
+        "name": "Sterlite Technologies",
+        "start": 710.75,
+        "end": 621.85,
+        "pct": -12.507914175167073
+      },
+      {
+        "symbol": "CREDITACC",
+        "name": "Creditaccess Grameen",
+        "start": 1102.6,
+        "end": 981.7,
+        "pct": -10.964991837475049
+      }
+    ],
+    "count": 248,
+    "last_day": "2026-11-20",
+    "prev_day": "2026-11-13"
+  },
+  "Micro Cap": {
+    "index": "NIFTY MICROCAP 250",
+    "gainers": [
+      {
+        "symbol": "GREAVESCOT",
+        "name": "Greaves Cotton",
+        "start": 225.97,
+        "end": 268.31,
+        "pct": 18.737000486790283
+      },
+      {
+        "symbol": "SGMART",
+        "name": "SG Mart",
+        "start": 941.45,
+        "end": 1097.05,
+        "pct": 16.527696638164525
+      },
+      {
+        "symbol": "GOKEX",
+        "name": "Gokaldas Exports",
+        "start": 676.3,
+        "end": 757.6,
+        "pct": 12.021292325890888
+      },
+      {
+        "symbol": "SIGMAADV",
+        "name": "Sigma Advanced Systems",
+        "start": 832.45,
+        "end": 919.85,
+        "pct": 10.499129076821427
+      },
+      {
+        "symbol": "TVSSCS",
+        "name": "TVS Supply Chain Solutions",
+        "start": 122.25,
+        "end": 133.88,
+        "pct": 9.51329243353783
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "EBGNG",
+        "name": "GNG Electronics",
+        "start": 577.2,
+        "end": 470.35,
+        "pct": -18.511781011781014
+      },
+      {
+        "symbol": "MSTCLTD",
+        "name": "Mstc",
+        "start": 783.35,
+        "end": 656.55,
+        "pct": -16.18688964064595
+      },
+      {
+        "symbol": "AVALON",
+        "name": "Avalon Technologies",
+        "start": 2038.3,
+        "end": 1728.3,
+        "pct": -15.208752391698965
+      },
+      {
+        "symbol": "INDIAGLYCO",
+        "name": "India Glycols",
+        "start": 311.3,
+        "end": 264.35,
+        "pct": -15.08191455187921
+      },
+      {
+        "symbol": "PRICOLLTD",
+        "name": "Pricol",
+        "start": 747.85,
+        "end": 635.35,
+        "pct": -15.043123621047
+      }
+    ],
+    "count": 249,
+    "last_day": "2026-11-20",
+    "prev_day": "2026-11-13"
   }
 }
