@@ -1,0 +1,5 @@
+{
+  "kind": "news",
+  "title": "RBI clarifies ₹10-lakh threshold for export declarations applies to each service payment",
+  "report": "✅ confirmed by 2 outlets: BusinessLine, KNN India\n✅ fresh: newest source 2.0 h old\n✅ headline/banner/points/body: all 8 numbers match source data\n✅ all names appear in the sources\n❌ second opinion (groq (backup)): The draft states that the clarification was 'issued on 21 November 2026', but the sources only indicate that the news articles were published on that date; they do not explicitly state the date the RBI issued the clarification.; The draft claims the clarification helps 'reducing compliance risk for businesses', which is an interpretation/opinion not stated in the sources.; The draft states the clarification applies 'not to the total amount of exports', which is a negative inference not explicitly stated in the provided source text (though implied by 'applies to each service payment').\n✅ no advice, prediction or rumour language"
+}

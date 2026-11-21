@@ -1,0 +1,47 @@
+{
+  "id": "11211718-2f37a",
+  "kind": "news",
+  "created": "2026-11-21T17:18:29.619397+05:30",
+  "images": [
+    "media/2026-11-21/news-171829-8f64_1.jpg"
+  ],
+  "caption": "Stock market news | Adani Energy Solutions wins 1,750 MW contract\n\nAdani Energy Solutions received a contract to supply 1,750 MW of renewable power to West Bengal. Supply for the initial capacity will begin on 1 July 2028, with an optional 750 MW greenshoe starting 1 April 2029.\nThe win adds to AESL's growing footprint in India's power transmission segment after a major project in Bihar, strengthening its role in the country's renewable energy expansion.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #AdaniEnergy #RenewablePower #WestBengal #TickerMarketIndia",
+  "threads_text": "Stock market news | Adani Energy Solutions wins 1,750 MW contract\n\nAdani Energy Solutions received a contract to supply 1,750 MW of renewable power to West Bengal. Supply for the initial capacity will begin on 1 July 2028, with an optional 750 MW greenshoe starting 1 April 2029.\n\n#StockMarketIndia #AdaniEnergy #RenewablePower #WestBengal #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: BusinessLine, CNBC-TV18"
+    ],
+    [
+      "ok",
+      "fresh: newest source 3.1 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 11 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.cnbctv18.com/market/adani-energy-solutions-gets-order-for-1750-mw-renewable-power-supply-to-west-bengal-20038338.htm | https://www.thehindubusinessline.com/companies/adani-energy-solutions-bags-2500-mw-renewable-power-supply-contract-from-west-bengal-discom/article71727585.ece"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 690,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: BusinessLine, CNBC-TV18\n✅ fresh: newest source 3.1 h old\n✅ headline/banner/points/body: all 11 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://www.cnbctv18.com/market/adani-energy-solutions-gets-order-for-1750-mw-renewable-power-supply-to-west-bengal-20038338.htm | https://www.thehindubusinessline.com/companies/adani-energy-solutions-bags-2500-mw-renewable-power-supply-contract-from-west-bengal-discom/article71727585.ece\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Adani Energy Solutions wins 1,750 MW contract"
+}
