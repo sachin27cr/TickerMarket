@@ -49,12 +49,15 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "video": "media/2026-11-21/reel_ath-193734-bc4b.mp4"
   },
   "telegram_message_id": 721,
-  "posted": {},
+  "posted": {
+    "instagram": "18125663581938551",
+    "facebook": "2224198994975711"
+  },
   "video": "media/2026-11-21/reel_ath-193734-bc4b.mp4",
   "script": [
     "1. Stocks at all-time high. This week, 37 stocks hit an all-time high, and 20 sank to a 52-week low. Here are all the names.",
@@ -75,5 +78,7 @@
   "topic_keyword": "Stocks at all-time high",
   "telegram_media_ids": [
     720
-  ]
+  ],
+  "approved_at": "2026-11-21T19:51:48.888047+05:30",
+  "posted_at": "2026-11-21T19:52:39.741792+05:30"
 }
