@@ -47,12 +47,16 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "queued",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 678,
-  "posted": {},
+  "posted": {
+    "instagram": "17880839502566841",
+    "facebook": "1374383985767580_122110212957544503"
+  },
   "report_text": "✅ Large Cap (NIFTY 100): 100 stocks checked; 5 all-time highs, 0 52-week lows; 1 listed < 1 year skipped, 1 without data for this week\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks checked; 10 all-time highs, 4 52-week lows; 2 listed < 1 year skipped\n⚠️ Small Cap: NSE stock API unavailable - 52-week levels from Yahoo, not cross-checked\n✅ Small Cap (NIFTY SMALLCAP 250): 249 stocks checked; 10 all-time highs, 5 52-week lows; 7 listed < 1 year skipped, 2 without data for this week\n⚠️ Micro Cap: NSE stock API unavailable - 52-week levels from Yahoo, not cross-checked\n✅ Micro Cap (NIFTY MICROCAP 250): 250 stocks checked; 12 all-time highs, 11 52-week lows; 15 listed < 1 year skipped, 1 without data for this week\n✅ caption: all 24 numbers match source data\n✅ no advice, prediction or rumour language",
   "topic_keyword": "52-week low stocks this week",
   "alt_text": "52-week low stocks this week: Ticker Market India carousel - Stocks at 52-week lows this week (16-20 Nov 2026)",
-  "approved_at": "2026-11-21T17:08:30.426380+05:30"
+  "approved_at": "2026-11-21T17:08:30.426380+05:30",
+  "posted_at": "2026-11-21T18:01:31.693009+05:30"
 }
