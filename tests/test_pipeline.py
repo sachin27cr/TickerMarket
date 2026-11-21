@@ -148,6 +148,7 @@ def run():
     assert len(drafts()) == n0, 'dedupe failed'
     # a wrong number from the AI must be blocked
     shutil.rmtree(config.DATA_DIR / 'seen' / 'news', ignore_errors=True)
+    (config.DATA_DIR / 'news_recent.json').unlink(missing_ok=True)     # forget it was posted, so it is retried
     fake_llm(good=False)
     run_news()
     assert len(drafts()) == n0, 'bad AI number was not blocked'
@@ -171,7 +172,8 @@ def auto_post():
     from datetime import datetime as _dt
     from tm import schedule
     real = approvals.now_ist
-    day = _dt.fromisoformat(d['created']).date()
+    from datetime import date as _date
+    day = _date(2026, 11, 20)                              # a Friday: market close has its 5:30 PM slot
     approvals.now_ist = lambda: _dt.combine(day, _dt.min.time(), tzinfo=schedule.IST).replace(hour=17, minute=10)
     d['created'] = approvals.now_ist().replace(hour=16).isoformat(); store.save_draft(d)
     approvals.post_due_autos()                       # before its 5:30 PM slot
@@ -182,6 +184,7 @@ def auto_post():
     approvals.now_ist = real
     # news never auto-posts with the 'data' setting
     shutil.rmtree(config.DATA_DIR / 'seen' / 'news', ignore_errors=True); fake_llm()
+    (config.DATA_DIR / 'news_recent.json').unlink(missing_ok=True)
     run_news()
     assert [x for x in drafts() if x['kind'] == 'news'][-1]['status'] == 'pending'
     C.AUTO_POST = set()
@@ -203,6 +206,7 @@ def unit():
 def duplicate_guard():
     store.set_flag('last_news_run', None)
     shutil.rmtree(config.DATA_DIR / 'seen' / 'news', ignore_errors=True)
+    (config.DATA_DIR / 'news_recent.json').unlink(missing_ok=True)
     n1 = len(drafts()); news_jobs.news(); n2 = len(drafts()); news_jobs.news(); n3 = len(drafts())
     assert n2 == n1 + 1 and n3 == n2, (n1, n2, n3)
     print('duplicate trigger within 50 min skipped')
