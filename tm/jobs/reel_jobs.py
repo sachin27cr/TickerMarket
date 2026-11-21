@@ -480,6 +480,21 @@ def weekly_reel(force=False):
     else:
         report.warn('sector weekly changes not confirmed - scene left out')
 
+    # FII / DII
+    hist = store.read_json('fii/history.json', {}) or {}
+    wkd = [d for d in sorted(hist) if str(monday) <= d <= str(friday)]
+    if len(wkd) >= 3:
+        fii = round(sum(hist[d]['fii'] for d in wkd), 2)
+        dii = round(sum(hist[d]['dii'] for d in wkd), 2)
+        sg = lambda x: f'{"+" if x >= 0 else "-"}₹{fmt_inr(abs(x), 0)} CR'
+        scenes.append({'type': 'rows', 'title': f'FII / DII this week ({len(wkd)} sessions)', 'topic': 'flows',
+                       'rows': [{'label': 'FII net', 'value': sg(fii), 'sub': 'buyers' if fii >= 0 else 'sellers'},
+                                {'label': 'DII net', 'value': sg(dii), 'sub': 'buyers' if dii >= 0 else 'sellers'}],
+                       'voice': f'Foreign institutions {"bought" if fii >= 0 else "sold"} {V.crore(fii)} over the week. '
+                                f'Domestic institutions {"bought" if dii >= 0 else "sold"} {V.crore(dii)}.'})
+        paras.append(f'FIIs net {"bought" if fii >= 0 else "sold"} ₹{fmt_inr(abs(fii))} crore and DIIs net '
+                     f'{"bought" if dii >= 0 else "sold"} ₹{fmt_inr(abs(dii))} crore this week ({len(wkd)} sessions).')
+        allowed += [abs(fii), abs(dii), round(abs(fii)), round(abs(dii)), len(wkd)]
     # top 5 gainers and losers in each market-cap group
     mv, rep = market.weekly_cap_movers(monday, 5)
     report.extend([('warn', m + ' - left out') if st == 'fail' else (st, m) for st, m in rep])
@@ -506,21 +521,6 @@ def weekly_reel(force=False):
     if mv:
         paras.append('The full top 5 gainers and losers of each market-cap group are in the reel.')
         allowed.append(5)
-    # FII / DII
-    hist = store.read_json('fii/history.json', {}) or {}
-    wkd = [d for d in sorted(hist) if str(monday) <= d <= str(friday)]
-    if len(wkd) >= 3:
-        fii = round(sum(hist[d]['fii'] for d in wkd), 2)
-        dii = round(sum(hist[d]['dii'] for d in wkd), 2)
-        sg = lambda x: f'{"+" if x >= 0 else "-"}₹{fmt_inr(abs(x), 0)} CR'
-        scenes.append({'type': 'rows', 'title': f'FII / DII this week ({len(wkd)} sessions)', 'topic': 'flows',
-                       'rows': [{'label': 'FII net', 'value': sg(fii), 'sub': 'buyers' if fii >= 0 else 'sellers'},
-                                {'label': 'DII net', 'value': sg(dii), 'sub': 'buyers' if dii >= 0 else 'sellers'}],
-                       'voice': f'Foreign institutions {"bought" if fii >= 0 else "sold"} {V.crore(fii)} over the week. '
-                                f'Domestic institutions {"bought" if dii >= 0 else "sold"} {V.crore(dii)}.'})
-        paras.append(f'FIIs net {"bought" if fii >= 0 else "sold"} ₹{fmt_inr(abs(fii))} crore and DIIs net '
-                     f'{"bought" if dii >= 0 else "sold"} ₹{fmt_inr(abs(dii))} crore this week ({len(wkd)} sessions).')
-        allowed += [abs(fii), abs(dii), round(abs(fii)), round(abs(dii)), len(wkd)]
     wkx = store.read_json(f'weekly/{monday}.json')
     if wkx and len(wkx.get('groups') or {}) == len(market.CAP_SEGMENTS):
         ath = sum(g['ath_count'] for g in wkx['groups'].values())
