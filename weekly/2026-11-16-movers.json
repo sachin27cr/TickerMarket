@@ -1,0 +1,81 @@
+{
+  "Large Cap": {
+    "index": "NIFTY 100",
+    "gainers": [
+      {
+        "symbol": "MARUTI",
+        "name": "Maruti Suzuki",
+        "start": 12854.0,
+        "end": 14011.0,
+        "pct": 9.001089155126808
+      },
+      {
+        "symbol": "PNB",
+        "name": "PNB",
+        "start": 142.80999755859375,
+        "end": 155.3300018310547,
+        "pct": 8.766896216298921
+      },
+      {
+        "symbol": "AXISBANK",
+        "name": "Axis Bank",
+        "start": 1331.0,
+        "end": 1446.0,
+        "pct": 8.640120210368146
+      },
+      {
+        "symbol": "APOLLOHOSP",
+        "name": "Apollo Hospitals",
+        "start": 8526.0,
+        "end": 9200.0,
+        "pct": 7.9052310579404175
+      },
+      {
+        "symbol": "SBIN",
+        "name": "SBI",
+        "start": 1080.0,
+        "end": 1165.0999755859375,
+        "pct": 7.879627369068287
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "MUTHOOTFIN",
+        "name": "Muthoot Finance",
+        "start": 2840.0,
+        "end": 2550.5,
+        "pct": -10.193661971830986
+      },
+      {
+        "symbol": "VEDL",
+        "name": "Vedanta",
+        "start": 259.67999267578125,
+        "end": 238.0399932861328,
+        "pct": -8.333333333333332
+      },
+      {
+        "symbol": "TMPV",
+        "name": "Tata Motors Passenger Vehicles",
+        "start": 287.3999938964844,
+        "end": 266.3500061035156,
+        "pct": -7.324282616564886
+      },
+      {
+        "symbol": "CUMMINSIND",
+        "name": "Cummins India",
+        "start": 4369.0,
+        "end": 4100.0,
+        "pct": -6.1570153353170065
+      },
+      {
+        "symbol": "HINDZINC",
+        "name": "Hindustan Zinc",
+        "start": 554.8499755859375,
+        "end": 521.5999755859375,
+        "pct": -5.992610879163696
+      }
+    ],
+    "count": 83,
+    "last_day": "2026-11-20"
+  }
+}
