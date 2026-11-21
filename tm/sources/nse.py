@@ -256,6 +256,87 @@ def index_members(index):
     raise SourceError(f'{index}: member list file unavailable')
 
 
+# ---------------------------------------------------------------- end-of-day archive files (work on weekends too)
+
+ARCHIVE_HOSTS = ('https://nsearchives.nseindia.com/', 'https://archives.nseindia.com/')
+
+
+def _archive(path, binary=False):
+    last = None
+    for host in ARCHIVE_HOSTS:
+        try:
+            r = session().get(host + path, timeout=40)
+        except requests.RequestException as e:
+            last = str(e); continue
+        if r.status_code == 200 and len(r.content) > 200:
+            return r.content if binary else r.text
+        last = f'HTTP {r.status_code}'
+    raise SourceError(f'{path}: {last}')
+
+
+def _csv_rows(text):
+    import csv
+    import io
+    rows = []
+    for row in csv.DictReader(io.StringIO(text)):
+        rows.append({(k or '').strip(): (v or '').strip() for k, v in row.items()})
+    return rows
+
+
+def bhavcopy(day):
+    """{symbol: close} for every NSE equity (EQ/BE/BZ series) on `day`, from NSE's official bhavcopy."""
+    out = {}
+    try:
+        txt = _archive(f'products/content/sec_bhavdata_full_{day:%d%m%Y}.csv')
+        for r in _csv_rows(txt):
+            if r.get('SERIES') in ('EQ', 'BE', 'BZ') and r.get('CLOSE_PRICE'):
+                try:
+                    out[r['SYMBOL']] = float(r['CLOSE_PRICE'])
+                except ValueError:
+                    pass
+    except SourceError:
+        pass
+    if len(out) < 500:                              # newer UDiFF format (zip)
+        import io
+        import zipfile
+        try:
+            z = zipfile.ZipFile(io.BytesIO(_archive(f'content/cm/BhavCopy_NSE_CM_0_0_0_{day:%Y%m%d}_F_0000.csv.zip', True)))
+            for r in _csv_rows(z.read(z.namelist()[0]).decode('utf-8', 'replace')):
+                if r.get('SctySrs') in ('EQ', 'BE', 'BZ') and r.get('ClsPric'):
+                    try:
+                        out[r['TckrSymb']] = float(r['ClsPric'])
+                    except ValueError:
+                        pass
+        except (SourceError, zipfile.BadZipFile, IndexError, KeyError):
+            pass
+    if len(out) < 500:
+        raise SourceError(f'bhavcopy {day}: not published')
+    return out
+
+
+def _index_key(name):
+    import re as _r
+    n = name.upper().replace('&', ' AND ')
+    n = _r.sub(r'\bINDEX\b', ' ', n)
+    return _r.sub(r'\s+', ' ', n).strip()
+
+
+def index_closes(day):
+    """{normalised index name: close} for every NSE index on `day` (NSE Indices' daily closing file)."""
+    txt = _archive(f'content/indices/ind_close_all_{day:%d%m%Y}.csv')
+    out = {}
+    for r in _csv_rows(txt):
+        name, val = r.get('Index Name'), r.get('Closing Index Value')
+        try:
+            if name and val not in (None, '', '-'):
+                out[_index_key(name)] = float(val.replace(',', ''))
+        except ValueError:
+            continue
+    if len(out) < 20:
+        raise SourceError(f'index closes {day}: not published')
+    return out
+
+
 def _yahoo_priced(index):
     import yfinance as yf
     syms = index_members(index)

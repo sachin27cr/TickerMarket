@@ -4,6 +4,8 @@ Rule: a number used on a card comes from NSE (official) where NSE publishes it,
 and is compared with Yahoo Finance. A mismatch above TOLERANCE blocks the card.
 If only Yahoo is available the value is used but marked as single-source.
 """
+from datetime import timedelta
+
 from ..util import log, today_ist
 from . import nse
 from .names import short as _short_name
@@ -209,117 +211,147 @@ def week_change_yahoo(ysym, monday):
     return {'start': a, 'end': b, 'pct': (b - a) / a * 100, 'last_date': week.index[-1].date()}
 
 
-def weekly_indices(names, monday):
-    """{nse index name: {'end','start','pct','source'}} for the week starting monday, + report.
+INDEX_ALIASES = {'NIFTY FINANCIAL SERVICES': ['NIFTY FIN SERVICE', 'NIFTY FINANCIAL SERVICES'],
+                 'NIFTY INFRASTRUCTURE': ['NIFTY INFRA', 'NIFTY INFRASTRUCTURE'],
+                 'NIFTY PRIVATE BANK': ['NIFTY PVT BANK', 'NIFTY PRIVATE BANK'],
+                 'NIFTY HEALTHCARE INDEX': ['NIFTY HEALTHCARE'],
+                 'NIFTY CONSUMER DURABLES': ['NIFTY CONSUMER DURABLES', 'NIFTY CONSR DURBL'],
+                 'NIFTY OIL & GAS': ['NIFTY OIL AND GAS', 'NIFTY OIL GAS']}
 
-    End = NSE official close. Start = NSE's own 'one week ago' close, accepted only after the Nifty 50's
-    week-ago close is confirmed by Yahoo (within 0.1%); otherwise Yahoo's close before Monday is used, and
-    only if Yahoo's week-end close matches NSE's."""
+
+def _close_of(closes, name):
+    for cand in [name] + INDEX_ALIASES.get(name, []):
+        k = nse._index_key(cand)
+        if k in closes:
+            return closes[k]
+    return None
+
+
+def week_sessions(monday):
+    """(last session of this week, last session before it) as found in NSE's own daily files."""
+    def find(start, back):
+        for i in range(back):
+            d = start - timedelta(days=i)
+            if d.weekday() >= 5:
+                continue
+            try:
+                return d, nse.index_closes(d)
+            except nse.SourceError:
+                continue
+        return None, None
+    end, ce = find(min(monday + timedelta(days=4), today_ist()), 5)
+    if not end or end < monday:
+        return None
+    prev, cp = find(monday - timedelta(days=1), 10)
+    return (end, ce, prev, cp) if prev else None
+
+
+def weekly_indices(names, monday):
+    """{nse index name: {'end','start','pct','source'}} for the week + report.
+    Both closes come from NSE Indices' official daily closing files (last session of this week vs last
+    session of the week before); the end close is cross-checked with NSE's live index feed when it answers."""
     report = []
+    ws = week_sessions(monday)
+    if not ws:
+        return _weekly_indices_fallback(names, monday)
+    end, ce, prev, cp = ws
+    try:
+        live, ts = nse.all_indices()
+        live = live if ts and ts.date() == end else {}
+    except nse.SourceError:
+        live = {}
+    out, missing, mism = {}, [], []
+    for name in names:
+        a, b = _close_of(cp, name), _close_of(ce, name)
+        if not a or not b:
+            missing.append(name); continue
+        lv = live.get(name)
+        if lv and abs(lv['last'] - b) / b * 100 > TOLERANCE_PCT:
+            mism.append(name); continue
+        out[name] = {'end': b, 'start': a, 'pct': (b - a) / a * 100, 'source': 'NSE'}
+    report.append(('ok', f'weekly index changes from NSE closing files: {prev:%d %b} -> {end:%d %b}, '
+                         f'{len(out)} of {len(names)} indices' + (' (end close matches NSE live feed)' if live else '')))
+    if missing:
+        report.append(('warn', 'not in NSE closing file, left out: ' + ', '.join(missing)))
+    if mism:
+        report.append(('warn', 'closing file and live feed differ, left out: ' + ', '.join(mism)))
+    return out, report
+
+
+def _weekly_indices_fallback(names, monday):
+    """Used only if NSE's closing files are missing: NSE live close + Yahoo close before Monday."""
+    report = [('warn', 'NSE daily closing files unavailable - using live feed + Yahoo')]
     try:
         rows, ts = nse.all_indices()
     except nse.SourceError as e:
-        return {}, [('fail', f'NSE index feed unavailable ({e})')]
-    if ts and ts.date() < monday:
-        return {}, [('fail', f'NSE index feed is from {ts.date()}, not this week')]
-    ycache = {}
-
-    def y(name):
-        sym = YAHOO_INDEX.get(name)
-        if not sym:
-            return None
-        if sym not in ycache:
-            try:
-                ycache[sym] = week_change_yahoo(sym, monday)
-            except Exception as e:                   # noqa: BLE001
-                log.warning('Yahoo %s: %s', sym, e); ycache[sym] = None
-        return ycache[sym]
-
-    trust = False
-    n50, yn = rows.get('NIFTY 50'), y('NIFTY 50')
-    if n50 and n50.get('week_ago') and yn:
-        gap = abs(n50['week_ago'] - yn['start']) / yn['start'] * 100
-        trust = gap <= WEEK_TOL_PCT
-        report.append(('ok' if trust else 'warn', f'NSE week-ago close for Nifty 50 {n50["week_ago"]:,.2f} vs Yahoo '
-                       f'{yn["start"]:,.2f} (gap {gap:.3f}%)' + ('' if trust else ' - NSE week-ago values not used')))
-    elif n50 and n50.get('week_ago'):
-        report.append(('warn', 'Yahoo unavailable: NSE week-ago closes used without a second source'))
-        trust = True
+        return {}, report + [('warn', f'NSE index feed unavailable ({e})')]
     out = {}
     for name in names:
-        r = rows.get(name)
-        if not r:
-            report.append(('warn', f'{name}: not in the NSE feed - left out')); continue
-        if trust and r.get('week_ago'):
-            out[name] = {'end': r['last'], 'start': r['week_ago'], 'pct': (r['last'] - r['week_ago']) / r['week_ago'] * 100,
-                         'source': 'NSE'}
+        r, sym = rows.get(name), YAHOO_INDEX.get(name)
+        if not r or not sym:
             continue
-        w = y(name)
+        try:
+            w = week_change_yahoo(sym, monday)
+        except Exception:                            # noqa: BLE001
+            w = None
         if w and abs(w['end'] - r['last']) / r['last'] * 100 <= TOLERANCE_PCT:
             out[name] = {'end': r['last'], 'start': w['start'], 'pct': (r['last'] - w['start']) / w['start'] * 100,
                          'source': 'NSE close + Yahoo start'}
-        else:
-            report.append(('warn', f'{name}: weekly change could not be confirmed - left out'))
     report.append(('ok', f'weekly change for {len(out)} of {len(names)} indices'))
     return out, report
 
 
+SPLIT_WORDS = ('split', 'bonus', 'consolidat', 'sub-division', 'subdivision', 'rights', 'demerger', 'scheme of arrangement')
+
+
 def weekly_cap_movers(monday, n=5):
-    """Per market-cap group: top n weekly gainers and losers. Weekly % = Yahoo close before Monday ->
-    this week's last close; the week's last close must match NSE's price within 0.5%."""
-    import yfinance as yf
+    """Per market-cap group: top n weekly gainers and losers, from NSE's official bhavcopy closes
+    (last session of this week vs last session of the week before). Stocks with a split, bonus, rights
+    or demerger ex-date in between are left out (their raw prices are not comparable), and so is any move
+    above MAX_WEEK_MOVE% as a second guard."""
     out, report = {}, []
+    ws = week_sessions(monday)
+    if not ws:
+        return {}, [('warn', 'NSE daily files for this week not found - weekly movers left out')]
+    end, _, prev, _ = ws
+    try:
+        ce, cp = nse.bhavcopy(end), nse.bhavcopy(prev)
+    except nse.SourceError as e:
+        return {}, [('warn', f'NSE bhavcopy unavailable ({e}) - weekly movers left out')]
+    try:
+        acts = nse.corporate_actions(prev + timedelta(days=1), end)
+        skip = {a['symbol'] for a in acts if any(w in (a.get('subject') or '').lower() for w in SPLIT_WORDS)}
+        report.append(('ok', f'corporate actions checked: {len(skip)} stock(s) with split/bonus/rights this week left out'))
+    except nse.SourceError:
+        skip = set()
+        report.append(('warn', f'corporate actions unavailable - only the {MAX_WEEK_MOVE}% guard catches splits/bonuses'))
     for seg, index in CAP_SEGMENTS:
         try:
-            rows, _ = nse.index_constituents(index)
+            members = nse.index_members(index)
         except nse.SourceError as e:
-            report.append(('fail', f'{seg} ({index}): stock list unavailable ({e})')); continue
-        by = {r['symbol']: r for r in rows}
-        checked = nse.LAST_SOURCE.get(index, 'NSE') == 'NSE'
-        hist = {}
-        syms = list(by)
-        for i in range(0, len(syms), 100):
-            chunk = [s + '.NS' for s in syms[i:i + 100]]
-            try:
-                df = yf.download(chunk, period='1mo', interval='1d', auto_adjust=False, group_by='ticker',
-                                 threads=True, progress=False)
-            except Exception as e:                   # noqa: BLE001
-                log.warning('Yahoo batch failed: %s', e); continue
-            for t in chunk:
-                try:
-                    h = df[t].dropna(subset=['Close'])
-                except KeyError:
-                    continue
-                if len(h):
-                    hist[t[:-3]] = h
-        last_day = max((h.index[-1].date() for h in hist.values()), default=None)
-        moves, mism, big, stale = [], 0, 0, 0
-        for sym, h in hist.items():
-            if last_day is None or last_day < monday or h.index[-1].date() != last_day:
-                stale += 1; continue
-            before = h[[d.date() < monday for d in h.index]]
-            if before.empty:
-                stale += 1; continue
-            a, b = float(before['Close'].iloc[-1]), float(h['Close'].iloc[-1])
-            r = by[sym]
-            if checked and (not r.get('last') or abs(b - r['last']) / r['last'] * 100 > 0.5):
-                mism += 1; continue
+            report.append(('warn', f'{seg}: member list unavailable ({e}) - left out')); continue
+        moves, gone, big, acted = [], 0, 0, 0
+        for sym in members:
+            a, b = cp.get(sym), ce.get(sym)
+            if not a or not b:
+                gone += 1; continue
+            if sym in skip:
+                acted += 1; continue
             p = (b - a) / a * 100
             if abs(p) > MAX_WEEK_MOVE:
                 big += 1; continue
-            moves.append({'symbol': sym, 'name': r.get('name') or _short_name(sym), 'start': a, 'end': b, 'pct': p})
-        if len(moves) < 0.8 * len(rows):
-            report.append(('fail', f'{seg}: weekly prices confirmed for only {len(moves)} of {len(rows)} stocks')); continue
+            moves.append({'symbol': sym, 'name': _short_name(sym), 'start': a, 'end': b, 'pct': p})
+        if len(moves) < 0.8 * len(members):
+            report.append(('warn', f'{seg}: closes found for only {len(moves)} of {len(members)} stocks - left out')); continue
         moves.sort(key=lambda x: x['pct'], reverse=True)
         out[seg] = {'index': index, 'gainers': [m for m in moves[:n] if m['pct'] > 0],
                     'losers': [m for m in reversed(moves[-n:]) if m['pct'] < 0], 'count': len(moves),
-                    'last_day': str(last_day)}
-        extra = ', '.join(x for x in (f'{mism} dropped (Yahoo and NSE prices differ)' if mism else '',
-                                      f'{big} left out (move over {MAX_WEEK_MOVE}% - check for split/bonus)' if big else '',
-                                      f'{stale} without this week\'s data' if stale else '') if x)
-        report.append(('ok' if checked else 'warn',
-                       f'{seg} ({index}): {len(moves)} stocks ranked for the week' + (f'; {extra}' if extra else '') +
-                       ('' if checked else '; NSE prices unavailable - Yahoo only, not cross-checked')))
+                    'last_day': str(end), 'prev_day': str(prev)}
+        extra = ', '.join(x for x in (f'{acted} with split/bonus/rights left out' if acted else '',
+                                      f'{big} with moves over {MAX_WEEK_MOVE}% left out' if big else '',
+                                      f'{gone} not traded both days' if gone else '') if x)
+        report.append(('ok', f'{seg} ({index}): {len(moves)} of {len(members)} stocks ranked, NSE bhavcopy '
+                             f'{prev:%d %b} -> {end:%d %b}' + (f'; {extra}' if extra else '')))
     return out, report
 
 

@@ -413,7 +413,7 @@ def weekly_reel(force=False):
     caps = [n for n, _ in market.CAP_INDEX_LABELS]
     secs = market.WEEK_SECTORS
     wk, rep = market.weekly_indices(['NIFTY 50', 'NIFTY BANK'] + caps + list(secs.values()), monday)
-    report.extend(rep)
+    report.extend([('warn', m) if st == 'fail' else (st, m) for st, m in rep])
     rows, allowed, paras, lines = [], [monday.day, friday.day, friday.year], [], []
     # headline indices: Nifty + Bank from NSE; Sensex from Yahoo, checked against BSE's close
     head = [('NIFTY 50', 'Nifty 50'), ('SENSEX', 'Sensex'), ('NIFTY BANK', 'Nifty Bank')]
@@ -482,7 +482,7 @@ def weekly_reel(force=False):
 
     # top 5 gainers and losers in each market-cap group
     mv, rep = market.weekly_cap_movers(monday, 5)
-    report.extend(rep)
+    report.extend([('warn', m + ' - left out') if st == 'fail' else (st, m) for st, m in rep])
     store.write_json(f'weekly/{monday}-movers.json', {k: {**v} for k, v in mv.items()})
     for seg, _ in market.CAP_SEGMENTS:
         g = mv.get(seg)
