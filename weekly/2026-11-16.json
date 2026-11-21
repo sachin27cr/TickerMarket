@@ -1,21 +1,447 @@
 {
-  "groups": {},
+  "groups": {
+    "Large Cap": {
+      "index": "NIFTY 100",
+      "ath": [
+        {
+          "symbol": "AXISBANK",
+          "name": "Axis Bank",
+          "close": 1446.0,
+          "week_pct": 8.640120210368146,
+          "level": 1450.0
+        },
+        {
+          "symbol": "APOLLOHOSP",
+          "name": "Apollo Hospitals",
+          "close": 9200.0,
+          "week_pct": 7.9052310579404175,
+          "level": 9282.5
+        },
+        {
+          "symbol": "KOTAKBANK",
+          "name": "Kotak Bank",
+          "close": 515.7999877929688,
+          "week_pct": 5.577730156764971,
+          "level": 516.5999755859375
+        },
+        {
+          "symbol": "ICICIBANK",
+          "name": "ICICI Bank",
+          "close": 1640.0,
+          "week_pct": 3.5615070272525293,
+          "level": 1645.0
+        },
+        {
+          "symbol": "ETERNAL",
+          "name": "Eternal (Zomato)",
+          "close": 364.0,
+          "week_pct": 0.09624807077963454,
+          "level": 378.0
+        }
+      ],
+      "low": [],
+      "ath_count": 5,
+      "low_count": 0,
+      "checked": 100
+    },
+    "Mid Cap": {
+      "index": "NIFTY MIDCAP 150",
+      "ath": [
+        {
+          "symbol": "MAHABANK",
+          "name": "Bank of Maharashtra",
+          "close": 99.44999694824219,
+          "week_pct": 8.451472473193535,
+          "level": 99.5999984741211
+        },
+        {
+          "symbol": "FLUOROCHEM",
+          "name": "Gujarat Fluorochemicals",
+          "close": 4930.0,
+          "week_pct": 4.624263021325272,
+          "level": 5018.89990234375
+        },
+        {
+          "symbol": "FEDERALBNK",
+          "name": "Federal Bank",
+          "close": 373.5,
+          "week_pct": 3.476932364188538,
+          "level": 374.29998779296875
+        },
+        {
+          "symbol": "COFORGE",
+          "name": "Coforge",
+          "close": 2086.699951171875,
+          "week_pct": 2.894474909855769,
+          "level": 2177.800048828125
+        },
+        {
+          "symbol": "INDHOTEL",
+          "name": "Indian Hotels (Taj)",
+          "close": 912.0,
+          "week_pct": 2.4373820627387666,
+          "level": 913.0
+        },
+        {
+          "symbol": "PHOENIXLTD",
+          "name": "Phoenix Mills",
+          "close": 2285.300048828125,
+          "week_pct": 1.3436828748614191,
+          "level": 2302.60009765625
+        },
+        {
+          "symbol": "GROWW",
+          "name": "Billionbrains Garage Ventures",
+          "close": 224.66000366210938,
+          "week_pct": -0.12891455437518226,
+          "level": 233.39999389648438
+        },
+        {
+          "symbol": "UNOMINDA",
+          "name": "UNO Minda",
+          "close": 1380.0,
+          "week_pct": -0.5763688760806917,
+          "level": 1409.699951171875
+        },
+        {
+          "symbol": "MCX",
+          "name": "MCX",
+          "close": 3535.0,
+          "week_pct": -4.973118279569892,
+          "level": 3774.0
+        },
+        {
+          "symbol": "APLAPOLLO",
+          "name": "APL Apollo Tubes",
+          "close": 2121.60009765625,
+          "week_pct": -5.77367180501193,
+          "level": 2312.300048828125
+        }
+      ],
+      "low": [
+        {
+          "symbol": "PIIND",
+          "name": "PI Industries",
+          "close": 1597.4000244140625,
+          "week_pct": -6.846280678280384,
+          "level": 1595.0
+        },
+        {
+          "symbol": "KEI",
+          "name": "KEI Industries",
+          "close": 3828.10009765625,
+          "week_pct": -5.245047087716584,
+          "level": 3653.10009765625
+        },
+        {
+          "symbol": "THERMAX",
+          "name": "Thermax",
+          "close": 2715.89990234375,
+          "week_pct": -2.172035512163721,
+          "level": 2662.0
+        },
+        {
+          "symbol": "ESCORTS",
+          "name": "Escorts Kubota",
+          "close": 2475.39990234375,
+          "week_pct": 3.0643622291345816,
+          "level": 2361.0
+        }
+      ],
+      "ath_count": 10,
+      "low_count": 4,
+      "checked": 150
+    },
+    "Small Cap": {
+      "index": "NIFTY SMALLCAP 250",
+      "ath": [
+        {
+          "symbol": "CUB",
+          "name": "City Union Bank",
+          "close": 248.8000030517578,
+          "week_pct": 7.056802747842726,
+          "level": 251.0
+        },
+        {
+          "symbol": "CRAFTSMAN",
+          "name": "Craftsman Automation",
+          "close": 11730.0,
+          "week_pct": 5.895097950708675,
+          "level": 12210.0
+        },
+        {
+          "symbol": "WELSPUNLIV",
+          "name": "Welspun Living",
+          "close": 263.79998779296875,
+          "week_pct": 5.460937249800603,
+          "level": 274.0
+        },
+        {
+          "symbol": "ASAHIINDIA",
+          "name": "Asahi India Glass",
+          "close": 1163.449951171875,
+          "week_pct": 4.7917091800833145,
+          "level": 1199.0
+        },
+        {
+          "symbol": "ABDL",
+          "name": "Allied Blenders and Distillers",
+          "close": 792.5,
+          "week_pct": 4.592845088071627,
+          "level": 854.7000122070312
+        },
+        {
+          "symbol": "SANSERA",
+          "name": "Sansera Engineering",
+          "close": 4800.0,
+          "week_pct": 1.9454612937752642,
+          "level": 4849.89990234375
+        },
+        {
+          "symbol": "NAVINFLUOR",
+          "name": "Navin Fluorine International",
+          "close": 10077.0,
+          "week_pct": 0.7498500299940012,
+          "level": 10360.0
+        },
+        {
+          "symbol": "SHYAMMETL",
+          "name": "Shyam Metalics and Energy",
+          "close": 1316.300048828125,
+          "week_pct": 0.03039930136338594,
+          "level": 1381.9000244140625
+        },
+        {
+          "symbol": "ATHERENERG",
+          "name": "Ather Energy",
+          "close": 1935.4000244140625,
+          "week_pct": -0.4935720095597686,
+          "level": 2021.5
+        },
+        {
+          "symbol": "KARURVYSYA",
+          "name": "Karur Vysya Bank",
+          "close": 377.0,
+          "week_pct": -1.1925010977690296,
+          "level": 397.8500061035156
+        }
+      ],
+      "low": [
+        {
+          "symbol": "KAYNES",
+          "name": "Kaynes Technology India",
+          "close": 2910.0,
+          "week_pct": -15.160349854227405,
+          "level": 2744.0
+        },
+        {
+          "symbol": "INOXWIND",
+          "name": "Inox Wind",
+          "close": 55.459999084472656,
+          "week_pct": -13.948794863387073,
+          "level": 55.040000915527344
+        },
+        {
+          "symbol": "CREDITACC",
+          "name": "Creditaccess Grameen",
+          "close": 983.0,
+          "week_pct": -10.847086725390172,
+          "level": 963.0999755859375
+        },
+        {
+          "symbol": "AADHARHFC",
+          "name": "Aadhar Housing Finance",
+          "close": 416.70001220703125,
+          "week_pct": -3.6531763683164744,
+          "level": 411.20001220703125
+        },
+        {
+          "symbol": "ATUL",
+          "name": "Atul",
+          "close": 5035.5,
+          "week_pct": -2.5261324041811846,
+          "level": 4960.0
+        }
+      ],
+      "ath_count": 10,
+      "low_count": 5,
+      "checked": 249
+    },
+    "Micro Cap": {
+      "index": "NIFTY MICROCAP 250",
+      "ath": [
+        {
+          "symbol": "SGMART",
+          "name": "SG Mart",
+          "close": 1083.1500244140625,
+          "week_pct": 15.051251831719181,
+          "level": 1107.5999755859375
+        },
+        {
+          "symbol": "PGIL",
+          "name": "Pearl Global Industries",
+          "close": 1430.0,
+          "week_pct": 7.268773999599845,
+          "level": 1470.0
+        },
+        {
+          "symbol": "ICIL",
+          "name": "Indo Count Industries",
+          "close": 575.5,
+          "week_pct": 5.133353001950583,
+          "level": 594.0
+        },
+        {
+          "symbol": "NEOGEN",
+          "name": "Neogen Chemicals",
+          "close": 2905.0,
+          "week_pct": 3.42494835871322,
+          "level": 2970.0
+        },
+        {
+          "symbol": "SAREGAMA",
+          "name": "Saregama India",
+          "close": 666.0,
+          "week_pct": 1.9205735034851548,
+          "level": 693.4000244140625
+        },
+        {
+          "symbol": "SHREEJISPG",
+          "name": "Shreeji Shipping Global",
+          "close": 911.5,
+          "week_pct": 0.07685685292195762,
+          "level": 924.75
+        },
+        {
+          "symbol": "MBAPL",
+          "name": "Madhya Bharat Agro Products",
+          "close": 195.52000427246094,
+          "week_pct": -0.4125694244585026,
+          "level": 209.0
+        },
+        {
+          "symbol": "KMEW",
+          "name": "KMEW",
+          "close": 714.9000244140625,
+          "week_pct": -0.8322929389379223,
+          "level": 773.4000244140625
+        },
+        {
+          "symbol": "AARTIPHARM",
+          "name": "Aarti Pharmalabs",
+          "close": 987.0,
+          "week_pct": -1.0972505709794609,
+          "level": 1047.25
+        },
+        {
+          "symbol": "NAZARA",
+          "name": "Nazara Technologies",
+          "close": 413.70001220703125,
+          "week_pct": -2.7503483444572323,
+          "level": 435.25
+        }
+      ],
+      "low": [
+        {
+          "symbol": "JSLL",
+          "name": "Jeena Sikho Lifecare",
+          "close": 300.5,
+          "week_pct": -12.160188646979424,
+          "level": 280.0
+        },
+        {
+          "symbol": "BORORENEW",
+          "name": "Borosil Renewables",
+          "close": 369.70001220703125,
+          "week_pct": -11.172512887113854,
+          "level": 368.54998779296875
+        },
+        {
+          "symbol": "PRAJIND",
+          "name": "Praj Industries",
+          "close": 233.97999572753906,
+          "week_pct": -8.030347722373412,
+          "level": 232.5500030517578
+        },
+        {
+          "symbol": "IONEXCHANG",
+          "name": "ION Exchange",
+          "close": 294.20001220703125,
+          "week_pct": -7.846511446505482,
+          "level": 294.0
+        },
+        {
+          "symbol": "IMFA",
+          "name": "Indian Metals & Ferro Alloys",
+          "close": 1027.5,
+          "week_pct": -6.078610603290676,
+          "level": 1000.0
+        },
+        {
+          "symbol": "HAPPSTMNDS",
+          "name": "Happiest Minds Technologies",
+          "close": 296.1499938964844,
+          "week_pct": -5.519227193113124,
+          "level": 294.6000061035156
+        },
+        {
+          "symbol": "ABFRL",
+          "name": "ABFRL",
+          "close": 37.939998626708984,
+          "week_pct": -3.4359945466044532,
+          "level": 35.79999923706055
+        },
+        {
+          "symbol": "V2RETAIL",
+          "name": "V2 Retail",
+          "close": 160.8000030517578,
+          "week_pct": -2.0109707062875692,
+          "level": 122.7300033569336
+        },
+        {
+          "symbol": "VIPIND",
+          "name": "VIP Industries",
+          "close": 248.0,
+          "week_pct": 3.9614323317329143,
+          "level": 230.60000610351562
+        },
+        {
+          "symbol": "VESUVIUS",
+          "name": "Vesuvius India",
+          "close": 379.8500061035156,
+          "week_pct": 4.068494822880994,
+          "level": 338.0
+        }
+      ],
+      "ath_count": 12,
+      "low_count": 11,
+      "checked": 250
+    }
+  },
   "report": [
     [
-      "fail",
-      "Large Cap (NIFTY 100): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)"
+      "ok",
+      "Large Cap (NIFTY 100): 100 stocks checked; 5 all-time highs, 0 52-week lows; 1 listed < 1 year skipped, 1 without data for this week"
     ],
     [
-      "fail",
-      "Mid Cap (NIFTY MIDCAP 150): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)"
+      "ok",
+      "Mid Cap (NIFTY MIDCAP 150): 150 stocks checked; 10 all-time highs, 4 52-week lows; 2 listed < 1 year skipped"
     ],
     [
-      "fail",
-      "Small Cap (NIFTY SMALLCAP 250): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)"
+      "warn",
+      "Small Cap: NSE stock API unavailable - 52-week levels from Yahoo, not cross-checked"
     ],
     [
-      "fail",
-      "Micro Cap (NIFTY MICROCAP 250): NSE list unavailable (NSE /api/equity-stockIndices: HTTP 404)"
+      "ok",
+      "Small Cap (NIFTY SMALLCAP 250): 249 stocks checked; 10 all-time highs, 5 52-week lows; 7 listed < 1 year skipped, 2 without data for this week"
+    ],
+    [
+      "warn",
+      "Micro Cap: NSE stock API unavailable - 52-week levels from Yahoo, not cross-checked"
+    ],
+    [
+      "ok",
+      "Micro Cap (NIFTY MICROCAP 250): 250 stocks checked; 12 all-time highs, 11 52-week lows; 15 listed < 1 year skipped, 1 without data for this week"
     ]
   ]
 }
