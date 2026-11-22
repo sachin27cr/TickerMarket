@@ -92,5 +92,99 @@
       "supply",
       "west"
     ]
+  },
+  {
+    "when": "2026-11-22T18:09:09.347722+05:30",
+    "title": "Stock Market Outlook Next Week, FII Buying, US Inflation & Crude Oil To Decide Niftys 26,000 Breakout",
+    "bucket": "crude_oil",
+    "lead": [
+      "000",
+      "breakout",
+      "buying",
+      "crude",
+      "decide",
+      "fii",
+      "inflation",
+      "next",
+      "niftys",
+      "oil",
+      "outlook"
+    ],
+    "tokens": [
+      "000",
+      "among",
+      "breakout",
+      "buying",
+      "crude",
+      "decide",
+      "factors",
+      "fii",
+      "flows",
+      "inflation",
+      "next",
+      "niftys",
+      "oil",
+      "outlook",
+      "top",
+      "watch"
+    ]
+  },
+  {
+    "when": "2026-11-22T18:09:53.952564+05:30",
+    "title": "Reliance Brands FY26 revenue up 3.8% to Rs 3,390.9 crore; loss narrows to Rs 137 crore",
+    "bucket": null,
+    "lead": [
+      "137",
+      "390",
+      "brands",
+      "crore",
+      "fy26",
+      "loss",
+      "narrows",
+      "reliance",
+      "revenue"
+    ],
+    "tokens": [
+      "137",
+      "390",
+      "brands",
+      "crore",
+      "fy26",
+      "loss",
+      "narrows",
+      "reliance",
+      "revenue"
+    ]
+  },
+  {
+    "when": "2026-11-22T18:10:22.771964+05:30",
+    "title": "IPO Street set for year-end revival; 29 firms eye ₹42,000 crore as sentiment improves",
+    "bucket": null,
+    "lead": [
+      "000",
+      "crore",
+      "end",
+      "eye",
+      "firms",
+      "improves",
+      "ipo",
+      "revival",
+      "sentiment",
+      "set",
+      "street"
+    ],
+    "tokens": [
+      "000",
+      "crore",
+      "end",
+      "eye",
+      "firms",
+      "improves",
+      "ipo",
+      "revival",
+      "sentiment",
+      "set",
+      "street"
+    ]
   }
 ]

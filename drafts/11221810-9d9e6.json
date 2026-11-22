@@ -1,0 +1,69 @@
+{
+  "id": "11221810-9d9e6",
+  "kind": "news",
+  "created": "2026-11-22T18:10:20.382275+05:30",
+  "images": [
+    "media/2026-11-22/news-181020-1207_1.jpg"
+  ],
+  "caption": "Stock market news | IPO Street set for year-end revival; 29 firms eye ₹42,000 crore\n\nOn 22 November 2026 BusinessLine reported that despite a recent global equity market sell-off Indian markets remained relatively resilient, restoring investor confidence. The resilience is driving a year-end IPO revival, with 29 firms eyeing about ₹42,000 crore of new capital, showing improved sentiment in the Indian market.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #IPO #IndianMarkets #Investing #TickerMarketIndia",
+  "threads_text": "Stock market news | IPO Street set for year-end revival; 29 firms eye ₹42,000 crore\n\nOn 22 November 2026 BusinessLine reported that despite a recent global equity market sell-off Indian markets remained relatively resilient, restoring investor confidence. The resilience is driving a year-end IPO revival, with 29 firms eyeing about ₹42,000 crore of new capital, showing improved sentiment in the Indian market.\n\n#StockMarketIndia #IPO #IndianMarkets #Investing #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "reported by a trusted outlet: BusinessLine"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.9 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 7 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.thehindubusinessline.com/markets/ipo-street-set-for-year-end-revival-29-firms-eye-42000-crore-as-sentiment-improves/article71731112.ece | https://news.google.com/rss/articles/CBMi4AFBVV95cUxONmNnT0U0VzFnb3c1OFUwUkN6OThQVlg3cVRCMER4am1IMFdBSGFPSUUzdkZfWUU1YVU1STdKWWxCbDZiVmNpU3ZiNTY1Sks3ZHE2bHgydmpnM3cwSHNmYUNlYjJocDl6QVZRWF94TDdwdXlvWWxVeWZKS0lvLUMyVkNuVENIM3ZLVkNxM3NhZ2E4Q3FRaDJyRGdvUWNNWlh4Ym5rSDBkUlN0cXNrWVVONGI2THllMTRFMTNlVHlLWTJLY29yZmdqX2ZjZE1YREk5UVFsRVVXYU1aMVA0VWR6UNIB5wFBVV95cUxPZ1FGQWhSbEpYbHZuT2NROGdLYUt2SnhFQlNrZU1yVjZUdWw4VzNZZ0xWTXF5QVVRcERLWllNNXRPdzFvTnY1dU9BQmhIZ1RNZDlRUTJjejRhRXBQcWdaRzVGVzVWZnpmdjh4WXFXQ2JrTWNiLXE5bEhRVm1sVDd5ekRDcGVrOW5Ga3h4ODRRWWFwMWNFeUtvRWpjeUlWTHJUbGtIVVZ4d05PUElpRVZZdmZrZXl4d0RwMVFTOE1lbW9tSFhld2JWX3lYcnRTQ0JScHZxNDdiWkwtTjhhQTNrdW9BVlR1c00?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "IPO Watch",
+      "date_text": "Sun, 22 Nov 2026",
+      "theme": "ipo",
+      "seed": "000 crore end eye firms improves ipo revival",
+      "tone": null,
+      "quotes": [],
+      "label": "IPO REVIVAL",
+      "headline": "*IPO Street* set for *year-end revival*; 29 firms eye *₹42,000 crore*",
+      "points": [
+        "Indian markets stayed resilient despite recent global equity sell-off.",
+        "Investor confidence is improving, prompting a year-end IPO revival.",
+        "Twenty-nine companies plan IPOs totaling about *₹42,000 crore*."
+      ],
+      "source": "BusinessLine"
+    },
+    "news_sector": "ipo",
+    "photo_prompt": "A bustling stock exchange trading floor with screens showing IPO listings and charts."
+  },
+  "telegram_message_id": 735,
+  "posted": {},
+  "report_text": "✅ reported by a trusted outlet: BusinessLine\n✅ fresh: newest source 0.9 h old\n✅ headline/banner/points/body: all 7 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://www.thehindubusinessline.com/markets/ipo-street-set-for-year-end-revival-29-firms-eye-42000-crore-as-sentiment-improves/article71731112.ece | https://news.google.com/rss/articles/CBMi4AFBVV95cUxONmNnT0U0VzFnb3c1OFUwUkN6OThQVlg3cVRCMER4am1IMFdBSGFPSUUzdkZfWUU1YVU1STdKWWxCbDZiVmNpU3ZiNTY1Sks3ZHE2bHgydmpnM3cwSHNmYUNlYjJocDl6QVZRWF94TDdwdXlvWWxVeWZKS0lvLUMyVkNuVENIM3ZLVkNxM3NhZ2E4Q3FRaDJyRGdvUWNNWlh4Ym5rSDBkUlN0cXNrWVVONGI2THllMTRFMTNlVHlLWTJLY29yZmdqX2ZjZE1YREk5UVFsRVVXYU1aMVA0VWR6UNIB5wFBVV95cUxPZ1FGQWhSbEpYbHZuT2NROGdLYUt2SnhFQlNrZU1yVjZUdWw4VzNZZ0xWTXF5QVVRcERLWllNNXRPdzFvTnY1dU9BQmhIZ1RNZDlRUTJjejRhRXBQcWdaRzVGVzVWZnpmdjh4WXFXQ2JrTWNiLXE5bEhRVm1sVDd5ekRDcGVrOW5Ga3h4ODRRWWFwMWNFeUtvRWpjeUlWTHJUbGtIVVZ4d05PUElpRVZZdmZrZXl4d0RwMVFTOE1lbW9tSFhld2JWX3lYcnRTQ0JScHZxNDdiWkwtTjhhQTNrdW9BVlR1c00?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - IPO Street set for year-end revival; 29 firms eye ₹42,000 crore",
+  "telegram_media_ids": [
+    734
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "11221809-a638e",
+  "kind": "news",
+  "created": "2026-11-22T18:09:51.387619+05:30",
+  "images": [
+    "media/2026-11-22/news-180951-2235_1.jpg"
+  ],
+  "caption": "Stock market news | Revenue up 3.8% to ₹3,390.9 crore; Loss ₹137 crore\n\nReliance Brands reported FY26 revenue of Rs 3,390.9 crore, up 3.8%, and a narrowed loss of Rs 137 crore. The figures show improved financial performance for the fiscal year.\nThe company runs more than 1,085 Points of Sale across India and works with over 90 partner brands, highlighting its expanding retail footprint in the fashion and lifestyle sector.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #RelianceBrands #IndianRetail #FY26Results #TickerMarketIndia",
+  "threads_text": "Stock market news | Revenue up 3.8% to ₹3,390.9 crore; Loss ₹137 crore\n\nReliance Brands reported FY26 revenue of Rs 3,390.9 crore, up 3.8%, and a narrowed loss of Rs 137 crore. The figures show improved financial performance for the fiscal year.\n\n#StockMarketIndia #RelianceBrands #IndianRetail #FY26Results #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: BusinessLine, Economic Times"
+    ],
+    [
+      "ok",
+      "fresh: newest source 6.0 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 13 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "fiscal years match the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.thehindubusinessline.com/companies/reliance-brands-fy26-revenue-up-38-to-33909-cr-loss-narrows-to-137-cr/article71730785.ece | https://economictimes.indiatimes.com/markets/stocks/earnings/reliance-brands-fy26-revenue-up-3-8-to-rs-3390-9-crore-loss-narrows-to-rs-137-crore/articleshow/136068185.cms | https://economictimes.indiatimes.com/markets/stocks/earnings/reliance-brands-fy26-revenue-up-3-8-to-rs-3390-9-crore-loss-narrows-to-rs-137-crore/articleshow/136068185.cms"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Earnings",
+      "date_text": "Sun, 22 Nov 2026",
+      "theme": "market_up",
+      "seed": "137 390 brands crore fy26 loss narrows reliance",
+      "tone": "up",
+      "quotes": [],
+      "label": "RESULTS UPDATE",
+      "headline": "*Revenue* up 3.8% to *₹3,390.9* crore; *Loss* ₹137 crore",
+      "points": [
+        "FY26 revenue reached Rs 3,390.9 crore, a 3.8% rise.",
+        "FY26 loss narrowed to Rs 137 crore.",
+        "Operates over 1,085 Points of Sale and partners with 90+ brands."
+      ],
+      "source": "BusinessLine, Economic Times"
+    },
+    "news_sector": "results",
+    "photo_prompt": "A modern retail store aisle with branded merchandise and display racks, showing a bustling shopping environment."
+  },
+  "telegram_message_id": 733,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: BusinessLine, Economic Times\n✅ fresh: newest source 6.0 h old\n✅ headline/banner/points/body: all 13 numbers match source data\n✅ all names appear in the sources\n✅ fiscal years match the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://www.thehindubusinessline.com/companies/reliance-brands-fy26-revenue-up-38-to-33909-cr-loss-narrows-to-137-cr/article71730785.ece | https://economictimes.indiatimes.com/markets/stocks/earnings/reliance-brands-fy26-revenue-up-3-8-to-rs-3390-9-crore-loss-narrows-to-rs-137-crore/articleshow/136068185.cms | https://economictimes.indiatimes.com/markets/stocks/earnings/reliance-brands-fy26-revenue-up-3-8-to-rs-3390-9-crore-loss-narrows-to-rs-137-crore/articleshow/136068185.cms\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Revenue up 3.8% to ₹3,390.9 crore; Loss ₹137 crore",
+  "telegram_media_ids": [
+    732
+  ]
+}
