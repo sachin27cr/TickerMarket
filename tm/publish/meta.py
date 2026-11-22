@@ -270,6 +270,9 @@ def check_setup():
         missing = need - set(dbg.get('scopes') or [])
         out.append((not missing, 'All posting permissions granted' if not missing else
                     'Missing permissions: ' + ', '.join(sorted(missing))))
+        ins = 'instagram_manage_insights' in (dbg.get('scopes') or [])
+        out.append((ins, 'instagram_manage_insights granted (weekly /review works)' if ins else
+                    'instagram_manage_insights missing - /review cannot read reach and saves (posting is not affected)'))
         # granted for WHICH Page? (a permission can be granted for one Page and not another)
         for g in dbg.get('granular_scopes') or []:
             if g.get('scope') in ('pages_manage_posts', 'pages_read_engagement') and g.get('target_ids'):
