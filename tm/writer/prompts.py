@@ -18,7 +18,8 @@ Return JSON with exactly these keys:
 {{
  "relevant": true/false   (false if not about Indian markets, the economy, companies, IPOs, regulators, or a global event moving Indian markets; false if it is a stock tip, opinion piece or prediction),
  "category": one of "Market News","Earnings","IPO Watch","Economy","Regulation","Global Markets","Corporate Action",
- "headline": max 11 words; wrap the 1-3 most important words or numbers in *single stars*; keep punctuation inside the stars when it directly follows a starred word,
+ "subject": the company, organisation or index the story is about, exactly as named in the sources (e.g. "Reliance Brands", "SEBI", "Nifty 50"); "" only if it is about the whole economy,
+ "headline": max 11 words; MUST name the subject (a headline like "Revenue up 3.8%" with no company is not allowed); wrap the 1-3 most important words or numbers in *single stars*; keep punctuation inside the stars when it directly follows a starred word,
  "points": 3 short key points, max 14 words each, each a fact from the sources,
  "body": 2 short paragraphs (max 45 words each) explaining what happened and why it matters, facts only,
  "hashtags": 5 relevant hashtags that are popular on Instagram for this topic,

@@ -24,6 +24,7 @@ def _txt(s):
     s = re.sub('[\u2010\u2011\u2012\u2212]', '-', s)
     s = re.sub('[\u2013\u2014\u2015]', ' - ', s)
     s = re.sub('[\u00a0\u2007\u202f\u2009\u200a]', ' ', s)
+    s = re.sub(r'\bRs\.?\s?(?=\d)', '₹', s)               # one rupee style on cards and captions
     s = s.replace('\u2018', "'").replace('\u2019', "'").replace('\u201c', '"').replace('\u201d', '"')
     return re.sub(r'[ \t]+', ' ', s).strip()
 
@@ -107,6 +108,15 @@ def build_from_cluster(c):
         report.fail('writer returned an incomplete draft')
         return None, None, report, title
 
+    subject = _txt(str(out.get('subject') or '')).strip()
+    plain_head = headline.replace('*', '').lower()
+    if subject and subject.lower() not in plain_head and subject.split()[0].lower() not in plain_head:
+        if len(headline.split()) + len(subject.split()) <= 14:       # say whose numbers these are
+            headline = f'*{subject}*: ' + headline
+            report.ok(f'headline did not name {subject} - added')
+        else:
+            report.fail(f'headline does not say who the story is about ({subject})')
+            return None, None, report, title
     label = re.sub(r'[^A-Za-z0-9 &]', '', str(out.get('label') or ''))[:24].strip()
     companies = [str(x) for x in (out.get('companies') or [])][:3]
     src_text = ' '.join(f'{i["title"]} {i["summary"]}' for i in c['items'])
