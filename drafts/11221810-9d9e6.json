@@ -37,7 +37,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "IPO Watch",
@@ -59,11 +59,16 @@
     "photo_prompt": "A bustling stock exchange trading floor with screens showing IPO listings and charts."
   },
   "telegram_message_id": 735,
-  "posted": {},
+  "posted": {
+    "instagram": "18482268256118446",
+    "facebook": "122110682559544503"
+  },
   "report_text": "✅ reported by a trusted outlet: BusinessLine\n✅ fresh: newest source 0.9 h old\n✅ headline/banner/points/body: all 7 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://www.thehindubusinessline.com/markets/ipo-street-set-for-year-end-revival-29-firms-eye-42000-crore-as-sentiment-improves/article71731112.ece | https://news.google.com/rss/articles/CBMi4AFBVV95cUxONmNnT0U0VzFnb3c1OFUwUkN6OThQVlg3cVRCMER4am1IMFdBSGFPSUUzdkZfWUU1YVU1STdKWWxCbDZiVmNpU3ZiNTY1Sks3ZHE2bHgydmpnM3cwSHNmYUNlYjJocDl6QVZRWF94TDdwdXlvWWxVeWZKS0lvLUMyVkNuVENIM3ZLVkNxM3NhZ2E4Q3FRaDJyRGdvUWNNWlh4Ym5rSDBkUlN0cXNrWVVONGI2THllMTRFMTNlVHlLWTJLY29yZmdqX2ZjZE1YREk5UVFsRVVXYU1aMVA0VWR6UNIB5wFBVV95cUxPZ1FGQWhSbEpYbHZuT2NROGdLYUt2SnhFQlNrZU1yVjZUdWw4VzNZZ0xWTXF5QVVRcERLWllNNXRPdzFvTnY1dU9BQmhIZ1RNZDlRUTJjejRhRXBQcWdaRzVGVzVWZnpmdjh4WXFXQ2JrTWNiLXE5bEhRVm1sVDd5ekRDcGVrOW5Ga3h4ODRRWWFwMWNFeUtvRWpjeUlWTHJUbGtIVVZ4d05PUElpRVZZdmZrZXl4d0RwMVFTOE1lbW9tSFhld2JWX3lYcnRTQ0JScHZxNDdiWkwtTjhhQTNrdW9BVlR1c00?oc=5\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - IPO Street set for year-end revival; 29 firms eye ₹42,000 crore",
   "telegram_media_ids": [
     734
-  ]
+  ],
+  "approved_at": "2026-11-22T18:12:56.385820+05:30",
+  "posted_at": "2026-11-22T18:13:14.999721+05:30"
 }
