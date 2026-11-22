@@ -103,10 +103,9 @@ def send_draft(d, auto=False):
     script = ('\n\n<b>Voice-over</b>\n' + html.escape('\n'.join(d['script']))) if d.get('script') else ''
     seo = (f'\n\n<b>Search keyword:</b> {html.escape(d["topic_keyword"])}' if d.get('topic_keyword') else '') + \
           (f'\n<b>Alt text:</b> {html.escape(d["alt_text"])}' if d.get('alt_text') else '')
-    photo = ('\n\n🖼 <b>Your own picture?</b> Reply to this message with a photo - it goes across the top of the card '
-             'and a new preview comes back for approval. (Caption "top" or "bottom" moves the crop.)'
+    photo = ('\n🖼 <i>Want your own picture? Reply to this message with a photo.</i>'
              if d['kind'] == 'news' and (d.get('meta') or {}).get('card') else '')
-    text = f'{head}\n\n{html.escape(d["caption"])}{script}{seo}\n\n<b>Checks</b>\n{html.escape(d["report_text"])}{photo}'
+    text = f'{head}{photo}\n\n{html.escape(d["caption"])}{script}{seo}\n\n<b>Checks</b>\n{html.escape(d["report_text"])}'
     buttons = ([[{'text': '🚀 Post now', 'callback_data': f'ap:{d["id"]}'},
                  {'text': '✋ Cancel', 'callback_data': f'rj:{d["id"]}'}]] if auto else
                [[{'text': '✅ Approve & post', 'callback_data': f'ap:{d["id"]}'},
