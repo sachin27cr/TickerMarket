@@ -25,12 +25,15 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "video": "media/2026-11-22/reel_custom-185405-c054.mp4"
   },
   "telegram_message_id": 742,
-  "posted": {},
+  "posted": {
+    "instagram": "18158804056524612",
+    "facebook": "1495000755837399"
+  },
   "video": "media/2026-11-22/reel_custom-185405-c054.mp4",
   "script": [
     "1. Stocks that turned 1 lakh into 1 crore in ten years. Only two stocks did it. Can you guess them?",
@@ -46,5 +49,7 @@
   "topic_keyword": "Stocks that turned 1 lakh into 1 crore",
   "telegram_media_ids": [
     741
-  ]
+  ],
+  "approved_at": "2026-11-22T18:55:21.610881+05:30",
+  "posted_at": "2026-11-22T18:57:03.452386+05:30"
 }
