@@ -1,0 +1,98 @@
+{
+  "id": "11230131-4b2bf",
+  "kind": "news",
+  "created": "2026-11-23T01:31:49.881045+05:30",
+  "images": [
+    "media/2026-11-23/news-013149-174e_1.jpg"
+  ],
+  "caption": "Stock market news | Tata Steel approves ₹28,000 crore deal with APL Apollo\n\nTata Steel has approved selling its tubes business and its 100% stake in Tata Steel Colours to APL Apollo Tubes. The total transaction is valued at up to ₹28,000 crore, subject to regulatory approvals by March 2028.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #TataSteel #APLApollo #CorporateNews #TickerMarketIndia",
+  "threads_text": "Stock market news | Tata Steel approves ₹28,000 crore deal with APL Apollo\n\nTata Steel has approved selling its tubes business and its 100% stake in Tata Steel Colours to APL Apollo Tubes. The total transaction is valued at up to ₹28,000 crore, subject to regulatory approvals by March 2028.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #TataSteel #APLApollo #CorporateNews #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: BusinessLine, CNBC-TV18, Mint"
+    ],
+    [
+      "ok",
+      "fresh: newest source 2.0 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 6 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "TATASTEEL ₹178.00 (-1.60%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "APLAPOLLO ₹2,121.60 (-1.22%): NSE = Yahoo"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"APL Apollo\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://www.cnbctv18.com/business/companies/tata-steel-to-sell-tubes-colour-coated-steel-businesses-to-apl-apollo-in-deals-worth-up-to-rs-28000-crore-20039425.htm | https://www.livemint.com/companies/news/tata-steel-s-28-000-crore-deal-with-apl-apollo-is-part-of-a-two-stage-transaction-11795360468769.html | https://www.thehindubusinessline.com/companies/tata-steel-to-sell-tubes-business-colors-stake-to-apl-apollo-for-28000-crore/article71731897.ece"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Sun, 22 Nov 2026",
+      "theme": "market_down",
+      "seed": "000 apl apollo crore deal part stage steel",
+      "tone": "down",
+      "quotes": [
+        {
+          "name": "Tata Steel Ltd",
+          "symbol": "TATASTEEL",
+          "price": 178.0,
+          "chg": -2.89,
+          "pct": -1.6,
+          "time_text": "20 Nov, 4:00 PM IST"
+        },
+        {
+          "name": "APL Apollo Tubes Ltd",
+          "symbol": "APLAPOLLO",
+          "price": 2121.6,
+          "chg": -26.3,
+          "pct": -1.22,
+          "time_text": "20 Nov, 4:00 PM IST"
+        }
+      ],
+      "label": "MAJOR ASSET SALE",
+      "headline": "Tata Steel approves *₹28,000 crore deal* with APL Apollo",
+      "points": [
+        "Tata Steel will sell its tubes business for up to ₹11,700 crore.",
+        "Tata Steel will sell its entire stake in Tata Steel Colours for ₹16,300 crore.",
+        "Tata Steel will later buy APL Apollo promoter stake and launch an open offer."
+      ],
+      "source": "NSE prices, BusinessLine, CNBC-TV18, Mint"
+    },
+    "news_sector": "metals",
+    "photo_prompt": "A large industrial steel manufacturing unit featuring heavy machinery and stacked steel pipes in a modern factory setting."
+  },
+  "telegram_message_id": 745,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: BusinessLine, CNBC-TV18, Mint\n✅ fresh: newest source 2.0 h old\n✅ headline/banner/points/body: all 6 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ TATASTEEL ₹178.00 (-1.60%): NSE = Yahoo\n✅ APLAPOLLO ₹2,121.60 (-1.22%): NSE = Yahoo\n⚠️ no NSE listing matched \"APL Apollo\" - no price box for it\n✅ written by gemini; sources: https://www.cnbctv18.com/business/companies/tata-steel-to-sell-tubes-colour-coated-steel-businesses-to-apl-apollo-in-deals-worth-up-to-rs-28000-crore-20039425.htm | https://www.livemint.com/companies/news/tata-steel-s-28-000-crore-deal-with-apl-apollo-is-part-of-a-two-stage-transaction-11795360468769.html | https://www.thehindubusinessline.com/companies/tata-steel-to-sell-tubes-business-colors-stake-to-apl-apollo-for-28000-crore/article71731897.ece\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Tata Steel approves ₹28,000 crore deal with APL Apollo",
+  "telegram_media_ids": [
+    744
+  ]
+}
