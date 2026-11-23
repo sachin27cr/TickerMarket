@@ -1,0 +1,73 @@
+{
+  "id": "11231009-fd751",
+  "kind": "news",
+  "created": "2026-11-23T10:09:44.575296+05:30",
+  "images": [
+    "media/2026-11-23/news-100944-de49_1.jpg"
+  ],
+  "caption": "Stock market news | Crystal Crop Protection IPO allotment today\n\nCrystal Crop Protection's IPO allotment was completed on 23 November 2026. The company's shares are now ready for listing, and investors can verify their allocation through the stock exchanges and the registrar.\nThe disclosed listing date and time inform market participants when trading will begin, helping them plan entry or exit strategies.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #IPO #IndianStocks #CrystalCropProtection #TickerMarketIndia",
+  "threads_text": "Stock market news | Crystal Crop Protection IPO allotment today\n\nCrystal Crop Protection's IPO allotment was completed on 23 November 2026. The company's shares are now ready for listing, and investors can verify their allocation through the stock exchanges and the registrar.\nThe disclosed listing date and time inform market participants when trading will begin, helping them plan entry or exit strategies.\n\n#StockMarketIndia #IPO #IndianStocks #CrystalCropProtection #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: Moneycontrol.com, Upstox"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.6 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 4 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"Crystal Crop Protection\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMi2gFBVV95cUxNMV9ia3lkMjN4djQ0MENQTng3UzlLMzlmUWdfbkoxTVpaeHE5TWZnUTNHSWdwd18zMWR1ak1oSHNmSVNhTlkyeUVyRHAwOU4wT2N4ZV9kMkZuUXpwN04xZjJ1S0pTd19HMXpnbkwtQTZneFR0ZUpkVXFOTWE0S1JXRTkwdEpSX0hqTHFKRnZIbmdhRlRGLUFZaFhZWWEzamt3ZGJrcEo0VGZNX1hDbFdBdmJFYjhQUWhJQi1jVTJ5akJ2OGF1MGdJM0lDWkpiUVpxcmIxcTJIZ1FEUdIB3wFBVV95cUxPNjJCbEpCYkZvenRWajh5cFFrVjZhbk1MbW03bHVyY3dEUUhxbnNYWHhKTkd3bk1CUmVhcEFJaHpDMnRFbTkzVFBDcUJhN296c19LT3VManp4LWdHcDBPZVdzTWxrNnNRbXF6djl5ZEJ2VXN1MVJfdXBacnRGeUxsOGt0VDlHSHlpWkhibE04RGVVU2VZZDdDMi0xeWZRQUFSbkVTTDVLTDZKUXFIQnVPaDZiZmx0c3pmNnJNeWYtNVF4alVidTJOdkZtTFhzMExGZThsdGJrN3pOM0kweGNr?oc=5 | https://news.google.com/rss/articles/CBMihwJBVV95cUxOczRHODRQQWdTRV9KZXBmQjluaUtZSXByNW40M3Vxdjl0Ny01cW85N2pBUjRCTlJ1SkxVd19sVDVIYy1sUTZPcU1aeFAzMDdqTERCeWY4TVdPMUVXQkpkbnNLNUNaREw5TUtjd2s1ajU2YVJQM0VfMlFuVlEwRm03MFR5N3hxM200cXEyX00xUzhLYWx3TFlxM2ZoZ2JidnlfVFlaQTVLT0ZJdk8wcDJZMG9GbWZVa0FvOF9xRmZqemxVX2lrOVJRaEwxRlRDdlItRTBNUzdUU01oUk13eTJ0bUFkVVZCT1NFaUtTVlhSOV9ERE9uYW5FQ19UYldZU1J5RWpZU05LVQ?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "IPO Watch",
+      "date_text": "Mon, 23 Nov 2026",
+      "theme": "ipo",
+      "seed": "allotment bse check crop crystal date how intime",
+      "tone": null,
+      "quotes": [],
+      "label": "IPO ALLOTMENT",
+      "headline": "*Crystal Crop Protection* IPO *allotment* today",
+      "points": [
+        "IPO allotment takes place on 23 November 2026.",
+        "Investors can check their allotment status on BSE, NSE and the registrar.",
+        "Listing date and time for the shares have been announced."
+      ],
+      "source": "Moneycontrol.com, Upstox"
+    },
+    "news_sector": "ipo",
+    "photo_prompt": "A modern office desk with a laptop displaying a stock market dashboard and a coffee mug."
+  },
+  "telegram_message_id": 768,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: Moneycontrol.com, Upstox\n✅ fresh: newest source 0.6 h old\n✅ headline/banner/points/body: all 4 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"Crystal Crop Protection\" - no price box for it\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMi2gFBVV95cUxNMV9ia3lkMjN4djQ0MENQTng3UzlLMzlmUWdfbkoxTVpaeHE5TWZnUTNHSWdwd18zMWR1ak1oSHNmSVNhTlkyeUVyRHAwOU4wT2N4ZV9kMkZuUXpwN04xZjJ1S0pTd19HMXpnbkwtQTZneFR0ZUpkVXFOTWE0S1JXRTkwdEpSX0hqTHFKRnZIbmdhRlRGLUFZaFhZWWEzamt3ZGJrcEo0VGZNX1hDbFdBdmJFYjhQUWhJQi1jVTJ5akJ2OGF1MGdJM0lDWkpiUVpxcmIxcTJIZ1FEUdIB3wFBVV95cUxPNjJCbEpCYkZvenRWajh5cFFrVjZhbk1MbW03bHVyY3dEUUhxbnNYWHhKTkd3bk1CUmVhcEFJaHpDMnRFbTkzVFBDcUJhN296c19LT3VManp4LWdHcDBPZVdzTWxrNnNRbXF6djl5ZEJ2VXN1MVJfdXBacnRGeUxsOGt0VDlHSHlpWkhibE04RGVVU2VZZDdDMi0xeWZRQUFSbkVTTDVLTDZKUXFIQnVPaDZiZmx0c3pmNnJNeWYtNVF4alVidTJOdkZtTFhzMExGZThsdGJrN3pOM0kweGNr?oc=5 | https://news.google.com/rss/articles/CBMihwJBVV95cUxOczRHODRQQWdTRV9KZXBmQjluaUtZSXByNW40M3Vxdjl0Ny01cW85N2pBUjRCTlJ1SkxVd19sVDVIYy1sUTZPcU1aeFAzMDdqTERCeWY4TVdPMUVXQkpkbnNLNUNaREw5TUtjd2s1ajU2YVJQM0VfMlFuVlEwRm03MFR5N3hxM200cXEyX00xUzhLYWx3TFlxM2ZoZ2JidnlfVFlaQTVLT0ZJdk8wcDJZMG9GbWZVa0FvOF9xRmZqemxVX2lrOVJRaEwxRlRDdlItRTBNUzdUU01oUk13eTJ0bUFkVVZCT1NFaUtTVlhSOV9ERE9uYW5FQ19UYldZU1J5RWpZU05LVQ?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Crystal Crop Protection IPO allotment today",
+  "telegram_media_ids": [
+    767
+  ]
+}
