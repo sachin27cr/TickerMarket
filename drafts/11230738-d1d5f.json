@@ -53,12 +53,15 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "video": "media/2026-11-23/reel_morning-073809-1274.mp4"
   },
   "telegram_message_id": 757,
-  "posted": {},
+  "posted": {
+    "instagram": "17942399808386797",
+    "facebook": "1108382372032693"
+  },
   "video": "media/2026-11-23/reel_morning-073809-1274.mp4",
   "script": [
     "1. Stock market today. Wall Street slipped. crude slid 3.08 percent. Your 60-second brief before the bell.",
@@ -74,5 +77,7 @@
   "topic_keyword": "Stock market today",
   "telegram_media_ids": [
     756
-  ]
+  ],
+  "approved_at": "2026-11-23T08:42:26.955549+05:30",
+  "posted_at": "2026-11-23T08:43:32.952961+05:30"
 }
