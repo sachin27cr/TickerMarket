@@ -41,7 +41,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "IPO Watch",
@@ -63,11 +63,16 @@
     "photo_prompt": "A fleet of rental vehicles parked neatly in a modern commercial parking lot outdoors."
   },
   "telegram_message_id": 784,
-  "posted": {},
+  "posted": {
+    "instagram": "18018833165778281",
+    "facebook": "122111046693544503"
+  },
   "report_text": "✅ confirmed by 3 outlets: Groww, Upstox, scanx.trade\n✅ fresh: newest source 0.9 h old\n✅ headline/banner/points/body: all 10 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"Watana Rentals\" - no price box for it\n✅ written by gemini; sources: https://news.google.com/rss/articles/CBMi2gFBVV95cUxQX0pzeHF5MjA3cGNLUHl2dlhwVS1Dc2lFdTFUeGxjNzRqRldUZ2Y5VFR4VzhPMTREVS1KUko1N0tOYWU2SWRDbjZaZW5kZE1lNVdyVzQyVUZLM2hfLWRELU83UTVDaUMzOUROam9iUjVNWTZqOENCVUhjUWhuZm1VVm93N05kLUhXRE90WWo1OGEwbEFLamdmblJ1X0RwMDNPUXEwZ0gyQndpeVloT1RUdHJDbTBwYlhxS1VwYkRkeEZWNXVhUEJURlNIU3NEc0FkeW1rRkMyR2RZdw?oc=5 | https://news.google.com/rss/articles/CBMi2wFBVV95cUxPT003ekhvbl9jd3RqQ0xkYW50QzFOQzFkUGpyQTl4OFhWNHFWRC1qLUNRVWRzaV91NWlFTlhjUlFhUUJRMC0yZ3Nia09sQ0thR3dwVUJNd0xMbjRZdVFIUlQ4YkFWeWh6OXQxSnh2dVZzdXZWeWFkaG41dXpTZTlkcENnZE5UUDY4ZXZSSVRMdE5uSnp2TmRlUFZhbUg5dENKRWwxYXNmQVhHbTcyemotY1ZZZXA0cDlMNTl1RWtvcDQ5cDI3OTVoVlVlU1dEM1psUFYzX2hfN3E4SW8?oc=5 | https://news.google.com/rss/articles/CBMipAFBVV95cUxPV19IcmlNYzNUUGE2ZU1CUklFb3ZjSHZwak5KQ3JObXVIek9NU0JPODNncDBjSlVtZkhScmtYMUJaal9yQWxka3pIQ2FIUGdlSnNnLWlCcFVobTI2REU1NGJieFJLaUUwWGN5WEdzYTdjajZvMmplXzZ4aTJPeWJUWF9uVE95Z3RvMHprd0F6eDR0MFhmWjEwWkNXeTA1ZzU4dEpfcw?oc=5 | https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRmhZMEtuUUpVWHI5ejUtYmNIZ2FuYVc4bWNNOTZObHVvWnVydUpIRFFyUG9oU1B6U19iTU9tdGh5VDRMT3RFZDVxcW5pQzVJTEppQm1YeXNCYjZpOTg4MGlWbFduc2h2aFpQNEZCVVpCVGdjVlJ4emlpajVjckZaLW9kWWRYdWNiQ3kwLU5BRnJXc1ZoVUFrallRRV9aZU52VWs1UXJHMzlYQko0MmZxeHk1VUZPS0UzVThNZmRUMWJtNnNQTDdGb1dkVkQ3c2pHekE?oc=5\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - Watana Rentals IPO Subscribed 36.57x on Day 3",
   "telegram_media_ids": [
     783
-  ]
+  ],
+  "approved_at": "2026-11-23T15:05:25.044392+05:30",
+  "posted_at": "2026-11-23T15:05:42.663442+05:30"
 }
