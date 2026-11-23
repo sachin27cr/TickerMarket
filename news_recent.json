@@ -537,7 +537,41 @@
     ]
   },
   {
-    "when": "2026-11-23T20:45:43.858046+05:30",
+    "when": "2026-11-23T21:20:25.472998+05:30",
+    "title": "Tata Sons postpones November 26 board meeting as question of going public continues to remain unsolved",
+    "bucket": null,
+    "lead": [
+      "board",
+      "continues",
+      "going",
+      "meeting",
+      "november",
+      "postpones",
+      "public",
+      "question",
+      "remain",
+      "sons",
+      "tata",
+      "unsolved"
+    ],
+    "tokens": [
+      "board",
+      "concerns",
+      "deferred",
+      "listing",
+      "meet",
+      "meeting",
+      "noel",
+      "nov",
+      "november",
+      "objection",
+      "pushes",
+      "sons",
+      "tata"
+    ]
+  },
+  {
+    "when": "2026-11-23T21:33:08.803055+05:30",
     "title": "PSU bank stocks tumble up to 5% after five-day rally, Nifty PSU Bank index crashes 3.2%; what's behind the sell-off?",
     "bucket": null,
     "lead": [
@@ -580,75 +614,6 @@
       "what",
       "why",
       "wiped"
-    ]
-  },
-  {
-    "when": "2026-11-23T20:57:23.418309+05:30",
-    "title": "RBI retains SBI, ICICI Bank, HDFC Bank as domestic systemically important banksin 2026",
-    "bucket": "rbi_rates",
-    "lead": [
-      "2026",
-      "bank",
-      "banksin",
-      "domestic",
-      "hdfc",
-      "icici",
-      "important",
-      "rbi",
-      "retains",
-      "sbi",
-      "systemically"
-    ],
-    "tokens": [
-      "2026",
-      "bank",
-      "banks",
-      "banksin",
-      "domestic",
-      "hdfc",
-      "icici",
-      "important",
-      "rbi",
-      "retains",
-      "sbi",
-      "systemically"
-    ]
-  },
-  {
-    "when": "2026-11-23T21:26:09.752492+05:30",
-    "title": "Adani Airport raises $300 mn from 360 ONE Asset, taking total equity infusion to $1.35 bn",
-    "bucket": null,
-    "lead": [
-      "300",
-      "360",
-      "adani",
-      "airport",
-      "asset",
-      "equity",
-      "infusion",
-      "one",
-      "raises",
-      "taking",
-      "total"
-    ],
-    "tokens": [
-      "300",
-      "360",
-      "790",
-      "adani",
-      "airport",
-      "airports",
-      "asset",
-      "billion",
-      "crore",
-      "equity",
-      "fundraise",
-      "hits",
-      "infusion",
-      "one",
-      "raises",
-      "taking",
-      "total"
     ]
   }
 ]

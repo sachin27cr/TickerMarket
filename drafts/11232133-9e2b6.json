@@ -1,0 +1,69 @@
+{
+  "id": "11232133-9e2b6",
+  "kind": "news",
+  "created": "2026-11-23T21:33:06.490540+05:30",
+  "images": [
+    "media/2026-11-23/news-213306-e665_1.jpg"
+  ],
+  "caption": "Stock market news | Sensex drops 1,484 points as profit booking hits markets\n\nOn 23 November 2026, the Sensex fell 1,484 points and the Nifty dropped 451 points, wiping out more than ₹5 lakh crore of investor wealth. Both indices slipped nearly 2%.\nProfit booking after a strong rally, especially in banking stocks, drove the sell-off. PSU bank shares fell up to 5% and the Nifty Bank index slipped over 4%, prompting caution among investors.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #IndianMarkets #Sensex #Nifty #TickerMarketIndia",
+  "threads_text": "Stock market news | Sensex drops 1,484 points as profit booking hits markets\n\nOn 23 November 2026, the Sensex fell 1,484 points and the Nifty dropped 451 points, wiping out more than ₹5 lakh crore of investor wealth. Both indices slipped nearly 2%. Profit booking after a strong rally, especially in banking stocks, drove the sell-off.\n\n#StockMarketIndia #IndianMarkets #Sensex #Nifty #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 4 outlets: CNBC-TV18, Jagran Josh, Mint, MorungExpress"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.1 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 17 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMiiwJBVV95cUxQRzNrdkpVLXAydmw2Y0tyZ2plazFSVGtTa2dQWlZ3clZjMU5NRkJpWGpmZXhERkZLQ3hUUnVadTZjRlkxRHlRaGJMdnd0M0ZZdmdPMzhrMDlvc3hnRFhnWXFjNS02UjJOMEJjVXFfcG5QWkxGSGdQaGRmb1B0LWZDRTA3VGE4LUlGQzEzT05IalhiOE1SZVNXU1N2Q1gxckNGQ1hsREhzQUU2dmNYWWxaVnpSZ0dWbXBXb1lsemI4T3laUHY1Um9lTWVzaV9MVGdSMEJSb0MwU25JejdvUGFZV1dZSldjS3hfdW53UGREVzVRU1Z6cmc2STlMTTR1T0xlRnQ3WVdiRDRVeWvSAZICQVVfeXFMT0pvNDY4enhiT05BNFRmX2FZSHNsUnpDZnFtRDFiZjlMMWc2LVRJUXFlLVpfTmZaR3d1c0hnNldwVFpMdG1FeFJVVUs2XzQyNFBLZE5hZzNZNGNLbnJmMDZnTnM1MnMzTUNzNWdoM0ZfekJfVE1pNjZXd3BfbFFLVnZReUU0bTgwdGtnc05yVXNDeFYxWWRiZFgxZy04dmFUM044STN2cVUwdGlEYWZhWWwwdGt2WHJPMWh4NVpDMEl0RWo1aG1kcDhIa2llVmdxUnZqNWhZSXdyUFRIR3p2aE1UMTQya3ZNeEdZa1lsazBOLUJmdU1GTHlVRnA2S0oyS3F1YzlDdHVBMXZTdW1vRjBqZw?oc=5 | https://news.google.com/rss/articles/CBMisgFBVV95cUxPVXpuZjk1LVlJSDlxaDNSUzNLWm12OTRVa2JYRDM3YlZscTFxWnduR2tNRjIwaUFsdzN4cHJEUU1RTnBYSXV6QmQwMDByOGZBb3FSRXRWZF80V2JxRHgwUUhLRlNjcFdhWmVUbXRUYS15ZWxyWXFzZnYzWlMzY0c3eVFmajdFS2RtdFV2cmxhbHV6V3pCZXVBcWFKLU8yNTl2SkhYNFUySlFpWElCX1lIelZn?oc=5 | https://www.cnbctv18.com/market/why-did-stock-market-fall-today-sensex-crashes-1484-points-nifty-posts-biggest-drop-in-5-months-20039961.htm | https://www.livemint.com/market/stock-market-news/psu-bank-stocks-tumble-up-to-5-after-five-day-rally-nifty-psu-bank-index-crashes-3-2-whats-behind-the-selloff-11795427367855.html"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Market News",
+      "date_text": "Mon, 23 Nov 2026",
+      "theme": "market_down",
+      "seed": "bank behind crashes five index nifty off psu",
+      "tone": "down",
+      "quotes": [],
+      "label": "MARKET SELLOFF",
+      "headline": "*Sensex* drops *1,484* points as profit booking hits markets",
+      "points": [
+        "Sensex slid *1,484* points, a near 2% drop on 23 November 2026.",
+        "Nifty lost *451* points, erasing over ₹5 lakh crore of investor wealth.",
+        "Banking led the fall; Nifty Bank down over 4%, PSU banks up to 5%."
+      ],
+      "source": "CNBC-TV18, Jagran Josh, Mint"
+    },
+    "news_sector": "markets",
+    "photo_prompt": "A trading floor with large display boards showing red downward arrows and falling stock graphs"
+  },
+  "telegram_message_id": 852,
+  "posted": {},
+  "report_text": "✅ confirmed by 4 outlets: CNBC-TV18, Jagran Josh, Mint, MorungExpress\n✅ fresh: newest source 1.1 h old\n✅ headline/banner/points/body: all 17 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMiiwJBVV95cUxQRzNrdkpVLXAydmw2Y0tyZ2plazFSVGtTa2dQWlZ3clZjMU5NRkJpWGpmZXhERkZLQ3hUUnVadTZjRlkxRHlRaGJMdnd0M0ZZdmdPMzhrMDlvc3hnRFhnWXFjNS02UjJOMEJjVXFfcG5QWkxGSGdQaGRmb1B0LWZDRTA3VGE4LUlGQzEzT05IalhiOE1SZVNXU1N2Q1gxckNGQ1hsREhzQUU2dmNYWWxaVnpSZ0dWbXBXb1lsemI4T3laUHY1Um9lTWVzaV9MVGdSMEJSb0MwU25JejdvUGFZV1dZSldjS3hfdW53UGREVzVRU1Z6cmc2STlMTTR1T0xlRnQ3WVdiRDRVeWvSAZICQVVfeXFMT0pvNDY4enhiT05BNFRmX2FZSHNsUnpDZnFtRDFiZjlMMWc2LVRJUXFlLVpfTmZaR3d1c0hnNldwVFpMdG1FeFJVVUs2XzQyNFBLZE5hZzNZNGNLbnJmMDZnTnM1MnMzTUNzNWdoM0ZfekJfVE1pNjZXd3BfbFFLVnZReUU0bTgwdGtnc05yVXNDeFYxWWRiZFgxZy04dmFUM044STN2cVUwdGlEYWZhWWwwdGt2WHJPMWh4NVpDMEl0RWo1aG1kcDhIa2llVmdxUnZqNWhZSXdyUFRIR3p2aE1UMTQya3ZNeEdZa1lsazBOLUJmdU1GTHlVRnA2S0oyS3F1YzlDdHVBMXZTdW1vRjBqZw?oc=5 | https://news.google.com/rss/articles/CBMisgFBVV95cUxPVXpuZjk1LVlJSDlxaDNSUzNLWm12OTRVa2JYRDM3YlZscTFxWnduR2tNRjIwaUFsdzN4cHJEUU1RTnBYSXV6QmQwMDByOGZBb3FSRXRWZF80V2JxRHgwUUhLRlNjcFdhWmVUbXRUYS15ZWxyWXFzZnYzWlMzY0c3eVFmajdFS2RtdFV2cmxhbHV6V3pCZXVBcWFKLU8yNTl2SkhYNFUySlFpWElCX1lIelZn?oc=5 | https://www.cnbctv18.com/market/why-did-stock-market-fall-today-sensex-crashes-1484-points-nifty-posts-biggest-drop-in-5-months-20039961.htm | https://www.livemint.com/market/stock-market-news/psu-bank-stocks-tumble-up-to-5-after-five-day-rally-nifty-psu-bank-index-crashes-3-2-whats-behind-the-selloff-11795427367855.html\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Sensex drops 1,484 points as profit booking hits markets",
+  "telegram_media_ids": [
+    851
+  ]
+}

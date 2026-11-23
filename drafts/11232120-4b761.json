@@ -1,0 +1,69 @@
+{
+  "id": "11232120-4b761",
+  "kind": "news",
+  "created": "2026-11-23T21:20:23.108661+05:30",
+  "images": [
+    "media/2026-11-23/news-212023-fad2_1.jpg"
+  ],
+  "caption": "Stock market news | Tata Sons Board Postponed to Nov 30 Over Listing Objections\n\nTata Sons postponed its board meeting to 30 November. The change follows a letter from Noel Tata raising concerns that the agenda was shared only four days before, breaching the required seven-day notice. The agenda includes discussion on the mandatory listing of Tata Sons and proposals to keep the holding company private, highlighting growing differences within the Tata group over the IPO plan.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #TataSons #IPO #BoardMeeting #TickerMarketIndia",
+  "threads_text": "Stock market news | Tata Sons Board Postponed to Nov 30 Over Listing Objections\n\nTata Sons postponed its board meeting to 30 November. The change follows a letter from Noel Tata raising concerns that the agenda was shared only four days before, breaching the required seven-day notice.\n\n#StockMarketIndia #TataSons #IPO #BoardMeeting #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 5 outlets: BusinessLine, HDFC Sky, Kotak Neo, Mint, Rediff.com"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.5 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 4 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.thehindubusinessline.com/companies/tata-sons-board-meeting-deferred-to-november-30/article71735338.ece | https://www.livemint.com/companies/news/noel-tatas-objection-pushes-tata-sons-board-meeting-to-30-november-11795440715458.html | https://news.google.com/rss/articles/CBMi7AFBVV95cUxPUkNwMEE3NmljUVhUbG5RVVVKRTRLdTFJR0xRYzgtOXhuWEFxcEVRWk95bWE0a3RtOElhVi1JamxQZDBpVHAzN0Ffa1k2cVJ5M2dUUHhXZFRzaEJ4UklxaElUWEtvbzBQZWNWQmgyZFVnRzk0UG53T0pSUXJCc2swQ25FOXBZZDFkQ3VHTGJTVV81bExNandCWG9IcFJRc0h2aE4tY3ZjU3pNUDZ3VUx4TEhWNHdmcDg1RG02eTBCMUhhS0JqUHQzSkMwMXBOTG1vMnM4TTR1LTNzYXFxNlphRUpqU291N3NGaFRSStIB7wFBVV95cUxNdTdVWVY3TkhuWFU1WEh5YkQ5c0UwUldUQ2JndHJ0cHZVZ0RVSHlvbXIwVEhQZkhWc3RrTmdpZ0lzaktqcVpwNXFwUVB3b204ZTlVaE5GLTU0NXQ3VFo5QWZWeEJBWk9oWVgxaGk0N081cW1QX05uakFJLWp0Y0M3enVvMUd4ZDBBaG9VUGxGMVU2OUItUC1WTFJkazRBam5DZ2ZNNEJnQkoteXdjTk01WXNvUnYtUXhhcXdIdjBra3VMNmpKbDNGNDdBeW5qLTEtcDZjNm9RSWw0OWNCQ0JiQ1pnWlh4QlBmZUZEUV9naw?oc=5 | https://www.thehindubusinessline.com/companies/tata-sons-board-meet-postponed-to-nov-30-after-noel-raises-concerns/article71734481.ece"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "IPO Watch",
+      "date_text": "Mon, 23 Nov 2026",
+      "theme": "ipo",
+      "seed": "board continues going meeting november postpones public question",
+      "tone": null,
+      "quotes": [],
+      "label": "IPO POSTPONEMENT",
+      "headline": "Tata Sons *Board* *Postponed* to *Nov 30* Over Listing Objections",
+      "points": [
+        "Board meeting moved from 26 November to 30 November.",
+        "Noel Tata objected, citing the four-day notice instead of required seven days.",
+        "The meeting will discuss Tata Sons' mandatory listing and private holding proposals."
+      ],
+      "source": "BusinessLine, HDFC Sky, Kotak Neo"
+    },
+    "news_sector": "ipo",
+    "photo_prompt": "A conference room with a long table, empty chairs, and a projector screen displaying a calendar marked  November."
+  },
+  "telegram_message_id": 847,
+  "posted": {},
+  "report_text": "✅ confirmed by 5 outlets: BusinessLine, HDFC Sky, Kotak Neo, Mint, Rediff.com\n✅ fresh: newest source 0.5 h old\n✅ headline/banner/points/body: all 4 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://www.thehindubusinessline.com/companies/tata-sons-board-meeting-deferred-to-november-30/article71735338.ece | https://www.livemint.com/companies/news/noel-tatas-objection-pushes-tata-sons-board-meeting-to-30-november-11795440715458.html | https://news.google.com/rss/articles/CBMi7AFBVV95cUxPUkNwMEE3NmljUVhUbG5RVVVKRTRLdTFJR0xRYzgtOXhuWEFxcEVRWk95bWE0a3RtOElhVi1JamxQZDBpVHAzN0Ffa1k2cVJ5M2dUUHhXZFRzaEJ4UklxaElUWEtvbzBQZWNWQmgyZFVnRzk0UG53T0pSUXJCc2swQ25FOXBZZDFkQ3VHTGJTVV81bExNandCWG9IcFJRc0h2aE4tY3ZjU3pNUDZ3VUx4TEhWNHdmcDg1RG02eTBCMUhhS0JqUHQzSkMwMXBOTG1vMnM4TTR1LTNzYXFxNlphRUpqU291N3NGaFRSStIB7wFBVV95cUxNdTdVWVY3TkhuWFU1WEh5YkQ5c0UwUldUQ2JndHJ0cHZVZ0RVSHlvbXIwVEhQZkhWc3RrTmdpZ0lzaktqcVpwNXFwUVB3b204ZTlVaE5GLTU0NXQ3VFo5QWZWeEJBWk9oWVgxaGk0N081cW1QX05uakFJLWp0Y0M3enVvMUd4ZDBBaG9VUGxGMVU2OUItUC1WTFJkazRBam5DZ2ZNNEJnQkoteXdjTk01WXNvUnYtUXhhcXdIdjBra3VMNmpKbDNGNDdBeW5qLTEtcDZjNm9RSWw0OWNCQ0JiQ1pnWlh4QlBmZUZEUV9naw?oc=5 | https://www.thehindubusinessline.com/companies/tata-sons-board-meet-postponed-to-nov-30-after-noel-raises-concerns/article71734481.ece\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Tata Sons Board Postponed to Nov 30 Over Listing Objections",
+  "telegram_media_ids": [
+    846
+  ]
+}
