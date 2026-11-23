@@ -643,7 +643,7 @@ def extremes(data):
 PHOTO_TOP, PHOTO_BOTTOM = 124, 640
 
 
-def place_photo(im, path, top=PHOTO_TOP, bottom=PHOTO_BOTTOM, focus=0.38):
+def place_photo(im, path, top=PHOTO_TOP, bottom=PHOTO_BOTTOM, focus=0.38, fade=190):
     """Your own news photo across the top of the card: cover-cropped edge to edge, fading into the card
     at the bottom so the label and headline sit cleanly under it. focus: 0 = keep the top, 1 = keep the bottom."""
     import numpy as np
@@ -656,7 +656,6 @@ def place_photo(im, path, top=PHOTO_TOP, bottom=PHOTO_BOTTOM, focus=0.38):
     y0 = int((pic.height - h) * focus)
     pic = pic.crop((x0, y0, x0 + W, y0 + h)).convert('RGBA')
     a = np.full((h, W), 255, np.float32)
-    fade = 190
     a[-fade:] *= np.linspace(1, 0, fade)[:, None] ** 1.4
     a[:26] *= np.linspace(0.35, 1, 26)[:, None]
     pic.putalpha(Image.fromarray(a.astype(np.uint8)))
@@ -683,11 +682,21 @@ def news_hero(data):
     im, d = base(data['category'], data['date_text'], data.get('sample'), data['theme'], data.get('seed', 0), 0, data.get('tone'))
     im = im.convert('RGBA')
     qs = data.get('quotes') or []
+    y_text, hl_size = 610, 78
     if data.get('photo'):                     # your photo fills the top; one compact price chip sits on its lower edge
-        im = place_photo(im, data['photo'], focus=data.get('photo_focus', 0.38))
-        if qs:
-            im.alpha_composite(widgets.mini_quote(qs[0], 560), (60, PHOTO_BOTTOM - 210))
+        with Image.open(data['photo']) as _p:
+            ratio = _p.height / _p.width
+        # show a wide picture whole (designed thumbnails keep their text); very tall ones are cropped
+        ph = int(min(max(W * ratio, PHOTO_BOTTOM - PHOTO_TOP), 700))
+        bottom = PHOTO_TOP + ph
+        whole = W * ratio <= 700
+        im = place_photo(im, data['photo'], bottom=bottom, focus=data.get('photo_focus', 0.38),
+                         fade=70 if whole else 190)
+        if qs and not whole:                   # a full designed picture is left uncovered
+            im.alpha_composite(widgets.mini_quote(qs[0], 560), (60, bottom - 210))
         qs = []
+        y_text = max(610, bottom - 30)
+        hl_size = 78 if y_text <= 640 else 68
     if data.get('photo'):
         pass
     elif len(qs) == 1:
@@ -698,7 +707,7 @@ def news_hero(data):
     elif data.get('company'):
         im.alpha_composite(widgets.company_badge(data['company'], data.get('company_sub', '')), (60, 200))
     d = ImageDraw.Draw(im)
-    y = 610
+    y = y_text
     if data.get('label'):
         f = bebas(64)
         tw = d.textlength(data['label'].upper(), font=f)
@@ -706,8 +715,8 @@ def news_hero(data):
                     UP if data.get('tone') == 'up' else GOLD)
         d.text((84, y + 44), data['label'].upper(), font=f, fill=WHITE if data.get('tone') in ('down', 'up') else BG, anchor='lm')
         y += 110
-    y = headline(d, data['headline'], y, size=78, max_lines=3) + 18
-    bullets(d, data.get('points', []), y, size=32)
+    y = headline(d, data['headline'], y, size=hl_size, max_lines=3) + 18
+    bullets(d, data.get('points', []), y, size=32 if hl_size == 78 else 30)
     footer(im, d, data['source'])
     return [im.convert('RGB')]
 
