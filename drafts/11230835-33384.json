@@ -33,10 +33,13 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "auto",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 764,
-  "posted": {},
+  "posted": {
+    "instagram": "17969934783214878",
+    "facebook": "1374383985767580_122110935573544503"
+  },
   "report_text": "✅ NSE holiday list checked: market open today\n✅ 0 result announcements on NSE event calendar\n✅ 2 corporate actions with ex-date today\n✅ results calendar: 7 companies in the next 6 days\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market today",
   "alt_text": "Stock market today: Ticker Market India carousel - What is on for the market on 23 Nov",
@@ -46,5 +49,6 @@
     761,
     762,
     763
-  ]
+  ],
+  "posted_at": "2026-11-23T08:43:28.995097+05:30"
 }
