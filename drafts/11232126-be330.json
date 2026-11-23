@@ -1,0 +1,73 @@
+{
+  "id": "11232126-be330",
+  "kind": "news",
+  "created": "2026-11-23T21:26:07.380471+05:30",
+  "images": [
+    "media/2026-11-23/news-212607-5755_1.jpg"
+  ],
+  "caption": "Stock market news | Adani Airport Holdings raises $300 million from 360 ONE Asset\n\nOn 23 November 2026, Adani Airport Holdings raised $300 million (₹2,790 crore) from 360 ONE Asset, bringing total equity infusion to $1.35 billion.\n\nThe capital will be used to modernize existing airport infrastructure, create Airport Cities, and grow passenger-facing and non-aeronautical businesses, supporting the goal to lift passenger capacity to 200 million.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #AdaniAirports #Aviation #IndiaStocks #TickerMarketIndia",
+  "threads_text": "Stock market news | Adani Airport Holdings raises $300 million from 360 ONE Asset\n\nOn 23 November 2026, Adani Airport Holdings raised $300 million (₹2,790 crore) from 360 ONE Asset, bringing total equity infusion to $1.35 billion.\n\n#StockMarketIndia #AdaniAirports #Aviation #IndiaStocks #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: BusinessLine, CNBC-TV18, Economic Times"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.9 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 13 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"Adani Airport Holdings Ltd\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.cnbctv18.com/market/stocks/adani-airports-raises-rs-2790-crore-from-360-one-asset-total-fundraise-hits-1-35-billion-20040063.htm | https://economictimes.indiatimes.com/markets/stocks/news/adani-airport-raises-300-mn-from-360-one-asset-taking-total-equity-infusion-to-1-35-bn/articleshow/136104118.cms | https://economictimes.indiatimes.com/markets/stocks/news/adani-airport-raises-300-mn-from-360-one-asset-taking-total-equity-infusion-to-1-35-bn/articleshow/136104118.cms | https://www.thehindubusinessline.com/markets/adani-airports-to-raise-300-million-from-360-one-asset/article71734749.ece"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Mon, 23 Nov 2026",
+      "theme": "market_up",
+      "seed": "300 360 adani airport asset equity infusion one",
+      "tone": null,
+      "quotes": [],
+      "label": "FUNDRAISE BOOST",
+      "headline": "Adani Airport Holdings *raises* *$300 million* from 360 ONE Asset",
+      "points": [
+        "Adani Airport Holdings signed agreement with 360 ONE Asset for ₹2,790 crore equity issue.",
+        "Total equity fundraise now approx $1.35 billion at ~ $18 billion pre-money valuation.",
+        "Funds will upgrade airports, develop Airport Cities, and expand non-aeronautical services."
+      ],
+      "source": "BusinessLine, CNBC-TV18, Economic Times"
+    },
+    "news_sector": "realty",
+    "photo_prompt": "A modern airport terminal with construction cranes and empty runway, showing infrastructure development."
+  },
+  "telegram_message_id": 849,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: BusinessLine, CNBC-TV18, Economic Times\n✅ fresh: newest source 1.9 h old\n✅ headline/banner/points/body: all 13 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"Adani Airport Holdings Ltd\" - no price box for it\n✅ written by groq; sources: https://www.cnbctv18.com/market/stocks/adani-airports-raises-rs-2790-crore-from-360-one-asset-total-fundraise-hits-1-35-billion-20040063.htm | https://economictimes.indiatimes.com/markets/stocks/news/adani-airport-raises-300-mn-from-360-one-asset-taking-total-equity-infusion-to-1-35-bn/articleshow/136104118.cms | https://economictimes.indiatimes.com/markets/stocks/news/adani-airport-raises-300-mn-from-360-one-asset-taking-total-equity-infusion-to-1-35-bn/articleshow/136104118.cms | https://www.thehindubusinessline.com/markets/adani-airports-to-raise-300-million-from-360-one-asset/article71734749.ece\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Adani Airport Holdings raises $300 million from 360 ONE Asset",
+  "telegram_media_ids": [
+    848
+  ]
+}
