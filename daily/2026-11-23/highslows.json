@@ -1,0 +1,194 @@
+{
+  "ath": 15,
+  "hi52": 24,
+  "lo52": 12,
+  "groups": {
+    "Large Cap": {
+      "ath": [
+        {
+          "name": "Eicher Motors",
+          "pct": 0.73
+        },
+        {
+          "name": "Apollo Hospitals",
+          "pct": 0.62
+        },
+        {
+          "name": "Kotak Bank",
+          "pct": -2.51
+        },
+        {
+          "name": "Axis Bank",
+          "pct": -3.97
+        }
+      ],
+      "hi52": [
+        {
+          "name": "DLF",
+          "pct": 1.16
+        },
+        {
+          "name": "ICICI Bank",
+          "pct": -3.32
+        },
+        {
+          "name": "Union Bank",
+          "pct": -4.87
+        }
+      ],
+      "lo52": [
+        {
+          "name": "Tata Power",
+          "pct": -3.44
+        }
+      ],
+      "ath_count": 4,
+      "hi52_count": 7,
+      "lo52_count": 1
+    },
+    "Mid Cap": {
+      "ath": [
+        {
+          "name": "Phoenix Mills",
+          "pct": -0.4
+        },
+        {
+          "name": "Indian Hotels (Taj)",
+          "pct": -0.66
+        },
+        {
+          "name": "Bank of Maharashtra",
+          "pct": -1.9
+        },
+        {
+          "name": "Federal Bank",
+          "pct": -3.67
+        }
+      ],
+      "hi52": [],
+      "lo52": [
+        {
+          "name": "APL Apollo Tubes",
+          "pct": -21.29
+        },
+        {
+          "name": "Cochin Shipyard",
+          "pct": -3.11
+        },
+        {
+          "name": "PI Industries",
+          "pct": -1.65
+        }
+      ],
+      "ath_count": 4,
+      "hi52_count": 4,
+      "lo52_count": 3
+    },
+    "Small Cap": {
+      "ath": [
+        {
+          "name": "Welspun Living",
+          "pct": 0.7366619540144425
+        },
+        {
+          "name": "Vijaya Diagnostic Centre",
+          "pct": 0.01908032818164183
+        },
+        {
+          "name": "City Union Bank",
+          "pct": -1.310289389067532
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Honasa Consumer",
+          "pct": 2.7312523791397076
+        },
+        {
+          "name": "Poonawalla Fincorp",
+          "pct": -0.19290123456790126
+        },
+        {
+          "name": "Sansera Engineering",
+          "pct": -3.732494164721563
+        }
+      ],
+      "lo52": [
+        {
+          "name": "Inox Wind",
+          "pct": -3.173458348359174
+        },
+        {
+          "name": "KEC International",
+          "pct": -1.6325170747959277
+        },
+        {
+          "name": "Aadhar Housing Finance",
+          "pct": -0.4077716478771861
+        }
+      ],
+      "ath_count": 3,
+      "hi52_count": 6,
+      "lo52_count": 3
+    },
+    "Micro Cap": {
+      "ath": [
+        {
+          "name": "Pearl Global Industries",
+          "pct": 3.058167885754099
+        },
+        {
+          "name": "Indo Count Industries",
+          "pct": 2.24903059026281
+        },
+        {
+          "name": "Shreeji Shipping Global",
+          "pct": -0.415845918144009
+        },
+        {
+          "name": "SG Mart",
+          "pct": -5.492001276149675
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Aarti Pharmalabs",
+          "pct": 3.02311496921368
+        },
+        {
+          "name": "DCB Bank",
+          "pct": 1.8841262364578453
+        },
+        {
+          "name": "PDS",
+          "pct": 1.2123438648052873
+        }
+      ],
+      "lo52": [
+        {
+          "name": "ION Exchange",
+          "pct": -2.9901461094121684
+        },
+        {
+          "name": "Happiest Minds Technologies",
+          "pct": -1.786918408631157
+        },
+        {
+          "name": "Borosil Renewables",
+          "pct": -1.3489815189531904
+        },
+        {
+          "name": "Praj Industries",
+          "pct": -0.8764429243266401
+        },
+        {
+          "name": "GMR Power and Urban Infra",
+          "pct": 2.4678721710451352
+        }
+      ],
+      "ath_count": 4,
+      "hi52_count": 7,
+      "lo52_count": 5
+    }
+  }
+}
