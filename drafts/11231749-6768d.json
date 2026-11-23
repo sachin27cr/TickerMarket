@@ -49,7 +49,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "queued",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "Market News",
@@ -96,12 +96,16 @@
     "photo_prompt": "A trading floor with large screens showing falling stock charts and red arrows, empty chairs in a financial office."
   },
   "telegram_message_id": 820,
-  "posted": {},
+  "posted": {
+    "instagram": "18027089510950427",
+    "facebook": "122111117559544503"
+  },
   "report_text": "✅ confirmed by 2 outlets: Mint, Moneycontrol.com\n✅ fresh: newest source 0.9 h old\n✅ headline/banner/points/body: all 10 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ HDFCBANK ₹817.80 (-3.33%): NSE = Yahoo\n✅ ICICIBANK ₹1,585.50 (-3.32%): NSE = Yahoo\n✅ AXISBANK ₹1,388.60 (-3.97%): NSE = Yahoo\n✅ written by groq; sources: https://www.livemint.com/market/stock-market-news/manic-monday-for-bank-nifty-as-index-crashes-over-2000-points-check-worst-hit-shares-and-reasons-behind-mega-plunge-11795430223849.html | https://news.google.com/rss/articles/CBMi_gFBVV95cUxNcjVKZTFWcGI1MjdiQWdHMmFBR0tFaFJQNUJBVlBsaVRCMzJNUWJxZEtkM0xPRXJwdUxIZllLeVEtR3VhVUgwdmx0RlFjdHRhY1BTX28zaDY4Mmo0X3ZXNjBvSFhXanNfNzVPdFRHbnJLYmxzUkZmd0RhN1NHRmxvUzUzWDUtVU1Pdkl4V3hIYzZ5Zm5JUnExbC1oV0hHaFhtVVFVODRIZXpXZFdqSVFkdWZrS3lVaktWVXhZMFBWcWJucFB1U3VLM2JnUVdtR3ZJSFMyTWtPZ3VQdmFkYjhUbjhob0pSYXFaVHhKdFhYb0x0TWstTG43VXI5SzR5UdIBgwJBVV95cUxQVW9BczM3ZzNtYjdycVYxNG0tMEV5Ykw2VGZlZzFfSU5jQ2pqeDhxd2xBMlVHcHMxZFlCeVBvZ0xxbjJYdDN3Q0ZxX19nV2I5cHVSR1JDRnd5TzdhQ2xvWUpYTUcyM0NHWWotZEROaXJhLTFoLUIyREpEZV9EUHN3Mms5Szh3dkJLSng4QzAwbzFzblJUOXlSSXA0MXVodmdkOUtWSkhrdnI3TllCNzQ3TlhHMzRXWGdQZXk2Z0VVcHhDbXJka1BJaE9PeFliVUZOUmFoMks0VXJRZkhmZ0dvc3lkRjRoUzA5bUlWMl9RZ3JMTEo4YWlKalNBb3dwOWd6ZExj?oc=5\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - Bank Nifty crashes 2,000 points, 3.1% drop",
   "telegram_media_ids": [
     819
   ],
-  "approved_at": "2026-11-23T17:50:54.927998+05:30"
+  "approved_at": "2026-11-23T17:50:54.927998+05:30",
+  "posted_at": "2026-11-23T17:52:01.793031+05:30"
 }
