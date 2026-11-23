@@ -37,7 +37,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "queued",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "Economy",
@@ -59,12 +59,16 @@
     "photo_prompt": "A close‑up of Indian rupee notes spread on a wooden desk beside a blurred market chart"
   },
   "telegram_message_id": 818,
-  "posted": {},
+  "posted": {
+    "instagram": "17889958761652799",
+    "facebook": "122111117679544503"
+  },
   "report_text": "✅ confirmed by 4 outlets: BusinessLine, Rediff MoneyWiz, Telangana Today, The Hindu\n✅ fresh: newest source 0.8 h old\n✅ headline/banner/points/body: all 9 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://www.thehindu.com/business/markets/rupee-snaps-5-day-rally-tumbles-30-paise-to-settle-at-9292-against-us-dollar/article71734465.ece | https://www.thehindubusinessline.com/markets/forex/rupee-snaps-5-day-rally-tumbles-30-paise-to-settle-at-9292-against-us-dollar/article71734316.ece | https://news.google.com/rss/articles/CBMikwFBVV95cUxPNmFWR29BRjJTeVVyS1B1TFh3LVk2Vm52ay1YVlM3WE9pMVREak9ucmE5ZDVERUIwYjR3dFZuekJ0NkJNT2RxbmtJTTJGWE5lMjdKczdDUGUwVUFra1NNZTVyeGd3dWlYZ3ZnRzBpOUFtRjg0eVJQMGh2NkZTT3RmMFVaVWJqRHJ6SXlOMUJvWUJTWm8?oc=5 | https://news.google.com/rss/articles/CBMisgFBVV95cUxOeTV6MU4tZG9qMjZGWGowY044RUhralFSOUVjZXRTT1JQX3ZQWW85bXh2QWtiVHBoMmU1M2xFVUR6ejc0dkpPSEhXYi1STXhTTGNXQ3BqczE3cDVUVXVmMUpYT1FwVDQwa1p3S1VnZThxbHlFbnhUdGt6THA3M0N2ajNGelROczVjUERaTjFoVjVySUJTWExSS01rbXlicllPUGJxZTZidlB0TEhrMjRhSk9B0gG3AUFVX3lxTFB4NXlqMFJudXQ1ZS14cXFxcUhTRFE3SEJXOU5UV0NlbDVVNlhvNGRKdXU3SEdCYXY5MDhlclNvcEF2bF9yN2ExeGdWUWphU3dTdy13Y0FYWHpOQTJLNV8yYTNSQ3pTWjQ3ZzBWQ1BMbUZldGxaOFpGbnFsa0JWX0d3M3dBMktLYWJOd3RzaDZtbVRrQmREdDJGdlo5WGZMbWpPbUp6WkNzaXBaVGxlcHpqNDZaenRxUQ?oc=5\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - Rupee snaps 5-day rally, settles at 92.92",
   "telegram_media_ids": [
     817
   ],
-  "approved_at": "2026-11-23T17:51:03.477080+05:30"
+  "approved_at": "2026-11-23T17:51:03.477080+05:30",
+  "posted_at": "2026-11-23T17:52:20.159802+05:30"
 }
