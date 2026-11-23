@@ -1,0 +1,73 @@
+{
+  "id": "11240054-df960",
+  "kind": "news",
+  "created": "2026-11-24T00:54:05.515157+05:30",
+  "images": [
+    "media/2026-11-24/news-005405-7e42_1.jpg"
+  ],
+  "caption": "Stock market news | Tech Mahindra sets Nov 30 1:1 bonus record date\n\nTech Mahindra announced a 1:1 bonus issue, with the record date fixed on November 30. Shareholders who held shares on that date will receive one fully paid-up ₹5 bonus share for each share they own.\n\nThe stock rose 2.13% on Monday, adding to a 12.38% gain over the past three months, reflecting investor interest in the upcoming bonus.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #TechMahindra #BonusIssue #StockMarket #TickerMarketIndia",
+  "threads_text": "Stock market news | Tech Mahindra sets Nov 30 1:1 bonus record date\n\nTech Mahindra announced a 1:1 bonus issue, with the record date fixed on November 30. Shareholders who held shares on that date will receive one fully paid-up ₹5 bonus share for each share they own.\n\nThe stock rose 2.13% on Monday, adding to a 12.38% gain over the past three months, reflecting investor interest in the upcoming bonus.\n\n#StockMarketIndia #TechMahindra #BonusIssue #StockMarket #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: CNBC-TV18, Mint"
+    ],
+    [
+      "ok",
+      "fresh: newest source 6.9 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 12 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "TECHM: NSE ₹1,777.50 vs Yahoo ₹1,746.20 - no price box"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.livemint.com/market/stock-market-news/tech-mahindra-bonus-issue-record-date-out-get-1-extra-share-for-every-share-held-check-eligibility-ratio-returns-11795435897518.html | https://www.cnbctv18.com/market/tech-mahindra-fixes-record-date-for-1-1-bonus-issue-shares-gain-2-5-pc-20039927.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Mon, 23 Nov 2026",
+      "theme": "tech",
+      "seed": "bonus check date eligibility every extra get held",
+      "tone": "up",
+      "quotes": [],
+      "label": "BONUS ISSUE",
+      "headline": "Tech Mahindra sets *Nov 30* *1:1* bonus record date",
+      "points": [
+        "Record date for the bonus issue is set for November 30.",
+        "Investors must own shares by November 27 to receive the bonus.",
+        "Tech Mahindra shares rose 2.13% after the announcement."
+      ],
+      "source": "CNBC-TV18, Mint"
+    },
+    "news_sector": "it",
+    "photo_prompt": "A modern office building with glass façade and visible server racks through a window."
+  },
+  "telegram_message_id": 859,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, Mint\n✅ fresh: newest source 6.9 h old\n✅ headline/banner/points/body: all 12 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ TECHM: NSE ₹1,777.50 vs Yahoo ₹1,746.20 - no price box\n✅ written by groq; sources: https://www.livemint.com/market/stock-market-news/tech-mahindra-bonus-issue-record-date-out-get-1-extra-share-for-every-share-held-check-eligibility-ratio-returns-11795435897518.html | https://www.cnbctv18.com/market/tech-mahindra-fixes-record-date-for-1-1-bonus-issue-shares-gain-2-5-pc-20039927.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Tech Mahindra sets Nov 30 1:1 bonus record date",
+  "telegram_media_ids": [
+    858
+  ]
+}

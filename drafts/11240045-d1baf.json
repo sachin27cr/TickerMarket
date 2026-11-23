@@ -1,0 +1,69 @@
+{
+  "id": "11240045-d1baf",
+  "kind": "news",
+  "created": "2026-11-24T00:45:17.342942+05:30",
+  "images": [
+    "media/2026-11-24/news-004517-9445_1.jpg"
+  ],
+  "caption": "Stock market news | Trusted Person Approval and Stop Switch proposed by RBI\n\nThe Reserve Bank of India announced proposals that would require a trusted person's approval for large digital transfers, introduce an emergency stop switch to block suspicious activity, and change bank liability rules for fraud cases.\nThese measures aim to protect customers, reduce fraud losses and strengthen confidence in online banking and payments.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #RBI #Banking #DigitalFraud #TickerMarketIndia",
+  "threads_text": "Stock market news | Trusted Person Approval and Stop Switch proposed by RBI\n\nThe Reserve Bank of India announced proposals that would require a trusted person's approval for large digital transfers, introduce an emergency stop switch to block suspicious activity, and change bank liability rules for fraud cases.\nThese measures aim to protect customers, reduce fraud losses and strengthen confidence in online banking and payments.\n\n#StockMarketIndia #RBI #Banking #DigitalFraud #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: Kotak Neo, Livemint, The 420.in"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.7 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 0 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMisAFBVV95cUxNb0RoWWItb0l3dm1MUzBTd2NOakRRb01MY0JHWDVadDBMQTA4MGx3MFRVM3BnM0RRZm9QNlRINU1Fb2s3Z1FVQ2luQUYtXzMxZGEyWDBKWXBVc21DZlppenlkUC1Oc1F4dmJVZHNneTdnZ0NJdzE4bzI1TUZwTFZjY1FoOW5paHVtN2l4MERpbkNYSzFRSTVKSGg4YlJGX3Y5UHZHeVFNdlNvdVhCSUEyQQ?oc=5 | https://news.google.com/rss/articles/CBMisgFBVV95cUxQdHlXM3lXZFpod3VodHNGWVhYelhlQXR2WllOWjlqa0VTN1pPRzNlZXdWdkpUaUI0UDJPd1VEaTR4YkQybmE3a0Z1NFR3VE9Jd1lKRkpjMDJvaWlrQkZTWVRIWHdZOW1zT0tNSGxxZUQtT0ctWnRpTk80TGVSMnZVNDNyeEpTSnBpZWdHSGVhZWdodGdETkJaRTliMW9yT244SUlmZktVY1EtLW14ZGpwdlVR?oc=5 | https://news.google.com/rss/articles/CBMijgJBVV95cUxNQThUelA1Tm9GTlRlZ2NnUUl0dXNvMjM2QldrbThwVkFxSFRzSVJtSm42cTIxMmw1ZndLaHR6Smthd00xZVpWQkdTUUJXdGxoaW1YMXVCQTQ5N21uc08tNjNaRndfTjhELUlmQTI0RnM2RXJfeUtNNlZyTW1FMTBnc2VPc2YzakhKOGc0ckpFS2d4QkIwZVJUWEZCRENoakJVa0t3QUxuUFBvYjJ0bmJhaG1GcTFnQlQwWHdYNlpPRG1nY0NJM1FkWlhDbHpYSFdNM1dkb3FubDBBUzloTXpvUkdlM3c0dDNQeW1qRXMtRUtma2pLV1VnMzc3bWt5RFdOaW93NHF2cWVJX1FMc0HSAZMCQVVfeXFMTW4yQ2xQdHp3dEVHaVA3NkFudzJoOGM4Z1VfcG5MUWJ0REhBNW1MbGhCb29uM05aVDhWLS12ZXVJZnFlQ3p0Qm5TNXB1UzR5VGVlenBpMHY3WnFCWThONzlzbzUwdkRlUUItb01kNnZKcEh2WUE1bmNwaFdpQzk1enVKaW1TdXo1ZTJhOTkyRk83WTVYaUl2V2J3cU8xWjkyN3NsMnp5M01pTHVIcDRhX1BnX05mckRZU1lxZDVYVHNVLWNoTWd2OUFvUUFwdWU4Z2N3Y2g5WDZ1eGZPUEV5M2p5Z0JJZmhMS0QwdkNlbER6R3dFYUpjMWNUUU9NSkVaU2VmNDRqd1pQTTFsT2g3SlY2Ukk?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Regulation",
+      "date_text": "Mon, 23 Nov 2026",
+      "theme": "bank",
+      "seed": "accounts approval bank fraud here how person proposes",
+      "tone": null,
+      "quotes": [],
+      "label": "RBI POLICY",
+      "headline": "*Trusted* Person Approval and *Stop* Switch proposed by RBI",
+      "points": [
+        "RBI will require a trusted person to approve large digital fund transfers.",
+        "An emergency stop switch can be activated to block suspicious transactions.",
+        "New rules shift liability to banks for unauthorized digital fraud."
+      ],
+      "source": "Kotak Neo, Livemint, The 420.in"
+    },
+    "news_sector": "banking",
+    "photo_prompt": "A close‑up of a smartphone screen showing a banking app with a warning icon."
+  },
+  "telegram_message_id": 856,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: Kotak Neo, Livemint, The 420.in\n✅ fresh: newest source 1.7 h old\n✅ headline/banner/points/body: all 0 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMisAFBVV95cUxNb0RoWWItb0l3dm1MUzBTd2NOakRRb01MY0JHWDVadDBMQTA4MGx3MFRVM3BnM0RRZm9QNlRINU1Fb2s3Z1FVQ2luQUYtXzMxZGEyWDBKWXBVc21DZlppenlkUC1Oc1F4dmJVZHNneTdnZ0NJdzE4bzI1TUZwTFZjY1FoOW5paHVtN2l4MERpbkNYSzFRSTVKSGg4YlJGX3Y5UHZHeVFNdlNvdVhCSUEyQQ?oc=5 | https://news.google.com/rss/articles/CBMisgFBVV95cUxQdHlXM3lXZFpod3VodHNGWVhYelhlQXR2WllOWjlqa0VTN1pPRzNlZXdWdkpUaUI0UDJPd1VEaTR4YkQybmE3a0Z1NFR3VE9Jd1lKRkpjMDJvaWlrQkZTWVRIWHdZOW1zT0tNSGxxZUQtT0ctWnRpTk80TGVSMnZVNDNyeEpTSnBpZWdHSGVhZWdodGdETkJaRTliMW9yT244SUlmZktVY1EtLW14ZGpwdlVR?oc=5 | https://news.google.com/rss/articles/CBMijgJBVV95cUxNQThUelA1Tm9GTlRlZ2NnUUl0dXNvMjM2QldrbThwVkFxSFRzSVJtSm42cTIxMmw1ZndLaHR6Smthd00xZVpWQkdTUUJXdGxoaW1YMXVCQTQ5N21uc08tNjNaRndfTjhELUlmQTI0RnM2RXJfeUtNNlZyTW1FMTBnc2VPc2YzakhKOGc0ckpFS2d4QkIwZVJUWEZCRENoakJVa0t3QUxuUFBvYjJ0bmJhaG1GcTFnQlQwWHdYNlpPRG1nY0NJM1FkWlhDbHpYSFdNM1dkb3FubDBBUzloTXpvUkdlM3c0dDNQeW1qRXMtRUtma2pLV1VnMzc3bWt5RFdOaW93NHF2cWVJX1FMc0HSAZMCQVVfeXFMTW4yQ2xQdHp3dEVHaVA3NkFudzJoOGM4Z1VfcG5MUWJ0REhBNW1MbGhCb29uM05aVDhWLS12ZXVJZnFlQ3p0Qm5TNXB1UzR5VGVlenBpMHY3WnFCWThONzlzbzUwdkRlUUItb01kNnZKcEh2WUE1bmNwaFdpQzk1enVKaW1TdXo1ZTJhOTkyRk83WTVYaUl2V2J3cU8xWjkyN3NsMnp5M01pTHVIcDRhX1BnX05mckRZU1lxZDVYVHNVLWNoTWd2OUFvUUFwdWU4Z2N3Y2g5WDZ1eGZPUEV5M2p5Z0JJZmhMS0QwdkNlbER6R3dFYUpjMWNUUU9NSkVaU2VmNDRqd1pQTTFsT2g3SlY2Ukk?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Trusted Person Approval and Stop Switch proposed by RBI",
+  "telegram_media_ids": [
+    855
+  ]
+}
