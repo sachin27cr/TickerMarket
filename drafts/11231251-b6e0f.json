@@ -1,0 +1,73 @@
+{
+  "id": "11231251-b6e0f",
+  "kind": "news",
+  "created": "2026-11-23T12:51:37.266513+05:30",
+  "images": [
+    "media/2026-11-23/news-125137-91e5_1.jpg"
+  ],
+  "caption": "Stock market news | Watana Rentals IPO Subscribed 36.57x on Day 3\n\nWatana Rentals IPO saw strong investor interest on its third day of bidding. The issue achieved an overall subscription of 36.57x on 23 November 2026.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #WatanaRentals #IPO #IPOWatch #TickerMarketIndia",
+  "threads_text": "Stock market news | Watana Rentals IPO Subscribed 36.57x on Day 3\n\nWatana Rentals IPO saw strong investor interest on its third day of bidding. The issue achieved an overall subscription of 36.57x on 23 November 2026.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #WatanaRentals #IPO #IPOWatch #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: Groww, Upstox, scanx.trade"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.9 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 10 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"Watana Rentals\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://news.google.com/rss/articles/CBMi2gFBVV95cUxQX0pzeHF5MjA3cGNLUHl2dlhwVS1Dc2lFdTFUeGxjNzRqRldUZ2Y5VFR4VzhPMTREVS1KUko1N0tOYWU2SWRDbjZaZW5kZE1lNVdyVzQyVUZLM2hfLWRELU83UTVDaUMzOUROam9iUjVNWTZqOENCVUhjUWhuZm1VVm93N05kLUhXRE90WWo1OGEwbEFLamdmblJ1X0RwMDNPUXEwZ0gyQndpeVloT1RUdHJDbTBwYlhxS1VwYkRkeEZWNXVhUEJURlNIU3NEc0FkeW1rRkMyR2RZdw?oc=5 | https://news.google.com/rss/articles/CBMi2wFBVV95cUxPT003ekhvbl9jd3RqQ0xkYW50QzFOQzFkUGpyQTl4OFhWNHFWRC1qLUNRVWRzaV91NWlFTlhjUlFhUUJRMC0yZ3Nia09sQ0thR3dwVUJNd0xMbjRZdVFIUlQ4YkFWeWh6OXQxSnh2dVZzdXZWeWFkaG41dXpTZTlkcENnZE5UUDY4ZXZSSVRMdE5uSnp2TmRlUFZhbUg5dENKRWwxYXNmQVhHbTcyemotY1ZZZXA0cDlMNTl1RWtvcDQ5cDI3OTVoVlVlU1dEM1psUFYzX2hfN3E4SW8?oc=5 | https://news.google.com/rss/articles/CBMipAFBVV95cUxPV19IcmlNYzNUUGE2ZU1CUklFb3ZjSHZwak5KQ3JObXVIek9NU0JPODNncDBjSlVtZkhScmtYMUJaal9yQWxka3pIQ2FIUGdlSnNnLWlCcFVobTI2REU1NGJieFJLaUUwWGN5WEdzYTdjajZvMmplXzZ4aTJPeWJUWF9uVE95Z3RvMHprd0F6eDR0MFhmWjEwWkNXeTA1ZzU4dEpfcw?oc=5 | https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRmhZMEtuUUpVWHI5ejUtYmNIZ2FuYVc4bWNNOTZObHVvWnVydUpIRFFyUG9oU1B6U19iTU9tdGh5VDRMT3RFZDVxcW5pQzVJTEppQm1YeXNCYjZpOTg4MGlWbFduc2h2aFpQNEZCVVpCVGdjVlJ4emlpajVjckZaLW9kWWRYdWNiQ3kwLU5BRnJXc1ZoVUFrallRRV9aZU52VWs1UXJHMzlYQko0MmZxeHk1VUZPS0UzVThNZmRUMWJtNnNQTDdGb1dkVkQ3c2pHekE?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "IPO Watch",
+      "date_text": "Mon, 23 Nov 2026",
+      "theme": "ipo",
+      "seed": "allotment check coalfields date far ipo mahanadi steps",
+      "tone": "up",
+      "quotes": [],
+      "label": "IPO SUBSCRIPTION STATUS",
+      "headline": "Watana Rentals IPO *Subscribed 36.57x* on Day 3",
+      "points": [
+        "Watana Rentals IPO reached 36.57x subscription on Day 3.",
+        "Demand from bHNI investors surged to 80.68x.",
+        "Subscription data was updated on 23 November 2026."
+      ],
+      "source": "Groww, Upstox, scanx.trade"
+    },
+    "news_sector": "ipo",
+    "photo_prompt": "A fleet of rental vehicles parked neatly in a modern commercial parking lot outdoors."
+  },
+  "telegram_message_id": 784,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: Groww, Upstox, scanx.trade\n✅ fresh: newest source 0.9 h old\n✅ headline/banner/points/body: all 10 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"Watana Rentals\" - no price box for it\n✅ written by gemini; sources: https://news.google.com/rss/articles/CBMi2gFBVV95cUxQX0pzeHF5MjA3cGNLUHl2dlhwVS1Dc2lFdTFUeGxjNzRqRldUZ2Y5VFR4VzhPMTREVS1KUko1N0tOYWU2SWRDbjZaZW5kZE1lNVdyVzQyVUZLM2hfLWRELU83UTVDaUMzOUROam9iUjVNWTZqOENCVUhjUWhuZm1VVm93N05kLUhXRE90WWo1OGEwbEFLamdmblJ1X0RwMDNPUXEwZ0gyQndpeVloT1RUdHJDbTBwYlhxS1VwYkRkeEZWNXVhUEJURlNIU3NEc0FkeW1rRkMyR2RZdw?oc=5 | https://news.google.com/rss/articles/CBMi2wFBVV95cUxPT003ekhvbl9jd3RqQ0xkYW50QzFOQzFkUGpyQTl4OFhWNHFWRC1qLUNRVWRzaV91NWlFTlhjUlFhUUJRMC0yZ3Nia09sQ0thR3dwVUJNd0xMbjRZdVFIUlQ4YkFWeWh6OXQxSnh2dVZzdXZWeWFkaG41dXpTZTlkcENnZE5UUDY4ZXZSSVRMdE5uSnp2TmRlUFZhbUg5dENKRWwxYXNmQVhHbTcyemotY1ZZZXA0cDlMNTl1RWtvcDQ5cDI3OTVoVlVlU1dEM1psUFYzX2hfN3E4SW8?oc=5 | https://news.google.com/rss/articles/CBMipAFBVV95cUxPV19IcmlNYzNUUGE2ZU1CUklFb3ZjSHZwak5KQ3JObXVIek9NU0JPODNncDBjSlVtZkhScmtYMUJaal9yQWxka3pIQ2FIUGdlSnNnLWlCcFVobTI2REU1NGJieFJLaUUwWGN5WEdzYTdjajZvMmplXzZ4aTJPeWJUWF9uVE95Z3RvMHprd0F6eDR0MFhmWjEwWkNXeTA1ZzU4dEpfcw?oc=5 | https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRmhZMEtuUUpVWHI5ejUtYmNIZ2FuYVc4bWNNOTZObHVvWnVydUpIRFFyUG9oU1B6U19iTU9tdGh5VDRMT3RFZDVxcW5pQzVJTEppQm1YeXNCYjZpOTg4MGlWbFduc2h2aFpQNEZCVVpCVGdjVlJ4emlpajVjckZaLW9kWWRYdWNiQ3kwLU5BRnJXc1ZoVUFrallRRV9aZU52VWs1UXJHMzlYQko0MmZxeHk1VUZPS0UzVThNZmRUMWJtNnNQTDdGb1dkVkQ3c2pHekE?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Watana Rentals IPO Subscribed 36.57x on Day 3",
+  "telegram_media_ids": [
+    783
+  ]
+}
