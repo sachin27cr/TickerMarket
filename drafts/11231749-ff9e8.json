@@ -37,7 +37,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "queued",
   "meta": {
     "card": {
       "category": "Economy",
@@ -65,5 +65,6 @@
   "alt_text": "Stock market news: Ticker Market India image - Rupee snaps 5-day rally, settles at 92.92",
   "telegram_media_ids": [
     817
-  ]
+  ],
+  "approved_at": "2026-11-23T17:51:03.477080+05:30"
 }
