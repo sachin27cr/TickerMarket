@@ -40,7 +40,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "queued",
   "meta": {
     "awaiting_fii": "2026-11-23",
     "allowed": [
@@ -77,5 +77,6 @@
     801,
     802,
     803
-  ]
+  ],
+  "approved_at": "2026-11-23T16:18:42.007694+05:30"
 }
