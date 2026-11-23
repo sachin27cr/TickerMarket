@@ -88,7 +88,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "queued",
   "meta": {},
   "telegram_message_id": 813,
   "posted": {},
@@ -104,5 +104,6 @@
     810,
     811,
     812
-  ]
+  ],
+  "approved_at": "2026-11-23T17:41:45.402881+05:30"
 }
