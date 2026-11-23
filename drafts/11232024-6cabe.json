@@ -105,12 +105,15 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "video": "media/2026-11-23/reel_evening-202455-9e32.mp4"
   },
   "telegram_message_id": 837,
-  "posted": {},
+  "posted": {
+    "instagram": "17986496060901021",
+    "facebook": "1151498837485062"
+  },
   "video": "media/2026-11-23/reel_evening-202455-9e32.mp4",
   "script": [
     "1. Stock market today. The Nifty lost 451 points today, and Nifty Metal dragged the most. Here is how the day played out.",
@@ -125,5 +128,7 @@
   "topic_keyword": "Stock market today",
   "telegram_media_ids": [
     836
-  ]
+  ],
+  "approved_at": "2026-11-23T20:25:23.177056+05:30",
+  "posted_at": "2026-11-23T20:26:31.787121+05:30"
 }
