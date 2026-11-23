@@ -1,0 +1,81 @@
+{
+  "id": "11231616-dcf97",
+  "kind": "cap_movers",
+  "created": "2026-11-23T16:16:21.153692+05:30",
+  "images": [
+    "media/2026-11-23/cap_movers-161621-e985_1.jpg",
+    "media/2026-11-23/cap_movers-161621-e985_2.jpg",
+    "media/2026-11-23/cap_movers-161621-e985_3.jpg",
+    "media/2026-11-23/cap_movers-161621-e985_4.jpg",
+    "media/2026-11-23/cap_movers-161621-e985_5.jpg",
+    "media/2026-11-23/cap_movers-161621-e985_6.jpg",
+    "media/2026-11-23/cap_movers-161621-e985_7.jpg",
+    "media/2026-11-23/cap_movers-161621-e985_8.jpg"
+  ],
+  "caption": "Top gainers and losers by market cap: 23 November 2026\n\nLarge Cap: top gainer TCS (+3.53%), top loser Tata Steel (-8.43%).\nMid Cap: top gainer Policybazaar (+6.48%), top loser APL Apollo Tubes (-21.29%).\nSmall Cap: top gainer ITI (+12.41%), top loser Prime Focus (-6.35%).\nMicro Cap: top gainer Thomas Cook (+12.85%), top loser V2 Retail (-6.45%).\n\nGroups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the top 5 in each group.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #TopGainers #TopLosers #SmallCap #TickerMarketIndia",
+  "threads_text": "Top gainers and losers by market cap: 23 November 2026\n\nLarge Cap: top gainer TCS (+3.53%), top loser Tata Steel (-8.43%).\nMid Cap: top gainer Policybazaar (+6.48%), top loser APL Apollo Tubes (-21.29%).\nSmall Cap: top gainer ITI (+12.41%), top loser Prime Focus (-6.35%).\nMicro Cap: top gainer Thomas Cook (+12.85%), top loser V2 Retail (-6.45%).\n\n#StockMarketIndia #TopGainers #TopLosers #SmallCap #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed"
+    ],
+    [
+      "ok",
+      "Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed"
+    ],
+    [
+      "warn",
+      "Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)"
+    ],
+    [
+      "warn",
+      "Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)"
+    ],
+    [
+      "ok",
+      "caption: all 11 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "awaiting_fii": "2026-11-23",
+    "allowed": [
+      23,
+      2026,
+      5,
+      3.53,
+      8.43,
+      6.48,
+      21.29,
+      12.408432362038084,
+      6.351404827859115,
+      12.84667713239141,
+      6.448229050968769
+    ],
+    "headline": "Top gainers and losers by market cap: 23 November 2026",
+    "paras": [
+      "Large Cap: top gainer TCS (+3.53%), top loser Tata Steel (-8.43%).\nMid Cap: top gainer Policybazaar (+6.48%), top loser APL Apollo Tubes (-21.29%).\nSmall Cap: top gainer ITI (+12.41%), top loser Prime Focus (-6.35%).\nMicro Cap: top gainer Thomas Cook (+12.85%), top loser V2 Retail (-6.45%).",
+      "Groups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the top 5 in each group."
+    ],
+    "n_content": 6
+  },
+  "telegram_message_id": 804,
+  "posted": {},
+  "report_text": "✅ Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed\n⚠️ Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n⚠️ Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n✅ caption: all 11 numbers match source data\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Top gainers and losers today",
+  "alt_text": "Top gainers and losers today: Ticker Market India carousel - Top gainers and losers by market cap: 23 November 2026",
+  "telegram_media_ids": [
+    796,
+    797,
+    798,
+    799,
+    800,
+    801,
+    802,
+    803
+  ]
+}

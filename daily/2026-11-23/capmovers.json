@@ -1,0 +1,314 @@
+{
+  "Large Cap": {
+    "gainers": [
+      {
+        "symbol": "TCS",
+        "last": 2460.0,
+        "chg": 83.8,
+        "pct": 3.53,
+        "prev": 2376.2,
+        "year_high": 3350.0,
+        "year_low": 1976.8,
+        "day_high": 2501.9,
+        "day_low": 2401.0,
+        "name": "TCS"
+      },
+      {
+        "symbol": "SHRIRAMFIN",
+        "last": 995.9,
+        "chg": 23.9,
+        "pct": 2.46,
+        "prev": 972.0,
+        "year_high": 1153.7,
+        "year_low": 810.1,
+        "day_high": 1015.0,
+        "day_low": 985.55,
+        "name": "Shriram Finance"
+      },
+      {
+        "symbol": "TECHM",
+        "last": 1777.5,
+        "chg": 31.3,
+        "pct": 1.79,
+        "prev": 1746.2,
+        "year_high": 1860.0,
+        "year_low": 1304.1,
+        "day_high": 1808.7,
+        "day_low": 1757.0,
+        "name": "Tech Mahindra"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "TATASTEEL",
+        "last": 163.0,
+        "chg": -15.0,
+        "pct": -8.43,
+        "prev": 178.0,
+        "year_high": 224.4,
+        "year_low": 160.06,
+        "day_high": 173.8,
+        "day_low": 160.5,
+        "name": "Tata Steel"
+      },
+      {
+        "symbol": "UNIONBANK",
+        "last": 208.2,
+        "chg": -10.65,
+        "pct": -4.87,
+        "prev": 218.85,
+        "year_high": 219.72,
+        "year_low": 145.87,
+        "day_high": 219.72,
+        "day_low": 207.7,
+        "name": "Union Bank"
+      },
+      {
+        "symbol": "BANKBARODA",
+        "last": 275.58,
+        "chg": -11.42,
+        "pct": -3.98,
+        "prev": 287.0,
+        "year_high": 325.5,
+        "year_low": 223.82,
+        "day_high": 289.67,
+        "day_low": 274.52,
+        "name": "Bank of Baroda"
+      }
+    ]
+  },
+  "Mid Cap": {
+    "gainers": [
+      {
+        "symbol": "POLICYBZR",
+        "last": 1089.1,
+        "chg": 66.3,
+        "pct": 6.48,
+        "prev": 1022.8,
+        "year_high": 1964.2,
+        "year_low": 916.0,
+        "day_high": 1112.9,
+        "day_low": 1028.0,
+        "name": "Policybazaar"
+      },
+      {
+        "symbol": "LINDEINDIA",
+        "last": 6965.0,
+        "chg": 393.0,
+        "pct": 5.98,
+        "prev": 6572.0,
+        "year_high": 8049.0,
+        "year_low": 5544.0,
+        "day_high": 7099.0,
+        "day_low": 6567.0,
+        "name": "Linde India"
+      },
+      {
+        "symbol": "JSWINFRA",
+        "last": 354.0,
+        "chg": 12.75,
+        "pct": 3.74,
+        "prev": 341.25,
+        "year_high": 375.5,
+        "year_low": 233.42,
+        "day_high": 355.1,
+        "day_low": 336.75,
+        "name": "JSW Infrastructure"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "APLAPOLLO",
+        "last": 1670.0,
+        "chg": -451.6,
+        "pct": -21.29,
+        "prev": 2121.6,
+        "year_high": 2312.3,
+        "year_low": 1650.0,
+        "day_high": 2006.4,
+        "day_low": 1650.0,
+        "name": "APL Apollo Tubes"
+      },
+      {
+        "symbol": "BHEL",
+        "last": 415.7,
+        "chg": -17.95,
+        "pct": -4.14,
+        "prev": 433.65,
+        "year_high": 464.0,
+        "year_low": 239.17,
+        "day_high": 435.8,
+        "day_low": 415.4,
+        "name": "BHEL"
+      },
+      {
+        "symbol": "INDUSINDBK",
+        "last": 963.0,
+        "chg": -40.0,
+        "pct": -3.99,
+        "prev": 1003.0,
+        "year_high": 1077.85,
+        "year_low": 750.5,
+        "day_high": 1004.6,
+        "day_low": 961.9,
+        "name": "IndusInd Bank"
+      }
+    ]
+  },
+  "Small Cap": {
+    "gainers": [
+      {
+        "symbol": "ITI",
+        "last": 276.21,
+        "prev": 245.72,
+        "chg": 30.49,
+        "pct": 12.408432362038084,
+        "day_high": 284.92999267578125,
+        "day_low": 247.5,
+        "year_high": 332.95001220703125,
+        "year_low": 210.75999450683594,
+        "name": "ITI"
+      },
+      {
+        "symbol": "INTELLECT",
+        "last": 578.45,
+        "prev": 549.0,
+        "chg": 29.45,
+        "pct": 5.3642987249544705,
+        "day_high": 592.7999877929688,
+        "day_low": 551.0999755859375,
+        "year_high": 1146.5,
+        "year_low": 478.0,
+        "name": "Intellect Design Arena"
+      },
+      {
+        "symbol": "ZYDUSWELL",
+        "last": 465.85,
+        "prev": 448.05,
+        "chg": 17.8,
+        "pct": 3.972770896105348,
+        "day_high": 470.3999938964844,
+        "day_low": 442.1000061035156,
+        "year_high": 611.8499755859375,
+        "year_low": 367.54998779296875,
+        "name": "Zydus Wellness"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "PFOCUS",
+        "last": 236.65,
+        "prev": 252.7,
+        "chg": -16.05,
+        "pct": -6.351404827859115,
+        "day_high": 253.89999389648438,
+        "day_low": 234.0,
+        "year_high": 367.0,
+        "year_low": 165.0,
+        "name": "Prime Focus"
+      },
+      {
+        "symbol": "HFCL",
+        "last": 178.6,
+        "prev": 188.0,
+        "chg": -9.4,
+        "pct": -5.000000000000003,
+        "day_high": 180.89999389648438,
+        "day_low": 178.60000610351562,
+        "year_high": 282.25,
+        "year_low": 59.81999969482422,
+        "name": "HFCL"
+      },
+      {
+        "symbol": "STLTECH",
+        "last": 590.8,
+        "prev": 621.85,
+        "chg": -31.05,
+        "pct": -4.993165554394157,
+        "day_high": 590.7999877929688,
+        "day_low": 590.7999877929688,
+        "year_high": 1051.0999755859375,
+        "year_low": 84.5999984741211,
+        "name": "Sterlite Technologies"
+      }
+    ]
+  },
+  "Micro Cap": {
+    "gainers": [
+      {
+        "symbol": "THOMASCOOK",
+        "last": 129.39,
+        "prev": 114.66,
+        "chg": 14.73,
+        "pct": 12.84667713239141,
+        "day_high": 131.49000549316406,
+        "day_low": 116.0,
+        "year_high": 159.5399932861328,
+        "year_low": 85.25,
+        "name": "Thomas Cook"
+      },
+      {
+        "symbol": "INDIAGLYCO",
+        "last": 294.85,
+        "prev": 264.35,
+        "chg": 30.5,
+        "pct": 11.537734064686965,
+        "day_high": 305.5,
+        "day_low": 259.04998779296875,
+        "year_high": 1219.0,
+        "year_low": 217.0,
+        "name": "India Glycols"
+      },
+      {
+        "symbol": "JSLL",
+        "last": 322.2,
+        "prev": 300.2,
+        "chg": 22.0,
+        "pct": 7.328447701532312,
+        "day_high": 338.79998779296875,
+        "day_low": 302.0,
+        "year_high": 809.0,
+        "year_low": 280.0,
+        "name": "Jeena Sikho Lifecare"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "V2RETAIL",
+        "last": 151.61,
+        "prev": 162.06,
+        "chg": -10.45,
+        "pct": -6.448229050968769,
+        "day_high": 161.3300018310547,
+        "day_low": 149.5,
+        "year_high": 259.25,
+        "year_low": 122.7300033569336,
+        "name": "V2 Retail"
+      },
+      {
+        "symbol": "SKYGOLD",
+        "last": 819.45,
+        "prev": 874.9,
+        "chg": -55.45,
+        "pct": -6.337867184821115,
+        "day_high": 870.0,
+        "day_low": 815.0499877929688,
+        "year_high": 1083.949951171875,
+        "year_low": 297.95001220703125,
+        "name": "SKY GOLD AND Diamonds"
+      },
+      {
+        "symbol": "SGMART",
+        "last": 1036.8,
+        "prev": 1097.05,
+        "chg": -60.25,
+        "pct": -5.492001276149675,
+        "day_high": 1254.4000244140625,
+        "day_low": 1023.2000122070312,
+        "year_high": 1254.4000244140625,
+        "year_low": 313.1000061035156,
+        "name": "SG Mart"
+      }
+    ]
+  }
+}
