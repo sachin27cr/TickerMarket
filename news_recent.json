@@ -1,99 +1,5 @@
 [
   {
-    "when": "2026-11-21T17:16:59.570833+05:30",
-    "title": "Easy disclosure for FPIs: Sebi proposes scrapping additional norms to attract foreign investors",
-    "bucket": null,
-    "lead": [
-      "additional",
-      "attract",
-      "disclosure",
-      "easy",
-      "foreign",
-      "fpis",
-      "investors",
-      "norms",
-      "proposes",
-      "scrapping",
-      "sebi"
-    ],
-    "tokens": [
-      "additional",
-      "disclosure",
-      "foreign",
-      "fpi",
-      "framework",
-      "investors",
-      "outflows",
-      "portfolio",
-      "proposes",
-      "rules",
-      "scrapping",
-      "sebi",
-      "stem"
-    ]
-  },
-  {
-    "when": "2026-11-21T17:17:21.425259+05:30",
-    "title": "Record Foreign Inflows Boost Indian Rupee and Sensex Performance",
-    "bucket": "rupee_forex",
-    "lead": [
-      "boost",
-      "foreign",
-      "inflows",
-      "performance",
-      "record",
-      "rupee",
-      "sensex"
-    ],
-    "tokens": [
-      "boost",
-      "foreign",
-      "inflows",
-      "lift",
-      "november",
-      "performance",
-      "record",
-      "rises",
-      "rupee",
-      "sensex"
-    ]
-  },
-  {
-    "when": "2026-11-21T17:18:32.594471+05:30",
-    "title": "Adani Energy Solutions gets order for 1,750 MW renewable power supply to West Bengal",
-    "bucket": null,
-    "lead": [
-      "750",
-      "adani",
-      "bengal",
-      "energy",
-      "gets",
-      "order",
-      "power",
-      "renewable",
-      "solutions",
-      "supply",
-      "west"
-    ],
-    "tokens": [
-      "500",
-      "750",
-      "adani",
-      "bags",
-      "bengal",
-      "contract",
-      "discom",
-      "energy",
-      "gets",
-      "order",
-      "power",
-      "renewable",
-      "solutions",
-      "supply",
-      "west"
-    ]
-  },
-  {
     "when": "2026-11-22T18:09:09.347722+05:30",
     "title": "Stock Market Outlook Next Week, FII Buying, US Inflation & Crude Oil To Decide Niftys 26,000 Breakout",
     "bucket": "crude_oil",
@@ -523,6 +429,111 @@
       "surges",
       "timeline",
       "watana"
+    ]
+  },
+  {
+    "when": "2026-11-23T17:47:49.029246+05:30",
+    "title": "Coal India unit Mahanadi's IPO fully subscribed on final day, led by institutional investors",
+    "bucket": null,
+    "lead": [
+      "coal",
+      "final",
+      "fully",
+      "institutional",
+      "investors",
+      "ipo",
+      "led",
+      "mahanadi",
+      "subscribed",
+      "unit"
+    ],
+    "tokens": [
+      "coal",
+      "final",
+      "fully",
+      "institutional",
+      "investors",
+      "ipo",
+      "led",
+      "mahanadi",
+      "subscribed",
+      "unit"
+    ]
+  },
+  {
+    "when": "2026-11-23T17:49:43.629770+05:30",
+    "title": "Rupee snaps 5-day rally; tumbles 30 paise to settle at 92.92 against U.S. dollar",
+    "bucket": "rupee_forex",
+    "lead": [
+      "against",
+      "dollar",
+      "paise",
+      "rally",
+      "rupee",
+      "settle",
+      "snaps",
+      "tumbles"
+    ],
+    "tokens": [
+      "against",
+      "dollar",
+      "gains",
+      "paise",
+      "rally",
+      "reverses",
+      "rupee",
+      "settle",
+      "settles",
+      "snaps",
+      "tumbles"
+    ]
+  },
+  {
+    "when": "2026-11-23T17:50:00.252378+05:30",
+    "title": "Manic Monday for Bank Nifty as index crashes over 2000 points — Check worst hit shares and reasons behind mega plunge",
+    "bucket": null,
+    "lead": [
+      "2000",
+      "bank",
+      "behind",
+      "check",
+      "crashes",
+      "hit",
+      "index",
+      "manic",
+      "mega",
+      "monday",
+      "nifty",
+      "plunge",
+      "points",
+      "reasons",
+      "worst"
+    ],
+    "tokens": [
+      "000",
+      "2000",
+      "among",
+      "axis",
+      "bank",
+      "behind",
+      "check",
+      "crashes",
+      "hdfc",
+      "hit",
+      "icici",
+      "index",
+      "losers",
+      "manic",
+      "mega",
+      "monday",
+      "nifty",
+      "plunge",
+      "plunges",
+      "points",
+      "reasons",
+      "sbi",
+      "top",
+      "worst"
     ]
   }
 ]

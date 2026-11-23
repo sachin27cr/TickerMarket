@@ -1,0 +1,106 @@
+{
+  "id": "11231749-6768d",
+  "kind": "news",
+  "created": "2026-11-23T17:49:57.593268+05:30",
+  "images": [
+    "media/2026-11-23/news-174957-a9a2_1.jpg"
+  ],
+  "caption": "Stock market news | Bank Nifty crashes 2,000 points, 3.1% drop\n\nOn 23 November 2026 the Bank Nifty index dropped more than 2,000 points, ending about 3% below its prior close.\nThe sharp fall hit major banks such as HDFC Bank, ICICI Bank, Axis Bank and State Bank of India, signaling pressure on the banking sector.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #BankNifty #MarketCrash #IndianBanks #TickerMarketIndia",
+  "threads_text": "Stock market news | Bank Nifty crashes 2,000 points, 3.1% drop\n\nOn 23 November 2026 the Bank Nifty index dropped more than 2,000 points, ending about 3% below its prior close.\nThe sharp fall hit major banks such as HDFC Bank, ICICI Bank, Axis Bank and State Bank of India, signaling pressure on the banking sector.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #BankNifty #MarketCrash #IndianBanks #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: Mint, Moneycontrol.com"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.9 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 10 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "HDFCBANK ₹817.80 (-3.33%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "ICICIBANK ₹1,585.50 (-3.32%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "AXISBANK ₹1,388.60 (-3.97%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.livemint.com/market/stock-market-news/manic-monday-for-bank-nifty-as-index-crashes-over-2000-points-check-worst-hit-shares-and-reasons-behind-mega-plunge-11795430223849.html | https://news.google.com/rss/articles/CBMi_gFBVV95cUxNcjVKZTFWcGI1MjdiQWdHMmFBR0tFaFJQNUJBVlBsaVRCMzJNUWJxZEtkM0xPRXJwdUxIZllLeVEtR3VhVUgwdmx0RlFjdHRhY1BTX28zaDY4Mmo0X3ZXNjBvSFhXanNfNzVPdFRHbnJLYmxzUkZmd0RhN1NHRmxvUzUzWDUtVU1Pdkl4V3hIYzZ5Zm5JUnExbC1oV0hHaFhtVVFVODRIZXpXZFdqSVFkdWZrS3lVaktWVXhZMFBWcWJucFB1U3VLM2JnUVdtR3ZJSFMyTWtPZ3VQdmFkYjhUbjhob0pSYXFaVHhKdFhYb0x0TWstTG43VXI5SzR5UdIBgwJBVV95cUxQVW9BczM3ZzNtYjdycVYxNG0tMEV5Ykw2VGZlZzFfSU5jQ2pqeDhxd2xBMlVHcHMxZFlCeVBvZ0xxbjJYdDN3Q0ZxX19nV2I5cHVSR1JDRnd5TzdhQ2xvWUpYTUcyM0NHWWotZEROaXJhLTFoLUIyREpEZV9EUHN3Mms5Szh3dkJLSng4QzAwbzFzblJUOXlSSXA0MXVodmdkOUtWSkhrdnI3TllCNzQ3TlhHMzRXWGdQZXk2Z0VVcHhDbXJka1BJaE9PeFliVUZOUmFoMks0VXJRZkhmZ0dvc3lkRjRoUzA5bUlWMl9RZ3JMTEo4YWlKalNBb3dwOWd6ZExj?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Market News",
+      "date_text": "Mon, 23 Nov 2026",
+      "theme": "bank",
+      "seed": "2000 bank behind check crashes hit index manic",
+      "tone": "down",
+      "quotes": [
+        {
+          "name": "HDFC Bank Ltd",
+          "symbol": "HDFCBANK",
+          "price": 817.8,
+          "chg": -28.2,
+          "pct": -3.33,
+          "time_text": "23 Nov, 4:00 PM IST"
+        },
+        {
+          "name": "ICICI Bank Ltd",
+          "symbol": "ICICIBANK",
+          "price": 1585.5,
+          "chg": -54.5,
+          "pct": -3.32,
+          "time_text": "23 Nov, 4:00 PM IST"
+        },
+        {
+          "name": "Axis Bank Ltd",
+          "symbol": "AXISBANK",
+          "price": 1388.6,
+          "chg": -57.4,
+          "pct": -3.97,
+          "time_text": "23 Nov, 4:00 PM IST"
+        }
+      ],
+      "label": "BANK PLUNGE",
+      "headline": "*Bank Nifty* crashes *2,000* points, *3.1%* drop",
+      "points": [
+        "Bank Nifty fell over 2,000 points on 23 November 2026.",
+        "Index closed about 3% lower than its previous close.",
+        "HDFC Bank, ICICI Bank, Axis Bank and SBI were top losers."
+      ],
+      "source": "NSE prices, Mint, Moneycontrol.com"
+    },
+    "news_sector": "banking",
+    "photo_prompt": "A trading floor with large screens showing falling stock charts and red arrows, empty chairs in a financial office."
+  },
+  "telegram_message_id": 820,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: Mint, Moneycontrol.com\n✅ fresh: newest source 0.9 h old\n✅ headline/banner/points/body: all 10 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ HDFCBANK ₹817.80 (-3.33%): NSE = Yahoo\n✅ ICICIBANK ₹1,585.50 (-3.32%): NSE = Yahoo\n✅ AXISBANK ₹1,388.60 (-3.97%): NSE = Yahoo\n✅ written by groq; sources: https://www.livemint.com/market/stock-market-news/manic-monday-for-bank-nifty-as-index-crashes-over-2000-points-check-worst-hit-shares-and-reasons-behind-mega-plunge-11795430223849.html | https://news.google.com/rss/articles/CBMi_gFBVV95cUxNcjVKZTFWcGI1MjdiQWdHMmFBR0tFaFJQNUJBVlBsaVRCMzJNUWJxZEtkM0xPRXJwdUxIZllLeVEtR3VhVUgwdmx0RlFjdHRhY1BTX28zaDY4Mmo0X3ZXNjBvSFhXanNfNzVPdFRHbnJLYmxzUkZmd0RhN1NHRmxvUzUzWDUtVU1Pdkl4V3hIYzZ5Zm5JUnExbC1oV0hHaFhtVVFVODRIZXpXZFdqSVFkdWZrS3lVaktWVXhZMFBWcWJucFB1U3VLM2JnUVdtR3ZJSFMyTWtPZ3VQdmFkYjhUbjhob0pSYXFaVHhKdFhYb0x0TWstTG43VXI5SzR5UdIBgwJBVV95cUxQVW9BczM3ZzNtYjdycVYxNG0tMEV5Ykw2VGZlZzFfSU5jQ2pqeDhxd2xBMlVHcHMxZFlCeVBvZ0xxbjJYdDN3Q0ZxX19nV2I5cHVSR1JDRnd5TzdhQ2xvWUpYTUcyM0NHWWotZEROaXJhLTFoLUIyREpEZV9EUHN3Mms5Szh3dkJLSng4QzAwbzFzblJUOXlSSXA0MXVodmdkOUtWSkhrdnI3TllCNzQ3TlhHMzRXWGdQZXk2Z0VVcHhDbXJka1BJaE9PeFliVUZOUmFoMks0VXJRZkhmZ0dvc3lkRjRoUzA5bUlWMl9RZ3JMTEo4YWlKalNBb3dwOWd6ZExj?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Bank Nifty crashes 2,000 points, 3.1% drop",
+  "telegram_media_ids": [
+    819
+  ]
+}

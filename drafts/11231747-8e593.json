@@ -1,0 +1,82 @@
+{
+  "id": "11231747-8e593",
+  "kind": "news",
+  "created": "2026-11-23T17:47:46.391386+05:30",
+  "images": [
+    "media/2026-11-23/news-174746-3cbf_1.jpg"
+  ],
+  "caption": "Stock market news | Coal India Unit Mahanadi IPO Fully Subscribed on Final Day\n\nThe initial public offering of Coal India unit Mahanadi was fully subscribed on its final bidding day on 23 November 2026. Institutional investors led the bidding for the share sale.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Mahanadi #CoalIndia #IPO #TickerMarketIndia",
+  "threads_text": "Stock market news | Coal India Unit Mahanadi IPO Fully Subscribed on Final Day\n\nThe initial public offering of Coal India unit Mahanadi was fully subscribed on its final bidding day on 23 November 2026. Institutional investors led the bidding for the share sale.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Mahanadi #CoalIndia #IPO #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 4 outlets: BusinessLine, Mining Weekly, Reuters, TradingView"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.2 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 5 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "COALINDIA ₹382.00 (-2.05%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://www.thehindubusinessline.com/markets/stock-markets/coal-india-unit-mahanadis-ipo-fully-subscribed-on-final-day-led-by-institutional-investors/article71734460.ece | https://news.google.com/rss/articles/CBMi_gFBVV95cUxPRy00aUpDU1h5a2Z0V0xvX25iSUlieHZsZ1NOWHEwZXotd1VyR3lhNWlQOUM3TGxBTkcwcXh4MDRUS1FwZHNkRnpXYTI3UXZBcnFsUnNZQ1MwRnhSSVZQbDJpd0ZLNmdCd2VlSmxhV1FmMGU1MGlZLTBMd184ajkyYU0xOTMtSlctNXJLd2xZenVsNlVpNTBaZVpWWW5TUmxWai0xdGtlVHh1QWwzd2xNbXFFSHN2akh0ekp6c3N0bEdjUHRtS1dJMzNYVGRtazc2Rnp1cGpjb1ZFejN5WllZTzFnejBiRldFTk1SNDREcFd0Y0hiQUJ5WUs2S1BQUdIBhAJBVV95cUxNQW9nZGpzb1pta2duZTd4OXBhUVNFR1NkMWNOVF9CSzBEakp2NktKVUo0TER4R1lVbkJWQjNsN0phYmtOODN1Q21CblQ3Tjh5ODJ6MFlBNTdEeWs1MWtkemVYNXVJRGZNTXFzeVcycU9SblVWT3ZwdXNWVTdQTXZBbGI2c0txYkhfYUg5YU9aUlhVUWhlcEUyNllFQkZXdWdXYnN1bHB6NG9iaDZtekFsM0dadlQzdEZBRkVjY1BWNlN3cm4xME1rcFEzdzNJUURGMVVXek5xOGRyc3hyaTVJWjZCZjdMZER0UV9IV0dISHI3Z0czNGY4dmVIZVhMdUJWbnh3TA?oc=5 | https://news.google.com/rss/articles/CBMisgFBVV95cUxOTV9acWZoWWwxZ3JhWlJxWUpJYnNGclVKbFk0YjZ2cjhpLXdmYVJ0aTQ2Q09MQ0xyRXZzdWJHTldoOVBhVVdyUUJQVjJ3TjVkVTZoZ19tTE42aFhMUi03dm1Za2RCQ25QZm5NeXFzT0piU1FBVzhZSk9Hd0dHMWVmNkY1SzVfSTl3Y0h0Y1pVdWxGUnJqQzZZSmM1LVpBTDluQ0JRcFNPdXJOV3VySHdpTlR3?oc=5 | https://news.google.com/rss/articles/CBMi1AFBVV95cUxQeXBaSFI0V0ZhVDY5UGtoMlJqSXQ0U2tlS1FaLWwwZWlJZnVUWFVFOWdWZmc5V1JIYXlqRXYwU0d6WGVQRTRrZXNEeTVWYzZ5am5sLVhaRHF5bjJGbGNZb1F6NUlhNFVBY2hhSWxGMktOY0JkWFNZcVVXc0J6MnBSMGI2Yld3M0F4SnUzSE5yVnIzakt1MFNZcHZZbHVyODJ2N1F6cjhvZi1BS181aDlVY2xxNkgzZWJOQ3FQM2l1MFQ4b05FOGJvYnZlUzlsUlU5RkU0TQ?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "IPO Watch",
+      "date_text": "Mon, 23 Nov 2026",
+      "theme": "ipo",
+      "seed": "coal final fully institutional investors ipo led mahanadi",
+      "tone": "down",
+      "quotes": [
+        {
+          "name": "Coal India Ltd",
+          "symbol": "COALINDIA",
+          "price": 382.0,
+          "chg": -8.0,
+          "pct": -2.05,
+          "time_text": "23 Nov, 4:00 PM IST"
+        }
+      ],
+      "label": "IPO UPDATE",
+      "headline": "Coal India Unit Mahanadi IPO *Fully Subscribed* on Final Day",
+      "points": [
+        "Institutional investors led the bidding for the Mahanadi IPO.",
+        "The IPO received bids for 736.3 million shares on its final day.",
+        "Exchange data showed the subscription status as of 3:45 PM IST."
+      ],
+      "source": "NSE prices, BusinessLine, Mining Weekly, Reuters"
+    },
+    "news_sector": "ipo",
+    "photo_prompt": "An aerial view of a large open-pit coal mine with heavy mining machinery and haul trucks operating on dirt tracks."
+  },
+  "telegram_message_id": 816,
+  "posted": {},
+  "report_text": "✅ confirmed by 4 outlets: BusinessLine, Mining Weekly, Reuters, TradingView\n✅ fresh: newest source 0.2 h old\n✅ headline/banner/points/body: all 5 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ COALINDIA ₹382.00 (-2.05%): NSE = Yahoo\n✅ written by gemini; sources: https://www.thehindubusinessline.com/markets/stock-markets/coal-india-unit-mahanadis-ipo-fully-subscribed-on-final-day-led-by-institutional-investors/article71734460.ece | https://news.google.com/rss/articles/CBMi_gFBVV95cUxPRy00aUpDU1h5a2Z0V0xvX25iSUlieHZsZ1NOWHEwZXotd1VyR3lhNWlQOUM3TGxBTkcwcXh4MDRUS1FwZHNkRnpXYTI3UXZBcnFsUnNZQ1MwRnhSSVZQbDJpd0ZLNmdCd2VlSmxhV1FmMGU1MGlZLTBMd184ajkyYU0xOTMtSlctNXJLd2xZenVsNlVpNTBaZVpWWW5TUmxWai0xdGtlVHh1QWwzd2xNbXFFSHN2akh0ekp6c3N0bEdjUHRtS1dJMzNYVGRtazc2Rnp1cGpjb1ZFejN5WllZTzFnejBiRldFTk1SNDREcFd0Y0hiQUJ5WUs2S1BQUdIBhAJBVV95cUxNQW9nZGpzb1pta2duZTd4OXBhUVNFR1NkMWNOVF9CSzBEakp2NktKVUo0TER4R1lVbkJWQjNsN0phYmtOODN1Q21CblQ3Tjh5ODJ6MFlBNTdEeWs1MWtkemVYNXVJRGZNTXFzeVcycU9SblVWT3ZwdXNWVTdQTXZBbGI2c0txYkhfYUg5YU9aUlhVUWhlcEUyNllFQkZXdWdXYnN1bHB6NG9iaDZtekFsM0dadlQzdEZBRkVjY1BWNlN3cm4xME1rcFEzdzNJUURGMVVXek5xOGRyc3hyaTVJWjZCZjdMZER0UV9IV0dISHI3Z0czNGY4dmVIZVhMdUJWbnh3TA?oc=5 | https://news.google.com/rss/articles/CBMisgFBVV95cUxOTV9acWZoWWwxZ3JhWlJxWUpJYnNGclVKbFk0YjZ2cjhpLXdmYVJ0aTQ2Q09MQ0xyRXZzdWJHTldoOVBhVVdyUUJQVjJ3TjVkVTZoZ19tTE42aFhMUi03dm1Za2RCQ25QZm5NeXFzT0piU1FBVzhZSk9Hd0dHMWVmNkY1SzVfSTl3Y0h0Y1pVdWxGUnJqQzZZSmM1LVpBTDluQ0JRcFNPdXJOV3VySHdpTlR3?oc=5 | https://news.google.com/rss/articles/CBMi1AFBVV95cUxQeXBaSFI0V0ZhVDY5UGtoMlJqSXQ0U2tlS1FaLWwwZWlJZnVUWFVFOWdWZmc5V1JIYXlqRXYwU0d6WGVQRTRrZXNEeTVWYzZ5am5sLVhaRHF5bjJGbGNZb1F6NUlhNFVBY2hhSWxGMktOY0JkWFNZcVVXc0J6MnBSMGI2Yld3M0F4SnUzSE5yVnIzakt1MFNZcHZZbHVyODJ2N1F6cjhvZi1BS181aDlVY2xxNkgzZWJOQ3FQM2l1MFQ4b05FOGJvYnZlUzlsUlU5RkU0TQ?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Coal India Unit Mahanadi IPO Fully Subscribed on Final Day",
+  "telegram_media_ids": [
+    815
+  ]
+}

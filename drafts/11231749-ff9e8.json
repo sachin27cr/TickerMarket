@@ -1,0 +1,69 @@
+{
+  "id": "11231749-ff9e8",
+  "kind": "news",
+  "created": "2026-11-23T17:49:41.066531+05:30",
+  "images": [
+    "media/2026-11-23/news-174941-4232_1.jpg"
+  ],
+  "caption": "Stock market news | Rupee snaps 5-day rally, settles at 92.92\n\nThe Indian rupee ended the session at 92.92 against the US dollar, ending a five-day rally. It touched a low of 93.11 before closing down 30 paise.\nLower crude oil prices and a weakening US dollar failed to buoy the rupee, as global stock market volatility added pressure.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Rupee #Forex #IndianMarkets #TickerMarketIndia",
+  "threads_text": "Stock market news | Rupee snaps 5-day rally, settles at 92.92\n\nThe Indian rupee ended the session at 92.92 against the US dollar, ending a five-day rally. It touched a low of 93.11 before closing down 30 paise.\nLower crude oil prices and a weakening US dollar failed to buoy the rupee, as global stock market volatility added pressure.\n\nSave this for later and send it to a friend who trades.\n\nFor information only.\n\n#StockMarketIndia #Rupee #Forex #IndianMarkets #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 4 outlets: BusinessLine, Rediff MoneyWiz, Telangana Today, The Hindu"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.8 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 9 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.thehindu.com/business/markets/rupee-snaps-5-day-rally-tumbles-30-paise-to-settle-at-9292-against-us-dollar/article71734465.ece | https://www.thehindubusinessline.com/markets/forex/rupee-snaps-5-day-rally-tumbles-30-paise-to-settle-at-9292-against-us-dollar/article71734316.ece | https://news.google.com/rss/articles/CBMikwFBVV95cUxPNmFWR29BRjJTeVVyS1B1TFh3LVk2Vm52ay1YVlM3WE9pMVREak9ucmE5ZDVERUIwYjR3dFZuekJ0NkJNT2RxbmtJTTJGWE5lMjdKczdDUGUwVUFra1NNZTVyeGd3dWlYZ3ZnRzBpOUFtRjg0eVJQMGh2NkZTT3RmMFVaVWJqRHJ6SXlOMUJvWUJTWm8?oc=5 | https://news.google.com/rss/articles/CBMisgFBVV95cUxOeTV6MU4tZG9qMjZGWGowY044RUhralFSOUVjZXRTT1JQX3ZQWW85bXh2QWtiVHBoMmU1M2xFVUR6ejc0dkpPSEhXYi1STXhTTGNXQ3BqczE3cDVUVXVmMUpYT1FwVDQwa1p3S1VnZThxbHlFbnhUdGt6THA3M0N2ajNGelROczVjUERaTjFoVjVySUJTWExSS01rbXlicllPUGJxZTZidlB0TEhrMjRhSk9B0gG3AUFVX3lxTFB4NXlqMFJudXQ1ZS14cXFxcUhTRFE3SEJXOU5UV0NlbDVVNlhvNGRKdXU3SEdCYXY5MDhlclNvcEF2bF9yN2ExeGdWUWphU3dTdy13Y0FYWHpOQTJLNV8yYTNSQ3pTWjQ3ZzBWQ1BMbUZldGxaOFpGbnFsa0JWX0d3M3dBMktLYWJOd3RzaDZtbVRrQmREdDJGdlo5WGZMbWpPbUp6WkNzaXBaVGxlcHpqNDZaenRxUQ?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Economy",
+      "date_text": "Mon, 23 Nov 2026",
+      "theme": "market_down",
+      "seed": "against dollar paise rally rupee settle snaps tumbles",
+      "tone": "down",
+      "quotes": [],
+      "label": "CURRENCY MOVE",
+      "headline": "*Rupee* snaps 5-day rally, settles at *92.92*",
+      "points": [
+        "Rupee fell 30 paise to settle at 92.92 per US dollar",
+        "Day's low hit 93.11 before closing at 92.92",
+        "Lower crude oil and soft US dollar couldn't support rupee amid global market rout"
+      ],
+      "source": "BusinessLine, Rediff MoneyWiz, Telangana Today"
+    },
+    "news_sector": "economy",
+    "photo_prompt": "A close‑up of Indian rupee notes spread on a wooden desk beside a blurred market chart"
+  },
+  "telegram_message_id": 818,
+  "posted": {},
+  "report_text": "✅ confirmed by 4 outlets: BusinessLine, Rediff MoneyWiz, Telangana Today, The Hindu\n✅ fresh: newest source 0.8 h old\n✅ headline/banner/points/body: all 9 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://www.thehindu.com/business/markets/rupee-snaps-5-day-rally-tumbles-30-paise-to-settle-at-9292-against-us-dollar/article71734465.ece | https://www.thehindubusinessline.com/markets/forex/rupee-snaps-5-day-rally-tumbles-30-paise-to-settle-at-9292-against-us-dollar/article71734316.ece | https://news.google.com/rss/articles/CBMikwFBVV95cUxPNmFWR29BRjJTeVVyS1B1TFh3LVk2Vm52ay1YVlM3WE9pMVREak9ucmE5ZDVERUIwYjR3dFZuekJ0NkJNT2RxbmtJTTJGWE5lMjdKczdDUGUwVUFra1NNZTVyeGd3dWlYZ3ZnRzBpOUFtRjg0eVJQMGh2NkZTT3RmMFVaVWJqRHJ6SXlOMUJvWUJTWm8?oc=5 | https://news.google.com/rss/articles/CBMisgFBVV95cUxOeTV6MU4tZG9qMjZGWGowY044RUhralFSOUVjZXRTT1JQX3ZQWW85bXh2QWtiVHBoMmU1M2xFVUR6ejc0dkpPSEhXYi1STXhTTGNXQ3BqczE3cDVUVXVmMUpYT1FwVDQwa1p3S1VnZThxbHlFbnhUdGt6THA3M0N2ajNGelROczVjUERaTjFoVjVySUJTWExSS01rbXlicllPUGJxZTZidlB0TEhrMjRhSk9B0gG3AUFVX3lxTFB4NXlqMFJudXQ1ZS14cXFxcUhTRFE3SEJXOU5UV0NlbDVVNlhvNGRKdXU3SEdCYXY5MDhlclNvcEF2bF9yN2ExeGdWUWphU3dTdy13Y0FYWHpOQTJLNV8yYTNSQ3pTWjQ3ZzBWQ1BMbUZldGxaOFpGbnFsa0JWX0d3M3dBMktLYWJOd3RzaDZtbVRrQmREdDJGdlo5WGZMbWpPbUp6WkNzaXBaVGxlcHpqNDZaenRxUQ?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Rupee snaps 5-day rally, settles at 92.92",
+  "telegram_media_ids": [
+    817
+  ]
+}
