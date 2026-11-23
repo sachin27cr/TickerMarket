@@ -45,7 +45,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "Corporate Action",
@@ -76,11 +76,16 @@
     "photo_prompt": "A steel plant with towering furnace stacks and rows of metal coils under a cloudy sky"
   },
   "telegram_message_id": 770,
-  "posted": {},
+  "posted": {
+    "instagram": "18020521373951011",
+    "facebook": "122110963293544503"
+  },
   "report_text": "✅ confirmed by 2 outlets: BusinessLine, Mint\n✅ fresh: newest source 0.1 h old\n✅ headline/banner/points/body: all 16 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ TATASTEEL ₹168.06 (-5.58%): NSE = Yahoo\n⚠️ no NSE listing matched \"APL Apollo\" - no price box for it\n✅ written by groq; sources: https://www.livemint.com/companies/news/tata-steel-acquire-stake-apl-apollo-rs-15510-crore-open-offer-11795404824089.html | https://www.thehindubusinessline.com/companies/tata-steel-to-acquire-266-promoter-stake-in-apl-apollo-for-15510-crore/article71733299.ece | https://www.livemint.com/market/stock-market-news/tata-steel-share-price-in-focus-on-announcement-to-acquire-26-38-stake-in-apl-apollo-tubes-for-rs-15-511-crore-11795400975932.html\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - Tata Steel to buy 26.6% stake in APL Apollo for ₹15,510 crore",
   "telegram_media_ids": [
     769
-  ]
+  ],
+  "approved_at": "2026-11-23T10:15:22.517257+05:30",
+  "posted_at": "2026-11-23T10:15:36.525265+05:30"
 }
