@@ -88,10 +88,13 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "queued",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 813,
-  "posted": {},
+  "posted": {
+    "instagram": "18133481659802064",
+    "facebook": "1374383985767580_122111138253544503"
+  },
   "report_text": "✅ NIFTY 50 25,349.65: NSE (official)\n✅ SENSEX 82,435.99: BSE = Yahoo (gap 0.000%)\n✅ NIFTY NEXT 50 72,245.40: NSE (official)\n✅ NIFTY 100 26,217.30: NSE (official)\n✅ NIFTY MIDCAP 150 22,542.45: NSE (official)\n✅ NIFTY SMALLCAP 250 17,662.60: NSE (official)\n✅ NIFTY MICROCAP 250 24,880.70: NSE (official)\n✅ NIFTY 500 23,748.15: NSE (official)\n✅ NIFTY BANK 62,585.35: NSE (official)\n✅ INDIA VIX 17.86: NSE (official)\n✅ Large Cap (NIFTY 100): 7 at 52-week high (4 all-time high), 1 at 52-week low (all checked against Yahoo history)\n✅ Mid Cap (NIFTY MIDCAP 150): 4 at 52-week high (4 all-time high), 3 at 52-week low (all checked against Yahoo history); 1 dropped (Yahoo/NSE differ)\n⚠️ Small Cap: NSE stock API unavailable - prices and 52-week levels from Yahoo\n✅ Small Cap (NIFTY SMALLCAP 250): 6 at 52-week high (3 all-time high), 3 at 52-week low (all checked against Yahoo history)\n⚠️ Micro Cap: NSE stock API unavailable - prices and 52-week levels from Yahoo\n✅ Micro Cap (NIFTY MICROCAP 250): 7 at 52-week high (4 all-time high), 5 at 52-week low (all checked against Yahoo history)\n✅ caption: all 30 numbers match source data\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stocks at all-time high today",
   "alt_text": "Stocks at all-time high today: Ticker Market India carousel - 15 stocks hit all-time highs; 12 at 52-week lows",
@@ -105,5 +108,6 @@
     811,
     812
   ],
-  "approved_at": "2026-11-23T17:41:45.402881+05:30"
+  "approved_at": "2026-11-23T17:41:45.402881+05:30",
+  "posted_at": "2026-11-23T18:46:34.856932+05:30"
 }
