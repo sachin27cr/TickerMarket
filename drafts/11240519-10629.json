@@ -37,7 +37,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "queued",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "Global Markets",
@@ -59,12 +59,16 @@
     "photo_prompt": "A clean room manufacturing facility with automated robotic arms assembling high-tech semiconductor chips under bright industrial lighting."
   },
   "telegram_message_id": 867,
-  "posted": {},
+  "posted": {
+    "instagram": "18030552947880697",
+    "facebook": "122111471385544503"
+  },
   "report_text": "✅ confirmed by 3 outlets: BusinessLine, CNBC-TV18, Mint\n✅ fresh: newest source 0.2 h old\n✅ headline/banner/points/body: all 4 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ written by gemini; sources: https://www.thehindubusinessline.com/markets/us-stocks-rally-as-jensen-huang-returns-nvidia-shares-surge-31/article71736372.ece | https://www.livemint.com/market/nvidias-31-surge-exposes-wall-street-s-growing-stock-trap-11795470573054.html | https://www.cnbctv18.com/market/us-stock-market-today-nasdaq-dow-jones-nvidia-shares-jensen-huang-20040205.htm | https://www.livemint.com/companies/people/nvidia-reinstates-jensen-huang-as-ceo-11795442533071.html\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - Nvidia surges 31% as Jensen Huang returns as CEO",
   "telegram_media_ids": [
     866
   ],
-  "approved_at": "2026-11-24T07:45:09.281244+05:30"
+  "approved_at": "2026-11-24T07:45:09.281244+05:30",
+  "posted_at": "2026-11-24T08:10:44.895441+05:30"
 }
