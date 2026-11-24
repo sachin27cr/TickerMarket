@@ -1,0 +1,73 @@
+{
+  "id": "11242131-e015c",
+  "kind": "news",
+  "created": "2026-11-24T21:31:39.311801+05:30",
+  "images": [
+    "media/2026-11-24/news-213139-c12e_1.jpg"
+  ],
+  "caption": "Stock market news | RBI 25 bps hike base case, SBI warns 50 bps\n\nSBI economists have lowered their expectation for the upcoming RBI policy review to a 0.25 per cent (25 bps) increase, moving away from the previously expected 0.50 per cent (50 bps). This forms the base case for the December meeting. \nThe shift reflects worries that a larger hike could threaten financial stability and slow economic growth, affecting borrowers across the economy.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #RBI #InterestRates #IndianEconomy #TickerMarketIndia",
+  "threads_text": "Stock market news | RBI 25 bps hike base case, SBI warns 50 bps\n\nSBI economists have lowered their expectation for the upcoming RBI policy review to a 0.25 per cent (25 bps) increase, moving away from the previously expected 0.50 per cent (50 bps). This forms the base case for the December meeting.\n\n#StockMarketIndia #RBI #InterestRates #IndianEconomy #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: Economic Times, SME Futures, TradingView"
+    ],
+    [
+      "ok",
+      "fresh: newest source 2.3 h old"
+    ],
+    [
+      "warn",
+      "companies not named in sources, no price box: State Bank of India"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 11 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (gemini): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMivAFBVV95cUxNVkktVHJzMmRKRG5oektmM2ZOcmh5ak9IT2pOdk5tRHdZWFBLT01uX3hIbWRkNUF6VW5GTUFXNmdmSWVndmJpVjJoQ1dicGQzVFU0YWdNRk5tYW5sNDVhRGdOaWtPWlpGT2RjRTRXQ0NFbVgyX2dLUHBHczZpWWFfSXNqT1Jfc2xhQW1RNXBXQUFVbFpWSE5McmN6cVVkSFRzakJ6SjFZb1h2d3ZPQTVkVDMxM2RYZTBKVnRLTw?oc=5 | https://economictimes.indiatimes.com/markets/stocks/news/a-50-bps-jumbo-rate-hike-can-lead-to-financial-stability-concerns-hurt-growth-report/articleshow/136130764.cms | https://economictimes.indiatimes.com/markets/stocks/news/a-50-bps-jumbo-rate-hike-can-lead-to-financial-stability-concerns-hurt-growth-report/articleshow/136130764.cms | https://news.google.com/rss/articles/CBMidkFVX3lxTE1zalltMUFDRHdhUWtNekttakhnZE9QMzVYS3pYeVo0TVdzeE5KZWI0dlhQaXRmeHVUVGVFamY1Sm8xaHpkTkNQeTlnMFNjVkhKb2JDZ2N2bUtoQ05OakVSOFZUSHZ6RHA2MTRlZlozWmpJUktGSVE?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Economy",
+      "date_text": "Tue, 24 Nov 2026",
+      "theme": "market_up",
+      "seed": "bps concerns financial growth hike hurt jumbo lead",
+      "tone": null,
+      "quotes": [],
+      "label": "RBI POLICY",
+      "headline": "RBI *25 bps* hike base case, *SBI* warns *50 bps*",
+      "points": [
+        "SBI economists expect a *0.25%* RBI rate increase, not *0.50%*.",
+        "The change is due to concerns about financial stability and growth impact.",
+        "RBI's monetary policy committee will meet from 2 to 4 December 2026."
+      ],
+      "source": "Economic Times, SME Futures, TradingView"
+    },
+    "news_sector": "economy",
+    "photo_prompt": "A close‑up of a modern office desk with a printed graph of interest rates and a cup of tea."
+  },
+  "telegram_message_id": 927,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: Economic Times, SME Futures, TradingView\n✅ fresh: newest source 2.3 h old\n⚠️ companies not named in sources, no price box: State Bank of India\n✅ headline/banner/points/body: all 11 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (gemini): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMivAFBVV95cUxNVkktVHJzMmRKRG5oektmM2ZOcmh5ak9IT2pOdk5tRHdZWFBLT01uX3hIbWRkNUF6VW5GTUFXNmdmSWVndmJpVjJoQ1dicGQzVFU0YWdNRk5tYW5sNDVhRGdOaWtPWlpGT2RjRTRXQ0NFbVgyX2dLUHBHczZpWWFfSXNqT1Jfc2xhQW1RNXBXQUFVbFpWSE5McmN6cVVkSFRzakJ6SjFZb1h2d3ZPQTVkVDMxM2RYZTBKVnRLTw?oc=5 | https://economictimes.indiatimes.com/markets/stocks/news/a-50-bps-jumbo-rate-hike-can-lead-to-financial-stability-concerns-hurt-growth-report/articleshow/136130764.cms | https://economictimes.indiatimes.com/markets/stocks/news/a-50-bps-jumbo-rate-hike-can-lead-to-financial-stability-concerns-hurt-growth-report/articleshow/136130764.cms | https://news.google.com/rss/articles/CBMidkFVX3lxTE1zalltMUFDRHdhUWtNekttakhnZE9QMzVYS3pYeVo0TVdzeE5KZWI0dlhQaXRmeHVUVGVFamY1Sm8xaHpkTkNQeTlnMFNjVkhKb2JDZ2N2bUtoQ05OakVSOFZUSHZ6RHA2MTRlZlozWmpJUktGSVE?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - RBI 25 bps hike base case, SBI warns 50 bps",
+  "telegram_media_ids": [
+    926
+  ]
+}
