@@ -1038,5 +1038,113 @@
       "stability",
       "warns"
     ]
+  },
+  {
+    "when": "2026-11-25T00:20:36.609276+05:30",
+    "title": "Anthropic shares crash below IPO price of $83 after record Nasdaq debut, down 31% from peak. What is spooking investors?",
+    "bucket": "global",
+    "lead": [
+      "anthropic",
+      "below",
+      "crash",
+      "debut",
+      "down",
+      "investors",
+      "ipo",
+      "nasdaq",
+      "peak",
+      "price",
+      "record",
+      "spooking",
+      "what"
+    ],
+    "tokens": [
+      "200",
+      "anthropic",
+      "below",
+      "billion",
+      "drops",
+      "fall",
+      "ipo",
+      "lose",
+      "nearly",
+      "price",
+      "sign",
+      "startups",
+      "track",
+      "trading",
+      "tumble",
+      "value",
+      "worrying"
+    ]
+  },
+  {
+    "when": "2026-11-25T00:23:59.525610+05:30",
+    "title": "Beware! Fraudsters impersonating as Sebi-registered intermediaries: How can investors avoid traps - Experts explain",
+    "bucket": null,
+    "lead": [
+      "avoid",
+      "beware",
+      "experts",
+      "explain",
+      "fraudsters",
+      "how",
+      "impersonating",
+      "intermediaries",
+      "investors",
+      "registered",
+      "sebi",
+      "traps"
+    ],
+    "tokens": [
+      "against",
+      "avoid",
+      "beware",
+      "experts",
+      "explain",
+      "fraudsters",
+      "groups",
+      "how",
+      "impersonating",
+      "intermediaries",
+      "investors",
+      "registered",
+      "sebi",
+      "traps",
+      "warns",
+      "whatsapp"
+    ]
+  },
+  {
+    "when": "2026-11-25T00:33:32.532475+05:30",
+    "title": "AI trade back in doldrums as Anthropic sinks below IPO price, Nvidia sputters",
+    "bucket": null,
+    "lead": [
+      "anthropic",
+      "back",
+      "below",
+      "doldrums",
+      "ipo",
+      "nvidia",
+      "price",
+      "sinks",
+      "sputters",
+      "trade"
+    ],
+    "tokens": [
+      "anthropic",
+      "back",
+      "below",
+      "dips",
+      "doldrums",
+      "gains",
+      "give",
+      "ipo",
+      "nvidia",
+      "price",
+      "sinks",
+      "sputters",
+      "trade"
+    ]
   }
 ]
