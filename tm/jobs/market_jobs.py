@@ -57,6 +57,12 @@ def _session_or_skip(quotes, nse_date, report, force):
             report.warn('no trading session found for today - showing the latest available close')
             return True
         log.info('no trading session today - skipping')
+        day = today_ist()
+        if day.weekday() < 5 and not store.seen('post', f'holiday-note:{day}'):
+            store.mark_seen('post', f'holiday-note:{day}')
+            from .. import telegram
+            telegram.send_text(f'🏖 No trading session on {fmt_date(day)} (exchange holiday) - the market-close posts, '
+                               f'FII/DII and the evening reel are skipped today. They resume on the next trading day.')
         return False
     return True
 
