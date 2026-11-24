@@ -1,0 +1,77 @@
+{
+  "id": "11240533-c1b90",
+  "kind": "news",
+  "created": "2026-11-24T05:33:35.860746+05:30",
+  "images": [
+    "media/2026-11-24/news-053335-a1b2_1.jpg"
+  ],
+  "caption": "Stock market news | Shriram Finance jumps on Sensex inclusion, potential $294 million outflows\n\nShriram Finance was added to the Sensex on 23 November 2026, prompting its shares to rise.\n\nThe change means Trent exits the index and analysts estimate possible $294 million outflows, affecting market composition.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Sensex #ShriramFinance #IndianStocks #TickerMarketIndia",
+  "threads_text": "Stock market news | Shriram Finance jumps on Sensex inclusion, potential $294 million outflows\n\nShriram Finance was added to the Sensex on 23 November 2026, prompting its shares to rise.\n\nThe change means Trent exits the index and analysts estimate possible $294 million outflows, affecting market composition.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Sensex #ShriramFinance #IndianStocks #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: CNBC-TV18, LinkedIn"
+    ],
+    [
+      "ok",
+      "fresh: newest source 16.0 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 5 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "SHRIRAMFIN: NSE ₹995.90 vs Yahoo ₹972.00 - no price box"
+    ],
+    [
+      "warn",
+      "TRENT: NSE ₹3,208.00 vs Yahoo ₹3,256.10 - no price box"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMivwFBVV95cUxOVTBkMFBUWUtZLWc3Q1FYRzZKejAwSC03b3pnTGk0blUwbHNxdzktczc3N0lHdTBGakxOQ0JJVThwa2RRZGlReHl1Z0pqb2QycUJraE4wbmUtR1Zac1VTWnlEbEstT25CV3ZGd3ZTX29OUHRDSHdrV19MSmtGcHI4N3RSVlVFb05CaHYwR1JxTnROWURMbkpEOGNuQlBORUtwcVlXR3lwTkFoLVZ3MnNlRTJubnRYNVpfeVpnODNzSQ?oc=5 | https://www.cnbctv18.com/market/shriram-finance-share-price-sensex-inclusion-december-21-potential-inflows-trent-exclusion-outflows-20039761.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Market News",
+      "date_text": "Mon, 23 Nov 2026",
+      "theme": "market_up",
+      "seed": "finance get here inclusion inflows potential rise sensex",
+      "tone": "up",
+      "quotes": [],
+      "label": "INDEX REBALANCE",
+      "headline": "*Shriram Finance* jumps on *Sensex* inclusion, potential *$294 million* outflows",
+      "points": [
+        "Shriram Finance shares rose after being added to the Sensex.",
+        "It will replace Trent, which will be removed from the index.",
+        "Rebalancing could cause outflows of $294 million, per Nuvama Alternative note."
+      ],
+      "source": "CNBC-TV18, LinkedIn"
+    },
+    "news_sector": "markets",
+    "photo_prompt": "A bustling trading floor with screens showing stock tickers and a rising graph line."
+  },
+  "telegram_message_id": 871,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, LinkedIn\n✅ fresh: newest source 16.0 h old\n✅ headline/banner/points/body: all 5 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ SHRIRAMFIN: NSE ₹995.90 vs Yahoo ₹972.00 - no price box\n⚠️ TRENT: NSE ₹3,208.00 vs Yahoo ₹3,256.10 - no price box\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMivwFBVV95cUxOVTBkMFBUWUtZLWc3Q1FYRzZKejAwSC03b3pnTGk0blUwbHNxdzktczc3N0lHdTBGakxOQ0JJVThwa2RRZGlReHl1Z0pqb2QycUJraE4wbmUtR1Zac1VTWnlEbEstT25CV3ZGd3ZTX29OUHRDSHdrV19MSmtGcHI4N3RSVlVFb05CaHYwR1JxTnROWURMbkpEOGNuQlBORUtwcVlXR3lwTkFoLVZ3MnNlRTJubnRYNVpfeVpnODNzSQ?oc=5 | https://www.cnbctv18.com/market/shriram-finance-share-price-sensex-inclusion-december-21-potential-inflows-trent-exclusion-outflows-20039761.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Shriram Finance jumps on Sensex inclusion, potential $294 million outflows",
+  "telegram_media_ids": [
+    870
+  ]
+}

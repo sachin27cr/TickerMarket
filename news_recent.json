@@ -732,5 +732,100 @@
       "shortened",
       "supply"
     ]
+  },
+  {
+    "when": "2026-11-24T05:19:55.294339+05:30",
+    "title": "Nvidia soars 10% pre-market on Wall Street as Trump backs Jensen Huang's return",
+    "bucket": "global",
+    "lead": [
+      "backs",
+      "huang",
+      "jensen",
+      "nvidia",
+      "pre",
+      "return",
+      "soars",
+      "street",
+      "trump",
+      "wall"
+    ],
+    "tokens": [
+      "exposes",
+      "growing",
+      "huang",
+      "jensen",
+      "nasdaq",
+      "nvidia",
+      "rallies",
+      "rally",
+      "return",
+      "returns",
+      "soars",
+      "street",
+      "surge",
+      "trap",
+      "wall"
+    ]
+  },
+  {
+    "when": "2026-11-24T05:33:25.490725+05:30",
+    "title": "Jupiter Wagons to manufacture metro coaches, propulsion systems with Korea's Woojin in JV",
+    "bucket": null,
+    "lead": [
+      "coaches",
+      "jupiter",
+      "korea",
+      "manufacture",
+      "metro",
+      "propulsion",
+      "systems",
+      "wagons",
+      "woojin"
+    ],
+    "tokens": [
+      "coaches",
+      "firm",
+      "inks",
+      "jupiter",
+      "korea",
+      "korean",
+      "make",
+      "manufacture",
+      "metro",
+      "propulsion",
+      "railway",
+      "systems",
+      "wagons",
+      "woojin"
+    ]
+  },
+  {
+    "when": "2026-11-24T05:33:38.019261+05:30",
+    "title": "Shriram Finance shares rise on Sensex inclusion - Here are the potential inflows it could get",
+    "bucket": null,
+    "lead": [
+      "finance",
+      "get",
+      "here",
+      "inclusion",
+      "inflows",
+      "potential",
+      "rise",
+      "sensex",
+      "shriram"
+    ],
+    "tokens": [
+      "cnbc",
+      "finance",
+      "get",
+      "here",
+      "inclusion",
+      "inflows",
+      "potential",
+      "rise",
+      "sensex",
+      "shriram",
+      "tv18"
+    ]
   }
 ]

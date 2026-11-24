@@ -1,0 +1,73 @@
+{
+  "id": "11240533-b46c2",
+  "kind": "news",
+  "created": "2026-11-24T05:33:23.284176+05:30",
+  "images": [
+    "media/2026-11-24/news-053323-177a_1.jpg"
+  ],
+  "caption": "Stock market news | Jupiter Wagons signs JV for metro coaches and propulsion systems\n\nJupiter Wagons signed a framework agreement with South Korea's Woojin Industrial Systems to set up a joint venture that will manufacture metro coaches and propulsion systems in India.\nThe partnership gives Jupiter an 80% stake and funding, while Woojin will provide technology transfer, technical support and core components, potentially strengthening India's railway manufacturing capabilities.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #JupiterWagons #MetroManufacturing #IndiaRailways #TickerMarketIndia",
+  "threads_text": "Stock market news | Jupiter Wagons signs JV for metro coaches and propulsion systems\n\nJupiter Wagons signed a framework agreement with South Korea's Woojin Industrial Systems to set up a joint venture that will manufacture metro coaches and propulsion systems in India.\n\n#StockMarketIndia #JupiterWagons #MetroManufacturing #IndiaRailways #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: CNBC-TV18, Telegraph India"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.3 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 3 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "JWL: NSE ₹185.45 vs Yahoo ₹191.23 - no price box"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMioAFBVV95cUxNTHdQamlkbC01TmtsSGFxRHB4dHJyaWJTZ1E1X3JyeEN6LUdaQlAtM2JKZVE5NVlCMU9DMnlWbDNOOFpLcnlIVld3YmJHR09Db0h6Tjd6Q3pmdEwySi1oMlJ4Um9vYUczcFdaMmFFRVNmRzVmZnBtOG96WHRhU1JNVTlQSzNoR1dzT21Bbk8zb0E2dHBZRHNSc2JULV9HY1Bl0gGmAUFVX3lxTFBOa0FNRGpVVkIzWDIySzM5TTE3N0NWVmNZRG8xR3dXTUJoRHFtaWFRZVhIVmQtc3RPWXdzOS1xMzlTb0VTS3dCRjE3WUw2dkhreXFlWkl0RnZjWUFXWklDN09WUWhGc3FQMm1nZ3VRRHQyRFFqb2xKeHpIbXJKWExiQkJlanBaRGk2NFBHWFdfaTZMVUExa2trb21NZm9xdVV1UjRDRnc?oc=5 | https://www.cnbctv18.com/market/stocks/jupiter-wagons-share-price-to-manufacture-metro-coaches-propulsion-systems-with-koreas-woojin-in-jv-20039993.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Tue, 24 Nov 2026",
+      "theme": "market_up",
+      "seed": "coaches jupiter korea manufacture metro propulsion systems wagons",
+      "tone": null,
+      "quotes": [],
+      "label": "JV ANNOUNCEMENT",
+      "headline": "Jupiter Wagons signs *JV* for *metro coaches* and *propulsion systems*",
+      "points": [
+        "Jupiter Wagons signed framework agreement with South Korea's Woojin Industrial Systems.",
+        "Jupiter will hold 80% stake and fund the joint venture.",
+        "Woojin will hold 20% and provide technology transfer, technical support and core components."
+      ],
+      "source": "CNBC-TV18, Telegraph India"
+    },
+    "news_sector": "auto",
+    "photo_prompt": "A spacious factory floor showing assembled metro coach bodies and propulsion system components under bright industrial lighting."
+  },
+  "telegram_message_id": 869,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, Telegraph India\n✅ fresh: newest source 0.3 h old\n✅ headline/banner/points/body: all 3 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ JWL: NSE ₹185.45 vs Yahoo ₹191.23 - no price box\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMioAFBVV95cUxNTHdQamlkbC01TmtsSGFxRHB4dHJyaWJTZ1E1X3JyeEN6LUdaQlAtM2JKZVE5NVlCMU9DMnlWbDNOOFpLcnlIVld3YmJHR09Db0h6Tjd6Q3pmdEwySi1oMlJ4Um9vYUczcFdaMmFFRVNmRzVmZnBtOG96WHRhU1JNVTlQSzNoR1dzT21Bbk8zb0E2dHBZRHNSc2JULV9HY1Bl0gGmAUFVX3lxTFBOa0FNRGpVVkIzWDIySzM5TTE3N0NWVmNZRG8xR3dXTUJoRHFtaWFRZVhIVmQtc3RPWXdzOS1xMzlTb0VTS3dCRjE3WUw2dkhreXFlWkl0RnZjWUFXWklDN09WUWhGc3FQMm1nZ3VRRHQyRFFqb2xKeHpIbXJKWExiQkJlanBaRGk2NFBHWFdfaTZMVUExa2trb21NZm9xdVV1UjRDRnc?oc=5 | https://www.cnbctv18.com/market/stocks/jupiter-wagons-share-price-to-manufacture-metro-coaches-propulsion-systems-with-koreas-woojin-in-jv-20039993.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Jupiter Wagons signs JV for metro coaches and propulsion systems",
+  "telegram_media_ids": [
+    868
+  ]
+}
