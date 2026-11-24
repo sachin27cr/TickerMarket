@@ -49,7 +49,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "queued",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "Corporate Action",
@@ -71,12 +71,16 @@
     "photo_prompt": "A close‑up of a stock certificate and a calculator on a wooden desk, with a blurred trading screen in the background."
   },
   "telegram_message_id": 900,
-  "posted": {},
+  "posted": {
+    "instagram": "18081030542423452",
+    "facebook": "122111735187544503"
+  },
   "report_text": "✅ reported by a trusted outlet: Mint\n✅ fresh: newest source 0.3 h old\n✅ headline/banner/points/body: all 11 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"Zee Entertainment\" - no price box for it\n⚠️ VRAJ: NSE ₹126.72 vs Yahoo ₹129.30 - no price box\n⚠️ BONLON: NSE ₹37.99 vs Yahoo ₹38.20 - no price box\n✅ written by groq; sources: https://www.livemint.com/market/stock-market-news/dividend-buyback-rights-issue-record-date-nov-25-zee-vraj-iron-bonlon-and-more-5-stocks-to-turn-ex-date-tomorrow-11795491976798.html\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - Zee Entertainment announces ₹600 crore buyback at ₹91 per share",
   "telegram_media_ids": [
     899
   ],
-  "approved_at": "2026-11-24T20:51:46.582160+05:30"
+  "approved_at": "2026-11-24T20:51:46.582160+05:30",
+  "posted_at": "2026-11-24T21:50:48.483808+05:30"
 }
