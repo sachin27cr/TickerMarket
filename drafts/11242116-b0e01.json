@@ -1,0 +1,73 @@
+{
+  "id": "11242116-b0e01",
+  "kind": "news",
+  "created": "2026-11-24T21:16:37.394225+05:30",
+  "images": [
+    "media/2026-11-24/news-211637-9279_1.jpg"
+  ],
+  "caption": "Stock market news | SBI economists lower RBI rate hike expectations to 25 bps\n\nSBI economists lowered their rate hike expectations for the upcoming RBI policy review. They now anticipate a 0.25 per cent increase instead of the previously expected 0.50 per cent increase.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #SBI #RBI #Economy #TickerMarketIndia",
+  "threads_text": "Stock market news | SBI economists lower RBI rate hike expectations to 25 bps\n\nSBI economists lowered their rate hike expectations for the upcoming RBI policy review. They now anticipate a 0.25 per cent increase instead of the previously expected 0.50 per cent increase.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #SBI #RBI #Economy #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: Economic Times, TradingView, bfsi.economictimes.indiatimes.com"
+    ],
+    [
+      "ok",
+      "fresh: newest source 2.1 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 7 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"SBI\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://news.google.com/rss/articles/CBMivAFBVV95cUxNVkktVHJzMmRKRG5oektmM2ZOcmh5ak9IT2pOdk5tRHdZWFBLT01uX3hIbWRkNUF6VW5GTUFXNmdmSWVndmJpVjJoQ1dicGQzVFU0YWdNRk5tYW5sNDVhRGdOaWtPWlpGT2RjRTRXQ0NFbVgyX2dLUHBHczZpWWFfSXNqT1Jfc2xhQW1RNXBXQUFVbFpWSE5McmN6cVVkSFRzakJ6SjFZb1h2d3ZPQTVkVDMxM2RYZTBKVnRLTw?oc=5 | https://economictimes.indiatimes.com/markets/stocks/news/a-50-bps-jumbo-rate-hike-can-lead-to-financial-stability-concerns-hurt-growth-report/articleshow/136130764.cms | https://economictimes.indiatimes.com/markets/stocks/news/a-50-bps-jumbo-rate-hike-can-lead-to-financial-stability-concerns-hurt-growth-report/articleshow/136130764.cms | https://news.google.com/rss/articles/CBMi3wFBVV95cUxOTzY2NTFKOEVKVXlxNFlQU0ZwWVdwYnhaNGxQTUFiU2pKLXZrYkc4QkMzR3MwQnR4a2pfbVFvZ0VmVUx0dWQ5MHZrWF9xTGh3VW4tdVVkY1ZPaVFHaGhfM3JlZ1dZT1g3SjhkZUhFZUdoTENMVDFmOWFKYzBrR1E3ODBRTlkwR2FOX3RtV2hKRjVZWGV6Y1dwbE14NWN0THJVcFUzbzJiQUxRSnBCYjFCOFh1SXNFVjNSaHMxX1hIUGFUY3NsTWhnUEdVRGZsdWpiMmF4TW1tbWVNa3U5N1pB0gHkAUFVX3lxTE03bVl4M2llNW5udE9Pa210NFRrN1RUelcyclVzS3RyTkZIVk15Q2ZPcmlKOElOd2ZvUFQwZFNDeTV6MWV2am5sdjExZnk0cXp1QUlSa3NKM2FtcEpkeF9vUW5tWkM4bjJkOUVSUzJkS2Q3QnF3SG9nenVPb2RZdkFadHJJUGVzTXBpdzVJVE9rTlhUZTNnNFk3NWJJa210UUZ3LS10OWhhMlVYcVR5Wm1Pbm1UbTVXQWJOUzRyQXlReVhaT09BUFBZZUlEcGw3dUxnREd0MFFKNkZ1bjlnMFhCUTlzZA?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Economy",
+      "date_text": "Tue, 24 Nov 2026",
+      "theme": "bank",
+      "seed": "bps concerns financial growth hike hurt jumbo lead",
+      "tone": null,
+      "quotes": [],
+      "label": "RBI POLICY",
+      "headline": "SBI economists *lower RBI rate hike* expectations to 25 bps",
+      "points": [
+        "SBI economists lowered RBI rate hike expectations to 0.25 per cent.",
+        "They previously expected a 0.50 per cent jumbo rate hike.",
+        "The RBI monetary policy committee meets from 2 December to 4 December."
+      ],
+      "source": "Economic Times, TradingView, bfsi.economictimes.indiatimes.com"
+    },
+    "news_sector": "banking",
+    "photo_prompt": "A modern bank building façade with glass windows reflecting the sky."
+  },
+  "telegram_message_id": 923,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: Economic Times, TradingView, bfsi.economictimes.indiatimes.com\n✅ fresh: newest source 2.1 h old\n✅ headline/banner/points/body: all 7 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"SBI\" - no price box for it\n✅ written by gemini; sources: https://news.google.com/rss/articles/CBMivAFBVV95cUxNVkktVHJzMmRKRG5oektmM2ZOcmh5ak9IT2pOdk5tRHdZWFBLT01uX3hIbWRkNUF6VW5GTUFXNmdmSWVndmJpVjJoQ1dicGQzVFU0YWdNRk5tYW5sNDVhRGdOaWtPWlpGT2RjRTRXQ0NFbVgyX2dLUHBHczZpWWFfSXNqT1Jfc2xhQW1RNXBXQUFVbFpWSE5McmN6cVVkSFRzakJ6SjFZb1h2d3ZPQTVkVDMxM2RYZTBKVnRLTw?oc=5 | https://economictimes.indiatimes.com/markets/stocks/news/a-50-bps-jumbo-rate-hike-can-lead-to-financial-stability-concerns-hurt-growth-report/articleshow/136130764.cms | https://economictimes.indiatimes.com/markets/stocks/news/a-50-bps-jumbo-rate-hike-can-lead-to-financial-stability-concerns-hurt-growth-report/articleshow/136130764.cms | https://news.google.com/rss/articles/CBMi3wFBVV95cUxOTzY2NTFKOEVKVXlxNFlQU0ZwWVdwYnhaNGxQTUFiU2pKLXZrYkc4QkMzR3MwQnR4a2pfbVFvZ0VmVUx0dWQ5MHZrWF9xTGh3VW4tdVVkY1ZPaVFHaGhfM3JlZ1dZT1g3SjhkZUhFZUdoTENMVDFmOWFKYzBrR1E3ODBRTlkwR2FOX3RtV2hKRjVZWGV6Y1dwbE14NWN0THJVcFUzbzJiQUxRSnBCYjFCOFh1SXNFVjNSaHMxX1hIUGFUY3NsTWhnUEdVRGZsdWpiMmF4TW1tbWVNa3U5N1pB0gHkAUFVX3lxTE03bVl4M2llNW5udE9Pa210NFRrN1RUelcyclVzS3RyTkZIVk15Q2ZPcmlKOElOd2ZvUFQwZFNDeTV6MWV2am5sdjExZnk0cXp1QUlSa3NKM2FtcEpkeF9vUW5tWkM4bjJkOUVSUzJkS2Q3QnF3SG9nenVPb2RZdkFadHJJUGVzTXBpdzVJVE9rTlhUZTNnNFk3NWJJa210UUZ3LS10OWhhMlVYcVR5Wm1Pbm1UbTVXQWJOUzRyQXlReVhaT09BUFBZZUlEcGw3dUxnREd0MFFKNkZ1bjlnMFhCUTlzZA?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - SBI economists lower RBI rate hike expectations to 25 bps",
+  "telegram_media_ids": [
+    922
+  ]
+}

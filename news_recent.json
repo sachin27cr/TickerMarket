@@ -1,99 +1,5 @@
 [
   {
-    "when": "2026-11-22T18:09:09.347722+05:30",
-    "title": "Stock Market Outlook Next Week, FII Buying, US Inflation & Crude Oil To Decide Niftys 26,000 Breakout",
-    "bucket": "crude_oil",
-    "lead": [
-      "000",
-      "breakout",
-      "buying",
-      "crude",
-      "decide",
-      "fii",
-      "inflation",
-      "next",
-      "niftys",
-      "oil",
-      "outlook"
-    ],
-    "tokens": [
-      "000",
-      "among",
-      "breakout",
-      "buying",
-      "crude",
-      "decide",
-      "factors",
-      "fii",
-      "flows",
-      "inflation",
-      "next",
-      "niftys",
-      "oil",
-      "outlook",
-      "top",
-      "watch"
-    ]
-  },
-  {
-    "when": "2026-11-22T18:09:53.952564+05:30",
-    "title": "Reliance Brands FY26 revenue up 3.8% to Rs 3,390.9 crore; loss narrows to Rs 137 crore",
-    "bucket": null,
-    "lead": [
-      "137",
-      "390",
-      "brands",
-      "crore",
-      "fy26",
-      "loss",
-      "narrows",
-      "reliance",
-      "revenue"
-    ],
-    "tokens": [
-      "137",
-      "390",
-      "brands",
-      "crore",
-      "fy26",
-      "loss",
-      "narrows",
-      "reliance",
-      "revenue"
-    ]
-  },
-  {
-    "when": "2026-11-22T18:10:22.771964+05:30",
-    "title": "IPO Street set for year-end revival; 29 firms eye ₹42,000 crore as sentiment improves",
-    "bucket": null,
-    "lead": [
-      "000",
-      "crore",
-      "end",
-      "eye",
-      "firms",
-      "improves",
-      "ipo",
-      "revival",
-      "sentiment",
-      "set",
-      "street"
-    ],
-    "tokens": [
-      "000",
-      "crore",
-      "end",
-      "eye",
-      "firms",
-      "improves",
-      "ipo",
-      "revival",
-      "sentiment",
-      "set",
-      "street"
-    ]
-  },
-  {
     "when": "2026-11-23T01:31:52.483129+05:30",
     "title": "Tata Steel’s ₹28,000 crore deal with APL Apollo is part of a two-stage takeover transaction",
     "bucket": null,
@@ -1094,6 +1000,106 @@
       "russian",
       "seen",
       "set"
+    ]
+  },
+  {
+    "when": "2026-11-24T20:50:30.560268+05:30",
+    "title": "Anthropic falls below $83 IPO price in swift reversal after record listing",
+    "bucket": null,
+    "lead": [
+      "anthropic",
+      "below",
+      "falls",
+      "ipo",
+      "listing",
+      "price",
+      "record",
+      "reversal",
+      "swift"
+    ],
+    "tokens": [
+      "anthropic",
+      "below",
+      "breaks",
+      "drops",
+      "falls",
+      "ipo",
+      "one",
+      "per",
+      "pop",
+      "premarket",
+      "price",
+      "trading",
+      "vanishes"
+    ]
+  },
+  {
+    "when": "2026-11-24T21:10:00.397584+05:30",
+    "title": "Godrej Wealth enters Bengaluru, targets ₹1 lakh crore AUM by 2031",
+    "bucket": null,
+    "lead": [
+      "2031",
+      "aum",
+      "bengaluru",
+      "crore",
+      "enters",
+      "godrej",
+      "lakh",
+      "targets",
+      "wealth"
+    ],
+    "tokens": [
+      "2031",
+      "aum",
+      "bengaluru",
+      "crore",
+      "enters",
+      "foreign",
+      "fpi",
+      "godrej",
+      "inflows",
+      "investors",
+      "lakh",
+      "return",
+      "targets",
+      "wealth"
+    ]
+  },
+  {
+    "when": "2026-11-24T21:16:40.404770+05:30",
+    "title": "A 50 bps jumbo rate hike can lead to financial stability concerns, hurt growth: Report",
+    "bucket": null,
+    "lead": [
+      "bps",
+      "concerns",
+      "financial",
+      "growth",
+      "hike",
+      "hurt",
+      "jumbo",
+      "lead",
+      "rate",
+      "report",
+      "stability"
+    ],
+    "tokens": [
+      "against",
+      "backs",
+      "bps",
+      "concerns",
+      "financial",
+      "growth",
+      "hike",
+      "hurt",
+      "jumbo",
+      "lead",
+      "move",
+      "rate",
+      "rbi",
+      "report",
+      "sbi",
+      "stability",
+      "warns"
     ]
   }
 ]
