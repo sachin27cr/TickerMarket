@@ -49,7 +49,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "queued",
   "meta": {
     "card": {
       "category": "Market News",
@@ -102,5 +102,6 @@
   "alt_text": "Stock market news: Ticker Market India image - Sensex plunges 1,484 points amid bank sell-off",
   "telegram_media_ids": [
     897
-  ]
+  ],
+  "approved_at": "2026-11-24T20:51:49.086906+05:30"
 }
