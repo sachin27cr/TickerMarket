@@ -41,7 +41,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "Market News",
@@ -63,11 +63,16 @@
     "photo_prompt": "A modern furniture showroom displaying arranged dining tables, chairs, and home decor items under bright indoor lighting."
   },
   "telegram_message_id": 910,
-  "posted": {},
+  "posted": {
+    "instagram": "17917822212484656",
+    "facebook": "122111714517544503"
+  },
   "report_text": "✅ confirmed by 2 outlets: BusinessLine, Mint\n✅ fresh: newest source 1.0 h old\n✅ headline/banner/points/body: all 2 numbers match source data\n✅ all names appear in the sources\n✅ fiscal years match the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ written by gemini; sources: https://www.thehindubusinessline.com/companies/ikea-india-eyes-profitability-by-fy29-furniture-contributes-55-food-10-of-revenue/article71738184.ece | https://www.livemint.com/companies/news/ikea-pushes-india-profitability-target-to-fy29-as-losses-persist-11795507409667.html\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - IKEA India Pushes Profitability Target to FY29 as Losses Persist",
   "telegram_media_ids": [
     909
-  ]
+  ],
+  "approved_at": "2026-11-24T20:51:03.426602+05:30",
+  "posted_at": "2026-11-24T20:51:19.174945+05:30"
 }
