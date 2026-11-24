@@ -37,7 +37,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "queued",
   "meta": {
     "card": {
       "category": "Global Markets",
@@ -65,5 +65,6 @@
   "alt_text": "Stock market news: Ticker Market India image - Nvidia surges 31% as Jensen Huang returns as CEO",
   "telegram_media_ids": [
     866
-  ]
+  ],
+  "approved_at": "2026-11-24T07:45:09.281244+05:30"
 }
