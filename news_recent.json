@@ -980,5 +980,32 @@
       "return",
       "strengthen"
     ]
+  },
+  {
+    "when": "2026-11-24T12:42:43.546967+05:30",
+    "title": "Anuh Pharma invests ₹73 crore in 3rd bulk drug manufacturing facility",
+    "bucket": null,
+    "lead": [
+      "3rd",
+      "anuh",
+      "bulk",
+      "crore",
+      "drug",
+      "facility",
+      "invests",
+      "manufacturing",
+      "pharma"
+    ],
+    "tokens": [
+      "3rd",
+      "anuh",
+      "bulk",
+      "crore",
+      "drug",
+      "facility",
+      "invests",
+      "manufacturing",
+      "pharma"
+    ]
   }
 ]

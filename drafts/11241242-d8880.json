@@ -1,0 +1,69 @@
+{
+  "id": "11241242-d8880",
+  "kind": "news",
+  "created": "2026-11-24T12:42:41.045478+05:30",
+  "images": [
+    "media/2026-11-24/news-124241-983c_1.jpg"
+  ],
+  "caption": "Stock market news | Anuh Pharma invests ₹73 crore in 525 tonnes facility, ready by December\n\nAnuh Pharma announced a ₹73 crore investment to build its third bulk drug manufacturing facility in Tarapur, Maharashtra.\n\nThe new plant adds 525 tonnes annual capacity, boosting production and supporting demand, and will be fully operational by December, strengthening the pharma supply chain.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #PharmaNews #IndianStocks #AnuhPharma #TickerMarketIndia",
+  "threads_text": "Stock market news | Anuh Pharma invests ₹73 crore in 525 tonnes facility, ready by December\n\nAnuh Pharma announced a ₹73 crore investment to build its third bulk drug manufacturing facility in Tarapur, Maharashtra.\n\nThe new plant adds 525 tonnes annual capacity, boosting production and supporting demand, and will be fully operational by December, strengthening the pharma supply chain.\n\n#StockMarketIndia #PharmaNews #IndianStocks #AnuhPharma #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "reported by a trusted outlet: BusinessLine"
+    ],
+    [
+      "ok",
+      "fresh: newest source 3.3 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 6 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.thehindubusinessline.com/companies/anuh-pharma-invests-73-crore-in-3rd-bulk-drug-manufacturing-facility/article71737112.ece"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Tue, 24 Nov 2026",
+      "theme": "market_up",
+      "seed": "3rd anuh bulk crore drug facility invests manufacturing",
+      "tone": null,
+      "quotes": [],
+      "label": "NEW PLANT INVESTMENT",
+      "headline": "Anuh Pharma invests *₹73 crore* in *525 tonnes* facility, ready by *December*",
+      "points": [
+        "Anuh Pharma is investing ₹73 crore in a new bulk drug plant.",
+        "The plant is located in Tarapur, Maharashtra.",
+        "It will add 525 tonnes per annum capacity and be operational by December."
+      ],
+      "source": "BusinessLine"
+    },
+    "news_sector": "pharma",
+    "photo_prompt": "A large industrial building with storage tanks and pipelines at a pharmaceutical manufacturing site."
+  },
+  "telegram_message_id": 905,
+  "posted": {},
+  "report_text": "✅ reported by a trusted outlet: BusinessLine\n✅ fresh: newest source 3.3 h old\n✅ headline/banner/points/body: all 6 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://www.thehindubusinessline.com/companies/anuh-pharma-invests-73-crore-in-3rd-bulk-drug-manufacturing-facility/article71737112.ece\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Anuh Pharma invests ₹73 crore in 525 tonnes facility, ready by December",
+  "telegram_media_ids": [
+    904
+  ]
+}
