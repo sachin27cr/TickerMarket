@@ -41,7 +41,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "queued",
   "meta": {
     "card": {
       "category": "Corporate Action",
@@ -69,5 +69,6 @@
   "alt_text": "Stock market news: Ticker Market India image - Jupiter Wagons signs JV for metro coaches and propulsion systems",
   "telegram_media_ids": [
     868
-  ]
+  ],
+  "approved_at": "2026-11-24T07:45:33.405448+05:30"
 }
