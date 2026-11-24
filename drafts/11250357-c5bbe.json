@@ -1,0 +1,73 @@
+{
+  "id": "11250357-c5bbe",
+  "kind": "news",
+  "created": "2026-11-25T03:57:19.936948+05:30",
+  "images": [
+    "media/2026-11-25/news-035719-396f_1.jpg"
+  ],
+  "caption": "Stock market news | Indian States Raise ₹7 Trillion via Borrowings in FY27\n\nIndian states raised ₹7 trillion through market borrowings so far in FY27. However, the total amount raised remains 12% below the original plan for the financial year.\n\nThree states - Uttar Pradesh, West Bengal, and Karnataka - accounted for nearly 62% of the increase in state borrowings. Meanwhile, the Centre trimmed its own FY27 borrowing programme.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Economy #IndianEconomy #MarketBorrowings #TickerMarketIndia",
+  "threads_text": "Stock market news | Indian States Raise ₹7 Trillion via Borrowings in FY27\n\nIndian states raised ₹7 trillion through market borrowings so far in FY27. However, the total amount raised remains 12% below the original plan for the financial year.\n\nThree states - Uttar Pradesh, West Bengal, and Karnataka - accounted for nearly 62% of the increase in state borrowings.\n\n#StockMarketIndia #Economy #IndianEconomy #MarketBorrowings #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: BusinessLine, Mint"
+    ],
+    [
+      "ok",
+      "fresh: newest source 5.7 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 7 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "fiscal years match the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://www.thehindubusinessline.com/economy/auto-pli-payouts-hit-4365-crore-so-far-in-fy27/article71738183.ece | https://www.livemint.com/economy/states-market-borrowings-7-trillion-fy27-below-plan-uttar-pradesh-karnataka-west-bengal-11795511912164.html"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Economy",
+      "date_text": "Tue, 24 Nov 2026",
+      "theme": "market_up",
+      "seed": "below borrowings far fy27 plan raise states trillion",
+      "tone": null,
+      "quotes": [],
+      "label": "STATE BORROWINGS UPDATE",
+      "headline": "Indian States Raise *₹7 Trillion* via Borrowings in FY27",
+      "points": [
+        "Indian states raised ₹7 trillion through market borrowings so far in FY27.",
+        "Total state borrowings remain 12% below the planned target for FY27.",
+        "Uttar Pradesh, West Bengal, and Karnataka account for nearly 62% of borrowing increase."
+      ],
+      "source": "BusinessLine, Mint"
+    },
+    "news_sector": "economy",
+    "photo_prompt": "A modern government treasury building with marble columns and an Indian flag flying on top under a clear sky."
+  },
+  "telegram_message_id": 941,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: BusinessLine, Mint\n✅ fresh: newest source 5.7 h old\n✅ headline/banner/points/body: all 7 numbers match source data\n✅ all names appear in the sources\n✅ fiscal years match the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ written by gemini; sources: https://www.thehindubusinessline.com/economy/auto-pli-payouts-hit-4365-crore-so-far-in-fy27/article71738183.ece | https://www.livemint.com/economy/states-market-borrowings-7-trillion-fy27-below-plan-uttar-pradesh-karnataka-west-bengal-11795511912164.html\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Indian States Raise ₹7 Trillion via Borrowings in FY27",
+  "telegram_media_ids": [
+    940
+  ]
+}

@@ -1,116 +1,5 @@
 [
   {
-    "when": "2026-11-23T01:31:52.483129+05:30",
-    "title": "Tata Steel’s ₹28,000 crore deal with APL Apollo is part of a two-stage takeover transaction",
-    "bucket": null,
-    "lead": [
-      "000",
-      "apl",
-      "apollo",
-      "crore",
-      "deal",
-      "part",
-      "stage",
-      "steel",
-      "takeover",
-      "tata",
-      "transaction",
-      "two"
-    ],
-    "tokens": [
-      "000",
-      "all",
-      "apl",
-      "apollo",
-      "business",
-      "colors",
-      "crore",
-      "deal",
-      "know",
-      "need",
-      "part",
-      "sell",
-      "stage",
-      "stake",
-      "steel",
-      "takeover",
-      "tata",
-      "transaction",
-      "tubes",
-      "two",
-      "you"
-    ]
-  },
-  {
-    "when": "2026-11-23T01:45:52.010201+05:30",
-    "title": "Dalal Street Week Ahead: US GDP, FIIs mood, oil prices, PMI flash numbers among 10 key factors to watch",
-    "bucket": "crude_oil",
-    "lead": [
-      "ahead",
-      "among",
-      "dalal",
-      "factors",
-      "fiis",
-      "flash",
-      "gdp",
-      "key",
-      "mood",
-      "numbers",
-      "oil",
-      "pmi",
-      "prices",
-      "street",
-      "watch"
-    ],
-    "tokens": [
-      "ahead",
-      "among",
-      "dalal",
-      "factors",
-      "fiis",
-      "flash",
-      "gdp",
-      "key",
-      "mood",
-      "numbers",
-      "oil",
-      "pmi",
-      "prices",
-      "street",
-      "watch"
-    ]
-  },
-  {
-    "when": "2026-11-23T01:46:12.606652+05:30",
-    "title": "Stock market holiday November 24: NSE, BSE to remain closed for Guru Nanak Jayanti",
-    "bucket": null,
-    "lead": [
-      "bse",
-      "closed",
-      "guru",
-      "holiday",
-      "jayanti",
-      "nanak",
-      "november",
-      "nse",
-      "remain"
-    ],
-    "tokens": [
-      "bse",
-      "check",
-      "closed",
-      "details",
-      "guru",
-      "holiday",
-      "jayanti",
-      "nanak",
-      "next",
-      "november",
-      "nse",
-      "remain"
-    ]
-  },
-  {
     "when": "2026-11-23T10:09:47.312116+05:30",
     "title": "Crystal Crop Protection IPO allotment: How to check status online on NSE, BSE, MUFG Intime India; listing date, time revealed",
     "bucket": null,
@@ -1145,6 +1034,37 @@
       "sinks",
       "sputters",
       "trade"
+    ]
+  },
+  {
+    "when": "2026-11-25T03:57:22.607141+05:30",
+    "title": "States raise ₹7 trillion in market borrowings so far in FY27, 12% below plan",
+    "bucket": null,
+    "lead": [
+      "below",
+      "borrowings",
+      "far",
+      "fy27",
+      "plan",
+      "raise",
+      "states",
+      "trillion"
+    ],
+    "tokens": [
+      "365",
+      "auto",
+      "below",
+      "borrowings",
+      "crore",
+      "far",
+      "fy27",
+      "hit",
+      "payouts",
+      "plan",
+      "pli",
+      "raise",
+      "states",
+      "trillion"
     ]
   }
 ]
