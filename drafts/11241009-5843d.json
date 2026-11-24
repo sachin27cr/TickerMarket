@@ -1,0 +1,81 @@
+{
+  "id": "11241009-5843d",
+  "kind": "news",
+  "created": "2026-11-24T10:09:25.845032+05:30",
+  "images": [
+    "media/2026-11-24/news-100925-b8a0_1.jpg"
+  ],
+  "caption": "Stock market news | Zee Entertainment announces ₹600 crore buyback at ₹91 per share\n\nOn 25 November 2026 five Indian companies have corporate actions. Zee Entertainment announced a ₹600 crore share buyback at ₹91 per share. Vraj Iron and Steel declared a ₹0.60 interim dividend. Bonlon Industries, Indergiri Finance and Vellora Impact launched rights issues.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #IndianStocks #CorporateActions #Buyback #TickerMarketIndia",
+  "threads_text": "Stock market news | Zee Entertainment announces ₹600 crore buyback at ₹91 per share\n\nOn 25 November 2026 five Indian companies have corporate actions. Zee Entertainment announced a ₹600 crore share buyback at ₹91 per share. Vraj Iron and Steel declared a ₹0.60 interim dividend. Bonlon Industries, Indergiri Finance and Vellora Impact launched rights issues.\n\nSave this for later and send it to a friend who trades.\n\n#StockMarketIndia #IndianStocks #CorporateActions #Buyback #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "reported by a trusted outlet: Mint"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.3 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 11 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"Zee Entertainment\" - no price box for it"
+    ],
+    [
+      "warn",
+      "VRAJ: NSE ₹126.72 vs Yahoo ₹129.30 - no price box"
+    ],
+    [
+      "warn",
+      "BONLON: NSE ₹37.99 vs Yahoo ₹38.20 - no price box"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.livemint.com/market/stock-market-news/dividend-buyback-rights-issue-record-date-nov-25-zee-vraj-iron-bonlon-and-more-5-stocks-to-turn-ex-date-tomorrow-11795491976798.html"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Tue, 24 Nov 2026",
+      "theme": "tech",
+      "seed": "bonlon buyback date dividend iron issue more nov",
+      "tone": null,
+      "quotes": [],
+      "label": "BUYBACK ALERT",
+      "headline": "Zee Entertainment announces *₹600 crore* *buyback* at *₹91* per share",
+      "points": [
+        "Zee Entertainment will buy back shares worth ₹600 crore at ₹91 each.",
+        "Vraj Iron and Steel declares an interim dividend of ₹0.60 per share.",
+        "Bonlon Industries, Indergiri Finance and Vellora Impact start rights issues on 25 Nov."
+      ],
+      "source": "Mint"
+    },
+    "news_sector": "it",
+    "photo_prompt": "A close‑up of a stock certificate and a calculator on a wooden desk, with a blurred trading screen in the background."
+  },
+  "telegram_message_id": 900,
+  "posted": {},
+  "report_text": "✅ reported by a trusted outlet: Mint\n✅ fresh: newest source 0.3 h old\n✅ headline/banner/points/body: all 11 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"Zee Entertainment\" - no price box for it\n⚠️ VRAJ: NSE ₹126.72 vs Yahoo ₹129.30 - no price box\n⚠️ BONLON: NSE ₹37.99 vs Yahoo ₹38.20 - no price box\n✅ written by groq; sources: https://www.livemint.com/market/stock-market-news/dividend-buyback-rights-issue-record-date-nov-25-zee-vraj-iron-bonlon-and-more-5-stocks-to-turn-ex-date-tomorrow-11795491976798.html\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Zee Entertainment announces ₹600 crore buyback at ₹91 per share",
+  "telegram_media_ids": [
+    899
+  ]
+}
