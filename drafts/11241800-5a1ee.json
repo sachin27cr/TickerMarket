@@ -1,0 +1,73 @@
+{
+  "id": "11241800-5a1ee",
+  "kind": "news",
+  "created": "2026-11-24T18:00:21.992404+05:30",
+  "images": [
+    "media/2026-11-24/news-180021-079c_1.jpg"
+  ],
+  "caption": "Stock market news | IKEA India Pushes Profitability Target to FY29 as Losses Persist\n\nIKEA India has delayed its profitability target to FY29 as losses persist. The Swedish furniture retailer continues to invest in expansion across India while making progress in improving its overall financial performance.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia # #I #K #TickerMarketIndia",
+  "threads_text": "Stock market news | IKEA India Pushes Profitability Target to FY29 as Losses Persist\n\nIKEA India has delayed its profitability target to FY29 as losses persist. The Swedish furniture retailer continues to invest in expansion across India while making progress in improving its overall financial performance.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia # #I #K #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: BusinessLine, Mint"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.0 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 2 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "fiscal years match the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://www.thehindubusinessline.com/companies/ikea-india-eyes-profitability-by-fy29-furniture-contributes-55-food-10-of-revenue/article71738184.ece | https://www.livemint.com/companies/news/ikea-pushes-india-profitability-target-to-fy29-as-losses-persist-11795507409667.html"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Market News",
+      "date_text": "Tue, 24 Nov 2026",
+      "theme": "market_down",
+      "seed": "fy29 ikea losses persist profitability pushes target",
+      "tone": "down",
+      "quotes": [],
+      "label": "PROFITABILITY TARGET DEL",
+      "headline": "IKEA India Pushes *Profitability Target* to FY29 as Losses Persist",
+      "points": [
+        "IKEA India is aiming to achieve profitability by FY29.",
+        "Furniture contributes 55% while food accounts for 10% of revenue.",
+        "The company continues investing in expansion despite persistent losses."
+      ],
+      "source": "BusinessLine, Mint"
+    },
+    "news_sector": "other",
+    "photo_prompt": "A modern furniture showroom displaying arranged dining tables, chairs, and home decor items under bright indoor lighting."
+  },
+  "telegram_message_id": 910,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: BusinessLine, Mint\n✅ fresh: newest source 1.0 h old\n✅ headline/banner/points/body: all 2 numbers match source data\n✅ all names appear in the sources\n✅ fiscal years match the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ written by gemini; sources: https://www.thehindubusinessline.com/companies/ikea-india-eyes-profitability-by-fy29-furniture-contributes-55-food-10-of-revenue/article71738184.ece | https://www.livemint.com/companies/news/ikea-pushes-india-profitability-target-to-fy29-as-losses-persist-11795507409667.html\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - IKEA India Pushes Profitability Target to FY29 as Losses Persist",
+  "telegram_media_ids": [
+    909
+  ]
+}

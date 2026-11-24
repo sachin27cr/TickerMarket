@@ -1007,5 +1007,93 @@
       "manufacturing",
       "pharma"
     ]
+  },
+  {
+    "when": "2026-11-24T17:47:15.698966+05:30",
+    "title": "IIFCL IPO: Govt plans to sell part of its stake, company to issue fresh shares",
+    "bucket": null,
+    "lead": [
+      "company",
+      "fresh",
+      "govt",
+      "iifcl",
+      "ipo",
+      "issue",
+      "part",
+      "plans",
+      "sell",
+      "stake"
+    ],
+    "tokens": [
+      "company",
+      "fresh",
+      "govt",
+      "iifcl",
+      "ipo",
+      "issue",
+      "part",
+      "sale",
+      "sell",
+      "stake"
+    ]
+  },
+  {
+    "when": "2026-11-24T18:00:24.249849+05:30",
+    "title": "IKEA pushes India profitability target to FY29 as losses persist",
+    "bucket": null,
+    "lead": [
+      "fy29",
+      "ikea",
+      "losses",
+      "persist",
+      "profitability",
+      "pushes",
+      "target"
+    ],
+    "tokens": [
+      "contributes",
+      "eyes",
+      "food",
+      "furniture",
+      "fy29",
+      "ikea",
+      "losses",
+      "persist",
+      "profitability",
+      "pushes",
+      "revenue",
+      "target"
+    ]
+  },
+  {
+    "when": "2026-11-24T18:03:50.003784+05:30",
+    "title": "China, India set for record Russian oil imports in 2026, but demand seen peaking",
+    "bucket": null,
+    "lead": [
+      "2026",
+      "but",
+      "china",
+      "demand",
+      "imports",
+      "oil",
+      "peaking",
+      "record",
+      "russian",
+      "seen",
+      "set"
+    ],
+    "tokens": [
+      "2026",
+      "but",
+      "china",
+      "demand",
+      "imports",
+      "oil",
+      "peaking",
+      "record",
+      "russian",
+      "seen",
+      "set"
+    ]
   }
 ]

@@ -1,0 +1,73 @@
+{
+  "id": "11241747-5d0f0",
+  "kind": "news",
+  "created": "2026-11-24T17:47:13.498314+05:30",
+  "images": [
+    "media/2026-11-24/news-174713-44da_1.jpg"
+  ],
+  "caption": "Stock market news | India Infrastructure Finance Company Ltd: Govt to Sell Stake in IIFCL IPO\n\nThe government plans to partially divest its shareholding in India Infrastructure Finance Company Ltd through an initial public offering. Alongside the government stake sale, IIFCL will issue fresh shares to raise capital.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #IIFCL #IPO #IndianStockMarket #TickerMarketIndia",
+  "threads_text": "Stock market news | India Infrastructure Finance Company Ltd: Govt to Sell Stake in IIFCL IPO\n\nThe government plans to partially divest its shareholding in India Infrastructure Finance Company Ltd through an initial public offering. Alongside the government stake sale, IIFCL will issue fresh shares to raise capital.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #IIFCL #IPO #IndianStockMarket #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: BusinessLine, Economic Times, Rediff MoneyWiz"
+    ],
+    [
+      "ok",
+      "fresh: newest source 3.7 h old"
+    ],
+    [
+      "ok",
+      "headline did not name India Infrastructure Finance Company Ltd - added"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 0 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://www.thehindubusinessline.com/companies/iifcl-ipo-govt-to-part-sale-stake-company-to-issue-fresh-shares/article71737792.ece | https://news.google.com/rss/articles/CBMiygFBVV95cUxPWm1nUjJaeFNZUmdSaGJRNGp1T0NnZ25pYWMwa2sxT1M5ellsZVBpbGNQMGVwUkRmc3VINXBDdEdDT3VJWjlkXzEtUloyNHRQdEhnR0c2c2Y1ejd0SjQ3X2NxY09sQkFRVXZEMGNmcnc0TmUtSGRlaDJLUGtDaVZ2OXhjUDN4LWowcjRncktNQXNNenVtS2JVc3ZwSXZPMlVadVN5NS1uekhOWm1sVWZkdGZmSW5DYldndXB5TzQ1U3JtT1BQODJET3Zn0gHQAUFVX3lxTE5QbVM5a1ZUV2J5ZVZkNC1OQnhhV2xlLVlCd21uMkU3MVhISDlnQVNOWEc2VXVIYmViSTFrcEdEVDNMTU5uZWUwWVhSYy1sa2pGOFNtTDRiUm1URlE3TFRhM245aVU5WjBudHpQUWlEUDRsZEttWUhnTFZsQ0prSWxYcWdPWU1UTkdlamE1ZWFHUGI4UllQM00zcWl2Rms5T0M5Uk5PcHlfWUVoc0J3SzVWVEh0MUhXZW1aSW40dkNDVVpwdFkyOF8tcWRmTEZsSjY?oc=5 | https://news.google.com/rss/articles/CBMirAFBVV95cUxNUWdnZklVM0IzV0pQTU9DMGNBQ3VySkNEc05pc0dQVk83S2JpUnNfYVM3YmNVa1JKZXBaQzljX3AzeklfRjdYNUpaMS1ZNF90R2Z1SWJpMExQUV9sa0h1WGlPNXl0QmM5c0Z5N2tXWDVIUlNkbXVITkp6U1RuQmtMckNvLW1ETDVCYzB3R2o5S3NfdEhDNXc4OWlrRWhxclFnb1I2Z2hpT1FaQVBD0gGyAUFVX3lxTE13RkR0ZW1yeDdtQ0JVcHNiVjU0TDZteDVtQmRCMXNiUi1iREtCNGJKOXdwQ3BvcGdSU1EtYUc5TGFTdk9NNFFkcG9lcXlWQlViS3RSaC1LN2Z4OFZ2X2tDZklhY05vOHMzaTEzbjVTREZiYV9Kc3BHcVlva0RxM0FQXzJJaEZZMjJiZmR4a081LTdocXB2Z2hnSHJyVTNtbW9YdmwyMjEzZTJqNGVRRFlnWnc?oc=5 | https://economictimes.indiatimes.com/markets/ipos/fpos/iifcl-ipo-govt-plans-to-sell-part-of-its-stake-company-to-issue-fresh-shares/articleshow/136124476.cms"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "IPO Watch",
+      "date_text": "Tue, 24 Nov 2026",
+      "theme": "ipo",
+      "seed": "company fresh govt iifcl ipo issue part plans",
+      "tone": null,
+      "quotes": [],
+      "label": "IPO PLANS",
+      "headline": "*India Infrastructure Finance Company Ltd*: Govt to Sell Stake in *IIFCL IPO*",
+      "points": [
+        "Government will partially sell its stake in India Infrastructure Finance Company Ltd.",
+        "IIFCL will issue fresh shares alongside the government stake sale.",
+        "Proceeds from the sale will add to the government disinvestment kitty."
+      ],
+      "source": "BusinessLine, Economic Times, Rediff MoneyWiz"
+    },
+    "news_sector": "ipo",
+    "photo_prompt": "A large modern concrete bridge under construction with heavy machinery and steel beams under a bright blue sky."
+  },
+  "telegram_message_id": 908,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: BusinessLine, Economic Times, Rediff MoneyWiz\n✅ fresh: newest source 3.7 h old\n✅ headline did not name India Infrastructure Finance Company Ltd - added\n✅ headline/banner/points/body: all 0 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ written by gemini; sources: https://www.thehindubusinessline.com/companies/iifcl-ipo-govt-to-part-sale-stake-company-to-issue-fresh-shares/article71737792.ece | https://news.google.com/rss/articles/CBMiygFBVV95cUxPWm1nUjJaeFNZUmdSaGJRNGp1T0NnZ25pYWMwa2sxT1M5ellsZVBpbGNQMGVwUkRmc3VINXBDdEdDT3VJWjlkXzEtUloyNHRQdEhnR0c2c2Y1ejd0SjQ3X2NxY09sQkFRVXZEMGNmcnc0TmUtSGRlaDJLUGtDaVZ2OXhjUDN4LWowcjRncktNQXNNenVtS2JVc3ZwSXZPMlVadVN5NS1uekhOWm1sVWZkdGZmSW5DYldndXB5TzQ1U3JtT1BQODJET3Zn0gHQAUFVX3lxTE5QbVM5a1ZUV2J5ZVZkNC1OQnhhV2xlLVlCd21uMkU3MVhISDlnQVNOWEc2VXVIYmViSTFrcEdEVDNMTU5uZWUwWVhSYy1sa2pGOFNtTDRiUm1URlE3TFRhM245aVU5WjBudHpQUWlEUDRsZEttWUhnTFZsQ0prSWxYcWdPWU1UTkdlamE1ZWFHUGI4UllQM00zcWl2Rms5T0M5Uk5PcHlfWUVoc0J3SzVWVEh0MUhXZW1aSW40dkNDVVpwdFkyOF8tcWRmTEZsSjY?oc=5 | https://news.google.com/rss/articles/CBMirAFBVV95cUxNUWdnZklVM0IzV0pQTU9DMGNBQ3VySkNEc05pc0dQVk83S2JpUnNfYVM3YmNVa1JKZXBaQzljX3AzeklfRjdYNUpaMS1ZNF90R2Z1SWJpMExQUV9sa0h1WGlPNXl0QmM5c0Z5N2tXWDVIUlNkbXVITkp6U1RuQmtMckNvLW1ETDVCYzB3R2o5S3NfdEhDNXc4OWlrRWhxclFnb1I2Z2hpT1FaQVBD0gGyAUFVX3lxTE13RkR0ZW1yeDdtQ0JVcHNiVjU0TDZteDVtQmRCMXNiUi1iREtCNGJKOXdwQ3BvcGdSU1EtYUc5TGFTdk9NNFFkcG9lcXlWQlViS3RSaC1LN2Z4OFZ2X2tDZklhY05vOHMzaTEzbjVTREZiYV9Kc3BHcVlva0RxM0FQXzJJaEZZMjJiZmR4a081LTdocXB2Z2hnSHJyVTNtbW9YdmwyMjEzZTJqNGVRRFlnWnc?oc=5 | https://economictimes.indiatimes.com/markets/ipos/fpos/iifcl-ipo-govt-plans-to-sell-part-of-its-stake-company-to-issue-fresh-shares/articleshow/136124476.cms\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - India Infrastructure Finance Company Ltd: Govt to Sell Stake in IIFCL IPO",
+  "telegram_media_ids": [
+    907
+  ]
+}
