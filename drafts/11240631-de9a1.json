@@ -24,10 +24,13 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "auto",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 877,
-  "posted": {},
+  "posted": {
+    "instagram": "18116405075232229",
+    "facebook": "1374383985767580_122111431851544503"
+  },
   "report_text": "✅ top 10 by market cap: NSE issued shares x price, each within 3% of Yahoo\n✅ caption: all 25 numbers match source data\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market India",
   "alt_text": "Stock market India: Ticker Market India carousel - India's 10 most valuable listed companies",
@@ -36,5 +39,6 @@
     874,
     875,
     876
-  ]
+  ],
+  "posted_at": "2026-11-24T06:46:19.083338+05:30"
 }
