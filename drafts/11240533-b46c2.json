@@ -41,7 +41,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "queued",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "Corporate Action",
@@ -63,12 +63,16 @@
     "photo_prompt": "A spacious factory floor showing assembled metro coach bodies and propulsion system components under bright industrial lighting."
   },
   "telegram_message_id": 869,
-  "posted": {},
+  "posted": {
+    "instagram": "18131332723834351",
+    "facebook": "122111479815544503"
+  },
   "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, Telegraph India\n✅ fresh: newest source 0.3 h old\n✅ headline/banner/points/body: all 3 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ JWL: NSE ₹185.45 vs Yahoo ₹191.23 - no price box\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMioAFBVV95cUxNTHdQamlkbC01TmtsSGFxRHB4dHJyaWJTZ1E1X3JyeEN6LUdaQlAtM2JKZVE5NVlCMU9DMnlWbDNOOFpLcnlIVld3YmJHR09Db0h6Tjd6Q3pmdEwySi1oMlJ4Um9vYUczcFdaMmFFRVNmRzVmZnBtOG96WHRhU1JNVTlQSzNoR1dzT21Bbk8zb0E2dHBZRHNSc2JULV9HY1Bl0gGmAUFVX3lxTFBOa0FNRGpVVkIzWDIySzM5TTE3N0NWVmNZRG8xR3dXTUJoRHFtaWFRZVhIVmQtc3RPWXdzOS1xMzlTb0VTS3dCRjE3WUw2dkhreXFlWkl0RnZjWUFXWklDN09WUWhGc3FQMm1nZ3VRRHQyRFFqb2xKeHpIbXJKWExiQkJlanBaRGk2NFBHWFdfaTZMVUExa2trb21NZm9xdVV1UjRDRnc?oc=5 | https://www.cnbctv18.com/market/stocks/jupiter-wagons-share-price-to-manufacture-metro-coaches-propulsion-systems-with-koreas-woojin-in-jv-20039993.htm\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - Jupiter Wagons signs JV for metro coaches and propulsion systems",
   "telegram_media_ids": [
     868
   ],
-  "approved_at": "2026-11-24T07:45:33.405448+05:30"
+  "approved_at": "2026-11-24T07:45:33.405448+05:30",
+  "posted_at": "2026-11-24T08:40:40.492952+05:30"
 }
