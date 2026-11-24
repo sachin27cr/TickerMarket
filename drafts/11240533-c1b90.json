@@ -45,7 +45,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "queued",
   "meta": {
     "card": {
       "category": "Market News",
@@ -73,5 +73,6 @@
   "alt_text": "Stock market news: Ticker Market India image - Shriram Finance jumps on Sensex inclusion, potential $294 million outflows",
   "telegram_media_ids": [
     870
-  ]
+  ],
+  "approved_at": "2026-11-24T07:45:32.227112+05:30"
 }
