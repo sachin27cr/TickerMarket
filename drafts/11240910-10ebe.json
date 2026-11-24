@@ -24,10 +24,13 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "auto",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 895,
-  "posted": {},
+  "posted": {
+    "instagram": "18135183112706338",
+    "facebook": "1374383985767580_122111498607544503"
+  },
   "report_text": "✅ IPO details from NSE issue page: SHREESIDHI\n✅ caption: all 7 numbers match source data\n✅ no advice, prediction or rumour language",
   "topic_keyword": "IPO news",
   "alt_text": "IPO news: Ticker Market India carousel - Shree Siddhivinayak Greentech Industries IPO opens 25 Nov",
@@ -36,5 +39,6 @@
     892,
     893,
     894
-  ]
+  ],
+  "posted_at": "2026-11-24T09:26:02.961058+05:30"
 }
