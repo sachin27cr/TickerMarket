@@ -37,7 +37,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "Economy",
@@ -59,11 +59,16 @@
     "photo_prompt": "A large oil tanker sailing on the ocean near an offshore crude oil refinery terminal during the daytime."
   },
   "telegram_message_id": 912,
-  "posted": {},
+  "posted": {
+    "instagram": "18132675658868150",
+    "facebook": "122111714457544503"
+  },
   "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, ET Auto\n✅ fresh: newest source 2.3 h old\n✅ headline/banner/points/body: all 3 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ written by gemini; sources: https://news.google.com/rss/articles/CBMi6AFBVV95cUxPdTNSU0FQRERXY2xVMlJ1NlYyZjR0cDZjS0ZtZ2NWRHRMWTViNk5NOXEwNEpfQ3JoRXctT3JqRWExWl9BaW1PVlllOE9lRnpRQVpGYkJROFpUbDZ6OXJsUC1adVdMZDNXR2xBVUFxcG5FQV9NSkgycjRseGttNE4zajdYSkVvM3J2c2VlbUhyWjNPX295UDNUbUJzWHBpMVcxRDVFTnlzSllfbnJkRHhkR2lBbjVRUzJIR0Z4VjJYVmswbVkwcWxtQVc4aFVRQ3BjM21yV2pkUEdWYUtHQ2tqbWpRVXZRQzZq0gHoAUFVX3lxTE91M1JTQVBERFdjbFUyUnU2VjJmNHRwNmNLRm1nY1ZEdExZNWI2Tk05cTA0Sl9DcmhFdy1PcmpFYTFaX0FpbU9WWWU4T2VGelFBWkZiQlE4WlRsNno5cmxQLVp1V0xkM1dHbEFVQXFwbkVBX01KSDJyNGx4a200TjNqN1hKRW8zcnZzZWVtSHJaM09fb3lQM1RtQnNYcGkxVzFENUVOeXNKWV9ucmREeGRHaUFuNVFTMkhHRnhWMlhWazBtWTBxbG1BVzhoVVFDcGMzbXJXamRQR1ZhS0dDa2ptalFVdlFDNmo?oc=5 | https://www.cnbctv18.com/market/commodities/china-india-set-for-record-russian-oil-imports-in-2026-but-demand-seen-peaking-20040457.htm\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - India and China Set for Record Russian Oil Imports in 2026",
   "telegram_media_ids": [
     911
-  ]
+  ],
+  "approved_at": "2026-11-24T20:50:50.580097+05:30",
+  "posted_at": "2026-11-24T20:51:14.454438+05:30"
 }
