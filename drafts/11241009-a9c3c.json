@@ -49,7 +49,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "queued",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "Market News",
@@ -96,12 +96,16 @@
     "photo_prompt": "A bustling stock exchange floor with large display boards showing steeply falling graphs, empty chairs in foreground, no visible faces or logos."
   },
   "telegram_message_id": 898,
-  "posted": {},
+  "posted": {
+    "instagram": "17894680296458341",
+    "facebook": "122111721417544503"
+  },
   "report_text": "✅ confirmed by 4 outlets: BusinessLine, DD News, NDTV Profit, The Hindu\n✅ fresh: newest source 16.5 h old\n✅ headline/banner/points/body: all 9 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ TCS ₹2,460.00 (+3.53%): NSE = Yahoo\n✅ TECHM ₹1,777.50 (+1.79%): NSE = Yahoo\n✅ INFY ₹1,103.40 (+0.49%): NSE = Yahoo\n✅ written by groq; sources: https://www.thehindu.com/business/markets/markets-take-heavy-drubbing-dragged-by-banks-sensex-plunges-1484-points-nifty-dives-to-2534965/article71734374.ece | https://news.google.com/rss/articles/CBMiuAFBVV95cUxNWks5WDVwWE9ULWNmYVItRHFralBSMTNFeEFBWXlTaFNBWnUxVkxPQnVQUTgzTlVEOE5hSzF5OUhTR1ozblZIUndqZXRCcWxJN05nd1NocTZmMVFKZGZ3emRkSXoteTlrMVB3b2FWNUpkRkc0VTRPcUZnc05ZV1o0VnR0QUdXWGJPcl8zYlBJQ1cyT2VaX19GNmZkNVpiMmxSb09hdC1hcUcwLWNMLUhQZl9rblZBX01H?oc=5 | https://news.google.com/rss/articles/CBMi-gFBVV95cUxQTFowWHhQRENndnV1dGJVYmVPaFJFZVlCU3Q5SGhWNnEydHhFbUxNYjBqTHpfSmhMdGQtc2VGdTRqd2otRW4xcnJlQnNKNTVMMzBoeFpzdHphanVJeGFMN1MyZ01rTzdTZExEWWdxNGd3dzI4aHBtQlhOV3dJM0duZjd5M3NHQW03TGxxZ0ZyTl9ramFGOHgxVnRfam1wbUdEaEJQd1Y0S1FlYklPRHQtRDJSQjEwaFpnMXBKRFZuVHVGRVRySzJWSW9BZmFGSWxPX2FNOTlmV2liWmZ3LWJ5VWJaN1Z0UWNiN29LSGxUQUpWdzhBREk3M3ZR0gGCAkFVX3lxTE5OQTZ1MUlnZ3dBb01MX2hYdGV1VFZuU0dIOWZXZUQ2T1NwMUxRejl3NDNHVUIzUzQtZVdYVkRkREpmRnhpZGY5bGVzcnFoTnBkTEhBanlGTmdBRERZNk5WNndJOVdpb1VJNWZQdWcwMkZrLWcteFBwTlpURmVqbWdBdi04emx5UTM4WjIzTDhEay1udWVJUUJFdXpNOGRJYTlmQjd5eEtFd01BaW54R3JqSEx0OVB0MFlXWjZMeF9yOXdPZkdLUmk0eURscTlYN0RHSC1aa2hBSThpWXJTanBleEdFaF9iUW1KSFU5amFpbVA0RzRHSnlsSTY1cHdnblZ6Zw?oc=5 | https://news.google.com/rss/articles/CBMi7AFBVV95cUxOY2xaSWIyWlh3Mnd2d3JCNVZ1aWdCRUFuZ2gtZE5KVE9RUENYbWRweEpCbGh6Q1ZyazJ1Sl9tMHoyV3VwZDJzWEYweUsyWjYwR1JxZW5SR2NBRjBaa0tqQ3FIU0xLRV93eGx2X2Q3SXRTbzBsdEV5Tjk4akFrOHV0Z0g4d3g1bzNpRnViMTFaMlYtd3lycnE3cFpnbkQ5SlZtbmJCUnl0SEhabzRxM3NMYjlSSHR6S182NUJLWUpOTk1BT25FQ2tDdERONHg5NXNoMGJ4cERtQTZvY1pEdHJfcFl1aHdlUmVpeW1NdNIB8wFBVV95cUxQbDJ5VEh1SVJVdDluZ2FTT2pvbmVEa1NkOGZ1MDNmQzAyUkV1Ymh0cnZDYVRTQW1YMlZrdmRGV3dCXzkxRVRIV1dtN3Ruem5mT01IUWwxTFVlZjNMY3o2VkYxVUZjTFgtNUY1RWpGY2RDc081SGlFbTZ6UGxLaWQ5TXVFU29ZTGI1c3hUanMxVkFGdEMzQjRQYmxNdEVlczVnRkRUX2NhNGVXSmQzci1MamFHbkEyYzc3UTZrMEE1ejdJWmpQRnBqeC1FSVlja0VlbnRSVk0zSlA5YlFJdGNteEpfWHVFTW1ldDRmMlJRMkhlSUU?oc=5\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - Sensex plunges 1,484 points amid bank sell-off",
   "telegram_media_ids": [
     897
   ],
-  "approved_at": "2026-11-24T20:51:49.086906+05:30"
+  "approved_at": "2026-11-24T20:51:49.086906+05:30",
+  "posted_at": "2026-11-24T21:20:51.007530+05:30"
 }
