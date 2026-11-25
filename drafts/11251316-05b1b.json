@@ -1,0 +1,90 @@
+{
+  "id": "11251316-05b1b",
+  "kind": "news",
+  "created": "2026-11-25T13:16:53.221219+05:30",
+  "images": [
+    "media/2026-11-25/news-131653-40e3_1.jpg"
+  ],
+  "caption": "Stock market news | IRDAI committee sparks 8% surge in insurance stocks\n\nOn 25 November 2026 the Insurance Regulatory and Development Authority of India set up an expert committee to examine distribution reforms. The regulator received about 2.18 lakh responses to its consultation paper covering 32 questions.\n\nFollowing the announcement, shares of PB Fintech, HDFC Life and Max Life jumped up to 8%, showing market confidence that the reforms may benefit policyholders, insurers and distributors.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #InsuranceStocks #IRDAI #MarketRally #TickerMarketIndia",
+  "threads_text": "Stock market news | IRDAI committee sparks 8% surge in insurance stocks\n\nOn 25 November 2026 the Insurance Regulatory and Development Authority of India set up an expert committee to examine distribution reforms. The regulator received about 2.18 lakh responses to its consultation paper covering 32 questions.\n\n#StockMarketIndia #InsuranceStocks #IRDAI #MarketRally #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: Business Standard, BusinessLine, CNBC-TV18"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.8 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 9 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "POLICYBZR ₹1,114.60 (+2.34%): NSE = Yahoo"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"HDFC Life\" - no price box for it"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"Max Life\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.thehindubusinessline.com/markets/stock-markets/pb-fintech-hdfc-life-turtlemint-shares-surge-up-to-8-as-irdai-sets-up-expert-committee-on-distribution-reforms/article71741324.ece | https://www.business-standard.com/markets/news/insurance-stocks-in-demand-pb-fintech-max-life-hdfc-life-rally-up-to-8-126112500194_1.html | https://www.cnbctv18.com/market/irdai-sets-up-expert-committee-to-review-distribution-reforms-insurance-stocks-pb-fintech-turtlemint-20040751.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Regulation",
+      "date_text": "Wed, 25 Nov 2026",
+      "theme": "market_up",
+      "seed": "financial fintech here insurance jump max other wednesday",
+      "tone": "up",
+      "quotes": [
+        {
+          "name": "PB Fintech Ltd",
+          "symbol": "POLICYBZR",
+          "price": 1114.6,
+          "chg": 25.5,
+          "pct": 2.34,
+          "time_text": "25 Nov, 1:16 PM IST"
+        }
+      ],
+      "label": "INSURANCE RALLY",
+      "headline": "*IRDAI* committee sparks *8%* surge in insurance stocks",
+      "points": [
+        "IRDAI formed an expert committee on distribution reforms.",
+        "Committee will review ~2.18 lakh responses to a 32-question paper.",
+        "PB Fintech, HDFC Life, Max Life stocks rose up to 8%."
+      ],
+      "source": "NSE prices, Business Standard, BusinessLine, CNBC-TV18"
+    },
+    "news_sector": "other",
+    "photo_prompt": "A trading floor with bright screens displaying upward moving insurance stock graphs."
+  },
+  "telegram_message_id": 978,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: Business Standard, BusinessLine, CNBC-TV18\n✅ fresh: newest source 0.8 h old\n✅ headline/banner/points/body: all 9 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ POLICYBZR ₹1,114.60 (+2.34%): NSE = Yahoo\n⚠️ no NSE listing matched \"HDFC Life\" - no price box for it\n⚠️ no NSE listing matched \"Max Life\" - no price box for it\n✅ written by groq; sources: https://www.thehindubusinessline.com/markets/stock-markets/pb-fintech-hdfc-life-turtlemint-shares-surge-up-to-8-as-irdai-sets-up-expert-committee-on-distribution-reforms/article71741324.ece | https://www.business-standard.com/markets/news/insurance-stocks-in-demand-pb-fintech-max-life-hdfc-life-rally-up-to-8-126112500194_1.html | https://www.cnbctv18.com/market/irdai-sets-up-expert-committee-to-review-distribution-reforms-insurance-stocks-pb-fintech-turtlemint-20040751.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - IRDAI committee sparks 8% surge in insurance stocks",
+  "telegram_media_ids": [
+    977
+  ]
+}
