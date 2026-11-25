@@ -1,0 +1,73 @@
+{
+  "id": "11252022-5c958",
+  "kind": "news",
+  "created": "2026-11-25T20:22:29.320902+05:30",
+  "images": [
+    "media/2026-11-25/news-202229-f91b_1.jpg"
+  ],
+  "caption": "Stock market news | LG Electronics Inc to sell 2% stake in LG Electronics India\n\nLG Electronics Inc plans to sell up to 2% of its total equity share capital in LG Electronics India through a block deal. The aggregate deal value is worth up to ₹2,320.5 crore at a floor price of ₹1,709.30 per share.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #LGElectronics #BlockDeal #IndianShareMarket #TickerMarketIndia",
+  "threads_text": "Stock market news | LG Electronics Inc to sell 2% stake in LG Electronics India\n\nLG Electronics Inc plans to sell up to 2% of its total equity share capital in LG Electronics India through a block deal. The aggregate deal value is worth up to ₹2,320.5 crore at a floor price of ₹1,709.30 per share.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #LGElectronics #BlockDeal #IndianShareMarket #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 5 outlets: Business Standard, BusinessLine, CNBC-TV18, Economic Times, Mint"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.8 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 8 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "LGEINDIA: NSE ₹1,799.40 vs Yahoo ₹1,818.40 - no price box"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://www.thehindubusinessline.com/markets/lg-electronics-inc-to-divest-2-stake-in-indian-subsidiary/article71742184.ece | https://www.livemint.com/market/lg-electronics-shares-to-be-in-focus-as-promoter-to-sell-2-stake-to-meet-public-float-norms-check-details-11795612944008.html | https://www.business-standard.com/companies/news/lg-electronics-india-promoter-may-offload-2-stake-for-2-320-5-crore-126112501137_1.html | https://www.cnbctv18.com/market/stocks/lg-electronics-share-price-block-deal-promoter-likely-to-sell-2-stake-at-rs-1709-floor-price-to-meet-mps-norms-20041364.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Wed, 25 Nov 2026",
+      "theme": "market_up",
+      "seed": "dec electronics million offload plans promoter sell stake",
+      "tone": null,
+      "quotes": [],
+      "label": "PROMOTER STAKE SALE",
+      "headline": "LG Electronics Inc to sell *2% stake* in LG Electronics India",
+      "points": [
+        "LG Electronics Inc to sell up to 13,575,447 shares via block deal.",
+        "Floor price is set at ₹1,709.30 per share for the transaction.",
+        "Sale will reduce promoter holding in the company from 85% to 83%."
+      ],
+      "source": "Business Standard, BusinessLine, CNBC-TV18"
+    },
+    "news_sector": "other",
+    "photo_prompt": "A modern warehouse filled with packaged home appliances and consumer electronic products ready for distribution."
+  },
+  "telegram_message_id": 1025,
+  "posted": {},
+  "report_text": "✅ confirmed by 5 outlets: Business Standard, BusinessLine, CNBC-TV18, Economic Times, Mint\n✅ fresh: newest source 0.8 h old\n✅ headline/banner/points/body: all 8 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n⚠️ LGEINDIA: NSE ₹1,799.40 vs Yahoo ₹1,818.40 - no price box\n✅ written by gemini; sources: https://www.thehindubusinessline.com/markets/lg-electronics-inc-to-divest-2-stake-in-indian-subsidiary/article71742184.ece | https://www.livemint.com/market/lg-electronics-shares-to-be-in-focus-as-promoter-to-sell-2-stake-to-meet-public-float-norms-check-details-11795612944008.html | https://www.business-standard.com/companies/news/lg-electronics-india-promoter-may-offload-2-stake-for-2-320-5-crore-126112501137_1.html | https://www.cnbctv18.com/market/stocks/lg-electronics-share-price-block-deal-promoter-likely-to-sell-2-stake-at-rs-1709-floor-price-to-meet-mps-norms-20041364.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - LG Electronics Inc to sell 2% stake in LG Electronics India",
+  "telegram_media_ids": [
+    1024
+  ]
+}
