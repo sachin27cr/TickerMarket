@@ -1066,5 +1066,78 @@
       "states",
       "trillion"
     ]
+  },
+  {
+    "when": "2026-11-25T05:52:53.799730+05:30",
+    "title": "Gold Slips as Investors Weigh Fed Outlook, US Tariff Plans",
+    "bucket": "gold_metals",
+    "lead": [
+      "fed",
+      "gold",
+      "investors",
+      "outlook",
+      "plans",
+      "slips",
+      "tariff",
+      "weigh"
+    ],
+    "tokens": [
+      "fed",
+      "gold",
+      "investors",
+      "outlook",
+      "plans",
+      "slips",
+      "tariff",
+      "weigh"
+    ]
+  },
+  {
+    "when": "2026-11-25T06:03:40.178536+05:30",
+    "title": "Zydus Lifesciences sets up wholly owned subsidiary in Australia",
+    "bucket": null,
+    "lead": [
+      "australia",
+      "lifesciences",
+      "owned",
+      "sets",
+      "subsidiary",
+      "wholly",
+      "zydus"
+    ],
+    "tokens": [
+      "australia",
+      "lifesciences",
+      "owned",
+      "sets",
+      "subsidiary",
+      "wholly",
+      "zydus"
+    ]
+  },
+  {
+    "when": "2026-11-25T06:17:49.912039+05:30",
+    "title": "JSW Motors unveils brand identity ahead of December 3 launch",
+    "bucket": null,
+    "lead": [
+      "ahead",
+      "brand",
+      "december",
+      "identity",
+      "jsw",
+      "launch",
+      "motors",
+      "unveils"
+    ],
+    "tokens": [
+      "ahead",
+      "brand",
+      "december",
+      "identity",
+      "jsw",
+      "launch",
+      "motors",
+      "unveils"
+    ]
   }
 ]

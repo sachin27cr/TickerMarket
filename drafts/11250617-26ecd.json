@@ -1,0 +1,73 @@
+{
+  "id": "11250617-26ecd",
+  "kind": "news",
+  "created": "2026-11-25T06:17:47.863666+05:30",
+  "images": [
+    "media/2026-11-25/news-061747-f4bf_1.jpg"
+  ],
+  "caption": "Stock market news | JSW Motors brand identity unveiled ahead of December 3 launch\n\nOn 25 November 2026, JSW Motors unveiled its new brand identity, previewing the company's upcoming launch scheduled for 3 December.\n\nThe identity highlights the firm's ambition to bring global technology to Indian consumers and to create an integrated automotive ecosystem, underscoring its growth strategy in the auto sector.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #JSWMotors #AutoNews #BrandLaunch #TickerMarketIndia",
+  "threads_text": "Stock market news | JSW Motors brand identity unveiled ahead of December 3 launch\n\nOn 25 November 2026, JSW Motors unveiled its new brand identity, previewing the company's upcoming launch scheduled for 3 December.\n\nThe identity highlights the firm's ambition to bring global technology to Indian consumers and to create an integrated automotive ecosystem, underscoring its growth strategy in the auto sector.\n\n#StockMarketIndia #JSWMotors #AutoNews #BrandLaunch #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "reported by a trusted outlet: BusinessLine"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.8 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 7 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (gemini): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"JSW Motors\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.thehindubusinessline.com/companies/jsw-motors-unveils-brand-identity-ahead-of-december-3-launch/article71740211.ece"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Wed, 25 Nov 2026",
+      "theme": "market_up",
+      "seed": "ahead brand december identity jsw launch motors unveils",
+      "tone": null,
+      "quotes": [],
+      "label": "NEW BRAND ID",
+      "headline": "JSW Motors *brand identity* unveiled ahead of *December 3* launch",
+      "points": [
+        "JSW Motors revealed a new brand identity on 25 November 2026.",
+        "The identity signals ambition to bring global technology to Indian consumers.",
+        "It aims to build an integrated automotive ecosystem before the December 3 launch."
+      ],
+      "source": "BusinessLine"
+    },
+    "news_sector": "auto",
+    "photo_prompt": "A modern showroom with a sleek automobile under neutral lighting, surrounded by abstract branding banners."
+  },
+  "telegram_message_id": 947,
+  "posted": {},
+  "report_text": "✅ reported by a trusted outlet: BusinessLine\n✅ fresh: newest source 0.8 h old\n✅ headline/banner/points/body: all 7 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (gemini): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"JSW Motors\" - no price box for it\n✅ written by groq; sources: https://www.thehindubusinessline.com/companies/jsw-motors-unveils-brand-identity-ahead-of-december-3-launch/article71740211.ece\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - JSW Motors brand identity unveiled ahead of December 3 launch",
+  "telegram_media_ids": [
+    946
+  ]
+}
