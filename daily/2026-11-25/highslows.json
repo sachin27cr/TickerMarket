@@ -1,0 +1,178 @@
+{
+  "ath": 9,
+  "hi52": 17,
+  "lo52": 15,
+  "groups": {
+    "Large Cap": {
+      "ath": [
+        {
+          "name": "ICICI Bank",
+          "pct": 3.44
+        },
+        {
+          "name": "Eicher Motors",
+          "pct": 2.0
+        }
+      ],
+      "hi52": [
+        {
+          "name": "TVS Motor",
+          "pct": 1.81
+        },
+        {
+          "name": "DLF",
+          "pct": 0.11
+        }
+      ],
+      "lo52": [
+        {
+          "name": "Tata Steel",
+          "pct": -2.27
+        },
+        {
+          "name": "Tata Power",
+          "pct": -1.52
+        }
+      ],
+      "ath_count": 2,
+      "hi52_count": 4,
+      "lo52_count": 2
+    },
+    "Mid Cap": {
+      "ath": [
+        {
+          "name": "Glenmark Pharmaceuticals",
+          "pct": 2.33
+        },
+        {
+          "name": "Marico",
+          "pct": 1.71
+        },
+        {
+          "name": "Indian Hotels (Taj)",
+          "pct": -0.24
+        },
+        {
+          "name": "Coforge",
+          "pct": -3.84
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Radico Khaitan",
+          "pct": 1.35
+        }
+      ],
+      "lo52": [
+        {
+          "name": "APL Apollo Tubes",
+          "pct": -11.62
+        },
+        {
+          "name": "KEI Industries",
+          "pct": -3.91
+        },
+        {
+          "name": "Thermax",
+          "pct": -1.9
+        },
+        {
+          "name": "Cochin Shipyard",
+          "pct": -0.73
+        },
+        {
+          "name": "PI Industries",
+          "pct": 0.32
+        }
+      ],
+      "ath_count": 4,
+      "hi52_count": 5,
+      "lo52_count": 5
+    },
+    "Small Cap": {
+      "ath": [
+        {
+          "name": "Vijaya Diagnostic Centre",
+          "pct": 3.5037517486964354
+        },
+        {
+          "name": "Asahi India Glass",
+          "pct": 1.4298442869871364
+        },
+        {
+          "name": "Honasa Consumer",
+          "pct": -0.6113941639647901
+        }
+      ],
+      "hi52": [
+        {
+          "name": "PNB Housing Finance",
+          "pct": 0.2626673445178706
+        },
+        {
+          "name": "Poonawalla Fincorp",
+          "pct": -0.7634325473521322
+        }
+      ],
+      "lo52": [
+        {
+          "name": "Kaynes Technology India",
+          "pct": -3.9515841936632254
+        },
+        {
+          "name": "Inox Wind",
+          "pct": -2.4953445065176973
+        }
+      ],
+      "ath_count": 3,
+      "hi52_count": 5,
+      "lo52_count": 2
+    },
+    "Micro Cap": {
+      "ath": [],
+      "hi52": [
+        {
+          "name": "Greaves Cotton",
+          "pct": 14.977891725188572
+        },
+        {
+          "name": "DCB Bank",
+          "pct": 1.5592821418064051
+        },
+        {
+          "name": "PDS",
+          "pct": 1.3793103448275834
+        }
+      ],
+      "lo52": [
+        {
+          "name": "ION Exchange",
+          "pct": -4.570928196147114
+        },
+        {
+          "name": "Shree Renuka Sugars",
+          "pct": -3.383027522935779
+        },
+        {
+          "name": "Praj Industries",
+          "pct": -1.9624757386241032
+        },
+        {
+          "name": "Happiest Minds Technologies",
+          "pct": -0.9097150703741964
+        },
+        {
+          "name": "Vaibhav Global",
+          "pct": 0.5722000771505817
+        },
+        {
+          "name": "Borosil Renewables",
+          "pct": 1.3264050321345613
+        }
+      ],
+      "ath_count": 0,
+      "hi52_count": 3,
+      "lo52_count": 6
+    }
+  }
+}
