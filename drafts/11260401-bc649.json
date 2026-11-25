@@ -1,0 +1,80 @@
+{
+  "id": "11260401-bc649",
+  "kind": "insight",
+  "created": "2026-11-26T04:01:16.150141+05:30",
+  "images": [
+    "media/2026-11-26/insight-040116-50eb_1.jpg",
+    "media/2026-11-26/insight-040116-50eb_2.jpg",
+    "media/2026-11-26/insight-040116-50eb_3.jpg",
+    "media/2026-11-26/insight-040116-50eb_4.jpg"
+  ],
+  "caption": "Stock market India | Sector scorecard: 1 week, 1 month, 1 year\n\nHow NSE sector indices have moved, as of 26 November 2026, sorted by 1-month change.\n\nNifty Realty: +20.10% in 1 month, +4.51% in 1 year\nNifty PSU Bank: +18.89% in 1 month, +13.06% in 1 year\nNifty Financial Services: +17.87% in 1 month, +4.95% in 1 year\nNifty FMCG: +17.49% in 1 month, -8.92% in 1 year\nNifty Bank: +17.34% in 1 month, +8.30% in 1 year\nNifty Capital Markets: +16.68% in 1 month, +22.45% in 1 year\nNifty Auto: +15.92% in 1 month, +5.27% in 1 year\nNifty Healthcare: +15.71% in 1 month, +20.30% in 1 year\nNifty Pharma: +14.34% in 1 month, +28.20% in 1 year\nNifty Consumer Durables: +13.98% in 1 month, +3.26% in 1 year\nNifty Oil & Gas: +10.00% in 1 month, -4.86% in 1 year\nNifty Media: +6.91% in 1 month, +17.30% in 1 year\nNifty Energy: +6.23% in 1 month, +3.73% in 1 year\nNifty India Defence: +4.22% in 1 month, +12.59% in 1 year\nNifty Metal: +0.87% in 1 month, +14.94% in 1 year\nNifty IT: +0.66% in 1 month, -12.54% in 1 year\nNifty 50: +14.24% in 1 month, -0.25% in 1 year\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #SectorRotation #Nifty50 #NiftyIT #TickerMarketIndia",
+  "threads_text": "Stock market India | Sector scorecard: 1 week, 1 month, 1 year\n\nHow NSE sector indices have moved, as of 26 November 2026, sorted by 1-month change.\n\n#StockMarketIndia #SectorRotation #Nifty50 #NiftyIT #TickerMarketIndia",
+  "report": [
+    [
+      "warn",
+      "NIFTY IT: NSE 1-month 0.66% vs own month-ago level -0.20%"
+    ],
+    [
+      "warn",
+      "NIFTY IT: Yahoo level 31850.80 vs NSE 32207.55"
+    ],
+    [
+      "warn",
+      "NIFTY BANK: Yahoo level 62585.35 vs NSE 63703.25"
+    ],
+    [
+      "warn",
+      "NIFTY AUTO: Yahoo level 28490.70 vs NSE 28821.50"
+    ],
+    [
+      "warn",
+      "NIFTY PHARMA: NSE 1-month 14.34% vs own month-ago level 12.37%"
+    ],
+    [
+      "warn",
+      "NIFTY PHARMA: Yahoo level 28288.85 vs NSE 28961.90"
+    ],
+    [
+      "warn",
+      "NIFTY FMCG: Yahoo level 48312.55 vs NSE 50143.50"
+    ],
+    [
+      "warn",
+      "NIFTY METAL: NSE 1-month 0.87% vs own month-ago level -1.30%"
+    ],
+    [
+      "warn",
+      "NIFTY METAL: Yahoo level 11819.25 vs NSE 11578.50"
+    ],
+    [
+      "warn",
+      "NIFTY REALTY: NSE 1-month 20.10% vs own month-ago level 19.29%"
+    ],
+    [
+      "ok",
+      "17 indices with 1-week, 1-month and 1-year change from NSE"
+    ],
+    [
+      "ok",
+      "caption: all 74 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {},
+  "telegram_message_id": 1055,
+  "posted": {},
+  "report_text": "⚠️ NIFTY IT: NSE 1-month 0.66% vs own month-ago level -0.20%\n⚠️ NIFTY IT: Yahoo level 31850.80 vs NSE 32207.55\n⚠️ NIFTY BANK: Yahoo level 62585.35 vs NSE 63703.25\n⚠️ NIFTY AUTO: Yahoo level 28490.70 vs NSE 28821.50\n⚠️ NIFTY PHARMA: NSE 1-month 14.34% vs own month-ago level 12.37%\n⚠️ NIFTY PHARMA: Yahoo level 28288.85 vs NSE 28961.90\n⚠️ NIFTY FMCG: Yahoo level 48312.55 vs NSE 50143.50\n⚠️ NIFTY METAL: NSE 1-month 0.87% vs own month-ago level -1.30%\n⚠️ NIFTY METAL: Yahoo level 11819.25 vs NSE 11578.50\n⚠️ NIFTY REALTY: NSE 1-month 20.10% vs own month-ago level 19.29%\n✅ 17 indices with 1-week, 1-month and 1-year change from NSE\n✅ caption: all 74 numbers match source data\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market India",
+  "alt_text": "Stock market India: Ticker Market India carousel - Sector scorecard: 1 week, 1 month, 1 year",
+  "telegram_media_ids": [
+    1051,
+    1052,
+    1053,
+    1054
+  ]
+}
