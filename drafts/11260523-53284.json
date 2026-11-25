@@ -1,0 +1,69 @@
+{
+  "id": "11260523-53284",
+  "kind": "news",
+  "created": "2026-11-26T05:23:42.519330+05:30",
+  "images": [
+    "media/2026-11-26/news-052342-bc9c_1.jpg"
+  ],
+  "caption": "Stock market news | RBI flags broad food inflation and net dollar buyer status\n\nRBI's latest bulletin notes that food price inflation remains broad, signalling continued pressure on consumer costs. It also recorded a net purchase of foreign dollars in September, reflecting active currency market management.\nThese developments highlight the central bank's focus on stabilising prices and the rupee, which can influence borrowing costs and market sentiment.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #RBI #IndiaEconomy #Inflation #TickerMarketIndia",
+  "threads_text": "Stock market news | RBI flags broad food inflation and net dollar buyer status\n\nRBI's latest bulletin notes that food price inflation remains broad, signalling continued pressure on consumer costs. It also recorded a net purchase of foreign dollars in September, reflecting active currency market management.\n\n#StockMarketIndia #RBI #IndiaEconomy #Inflation #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "reported by a trusted outlet: Reuters"
+    ],
+    [
+      "ok",
+      "fresh: newest source 9.9 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 2 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMixwFBVV95cUxPU0hxckhBM1hYZ2wzV2hyRFZ2cF9Ud3Nja0VJcjRMbWJibVZfWDM0OHQwcFpTVWE4TWxwV2swbExTeHRab3hzZHJGc1p6ZnEyLVFJLTdSWVU2RWNmSHFHeXBzTEpDQzBUUktOTk5FZXhpa3NHaEZXS2pMTk41T0ktaUxLLVR1RDZieTBYZWl4a21ITm9oS0VyZWQ0c2xTYkZhbllfV2YxLUpZckRWZ1NUdHlaOWJ6NEZYc1d0N1h2SzNjZGdEaGVV?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Economy",
+      "date_text": "Wed, 25 Nov 2026",
+      "theme": "market_up",
+      "seed": "broad bulletin buyer dollar food inflation net pressures",
+      "tone": "up",
+      "quotes": [],
+      "label": "RBI POLICY",
+      "headline": "RBI flags *broad food inflation* and *net dollar buyer* status",
+      "points": [
+        "RBI reports broad food inflation pressures across categories",
+        "RBI was a net buyer of dollars in September",
+        "The bulletin was released by RBI on 25 November 2026"
+      ],
+      "source": "Reuters"
+    },
+    "news_sector": "economy",
+    "photo_prompt": "A close‑up of fresh vegetables piled on a market stall with price tags attached, showing the variety of produce."
+  },
+  "telegram_message_id": 1057,
+  "posted": {},
+  "report_text": "✅ reported by a trusted outlet: Reuters\n✅ fresh: newest source 9.9 h old\n✅ headline/banner/points/body: all 2 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMixwFBVV95cUxPU0hxckhBM1hYZ2wzV2hyRFZ2cF9Ud3Nja0VJcjRMbWJibVZfWDM0OHQwcFpTVWE4TWxwV2swbExTeHRab3hzZHJGc1p6ZnEyLVFJLTdSWVU2RWNmSHFHeXBzTEpDQzBUUktOTk5FZXhpa3NHaEZXS2pMTk41T0ktaUxLLVR1RDZieTBYZWl4a21ITm9oS0VyZWQ0c2xTYkZhbllfV2YxLUpZckRWZ1NUdHlaOWJ6NEZYc1d0N1h2SzNjZGdEaGVV?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - RBI flags broad food inflation and net dollar buyer status",
+  "telegram_media_ids": [
+    1056
+  ]
+}
