@@ -24,10 +24,13 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "auto",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 971,
-  "posted": {},
+  "posted": {
+    "instagram": "18192380557411397",
+    "facebook": "1374383985767580_122111976813544503"
+  },
   "report_text": "✅ IPO details from NSE issue page: FOODLINK\n✅ caption: all 7 numbers match source data\n✅ no advice, prediction or rumour language",
   "topic_keyword": "IPO news",
   "alt_text": "IPO news: Ticker Market India carousel - Foodlink F&B Holdings (India) IPO opens 26 Nov",
@@ -36,5 +39,6 @@
     968,
     969,
     970
-  ]
+  ],
+  "posted_at": "2026-11-25T09:26:10.305495+05:30"
 }
