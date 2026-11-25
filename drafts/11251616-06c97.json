@@ -1,0 +1,81 @@
+{
+  "id": "11251616-06c97",
+  "kind": "cap_movers",
+  "created": "2026-11-25T16:16:20.935836+05:30",
+  "images": [
+    "media/2026-11-25/cap_movers-161620-abd0_1.jpg",
+    "media/2026-11-25/cap_movers-161620-abd0_2.jpg",
+    "media/2026-11-25/cap_movers-161620-abd0_3.jpg",
+    "media/2026-11-25/cap_movers-161620-abd0_4.jpg",
+    "media/2026-11-25/cap_movers-161620-abd0_5.jpg",
+    "media/2026-11-25/cap_movers-161620-abd0_6.jpg",
+    "media/2026-11-25/cap_movers-161620-abd0_7.jpg",
+    "media/2026-11-25/cap_movers-161620-abd0_8.jpg"
+  ],
+  "caption": "Top gainers and losers by market cap: 25 November 2026\n\nLarge Cap: top gainer HUL (+6.08%), top loser Adani Energy (-4.22%).\nMid Cap: top gainer Dabur (+7.77%), top loser APL Apollo Tubes (-11.62%).\nSmall Cap: top gainer Jupiter Wagons (+20.00%), top loser Sun TV Network (-9.21%).\nMicro Cap: top gainer Thomas Cook (+15.62%), top loser SG Mart (-20.00%).\n\nGroups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the top 5 in each group.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #TopGainers #TopLosers #SmallCap #TickerMarketIndia",
+  "threads_text": "Top gainers and losers by market cap: 25 November 2026\n\nLarge Cap: top gainer HUL (+6.08%), top loser Adani Energy (-4.22%).\nMid Cap: top gainer Dabur (+7.77%), top loser APL Apollo Tubes (-11.62%).\nSmall Cap: top gainer Jupiter Wagons (+20.00%), top loser Sun TV Network (-9.21%).\nMicro Cap: top gainer Thomas Cook (+15.62%), top loser SG Mart (-20.00%).\n\n#StockMarketIndia #TopGainers #TopLosers #SmallCap #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed"
+    ],
+    [
+      "ok",
+      "Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed"
+    ],
+    [
+      "warn",
+      "Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)"
+    ],
+    [
+      "warn",
+      "Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)"
+    ],
+    [
+      "ok",
+      "caption: all 11 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "awaiting_fii": "2026-11-25",
+    "allowed": [
+      25,
+      2026,
+      5,
+      6.08,
+      4.22,
+      7.77,
+      11.62,
+      19.99568477264147,
+      9.214790807307006,
+      15.619445088492162,
+      19.99903549382715
+    ],
+    "headline": "Top gainers and losers by market cap: 25 November 2026",
+    "paras": [
+      "Large Cap: top gainer HUL (+6.08%), top loser Adani Energy (-4.22%).\nMid Cap: top gainer Dabur (+7.77%), top loser APL Apollo Tubes (-11.62%).\nSmall Cap: top gainer Jupiter Wagons (+20.00%), top loser Sun TV Network (-9.21%).\nMicro Cap: top gainer Thomas Cook (+15.62%), top loser SG Mart (-20.00%).",
+      "Groups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the top 5 in each group."
+    ],
+    "n_content": 6
+  },
+  "telegram_message_id": 995,
+  "posted": {},
+  "report_text": "✅ Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed\n⚠️ Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n⚠️ Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n✅ caption: all 11 numbers match source data\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Top gainers and losers today",
+  "alt_text": "Top gainers and losers today: Ticker Market India carousel - Top gainers and losers by market cap: 25 November 2026",
+  "telegram_media_ids": [
+    987,
+    988,
+    989,
+    990,
+    991,
+    992,
+    993,
+    994
+  ]
+}

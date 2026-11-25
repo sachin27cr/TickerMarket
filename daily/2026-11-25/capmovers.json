@@ -1,0 +1,314 @@
+{
+  "Large Cap": {
+    "gainers": [
+      {
+        "symbol": "HINDUNILVR",
+        "last": 2141.8,
+        "chg": 122.7,
+        "pct": 6.08,
+        "prev": 2019.1,
+        "year_high": 2488.0,
+        "year_low": 1758.2,
+        "day_high": 2141.8,
+        "day_low": 2027.0,
+        "name": "HUL"
+      },
+      {
+        "symbol": "GODREJCP",
+        "last": 963.0,
+        "chg": 50.7,
+        "pct": 5.56,
+        "prev": 912.3,
+        "year_high": 1273.9,
+        "year_low": 777.2,
+        "day_high": 963.0,
+        "day_low": 911.95,
+        "name": "Godrej Consumer"
+      },
+      {
+        "symbol": "DMART",
+        "last": 3592.0,
+        "chg": 186.6,
+        "pct": 5.48,
+        "prev": 3405.4,
+        "year_high": 4644.0,
+        "year_low": 3102.3,
+        "day_high": 3592.0,
+        "day_low": 3426.0,
+        "name": "DMart"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "ADANIENSOL",
+        "last": 1408.0,
+        "chg": -62.0,
+        "pct": -4.22,
+        "prev": 1470.0,
+        "year_high": 1789.0,
+        "year_low": 803.1,
+        "day_high": 1494.6,
+        "day_low": 1400.7,
+        "name": "Adani Energy"
+      },
+      {
+        "symbol": "VAML",
+        "last": 350.15,
+        "chg": -11.75,
+        "pct": -3.25,
+        "prev": 361.9,
+        "year_high": 537.0,
+        "year_low": 334.0,
+        "day_high": 360.0,
+        "day_low": 349.0,
+        "name": "Vedanta Aluminium Metal"
+      },
+      {
+        "symbol": "TMCV",
+        "last": 441.6,
+        "chg": -12.2,
+        "pct": -2.69,
+        "prev": 453.8,
+        "year_high": 509.0,
+        "year_low": 310.05,
+        "day_high": 464.0,
+        "day_low": 440.0,
+        "name": "Tata Motors"
+      }
+    ]
+  },
+  "Mid Cap": {
+    "gainers": [
+      {
+        "symbol": "DABUR",
+        "last": 430.0,
+        "chg": 31.0,
+        "pct": 7.77,
+        "prev": 399.0,
+        "year_high": 534.0,
+        "year_low": 354.3,
+        "day_high": 433.6,
+        "day_low": 401.45,
+        "name": "Dabur"
+      },
+      {
+        "symbol": "COLPAL",
+        "last": 1825.0,
+        "chg": 69.5,
+        "pct": 3.96,
+        "prev": 1755.5,
+        "year_high": 2301.6,
+        "year_low": 1563.9,
+        "day_high": 1825.0,
+        "day_low": 1763.3,
+        "name": "Colgate"
+      },
+      {
+        "symbol": "ENDURANCE",
+        "last": 2657.0,
+        "chg": 101.1,
+        "pct": 3.96,
+        "prev": 2555.9,
+        "year_high": 3072.0,
+        "year_low": 2142.8,
+        "day_high": 2665.0,
+        "day_low": 2536.0,
+        "name": "Endurance Technologies"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "APLAPOLLO",
+        "last": 1476.0,
+        "chg": -194.0,
+        "pct": -11.62,
+        "prev": 1670.0,
+        "year_high": 2312.3,
+        "year_low": 1342.2,
+        "day_high": 1549.0,
+        "day_low": 1342.2,
+        "name": "APL Apollo Tubes"
+      },
+      {
+        "symbol": "IREDA",
+        "last": 124.75,
+        "chg": -7.45,
+        "pct": -5.64,
+        "prev": 132.2,
+        "year_high": 149.48,
+        "year_low": 98.78,
+        "day_high": 131.5,
+        "day_low": 124.41,
+        "name": "IREDA"
+      },
+      {
+        "symbol": "LLOYDSME",
+        "last": 1606.9,
+        "chg": -93.2,
+        "pct": -5.48,
+        "prev": 1700.1,
+        "year_high": 2125.0,
+        "year_low": 1042.9,
+        "day_high": 1708.8,
+        "day_low": 1596.7,
+        "name": "Lloyds Metals And Energy"
+      }
+    ]
+  },
+  "Small Cap": {
+    "gainers": [
+      {
+        "symbol": "JWL",
+        "last": 222.46,
+        "prev": 185.39,
+        "chg": 37.07,
+        "pct": 19.99568477264147,
+        "day_high": 222.4600067138672,
+        "day_low": 191.1699981689453,
+        "year_high": 358.25,
+        "year_low": 169.0800018310547,
+        "name": "Jupiter Wagons"
+      },
+      {
+        "symbol": "CANHLIFE",
+        "last": 132.96,
+        "prev": 124.52,
+        "chg": 8.44,
+        "pct": 6.778027626084173,
+        "day_high": 134.58999633789062,
+        "day_low": 123.5,
+        "year_high": 166.69000244140625,
+        "year_low": 117.72000122070312,
+        "name": "CANHLIFE"
+      },
+      {
+        "symbol": "J&KBANK",
+        "last": 155.32,
+        "prev": 146.73,
+        "chg": 8.59,
+        "pct": 5.854290192871263,
+        "day_high": 157.0,
+        "day_low": 146.77000427246094,
+        "year_high": 201.75,
+        "year_low": 97.3499984741211,
+        "name": "Jammu & Kashmir Bank"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "SUNTV",
+        "last": 616.25,
+        "prev": 678.8,
+        "chg": -62.55,
+        "pct": -9.214790807307006,
+        "day_high": 680.7999877929688,
+        "day_low": 613.4000244140625,
+        "year_high": 713.8499755859375,
+        "year_low": 447.20001220703125,
+        "name": "Sun TV Network"
+      },
+      {
+        "symbol": "ITI",
+        "last": 257.6,
+        "prev": 276.21,
+        "chg": -18.61,
+        "pct": -6.737627167734679,
+        "day_high": 270.2699890136719,
+        "day_low": 254.1999969482422,
+        "year_high": 331.75,
+        "year_low": 210.75999450683594,
+        "name": "ITI"
+      },
+      {
+        "symbol": "ZEEL",
+        "last": 67.21,
+        "prev": 71.64,
+        "chg": -4.43,
+        "pct": -6.183696259073153,
+        "day_high": 69.98999786376953,
+        "day_low": 66.33000183105469,
+        "year_high": 118.3499984741211,
+        "year_low": 60.599998474121094,
+        "name": "Zee Entertainment Enterprises"
+      }
+    ]
+  },
+  "Micro Cap": {
+    "gainers": [
+      {
+        "symbol": "THOMASCOOK",
+        "last": 149.6,
+        "prev": 129.39,
+        "chg": 20.21,
+        "pct": 15.619445088492162,
+        "day_high": 155.0,
+        "day_low": 127.54000091552734,
+        "year_high": 155.2100067138672,
+        "year_low": 85.25,
+        "name": "Thomas Cook"
+      },
+      {
+        "symbol": "GREAVESCOT",
+        "last": 309.44,
+        "prev": 269.13,
+        "chg": 40.31,
+        "pct": 14.977891725188572,
+        "day_high": 315.0,
+        "day_low": 267.4599914550781,
+        "year_high": 315.0,
+        "year_low": 119.98999786376953,
+        "name": "Greaves Cotton"
+      },
+      {
+        "symbol": "ABFRL",
+        "last": 39.88,
+        "prev": 37.84,
+        "chg": 2.04,
+        "pct": 5.391120507399575,
+        "day_high": 41.849998474121094,
+        "day_low": 37.849998474121094,
+        "year_high": 79.45999908447266,
+        "year_low": 35.79999923706055,
+        "name": "ABFRL"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "SGMART",
+        "last": 829.45,
+        "prev": 1036.8,
+        "chg": -207.35,
+        "pct": -19.99903549382715,
+        "day_high": 948.7000122070312,
+        "day_low": 829.4500122070312,
+        "year_high": 1254.4000244140625,
+        "year_low": 313.1000061035156,
+        "name": "SG Mart"
+      },
+      {
+        "symbol": "NAZARA",
+        "last": 377.45,
+        "prev": 409.95,
+        "chg": -32.5,
+        "pct": -7.927796072691792,
+        "day_high": 413.0,
+        "day_low": 372.54998779296875,
+        "year_high": 435.25,
+        "year_low": 215.6999969482422,
+        "name": "Nazara Technologies"
+      },
+      {
+        "symbol": "INDIAGLYCO",
+        "last": 272.15,
+        "prev": 294.85,
+        "chg": -22.7,
+        "pct": -7.698829913515362,
+        "day_high": 289.3500061035156,
+        "day_low": 269.1499938964844,
+        "year_high": 1219.0,
+        "year_low": 217.0,
+        "name": "India Glycols"
+      }
+    ]
+  }
+}
