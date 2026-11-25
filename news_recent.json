@@ -1,85 +1,5 @@
 [
   {
-    "when": "2026-11-23T21:20:25.472998+05:30",
-    "title": "Tata Sons postpones November 26 board meeting as question of going public continues to remain unsolved",
-    "bucket": null,
-    "lead": [
-      "board",
-      "continues",
-      "going",
-      "meeting",
-      "november",
-      "postpones",
-      "public",
-      "question",
-      "remain",
-      "sons",
-      "tata",
-      "unsolved"
-    ],
-    "tokens": [
-      "board",
-      "concerns",
-      "deferred",
-      "listing",
-      "meet",
-      "meeting",
-      "noel",
-      "nov",
-      "november",
-      "objection",
-      "pushes",
-      "sons",
-      "tata"
-    ]
-  },
-  {
-    "when": "2026-11-23T21:33:08.803055+05:30",
-    "title": "PSU bank stocks tumble up to 5% after five-day rally, Nifty PSU Bank index crashes 3.2%; what's behind the sell-off?",
-    "bucket": null,
-    "lead": [
-      "bank",
-      "behind",
-      "crashes",
-      "five",
-      "index",
-      "nifty",
-      "off",
-      "psu",
-      "rally",
-      "sell",
-      "tumble",
-      "what"
-    ],
-    "tokens": [
-      "435",
-      "booking",
-      "crash",
-      "crore",
-      "falls",
-      "here",
-      "investor",
-      "investors",
-      "lakh",
-      "lose",
-      "massive",
-      "nearly",
-      "nifty",
-      "off",
-      "out",
-      "points",
-      "profit",
-      "sell",
-      "sensex",
-      "triggered",
-      "tumble",
-      "wealth",
-      "what",
-      "why",
-      "wiped"
-    ]
-  },
-  {
     "when": "2026-11-24T00:45:20.150370+05:30",
     "title": "RBI proposes new rules to protect bank accounts from fraud; here's how Stop Switch and trusted person approval work",
     "bucket": "rbi_rates",
@@ -1126,6 +1046,107 @@
       "sensex",
       "soar",
       "trade"
+    ]
+  },
+  {
+    "when": "2026-11-25T23:40:07.679747+05:30",
+    "title": "RBI net buyer of dollars for fourth straight month in September, data shows",
+    "bucket": "rbi_rates",
+    "lead": [
+      "buyer",
+      "data",
+      "dollars",
+      "fourth",
+      "month",
+      "net",
+      "rbi",
+      "september",
+      "shows",
+      "straight"
+    ],
+    "tokens": [
+      "billion",
+      "bought",
+      "buyer",
+      "buying",
+      "buys",
+      "dollars",
+      "forex",
+      "fourth",
+      "month",
+      "net",
+      "purchases",
+      "rbi",
+      "remains",
+      "september",
+      "straight"
+    ]
+  },
+  {
+    "when": "2026-11-25T23:40:29.448633+05:30",
+    "title": "Sebi mulls early payout of up to 80% of sale proceeds to FPOs in commodity derivatives market",
+    "bucket": null,
+    "lead": [
+      "commodity",
+      "derivatives",
+      "early",
+      "fpos",
+      "mulls",
+      "payout",
+      "proceeds",
+      "sale",
+      "sebi"
+    ],
+    "tokens": [
+      "commodity",
+      "derivatives",
+      "early",
+      "facility",
+      "fpos",
+      "mulls",
+      "payout",
+      "proceeds",
+      "proposes",
+      "sale",
+      "sebi"
+    ]
+  },
+  {
+    "when": "2026-11-25T23:41:06.048843+05:30",
+    "title": "Why APL Apollo Tubes shares crashed 15% today to plunge at 52-week low; downgrade from brokerages after Tata Steel deal",
+    "bucket": null,
+    "lead": [
+      "apl",
+      "apollo",
+      "brokerages",
+      "crashed",
+      "deal",
+      "downgrade",
+      "low",
+      "plunge",
+      "steel",
+      "tata",
+      "tubes",
+      "why"
+    ],
+    "tokens": [
+      "000",
+      "apl",
+      "apollo",
+      "brokerages",
+      "cautious",
+      "crashed",
+      "deal",
+      "downgrade",
+      "falls",
+      "low",
+      "plunge",
+      "rise",
+      "steel",
+      "tata",
+      "tubes",
+      "turn",
+      "why"
     ]
   }
 ]
