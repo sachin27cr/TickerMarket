@@ -1,122 +1,5 @@
 [
   {
-    "when": "2026-11-24T00:45:20.150370+05:30",
-    "title": "RBI proposes new rules to protect bank accounts from fraud; here's how Stop Switch and trusted person approval work",
-    "bucket": "rbi_rates",
-    "lead": [
-      "accounts",
-      "approval",
-      "bank",
-      "fraud",
-      "here",
-      "how",
-      "person",
-      "proposes",
-      "protect",
-      "rbi",
-      "rules",
-      "stop",
-      "switch",
-      "trusted",
-      "work"
-    ],
-    "tokens": [
-      "accounts",
-      "approval",
-      "bank",
-      "banking",
-      "curb",
-      "digital",
-      "emergency",
-      "fraud",
-      "here",
-      "how",
-      "large",
-      "liability",
-      "person",
-      "proposes",
-      "protect",
-      "rbi",
-      "rules",
-      "stop",
-      "switch",
-      "transfers",
-      "trusted",
-      "work"
-    ]
-  },
-  {
-    "when": "2026-11-24T00:54:07.923296+05:30",
-    "title": "Tech Mahindra bonus issue record date out! Get 1 extra share for every share held- Check eligibility, ratio, returns",
-    "bucket": null,
-    "lead": [
-      "bonus",
-      "check",
-      "date",
-      "eligibility",
-      "every",
-      "extra",
-      "get",
-      "held",
-      "issue",
-      "mahindra",
-      "out",
-      "ratio",
-      "record",
-      "returns",
-      "tech"
-    ],
-    "tokens": [
-      "bonus",
-      "check",
-      "date",
-      "eligibility",
-      "every",
-      "extra",
-      "fixes",
-      "get",
-      "held",
-      "issue",
-      "know",
-      "lakh",
-      "mahindra",
-      "need",
-      "out",
-      "ratio",
-      "record",
-      "retail",
-      "returns",
-      "shareholders",
-      "tech",
-      "what"
-    ]
-  },
-  {
-    "when": "2026-11-24T00:54:37.234129+05:30",
-    "title": "Rupee reversal, debt supply drag India bonds in holiday-shortened week",
-    "bucket": "rupee_forex",
-    "lead": [
-      "bonds",
-      "debt",
-      "drag",
-      "holiday",
-      "reversal",
-      "rupee",
-      "shortened",
-      "supply"
-    ],
-    "tokens": [
-      "bonds",
-      "debt",
-      "drag",
-      "holiday",
-      "reversal",
-      "rupee",
-      "shortened",
-      "supply"
-    ]
-  },
-  {
     "when": "2026-11-24T05:19:55.294339+05:30",
     "title": "Nvidia soars 10% pre-market on Wall Street as Trump backs Jensen Huang's return",
     "bucket": "global",
@@ -1147,6 +1030,93 @@
       "tubes",
       "turn",
       "why"
+    ]
+  },
+  {
+    "when": "2026-11-26T03:15:37.552716+05:30",
+    "title": "IndiGo, BPCL, Asian Paints, other crude-sensitive shares rise up to 4% as Brent eases to $88",
+    "bucket": "crude_oil",
+    "lead": [
+      "asian",
+      "bpcl",
+      "brent",
+      "crude",
+      "eases",
+      "indigo",
+      "other",
+      "paints",
+      "rise",
+      "sensitive"
+    ],
+    "tokens": [
+      "asian",
+      "bpcl",
+      "brent",
+      "crude",
+      "eases",
+      "indigo",
+      "other",
+      "paints",
+      "rise",
+      "sensitive"
+    ]
+  },
+  {
+    "when": "2026-11-26T03:24:10.382472+05:30",
+    "title": "Fed monetary news linked to weaker rupee, higher G-sec yields: RBI study",
+    "bucket": "rupee_forex",
+    "lead": [
+      "fed",
+      "higher",
+      "linked",
+      "monetary",
+      "rbi",
+      "rupee",
+      "sec",
+      "study",
+      "weaker",
+      "yields"
+    ],
+    "tokens": [
+      "fed",
+      "higher",
+      "linked",
+      "monetary",
+      "rbi",
+      "rupee",
+      "sec",
+      "study",
+      "weaker",
+      "yields"
+    ]
+  },
+  {
+    "when": "2026-11-26T03:24:35.498462+05:30",
+    "title": "IPO on agenda: Tata Sons board to discuss listing plan at Monday's meeting",
+    "bucket": null,
+    "lead": [
+      "agenda",
+      "board",
+      "discuss",
+      "ipo",
+      "listing",
+      "meeting",
+      "monday",
+      "plan",
+      "sons",
+      "tata"
+    ],
+    "tokens": [
+      "agenda",
+      "board",
+      "discuss",
+      "ipo",
+      "listing",
+      "meeting",
+      "monday",
+      "plan",
+      "sons",
+      "tata"
     ]
   }
 ]
