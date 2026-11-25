@@ -53,12 +53,15 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "video": "media/2026-11-25/reel_morning-073803-778d.mp4"
   },
   "telegram_message_id": 957,
-  "posted": {},
+  "posted": {
+    "instagram": "18116654881879341",
+    "facebook": "1752335565832460"
+  },
   "video": "media/2026-11-25/reel_morning-073803-778d.mp4",
   "script": [
     "1. Stock market today. Crude slid 1.41 percent. FIIs bought 5,673 crore rupees. Your 60-second brief before the bell.",
@@ -75,5 +78,7 @@
   "topic_keyword": "Stock market today",
   "telegram_media_ids": [
     956
-  ]
+  ],
+  "approved_at": "2026-11-25T08:41:22.197285+05:30",
+  "posted_at": "2026-11-25T08:42:42.917827+05:30"
 }
