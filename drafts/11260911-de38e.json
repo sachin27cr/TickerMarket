@@ -24,10 +24,13 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "auto",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 1078,
-  "posted": {},
+  "posted": {
+    "instagram": "18082761593440531",
+    "facebook": "1374383985767580_122112390351544503"
+  },
   "report_text": "✅ IPO details from NSE issue page: AIRPRO\n✅ caption: all 6 numbers match source data\n✅ no advice, prediction or rumour language",
   "topic_keyword": "IPO news",
   "alt_text": "IPO news: Ticker Market India carousel - Airpro Technology India IPO opens 27 Nov",
@@ -36,5 +39,6 @@
     1075,
     1076,
     1077
-  ]
+  ],
+  "posted_at": "2026-11-26T09:26:17.819795+05:30"
 }
