@@ -1,0 +1,314 @@
+{
+  "Large Cap": {
+    "gainers": [
+      {
+        "symbol": "HCLTECH",
+        "last": 1468.6,
+        "chg": 88.6,
+        "pct": 6.42,
+        "prev": 1380.0,
+        "year_high": 1780.1,
+        "year_low": 1030.0,
+        "day_high": 1468.6,
+        "day_low": 1386.0,
+        "name": "HCLTech"
+      },
+      {
+        "symbol": "BSE",
+        "last": 3990.4,
+        "chg": 215.2,
+        "pct": 5.7,
+        "prev": 3775.2,
+        "year_high": 4446.8,
+        "year_low": 2377.4,
+        "day_high": 3998.0,
+        "day_low": 3808.9,
+        "name": "BSE"
+      },
+      {
+        "symbol": "TCS",
+        "last": 2640.3,
+        "chg": 123.0,
+        "pct": 4.89,
+        "prev": 2517.3,
+        "year_high": 3350.0,
+        "year_low": 1976.8,
+        "day_high": 2640.3,
+        "day_low": 2523.6,
+        "name": "TCS"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "ZYDUSLIFE",
+        "last": 1194.2,
+        "chg": -41.8,
+        "pct": -3.38,
+        "prev": 1236.0,
+        "year_high": 1266.6,
+        "year_low": 835.5,
+        "day_high": 1244.5,
+        "day_low": 1189.0,
+        "name": "Zydus"
+      },
+      {
+        "symbol": "ASIANPAINT",
+        "last": 2543.0,
+        "chg": -78.2,
+        "pct": -2.98,
+        "prev": 2621.2,
+        "year_high": 2985.7,
+        "year_low": 2115.0,
+        "day_high": 2623.8,
+        "day_low": 2540.1,
+        "name": "Asian Paints"
+      },
+      {
+        "symbol": "BAJFINANCE",
+        "last": 1097.85,
+        "chg": -33.5,
+        "pct": -2.96,
+        "prev": 1131.35,
+        "year_high": 1176.4,
+        "year_low": 787.9,
+        "day_high": 1125.35,
+        "day_low": 1097.85,
+        "name": "Bajaj Finance"
+      }
+    ]
+  },
+  "Mid Cap": {
+    "gainers": [
+      {
+        "symbol": "PRESTIGE",
+        "last": 1832.1,
+        "chg": 147.0,
+        "pct": 8.72,
+        "prev": 1685.1,
+        "year_high": 1840.7,
+        "year_low": 1090.0,
+        "day_high": 1840.7,
+        "day_low": 1675.0,
+        "name": "Prestige"
+      },
+      {
+        "symbol": "MCX",
+        "last": 3835.0,
+        "chg": 270.0,
+        "pct": 7.57,
+        "prev": 3565.0,
+        "year_high": 3865.0,
+        "year_low": 1950.0,
+        "day_high": 3865.0,
+        "day_low": 3591.0,
+        "name": "MCX"
+      },
+      {
+        "symbol": "FACT",
+        "last": 794.0,
+        "chg": 50.15,
+        "pct": 6.74,
+        "prev": 743.85,
+        "year_high": 1058.6,
+        "year_low": 652.1,
+        "day_high": 817.9,
+        "day_low": 746.2,
+        "name": "FACT"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "MAHABANK",
+        "last": 94.2,
+        "chg": -4.51,
+        "pct": -4.57,
+        "prev": 98.71,
+        "year_high": 100.7,
+        "year_low": 55.51,
+        "day_high": 99.75,
+        "day_low": 93.9,
+        "name": "Bank of Maharashtra"
+      },
+      {
+        "symbol": "LLOYDSME",
+        "last": 1538.5,
+        "chg": -67.5,
+        "pct": -4.2,
+        "prev": 1606.0,
+        "year_high": 2125.0,
+        "year_low": 1042.9,
+        "day_high": 1606.0,
+        "day_low": 1532.3,
+        "name": "Lloyds Metals And Energy"
+      },
+      {
+        "symbol": "DALBHARAT",
+        "last": 1530.1,
+        "chg": -56.7,
+        "pct": -3.57,
+        "prev": 1586.8,
+        "year_high": 2260.0,
+        "year_low": 1319.0,
+        "day_high": 1600.0,
+        "day_low": 1530.0,
+        "name": "Dalmia Bharat"
+      }
+    ]
+  },
+  "Small Cap": {
+    "gainers": [
+      {
+        "symbol": "ACE",
+        "last": 1295.0,
+        "prev": 1190.35,
+        "chg": 104.65,
+        "pct": 8.79153190238166,
+        "day_high": 1299.0,
+        "day_low": 1180.0,
+        "year_high": 1299.0,
+        "year_low": 745.0999755859375,
+        "name": "Action Construction Equipment"
+      },
+      {
+        "symbol": "HEGAM",
+        "last": 280.99,
+        "prev": 258.66,
+        "chg": 22.33,
+        "pct": 8.632954457589106,
+        "day_high": 291.8699951171875,
+        "day_low": 260.010009765625,
+        "year_high": 753.9000244140625,
+        "year_low": 191.7100067138672,
+        "name": "HEG Advanced Materials"
+      },
+      {
+        "symbol": "RUBICON",
+        "last": 1851.7,
+        "prev": 1711.6,
+        "chg": 140.1,
+        "pct": 8.185323673755558,
+        "day_high": 1858.9000244140625,
+        "day_low": 1697.5999755859375,
+        "year_high": 1899.0,
+        "year_low": 609.25,
+        "name": "Rubicon Research"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "INDIACEM",
+        "last": 309.75,
+        "prev": 323.95,
+        "chg": -14.2,
+        "pct": -4.383392498842411,
+        "day_high": 323.25,
+        "day_low": 308.0,
+        "year_high": 485.79998779296875,
+        "year_low": 286.5,
+        "name": "India Cements"
+      },
+      {
+        "symbol": "IKS",
+        "last": 1575.4,
+        "prev": 1644.9,
+        "chg": -69.5,
+        "pct": -4.225180862058483,
+        "day_high": 1649.300048828125,
+        "day_low": 1560.0999755859375,
+        "year_high": 1970.0,
+        "year_low": 1262.0,
+        "name": "Inventurus Knowledge Solutions"
+      },
+      {
+        "symbol": "PVRINOX",
+        "last": 1638.2,
+        "prev": 1709.3,
+        "chg": -71.1,
+        "pct": -4.15959749605101,
+        "day_high": 1720.0,
+        "day_low": 1626.0,
+        "year_high": 1747.0,
+        "year_low": 907.4000244140625,
+        "name": "PVR INOX"
+      }
+    ]
+  },
+  "Micro Cap": {
+    "gainers": [
+      {
+        "symbol": "SHAILY",
+        "last": 3379.6,
+        "prev": 2905.1,
+        "chg": 474.5,
+        "pct": 16.333344807407663,
+        "day_high": 3473.39990234375,
+        "day_low": 2919.39990234375,
+        "year_high": 3615.199951171875,
+        "year_low": 1770.9000244140625,
+        "name": "Shaily Engineering Plastics"
+      },
+      {
+        "symbol": "RENUKA",
+        "last": 18.59,
+        "prev": 16.85,
+        "chg": 1.74,
+        "pct": 10.326409495548951,
+        "day_high": 18.989999771118164,
+        "day_low": 16.90999984741211,
+        "year_high": 30.299999237060547,
+        "year_low": 16.6200008392334,
+        "name": "Shree Renuka Sugars"
+      },
+      {
+        "symbol": "ZAGGLE",
+        "last": 162.51,
+        "prev": 149.09,
+        "chg": 13.42,
+        "pct": 9.001274398014614,
+        "day_high": 168.02000427246094,
+        "day_low": 148.89999389648438,
+        "year_high": 397.0,
+        "year_low": 146.64999389648438,
+        "name": "Zaggle Prepaid Ocean Services"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "THOMASCOOK",
+        "last": 134.64,
+        "prev": 149.6,
+        "chg": -14.96,
+        "pct": -10.000000000000005,
+        "day_high": 147.99000549316406,
+        "day_low": 134.63999938964844,
+        "year_high": 155.0,
+        "year_low": 85.25,
+        "name": "Thomas Cook"
+      },
+      {
+        "symbol": "UJJIVANSFB",
+        "last": 56.87,
+        "prev": 60.75,
+        "chg": -3.88,
+        "pct": -6.386831275720168,
+        "day_high": 61.439998626708984,
+        "day_low": 56.529998779296875,
+        "year_high": 73.94000244140625,
+        "year_low": 49.2400016784668,
+        "name": "Ujjivan Small Finance Bank"
+      },
+      {
+        "symbol": "DCBBANK",
+        "last": 227.17,
+        "prev": 241.64,
+        "chg": -14.47,
+        "pct": -5.98824697897699,
+        "day_high": 242.1300048828125,
+        "day_low": 224.10000610351562,
+        "year_high": 242.99000549316406,
+        "year_low": 157.9499969482422,
+        "name": "DCB Bank"
+      }
+    ]
+  }
+}
