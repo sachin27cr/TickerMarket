@@ -1,0 +1,73 @@
+{
+  "id": "11261751-8057e",
+  "kind": "news",
+  "created": "2026-11-26T17:51:18.759646+05:30",
+  "images": [
+    "media/2026-11-26/news-175118-b118_1.jpg"
+  ],
+  "caption": "Stock market news | SEBI appoints forensic auditor in ₹3,535-crore Coffee Day case\n\nOn 26 November 2026, SEBI named a forensic auditor to examine the alleged ₹3,535-crore fund diversion by Coffee Day Enterprises, as directed by a tribunal.\nThe investigation will trace fund beneficiaries and review bank accounts, aiming to ensure market integrity and protect investors.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #SEBI #CoffeeDay #FundDiversion #TickerMarketIndia",
+  "threads_text": "Stock market news | SEBI appoints forensic auditor in ₹3,535-crore Coffee Day case\n\nOn 26 November 2026, SEBI named a forensic auditor to examine the alleged ₹3,535-crore fund diversion by Coffee Day Enterprises, as directed by a tribunal.\nThe investigation will trace fund beneficiaries and review bank accounts, aiming to ensure market integrity and protect investors.\n\nSave this for later and send it to a friend who trades.\n\n#StockMarketIndia #SEBI #CoffeeDay #FundDiversion #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: BusinessLine, cfo.economictimes.indiatimes.com"
+    ],
+    [
+      "ok",
+      "fresh: newest source 2.4 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 5 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (gemini): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "COFFEEDAY: NSE ₹27.92 vs Yahoo ₹28.12 - no price box"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.thehindubusinessline.com/markets/stock-markets/sebi-appoints-forensic-auditor-to-probe-alleged-3535-crore-coffee-day-fund-diversion/article71745772.ece | https://news.google.com/rss/articles/CBMi9gFBVV95cUxPTzVEYmV2QnhaUjZObmpXZlF5SjRwd3RDT2lwa1BKZDItTGhHOGpib0doSUxPdnV4UUJlWnRnMVpFRXc0SVZoT0xBTnJOaGFqYkRXeGl4WTRWUGhfeUVDeWwxQk94cTdKTlROVlB2VzRhdk5zUVI3blVmSzU2bzdrMzB5YTh0X2tzYmdCaURFdXh4TzVZbWNSaEZtc184ekJRMWZPdGo2aUlQUmZBaU9lZFlPTlFuSVhyMWdGVW1XU1k0SG8xM3JfV1FXeDNBTFl3NmR0TFFqbGs5a2lXYW1rOUlQVGkwNmpNTnZmdGRKaVVLX1FZWmfSAfwBQVVfeXFMTVI3ZmxVeGhtQVVhZTNqa0FKN285UjFmN1hVczhZc0xtZFJxOGdzNUtIU0FhaWFBQkNwcHVTcThnb1NoZWY0SklIdU82V2lZamU3VmVyVThxclpJSHRyNEh6NHlmd2NxVlRkS1RSRUZHdjhfRU5yQ2t5MmwxX0FBeVFqQXVGZmZPU1NjYTNDRk9ST3kwZF9ENmhXNGd6WGJUMG9ZM1NlWDRNdVpkQkFnU2lLeWtxRmlpYTNXWENjRXNqYmppQTJKS2dfaHFfRzdwU2hubmFGeG12RHdLRUFwLTJTc1hrcWcyQzZ0MU5KZkVoUHdydTRVcXdjQUxZ?oc=5 | https://news.google.com/rss/articles/CBMi3AFBVV95cUxPLXZFTE1UZ1ZoTFRYLXJOYWQ0eEVyTDlZMm05azFGOXlfcG1zX0ZHaWFFNVBNWmpqeWN5QXpGWjB2YXotTkEwNmpMQ2daR19Tc2Ewbnd6ZWg0b2YxSGxKc19XQXdQTXNuYWlMNC1CV0Y3aGoxTnRtbFRua2NLQzJobkFYWjNXdTEwN2k0cDdwanhTSDFoLWpLMU52T3NzeEZ5VC1kU3BBblB5UmxTQ0ZHRkx2TTZ6US1KLWRCalJBOG8yUmxrc1RnTlJZSnN5Q1ZfQ0pYTUxHSXRuaE1m0gHcAUFVX3lxTE8tdkVMTVRnVmhMVFgtck5hZDR4RXJMOVkybTlrMUY5eV9wbXNfRkdpYUU1UE1aamp5Y3lBekZaMHZhei1OQTA2akxDZ1pHX1NzYTBud3plaDRvZjFIbEpzX1dBd1BNc25haUw0LUJXRjdoajFOdG1sVG5rY0tDMmhuQVhaM1d1MTA3aTRwN3BqeFNIMWgtaksxTnZPc3N4RnlULWRTcEFuUHlSbFNDRkdGTHZNNnpRLUotZEJqUkE4bzJSbGtzVGdOUllKc3lDVl9DSlhNTEdJdG5oTWY?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Regulation",
+      "date_text": "Thu, 26 Nov 2026",
+      "theme": "market_up",
+      "seed": "535 alleged appoints auditor coffee crore diversion forensic",
+      "tone": null,
+      "quotes": [],
+      "label": "REGULATORY ACTION",
+      "headline": "SEBI appoints *forensic auditor* in *₹3,535-crore* Coffee Day case",
+      "points": [
+        "SEBI appointed a forensic auditor to investigate Coffee Day Enterprises fund diversion",
+        "The probe concerns alleged diversion of ₹3,535 crore",
+        "The appointment follows a tribunal directive to trace beneficiaries and examine bank accounts"
+      ],
+      "source": "BusinessLine, cfo.economictimes.indiatimes.com"
+    },
+    "news_sector": "economy",
+    "photo_prompt": "A close‑up of a forensic accountant’s desk with documents, spreadsheets and a magnifying glass beside a coffee cup."
+  },
+  "telegram_message_id": 1122,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: BusinessLine, cfo.economictimes.indiatimes.com\n✅ fresh: newest source 2.4 h old\n✅ headline/banner/points/body: all 5 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (gemini): every fact supported, not misleading, no advice\n⚠️ COFFEEDAY: NSE ₹27.92 vs Yahoo ₹28.12 - no price box\n✅ written by groq; sources: https://www.thehindubusinessline.com/markets/stock-markets/sebi-appoints-forensic-auditor-to-probe-alleged-3535-crore-coffee-day-fund-diversion/article71745772.ece | https://news.google.com/rss/articles/CBMi9gFBVV95cUxPTzVEYmV2QnhaUjZObmpXZlF5SjRwd3RDT2lwa1BKZDItTGhHOGpib0doSUxPdnV4UUJlWnRnMVpFRXc0SVZoT0xBTnJOaGFqYkRXeGl4WTRWUGhfeUVDeWwxQk94cTdKTlROVlB2VzRhdk5zUVI3blVmSzU2bzdrMzB5YTh0X2tzYmdCaURFdXh4TzVZbWNSaEZtc184ekJRMWZPdGo2aUlQUmZBaU9lZFlPTlFuSVhyMWdGVW1XU1k0SG8xM3JfV1FXeDNBTFl3NmR0TFFqbGs5a2lXYW1rOUlQVGkwNmpNTnZmdGRKaVVLX1FZWmfSAfwBQVVfeXFMTVI3ZmxVeGhtQVVhZTNqa0FKN285UjFmN1hVczhZc0xtZFJxOGdzNUtIU0FhaWFBQkNwcHVTcThnb1NoZWY0SklIdU82V2lZamU3VmVyVThxclpJSHRyNEh6NHlmd2NxVlRkS1RSRUZHdjhfRU5yQ2t5MmwxX0FBeVFqQXVGZmZPU1NjYTNDRk9ST3kwZF9ENmhXNGd6WGJUMG9ZM1NlWDRNdVpkQkFnU2lLeWtxRmlpYTNXWENjRXNqYmppQTJKS2dfaHFfRzdwU2hubmFGeG12RHdLRUFwLTJTc1hrcWcyQzZ0MU5KZkVoUHdydTRVcXdjQUxZ?oc=5 | https://news.google.com/rss/articles/CBMi3AFBVV95cUxPLXZFTE1UZ1ZoTFRYLXJOYWQ0eEVyTDlZMm05azFGOXlfcG1zX0ZHaWFFNVBNWmpqeWN5QXpGWjB2YXotTkEwNmpMQ2daR19Tc2Ewbnd6ZWg0b2YxSGxKc19XQXdQTXNuYWlMNC1CV0Y3aGoxTnRtbFRua2NLQzJobkFYWjNXdTEwN2k0cDdwanhTSDFoLWpLMU52T3NzeEZ5VC1kU3BBblB5UmxTQ0ZHRkx2TTZ6US1KLWRCalJBOG8yUmxrc1RnTlJZSnN5Q1ZfQ0pYTUxHSXRuaE1m0gHcAUFVX3lxTE8tdkVMTVRnVmhMVFgtck5hZDR4RXJMOVkybTlrMUY5eV9wbXNfRkdpYUU1UE1aamp5Y3lBekZaMHZhei1OQTA2akxDZ1pHX1NzYTBud3plaDRvZjFIbEpzX1dBd1BNc25haUw0LUJXRjdoajFOdG1sVG5rY0tDMmhuQVhaM1d1MTA3aTRwN3BqeFNIMWgtaksxTnZPc3N4RnlULWRTcEFuUHlSbFNDRkdGTHZNNnpRLUotZEJqUkE4bzJSbGtzVGdOUllKc3lDVl9DSlhNTEdJdG5oTWY?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - SEBI appoints forensic auditor in ₹3,535-crore Coffee Day case",
+  "telegram_media_ids": [
+    1121
+  ]
+}

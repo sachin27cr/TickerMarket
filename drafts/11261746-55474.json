@@ -1,0 +1,69 @@
+{
+  "id": "11261746-55474",
+  "kind": "news",
+  "created": "2026-11-26T17:46:32.478285+05:30",
+  "images": [
+    "media/2026-11-26/news-174632-0e46_1.jpg"
+  ],
+  "caption": "Stock market news | Nifty faces resistance near 26,000 as 26,023 gap up\n\nThe Nifty index met resistance close to the *26,000* mark, with the Gift Nifty quoted at *26,023*, pointing to an opening gap of roughly *100* points. Foreign portfolio investors are buying, and global market cues are key drivers, so the resistance level may shape short-term market direction.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Nifty #IndianMarkets #StockWatch #TickerMarketIndia",
+  "threads_text": "Stock market news | Nifty faces resistance near 26,000 as 26,023 gap up\n\nThe Nifty index met resistance close to the *26,000* mark, with the Gift Nifty quoted at *26,023*, pointing to an opening gap of roughly *100* points. Foreign portfolio investors are buying, and global market cues are key drivers, so the resistance level may shape short-term market direction.\n\nSave this for later and send it to a friend who trades.\n\n#StockMarketIndia #Nifty #IndianMarkets #StockWatch #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: BusinessLine, Moneycontrol.com"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.5 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 8 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMi_AFBVV95cUxPTTdaVFM4U1FDcnFUcEY4UVo1MHBvMWQwYW56WWNWSFJzZng5OVNzcVdQaGQwQTVQejYySnVYNnJkZ0NGcFBXcC1wdUJKREpSOFJPX3FqRndMSkR5ei1Jb2tPMlhqQ28wOWJiaUU5RXlWZUVtd244TkZPTEEyY0xzaUFzTVJfM2tuWWJiQkxDUHZuSW91M0lJX0pGU3VOekUzY19BMHpQdWFzczFQU09IWk5rYnBmNFM3N2FQWTRXMmdnUmFLdWNyNWtqQzZkVHVqVjFWdTRNU2REaHZMOG5ObEN6bTR1anlnb2ZZY282bWJ2Tk9hREkwWkkxY3XSAYICQVVfeXFMTmw4N3NTVUxEakIzaFFDM01yZGNQd0pWUGRxUzVYeUdyWDlZRHFnY0xSUUFZTW51T0JkU1h4MG12RndKV0tSYy1aSGhFZ0pvcHpDckwwalBRR0xzc3QzdXQ5UTl2VEFCQmNoZERUcTJpX3RNeFluVFd0Z0M0NDZ4MEtmU1d0NElDbDNGTXFKcEx0LXJub2ZvMWpOY1pEdk1uNDZ0XzBkY0VyOWVVaGNZZEZNbDhOdHBTV3lBTG80NGlKcER5SlVqbC05N1pnd1d6a3ltUkJKOGRZOXpTcDR6b2JvOUI2TTlLdl8yLTdqMl9hc1VPclNfZHRvY3RXWm1QZktn?oc=5 | https://www.thehindubusinessline.com/markets/will-nifty-cross-26000-today-fpi-inflows-global-cues-in-focus/article71745061.ece"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Market News",
+      "date_text": "Thu, 26 Nov 2026",
+      "theme": "market_up",
+      "seed": "000 check faces headed key levels mark near",
+      "tone": null,
+      "quotes": [],
+      "label": "MARKET RESISTANCE",
+      "headline": "Nifty *faces* resistance near *26,000* as *26,023* gap up",
+      "points": [
+        "Nifty encounters resistance around the *26,000* level.",
+        "Gift Nifty at *26,023* suggests a gap up of ~100 points.",
+        "Foreign portfolio investors buying and global cues influence the move."
+      ],
+      "source": "BusinessLine, Moneycontrol.com"
+    },
+    "news_sector": "markets",
+    "photo_prompt": "A trading screen displaying rising index numbers on a modern office wall, with blurred background of market monitors."
+  },
+  "telegram_message_id": 1120,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: BusinessLine, Moneycontrol.com\n✅ fresh: newest source 0.5 h old\n✅ headline/banner/points/body: all 8 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMi_AFBVV95cUxPTTdaVFM4U1FDcnFUcEY4UVo1MHBvMWQwYW56WWNWSFJzZng5OVNzcVdQaGQwQTVQejYySnVYNnJkZ0NGcFBXcC1wdUJKREpSOFJPX3FqRndMSkR5ei1Jb2tPMlhqQ28wOWJiaUU5RXlWZUVtd244TkZPTEEyY0xzaUFzTVJfM2tuWWJiQkxDUHZuSW91M0lJX0pGU3VOekUzY19BMHpQdWFzczFQU09IWk5rYnBmNFM3N2FQWTRXMmdnUmFLdWNyNWtqQzZkVHVqVjFWdTRNU2REaHZMOG5ObEN6bTR1anlnb2ZZY282bWJ2Tk9hREkwWkkxY3XSAYICQVVfeXFMTmw4N3NTVUxEakIzaFFDM01yZGNQd0pWUGRxUzVYeUdyWDlZRHFnY0xSUUFZTW51T0JkU1h4MG12RndKV0tSYy1aSGhFZ0pvcHpDckwwalBRR0xzc3QzdXQ5UTl2VEFCQmNoZERUcTJpX3RNeFluVFd0Z0M0NDZ4MEtmU1d0NElDbDNGTXFKcEx0LXJub2ZvMWpOY1pEdk1uNDZ0XzBkY0VyOWVVaGNZZEZNbDhOdHBTV3lBTG80NGlKcER5SlVqbC05N1pnd1d6a3ltUkJKOGRZOXpTcDR6b2JvOUI2TTlLdl8yLTdqMl9hc1VPclNfZHRvY3RXWm1QZktn?oc=5 | https://www.thehindubusinessline.com/markets/will-nifty-cross-26000-today-fpi-inflows-global-cues-in-focus/article71745061.ece\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Nifty faces resistance near 26,000 as 26,023 gap up",
+  "telegram_media_ids": [
+    1119
+  ]
+}

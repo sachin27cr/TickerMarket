@@ -1,32 +1,5 @@
 [
   {
-    "when": "2026-11-24T12:42:43.546967+05:30",
-    "title": "Anuh Pharma invests ₹73 crore in 3rd bulk drug manufacturing facility",
-    "bucket": null,
-    "lead": [
-      "3rd",
-      "anuh",
-      "bulk",
-      "crore",
-      "drug",
-      "facility",
-      "invests",
-      "manufacturing",
-      "pharma"
-    ],
-    "tokens": [
-      "3rd",
-      "anuh",
-      "bulk",
-      "crore",
-      "drug",
-      "facility",
-      "invests",
-      "manufacturing",
-      "pharma"
-    ]
-  },
-  {
     "when": "2026-11-24T17:47:15.698966+05:30",
     "title": "IIFCL IPO: Govt plans to sell part of its stake, company to issue fresh shares",
     "bucket": null,
@@ -1086,6 +1059,113 @@
       "rules",
       "sebi",
       "simplifies"
+    ]
+  },
+  {
+    "when": "2026-11-26T17:46:34.881162+05:30",
+    "title": "Nifty faces resistance near 26,000-mark: Where are markets headed in short term? Check key trading levels",
+    "bucket": null,
+    "lead": [
+      "000",
+      "check",
+      "faces",
+      "headed",
+      "key",
+      "levels",
+      "mark",
+      "near",
+      "nifty",
+      "resistance",
+      "short",
+      "term",
+      "trading",
+      "where"
+    ],
+    "tokens": [
+      "000",
+      "buying",
+      "check",
+      "cross",
+      "cues",
+      "faces",
+      "fpi",
+      "global",
+      "headed",
+      "hold",
+      "key",
+      "levels",
+      "mark",
+      "near",
+      "nifty",
+      "resistance",
+      "short",
+      "term",
+      "trading",
+      "where"
+    ]
+  },
+  {
+    "when": "2026-11-26T17:51:21.164101+05:30",
+    "title": "SEBI appoints forensic auditor to probe alleged ₹3,535-crore Coffee Day fund diversion",
+    "bucket": null,
+    "lead": [
+      "535",
+      "alleged",
+      "appoints",
+      "auditor",
+      "coffee",
+      "crore",
+      "diversion",
+      "forensic",
+      "fund",
+      "probe",
+      "sebi"
+    ],
+    "tokens": [
+      "535",
+      "alleged",
+      "appoints",
+      "auditor",
+      "case",
+      "coffee",
+      "crore",
+      "diversion",
+      "enterprises",
+      "forensic",
+      "fund",
+      "probe",
+      "sebi"
+    ]
+  },
+  {
+    "when": "2026-11-26T18:00:37.547220+05:30",
+    "title": "Foodlink F&B Holdings IPO opens for subscription. Should you apply or skip?",
+    "bucket": null,
+    "lead": [
+      "apply",
+      "f&b",
+      "foodlink",
+      "holdings",
+      "ipo",
+      "opens",
+      "should",
+      "skip",
+      "subscription",
+      "you"
+    ],
+    "tokens": [
+      "09x",
+      "apply",
+      "f&b",
+      "foodlink",
+      "holdings",
+      "ipo",
+      "opens",
+      "should",
+      "skip",
+      "status",
+      "subscription",
+      "you"
     ]
   }
 ]

@@ -1,0 +1,73 @@
+{
+  "id": "11261800-83a08",
+  "kind": "news",
+  "created": "2026-11-26T18:00:35.163311+05:30",
+  "images": [
+    "media/2026-11-26/news-180035-6232_1.jpg"
+  ],
+  "caption": "Stock market news | Foodlink F&B Holdings (India) IPO 1.09x Subscription, ₹181-191 Price Band\n\nFoodlink F&B Holdings (India) opened its IPO on 26 November 2026. The offering received a subscription of 1.09 times, indicating modest investor interest.\nThe company set a price band of ₹181-191 per share, and the public issue will close on 30 November 2026, after anchor bidding on 25 November.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #IPO #Foodlink #IndianStocks #TickerMarketIndia",
+  "threads_text": "Stock market news | Foodlink F&B Holdings (India) IPO 1.09x Subscription, ₹181-191 Price Band\n\nFoodlink F&B Holdings (India) opened its IPO on 26 November 2026. The offering received a subscription of 1.09 times, indicating modest investor interest.\nThe company set a price band of ₹181-191 per share, and the public issue will close on 30 November 2026, after anchor bidding on 25 November.\n\n#StockMarketIndia #IPO #Foodlink #IndianStocks #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: Economic Times, HDFC Sky"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.6 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 18 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"Foodlink F&B Holdings (India)\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMiiAFBVV95cUxNQWpaOUktTlJzSVBGRnFfRWRqRm13ZTlHcG8tZGhRVU5kZ1dfNzlmVDhaVFgyb0VhbEkxUUxSYWRMYS1ocDBoMWJDYTNDV2FCSGNuell0Z09SYlNELVhDdFBmQmt6aXlUWEdyZnptX0xaRVlZdFhGYU9wdTBXQXJmYkRDcUtpaVFr?oc=5 | https://economictimes.indiatimes.com/markets/ipos/fpos/foodlink-fb-holdings-ipo-opens-today-check-price-band-lot-size-how-to-apply-and-whether-you-should-subscribe/articleshow/136176395.cms"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "IPO Watch",
+      "date_text": "Thu, 26 Nov 2026",
+      "theme": "ipo",
+      "seed": "apply f&b foodlink holdings ipo opens should skip",
+      "tone": null,
+      "quotes": [],
+      "label": "IPO UPDATE",
+      "headline": "*Foodlink* F&B Holdings (India) IPO *1.09x* Subscription, *₹181-191* Price Band",
+      "points": [
+        "IPO subscription stands at 1.09 times the offered shares.",
+        "Price band set between ₹181 and ₹191 per share.",
+        "Public issue closes on 30 November 2026; anchor bidding was on 25 November 2026."
+      ],
+      "source": "Economic Times, HDFC Sky"
+    },
+    "news_sector": "ipo",
+    "photo_prompt": "A modern kitchen with rows of packaged gourmet meals on a stainless‑steel shelf."
+  },
+  "telegram_message_id": 1124,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: Economic Times, HDFC Sky\n✅ fresh: newest source 0.6 h old\n✅ headline/banner/points/body: all 18 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"Foodlink F&B Holdings (India)\" - no price box for it\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMiiAFBVV95cUxNQWpaOUktTlJzSVBGRnFfRWRqRm13ZTlHcG8tZGhRVU5kZ1dfNzlmVDhaVFgyb0VhbEkxUUxSYWRMYS1ocDBoMWJDYTNDV2FCSGNuell0Z09SYlNELVhDdFBmQmt6aXlUWEdyZnptX0xaRVlZdFhGYU9wdTBXQXJmYkRDcUtpaVFr?oc=5 | https://economictimes.indiatimes.com/markets/ipos/fpos/foodlink-fb-holdings-ipo-opens-today-check-price-band-lot-size-how-to-apply-and-whether-you-should-subscribe/articleshow/136176395.cms\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Foodlink F&B Holdings (India) IPO 1.09x Subscription, ₹181-191 Price Band",
+  "telegram_media_ids": [
+    1123
+  ]
+}
