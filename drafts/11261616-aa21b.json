@@ -3,17 +3,18 @@
   "kind": "cap_movers",
   "created": "2026-11-26T16:16:43.949228+05:30",
   "images": [
-    "media/2026-11-26/cap_movers-161643-dca7_1.jpg",
-    "media/2026-11-26/cap_movers-161643-dca7_2.jpg",
-    "media/2026-11-26/cap_movers-161643-dca7_3.jpg",
-    "media/2026-11-26/cap_movers-161643-dca7_4.jpg",
-    "media/2026-11-26/cap_movers-161643-dca7_5.jpg",
-    "media/2026-11-26/cap_movers-161643-dca7_6.jpg",
-    "media/2026-11-26/cap_movers-161643-dca7_7.jpg",
-    "media/2026-11-26/cap_movers-161643-dca7_8.jpg"
+    "media/2026-11-26/cap_movers-fii-202059-ef4b_1.jpg",
+    "media/2026-11-26/cap_movers-fii-202059-ef4b_2.jpg",
+    "media/2026-11-26/cap_movers-fii-202059-ef4b_3.jpg",
+    "media/2026-11-26/cap_movers-fii-202059-ef4b_4.jpg",
+    "media/2026-11-26/cap_movers-fii-202059-ef4b_5.jpg",
+    "media/2026-11-26/cap_movers-fii-202059-ef4b_6.jpg",
+    "media/2026-11-26/cap_movers-fii-202059-ef4b_7.jpg",
+    "media/2026-11-26/cap_movers-fii-202059-ef4b_8.jpg",
+    "media/2026-11-26/cap_movers-fii-202059-ef4b_9.jpg"
   ],
-  "caption": "Top gainers and losers by market cap: 26 November 2026\n\nLarge Cap: top gainer HCLTech (+6.42%), top loser Zydus (-3.38%).\nMid Cap: top gainer Prestige (+8.72%), top loser Bank of Maharashtra (-4.57%).\nSmall Cap: top gainer Action Construction Equipment (+8.79%), top loser India Cements (-4.38%).\nMicro Cap: top gainer Shaily Engineering Plastics (+16.33%), top loser Thomas Cook (-10.00%).\n\nGroups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the top 5 in each group.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #TopGainers #TopLosers #SmallCap #TickerMarketIndia",
-  "threads_text": "Top gainers and losers by market cap: 26 November 2026\n\nLarge Cap: top gainer HCLTech (+6.42%), top loser Zydus (-3.38%).\nMid Cap: top gainer Prestige (+8.72%), top loser Bank of Maharashtra (-4.57%).\nSmall Cap: top gainer Action Construction Equipment (+8.79%), top loser India Cements (-4.38%).\nMicro Cap: top gainer Shaily Engineering Plastics (+16.33%), top loser Thomas Cook (-10.00%).\n\n#StockMarketIndia #TopGainers #TopLosers #SmallCap #TickerMarketIndia",
+  "caption": "Top gainers and losers today by market cap + FII/DII data: 26 November 2026\n\nLarge Cap: top gainer HCLTech (+6.42%), top loser Zydus (-3.38%).\nMid Cap: top gainer Prestige (+8.72%), top loser Bank of Maharashtra (-4.57%).\nSmall Cap: top gainer Action Construction Equipment (+8.79%), top loser India Cements (-4.38%).\nMicro Cap: top gainer Shaily Engineering Plastics (+16.33%), top loser Thomas Cook (-10.00%).\n\nGroups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the top 5 in each group.\n\nOn 26 November 2026, foreign institutional investors (FIIs) were net buyers of ₹5,843.33 crore in the cash market, while domestic institutional investors (DIIs) were net buyers of ₹5,630.72 crore.\n\nNovember so far (8 sessions): FIIs +48,642.07 crore, DIIs -5,809.07 crore.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #TopGainers #TopLosers #FII #TickerMarketIndia",
+  "threads_text": "Top gainers and losers today by market cap + FII/DII data: 26 November 2026\n\nLarge Cap: top gainer HCLTech (+6.42%), top loser Zydus (-3.38%).\nMid Cap: top gainer Prestige (+8.72%), top loser Bank of Maharashtra (-4.57%).\nSmall Cap: top gainer Action Construction Equipment (+8.79%), top loser India Cements (-4.38%).\nMicro Cap: top gainer Shaily Engineering Plastics (+16.33%), top loser Thomas Cook (-10.00%).\n\n#StockMarketIndia #TopGainers #TopLosers #FII #TickerMarketIndia",
   "report": [
     [
       "ok",
@@ -38,11 +39,31 @@
     [
       "ok",
       "no advice, prediction or rumour language"
+    ],
+    [
+      "ok",
+      "NSE provisional data for 26 November 2026: FII +5,843.33, DII +5,630.72 crore"
+    ],
+    [
+      "warn",
+      "F&O file does not add up (opt_idx_put_long: 4638143 vs 4638142) - section left out"
+    ],
+    [
+      "ok",
+      "month FII total: total 48,642.07 = sum of rows"
+    ],
+    [
+      "ok",
+      "caption: all 18 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
     ]
   ],
   "status": "pending",
   "meta": {
-    "awaiting_fii": "2026-11-26",
+    "awaiting_fii": null,
     "allowed": [
       26,
       2026,
@@ -63,19 +84,20 @@
     ],
     "n_content": 6
   },
-  "telegram_message_id": 1107,
+  "telegram_message_id": 1136,
   "posted": {},
-  "report_text": "✅ Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed\n⚠️ Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n⚠️ Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n✅ caption: all 11 numbers match source data\n✅ no advice, prediction or rumour language",
+  "report_text": "✅ Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed\n⚠️ Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n⚠️ Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n✅ caption: all 11 numbers match source data\n✅ no advice, prediction or rumour language\n✅ NSE provisional data for 26 November 2026: FII +5,843.33, DII +5,630.72 crore\n⚠️ F&O file does not add up (opt_idx_put_long: 4638143 vs 4638142) - section left out\n✅ month FII total: total 48,642.07 = sum of rows\n✅ caption: all 18 numbers match source data\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Top gainers and losers today",
-  "alt_text": "Top gainers and losers today: Ticker Market India carousel - Top gainers and losers by market cap: 26 November 2026",
+  "alt_text": "Top gainers and losers today: Ticker Market India carousel - Top gainers and losers today by market cap + FII/DII data: 26 November 2026",
   "telegram_media_ids": [
-    1099,
-    1100,
-    1101,
-    1102,
-    1103,
-    1104,
-    1105,
-    1106
+    1127,
+    1128,
+    1129,
+    1130,
+    1131,
+    1132,
+    1133,
+    1134,
+    1135
   ]
 }
