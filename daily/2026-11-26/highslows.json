@@ -1,0 +1,158 @@
+{
+  "ath": 10,
+  "hi52": 18,
+  "lo52": 9,
+  "groups": {
+    "Large Cap": {
+      "ath": [
+        {
+          "name": "ICICI Bank",
+          "pct": -1.77
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Bajaj Holdings & Investment",
+          "pct": 4.41
+        },
+        {
+          "name": "DLF",
+          "pct": 1.61
+        }
+      ],
+      "lo52": [],
+      "ath_count": 1,
+      "hi52_count": 3,
+      "lo52_count": 0
+    },
+    "Mid Cap": {
+      "ath": [
+        {
+          "name": "MCX",
+          "pct": 7.57
+        },
+        {
+          "name": "Laurus Labs",
+          "pct": 1.83
+        },
+        {
+          "name": "Glenmark Pharmaceuticals",
+          "pct": 0.78
+        },
+        {
+          "name": "Marico",
+          "pct": 0.42
+        },
+        {
+          "name": "Phoenix Mills",
+          "pct": 0.24
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Prestige",
+          "pct": 8.72
+        },
+        {
+          "name": "Mankind Pharma",
+          "pct": 0.0
+        },
+        {
+          "name": "Global Health",
+          "pct": -1.12
+        }
+      ],
+      "lo52": [
+        {
+          "name": "KEI Industries",
+          "pct": -0.16
+        },
+        {
+          "name": "Thermax",
+          "pct": 0.51
+        }
+      ],
+      "ath_count": 5,
+      "hi52_count": 8,
+      "lo52_count": 2
+    },
+    "Small Cap": {
+      "ath": [
+        {
+          "name": "Welspun Living",
+          "pct": 1.3667425968109448
+        },
+        {
+          "name": "Anand Rathi Wealth",
+          "pct": 1.2605042016806722
+        },
+        {
+          "name": "Asahi India Glass",
+          "pct": -0.45595248054882004
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Action Construction Equipment",
+          "pct": 8.79153190238166
+        }
+      ],
+      "lo52": [
+        {
+          "name": "Kaynes Technology India",
+          "pct": 0.1964418087472269
+        }
+      ],
+      "ath_count": 3,
+      "hi52_count": 4,
+      "lo52_count": 1
+    },
+    "Micro Cap": {
+      "ath": [
+        {
+          "name": "Greaves Cotton",
+          "pct": 5.283738366080669
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Metropolis Healthcare",
+          "pct": 2.3817925194071985
+        },
+        {
+          "name": "Indo Count Industries",
+          "pct": 1.6101257103495623
+        }
+      ],
+      "lo52": [
+        {
+          "name": "ION Exchange",
+          "pct": -2.6610387227014134
+        },
+        {
+          "name": "Indian Metals & Ferro Alloys",
+          "pct": -1.787487586891758
+        },
+        {
+          "name": "Shakti Pumps",
+          "pct": -1.508252703471814
+        },
+        {
+          "name": "Happiest Minds Technologies",
+          "pct": -1.2818292049194486
+        },
+        {
+          "name": "Piccadily Agro Industries",
+          "pct": -1.2777724802136066
+        },
+        {
+          "name": "Praj Industries",
+          "pct": -0.8446986361636674
+        }
+      ],
+      "ath_count": 1,
+      "hi52_count": 3,
+      "lo52_count": 6
+    }
+  }
+}
