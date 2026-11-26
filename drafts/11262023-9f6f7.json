@@ -105,12 +105,15 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "video": "media/2026-11-26/reel_evening-202358-641a.mp4"
   },
   "telegram_message_id": 1138,
-  "posted": {},
+  "posted": {
+    "instagram": "18113678129244792",
+    "facebook": "2687792671673934"
+  },
   "video": "media/2026-11-26/reel_evening-202358-641a.mp4",
   "script": [
     "1. Stock market today. The Nifty gained 65 points today, and Nifty IT led the charge. Here is how the day played out.",
@@ -125,5 +128,7 @@
   "topic_keyword": "Stock market today",
   "telegram_media_ids": [
     1137
-  ]
+  ],
+  "approved_at": "2026-11-26T21:30:35.392151+05:30",
+  "posted_at": "2026-11-26T21:32:01.550575+05:30"
 }
