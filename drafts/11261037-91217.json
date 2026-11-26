@@ -1,0 +1,69 @@
+{
+  "id": "11261037-91217",
+  "kind": "news",
+  "created": "2026-11-26T10:37:25.438814+05:30",
+  "images": [
+    "media/2026-11-26/news-103725-7068_1.jpg"
+  ],
+  "caption": "Stock market news | Pre-Market Nifty Rises on Global Tech Sell-Off\n\nOn 26 November 2026, pre-market data showed Nifty and Bank Nifty poised for a positive start, with GIFT Nifty rising.\n\nThe move reflects investor focus on the global technology sell-off and oil price trends, signalling early sentiment for Indian indices.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Nifty #BankNifty #GIFTNifty #TickerMarketIndia",
+  "threads_text": "Stock market news | Pre-Market Nifty Rises on Global Tech Sell-Off\n\nOn 26 November 2026, pre-market data showed Nifty and Bank Nifty poised for a positive start, with GIFT Nifty rising.\n\nThe move reflects investor focus on the global technology sell-off and oil price trends, signalling early sentiment for Indian indices.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Nifty #BankNifty #GIFTNifty #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: Investment Guru India, Kotak Neo, Upstox"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.3 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 4 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMikAJBVV95cUxNVXBJNFpvUURlY1hzRXVCaXh5SzVJQzFqR1NBNEUzcXlNY3AtZElRbXctNUpLUnVhdFNIVklwS0RxQTN6dmNIb3ZvT1ozV1FVcFJaMHhkMzY4TVVocjRMRXRmc1V5RTRiX3Z2VTdlb0JRMmJYRm15TU5WdUxQX0FOZmVfb19FODJiMW9FeGFLVEN0b215ZjBMWElyQmlfdmpMTXUxc3RRbHlTY3dJWWhZd3k4eDNVenZNMWVSb19HM0JPMFpjV2ZhdjRTdHZVN2w4dDAwTnFCYkhUSUZKR1A3aHhHN0RjY0F1UmxSMGp1Sk55OHFmQUZRQmp3SHFmSVVuYm9fOXl4QmQyclItQWRVZg?oc=5 | https://news.google.com/rss/articles/CBMiwwFBVV95cUxQbm1IbXIwOWE0RG9qU1ZfMFBlMlJZcFRrUEI3NHI0cXlhOWF0UW1rQllSZnl2cHBnWDFWRXdnMXNJRVdQUE1wZ0VuNDhhajF2d2tpRlNyUVBYdF9VYkdsdmZNSklTMTlCUHpMSWN3c01CUVZMTGpnUC1fcUlEbU5fQmxHbHMwc2o3Um5xb1ltX2g2MGd2SWtqLUNWRzB2bUpocV9acG1KY1k0RmhwVkkyUkEweGNtcnJxRmxPMkM3T3ZUV0k?oc=5 | https://news.google.com/rss/articles/CBMiwwFBVV95cUxQbm1IbXIwOWE0RG9qU1ZfMFBlMlJZcFRrUEI3NHI0cXlhOWF0UW1rQllSZnl2cHBnWDFWRXdnMXNJRVdQUE1wZ0VuNDhhajF2d2tpRlNyUVBYdF9VYkdsdmZNSklTMTlCUHpMSWN3c01CUVZMTGpnUC1fcUlEbU5fQmxHbHMwc2o3Um5xb1ltX2g2MGd2SWtqLUNWRzB2bUpocV9acG1KY1k0RmhwVkkyUkEweGNtcnJxRmxPMkM3T3ZUV0k?oc=5 | https://news.google.com/rss/articles/CBMi6wFBVV95cUxPMEVMamNHLWQybGdvRGdHek5wYzFvSTl1aGdGcE4tY183V01idDJaaWRUQmhDZFhodHdSNzdFQ3BqWE15Z0FNMEpwNzhvOG1XZTJIUkhoRzk0TlQwN1VLTkgtWHBrSWNIazFrTndETEd4aTFQVTVITjJsTFBtQmpRRTNGQzFOb0g3YTFWSlhpelJIWGxBRjM3MXBfVEkycGtZejN6QUpJb2ZtZWhuOWNKVE5hbmEwTVhpa1lJYWowNUNzNTRsamEzZzB6ZUhBeGtuT1k1bDQ4d0hNeGdsa25Ua2UtTWd6UmFQejlv?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Market News",
+      "date_text": "Thu, 26 Nov 2026",
+      "theme": "market_up",
+      "seed": "2026 26th bajaj bank below broking commentary deputy",
+      "tone": "up",
+      "quotes": [],
+      "label": "MARKET OPEN",
+      "headline": "*Pre-Market* Nifty *Rises* on Global Tech Sell-Off",
+      "points": [
+        "Pre-market commentary released on 26 November 2026 for Nifty and Bank Nifty.",
+        "GIFT Nifty rose in early trading as investors tracked global tech sell-off.",
+        "Oil price trends also influenced market sentiment ahead of the open."
+      ],
+      "source": "Investment Guru India, Kotak Neo, Upstox"
+    },
+    "news_sector": "markets",
+    "photo_prompt": "A bustling trading floor with screens showing rising index charts."
+  },
+  "telegram_message_id": 1085,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: Investment Guru India, Kotak Neo, Upstox\n✅ fresh: newest source 1.3 h old\n✅ headline/banner/points/body: all 4 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMikAJBVV95cUxNVXBJNFpvUURlY1hzRXVCaXh5SzVJQzFqR1NBNEUzcXlNY3AtZElRbXctNUpLUnVhdFNIVklwS0RxQTN6dmNIb3ZvT1ozV1FVcFJaMHhkMzY4TVVocjRMRXRmc1V5RTRiX3Z2VTdlb0JRMmJYRm15TU5WdUxQX0FOZmVfb19FODJiMW9FeGFLVEN0b215ZjBMWElyQmlfdmpMTXUxc3RRbHlTY3dJWWhZd3k4eDNVenZNMWVSb19HM0JPMFpjV2ZhdjRTdHZVN2w4dDAwTnFCYkhUSUZKR1A3aHhHN0RjY0F1UmxSMGp1Sk55OHFmQUZRQmp3SHFmSVVuYm9fOXl4QmQyclItQWRVZg?oc=5 | https://news.google.com/rss/articles/CBMiwwFBVV95cUxQbm1IbXIwOWE0RG9qU1ZfMFBlMlJZcFRrUEI3NHI0cXlhOWF0UW1rQllSZnl2cHBnWDFWRXdnMXNJRVdQUE1wZ0VuNDhhajF2d2tpRlNyUVBYdF9VYkdsdmZNSklTMTlCUHpMSWN3c01CUVZMTGpnUC1fcUlEbU5fQmxHbHMwc2o3Um5xb1ltX2g2MGd2SWtqLUNWRzB2bUpocV9acG1KY1k0RmhwVkkyUkEweGNtcnJxRmxPMkM3T3ZUV0k?oc=5 | https://news.google.com/rss/articles/CBMiwwFBVV95cUxQbm1IbXIwOWE0RG9qU1ZfMFBlMlJZcFRrUEI3NHI0cXlhOWF0UW1rQllSZnl2cHBnWDFWRXdnMXNJRVdQUE1wZ0VuNDhhajF2d2tpRlNyUVBYdF9VYkdsdmZNSklTMTlCUHpMSWN3c01CUVZMTGpnUC1fcUlEbU5fQmxHbHMwc2o3Um5xb1ltX2g2MGd2SWtqLUNWRzB2bUpocV9acG1KY1k0RmhwVkkyUkEweGNtcnJxRmxPMkM3T3ZUV0k?oc=5 | https://news.google.com/rss/articles/CBMi6wFBVV95cUxPMEVMamNHLWQybGdvRGdHek5wYzFvSTl1aGdGcE4tY183V01idDJaaWRUQmhDZFhodHdSNzdFQ3BqWE15Z0FNMEpwNzhvOG1XZTJIUkhoRzk0TlQwN1VLTkgtWHBrSWNIazFrTndETEd4aTFQVTVITjJsTFBtQmpRRTNGQzFOb0g3YTFWSlhpelJIWGxBRjM3MXBfVEkycGtZejN6QUpJb2ZtZWhuOWNKVE5hbmEwTVhpa1lJYWowNUNzNTRsamEzZzB6ZUhBeGtuT1k1bDQ4d0hNeGdsa25Ua2UtTWd6UmFQejlv?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Pre-Market Nifty Rises on Global Tech Sell-Off",
+  "telegram_media_ids": [
+    1084
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "id": "11261012-7e00b",
+  "kind": "news",
+  "created": "2026-11-26T10:12:24.812587+05:30",
+  "images": [
+    "media/2026-11-26/news-101224-8086_1.jpg"
+  ],
+  "caption": "Stock market news | Sensex opens 200 points higher, Nifty crosses 25,800 level\n\nIndian equity markets opened on a positive note on 26 November 2026. The Sensex gained 200 points at the open, while the Nifty index traded above the 25,800 mark.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Sensex #Nifty50 #IndianStockMarket #TickerMarketIndia",
+  "threads_text": "Stock market news | Sensex opens 200 points higher, Nifty crosses 25,800 level\n\nIndian equity markets opened on a positive note on 26 November 2026. The Sensex gained 200 points at the open, while the Nifty index traded above the 25,800 mark.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Sensex #Nifty50 #IndianStockMarket #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 8 outlets: Economic Times, India Today, India Today on MSN, Kotak Neo, News18, The Pioneer, Zee Business, theopenpress.in"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.8 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 11 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "INFY ₹1,162.40 (+2.87%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://news.google.com/rss/articles/CBMi2wFBVV95cUxNYlh3VVpWYjg2QVFyek9CUW9zTnljVXRsc1ROdGZkSXJ1aFRIMEd1Zm5ZS2x4MWk5bjdQSllCWnRnMmhQT05CckZILXdlRkFMZUU3MHpITWd5OTJDTmNfcDNnT3FqNDFQOWNQTGFqYlN4WWJ5cUdaU2IyZ19lWkJVZXBSRUcxSU9JbW9oeHdTeWlqZkJOeWJfdHI3ampGOE1CUkNCOUxDVzJ5c2dFWFNJWXFPUWoxeV9pbHpHeGNHMmpEb2NjU0s2R2JKb19kUTREQW1XWjlYSkNTTmPSAeABQVVfeXFMTXp5N0Q2NTNBckZfVWk2RmM4WWlBQm42RUNKRGZMODY5bEM0dk9XU2ZUamNGa1VVX3VBblpFZDBkdmV6YWR4eXlOOEw5ZFdlWUN0VDVhRFVBdnRhc2o5S0lDOUs1dHUzQzFXRWtZSWg2SUhFdEVCc1A4c3JVMERsQmdyNHRDZ1dtQ2drdXU1VF9xRkxzOVdmd2E2cjlZVnhrMFNmOW40bklxd2x3UTdTclhyUDJ1OERmUjFLWGJqS29NNXctSVo5bEZNdVpzcUhEcFVFSGJJT0xiTTBrZVFENHI?oc=5 | https://economictimes.indiatimes.com/markets/stocks/news/positive-breakout-these-5-stocks-rose-above-their-200-dmas/slideshow/136177467.cms | https://economictimes.indiatimes.com/markets/stocks/news/positive-breakout-these-5-stocks-rose-above-their-200-dmas/slideshow/136177467.cms | https://news.google.com/rss/articles/CBMihgFBVV95cUxQX2g1eTBNRXpkaVpMYmViUHZUMFV0VnczZGV4V1VyQVFIQ2M4d0ZsanZNd0Z1eVJJbGppYTUxZEwxWkhqMFRQMVlOeWpiYlZmR0ZRT0dzbHN5azRUbm1EQnRpUlZyQlpQZGg0a1A5T0J2SXhxaEVIZmRRM2VjOW9kS1hPY2V0Z9IBkwFBVV95cUxPdTBqR3JSbjBSTUc5NVRpTWFuRFlObDN2c250Q05xbHdVR29WcEltODRnbWtVTW56VnNNSHk3Z1g5eWRxWmVWTGp4T1JweU9zblppMjJHY2t2dkVuWHFDMkJuMVVERjNvZkxOcXRNRW5mUjhKU0VsWkFMNVFuaFJPbkpTbGJWSnVrRkl5N0QxMG1wS3c?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Market News",
+      "date_text": "Thu, 26 Nov 2026",
+      "theme": "market_up",
+      "seed": "200 above breakout dmas positive rose their",
+      "tone": "up",
+      "quotes": [
+        {
+          "name": "Infosys Ltd",
+          "symbol": "INFY",
+          "price": 1162.4,
+          "chg": 32.4,
+          "pct": 2.87,
+          "time_text": "26 Nov, 10:11 AM IST"
+        }
+      ],
+      "label": "MARKET OPEN",
+      "headline": "Sensex *opens 200 points higher*, Nifty crosses 25,800 level",
+      "points": [
+        "Sensex opened 200 points higher on 26 November 2026.",
+        "Nifty traded above the 25,800 level as markets opened.",
+        "Infosys shares gained 3 percent during the opening market trade."
+      ],
+      "source": "NSE prices, Economic Times, India Today, India Today on MSN"
+    },
+    "news_sector": "markets",
+    "photo_prompt": "A modern financial stock exchange trading floor with multiple digital screens displaying abstract stock charts and green price trend lines."
+  },
+  "telegram_message_id": 1081,
+  "posted": {},
+  "report_text": "✅ confirmed by 8 outlets: Economic Times, India Today, India Today on MSN, Kotak Neo, News18, The Pioneer, Zee Business, theopenpress.in\n✅ fresh: newest source 0.8 h old\n✅ headline/banner/points/body: all 11 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ INFY ₹1,162.40 (+2.87%): NSE = Yahoo\n✅ written by gemini; sources: https://news.google.com/rss/articles/CBMi2wFBVV95cUxNYlh3VVpWYjg2QVFyek9CUW9zTnljVXRsc1ROdGZkSXJ1aFRIMEd1Zm5ZS2x4MWk5bjdQSllCWnRnMmhQT05CckZILXdlRkFMZUU3MHpITWd5OTJDTmNfcDNnT3FqNDFQOWNQTGFqYlN4WWJ5cUdaU2IyZ19lWkJVZXBSRUcxSU9JbW9oeHdTeWlqZkJOeWJfdHI3ampGOE1CUkNCOUxDVzJ5c2dFWFNJWXFPUWoxeV9pbHpHeGNHMmpEb2NjU0s2R2JKb19kUTREQW1XWjlYSkNTTmPSAeABQVVfeXFMTXp5N0Q2NTNBckZfVWk2RmM4WWlBQm42RUNKRGZMODY5bEM0dk9XU2ZUamNGa1VVX3VBblpFZDBkdmV6YWR4eXlOOEw5ZFdlWUN0VDVhRFVBdnRhc2o5S0lDOUs1dHUzQzFXRWtZSWg2SUhFdEVCc1A4c3JVMERsQmdyNHRDZ1dtQ2drdXU1VF9xRkxzOVdmd2E2cjlZVnhrMFNmOW40bklxd2x3UTdTclhyUDJ1OERmUjFLWGJqS29NNXctSVo5bEZNdVpzcUhEcFVFSGJJT0xiTTBrZVFENHI?oc=5 | https://economictimes.indiatimes.com/markets/stocks/news/positive-breakout-these-5-stocks-rose-above-their-200-dmas/slideshow/136177467.cms | https://economictimes.indiatimes.com/markets/stocks/news/positive-breakout-these-5-stocks-rose-above-their-200-dmas/slideshow/136177467.cms | https://news.google.com/rss/articles/CBMihgFBVV95cUxQX2g1eTBNRXpkaVpMYmViUHZUMFV0VnczZGV4V1VyQVFIQ2M4d0ZsanZNd0Z1eVJJbGppYTUxZEwxWkhqMFRQMVlOeWpiYlZmR0ZRT0dzbHN5azRUbm1EQnRpUlZyQlpQZGg0a1A5T0J2SXhxaEVIZmRRM2VjOW9kS1hPY2V0Z9IBkwFBVV95cUxPdTBqR3JSbjBSTUc5NVRpTWFuRFlObDN2c250Q05xbHdVR29WcEltODRnbWtVTW56VnNNSHk3Z1g5eWRxWmVWTGp4T1JweU9zblppMjJHY2t2dkVuWHFDMkJuMVVERjNvZkxOcXRNRW5mUjhKU0VsWkFMNVFuaFJPbkpTbGJWSnVrRkl5N0QxMG1wS3c?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Sensex opens 200 points higher, Nifty crosses 25,800 level",
+  "telegram_media_ids": [
+    1080
+  ]
+}
