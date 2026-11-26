@@ -99,10 +99,13 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "auto",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 1098,
-  "posted": {},
+  "posted": {
+    "instagram": "18115561247625727",
+    "facebook": "1374383985767580_122112532365544503"
+  },
   "report_text": "✅ NIFTY 50 25,884.50: NSE = Yahoo (gap 0.000%)\n✅ SENSEX 84,328.59: BSE = Yahoo (gap 0.000%)\n✅ NIFTY BANK 63,535.30: NSE = Yahoo (gap 0.000%)\n✅ NIFTY MIDCAP 100 61,781.85: NSE (official)\n✅ NIFTY SMALLCAP 100 19,372.15: NSE (official)\n✅ INDIA VIX 16.81: NSE (official)\n✅ IT 33,386.95: NSE = Yahoo (gap 0.000%)\n✅ BANK 63,535.30: NSE = Yahoo (gap 0.000%)\n✅ AUTO 28,623.45: NSE = Yahoo (gap 0.000%)\n✅ PHARMA 29,090.85: NSE = Yahoo (gap 0.000%)\n✅ FMCG 49,673.55: NSE = Yahoo (gap 0.000%)\n✅ METAL 11,713.50: NSE = Yahoo (gap 0.000%)\n✅ REALTY 972.85: NSE = Yahoo (gap 0.000%)\n✅ ENERGY 36,880.30: NSE = Yahoo (gap 0.000%)\n✅ PSU BANK 9,529.90: NSE = Yahoo (gap 0.000%)\n✅ MEDIA 1,665.75: NSE (official)\n✅ FIN SERVICE 28,718.90: NSE (official)\n✅ OIL & GAS 11,457.40: NSE (official)\n✅ Nifty 50 movers from NSE\n✅ caption: all 19 numbers match source data\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market today",
   "alt_text": "Stock market today: Ticker Market India carousel - Nifty gains 65 points; Sensex ends at 84,329",
@@ -114,5 +117,6 @@
     1095,
     1096,
     1097
-  ]
+  ],
+  "posted_at": "2026-11-26T17:31:47.318636+05:30"
 }
