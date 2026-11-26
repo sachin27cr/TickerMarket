@@ -1,0 +1,77 @@
+{
+  "id": "11261247-fd180",
+  "kind": "news",
+  "created": "2026-11-26T12:47:33.557895+05:30",
+  "images": [
+    "media/2026-11-26/news-124733-cf13_1.jpg"
+  ],
+  "caption": "Stock market news | Adani Enterprises and Adani Power Plan Public Bond Sale\n\nAdani Enterprises and Adani Power are planning public bond offerings to raise at least ₹2,000 crore, which equals 220 million dollars. Both companies are currently working with local bond arrangers for the upcoming public bond sale.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #adanienterprises #adanipower #bondmarket #TickerMarketIndia",
+  "threads_text": "Stock market news | Adani Enterprises and Adani Power Plan Public Bond Sale\n\nAdani Enterprises and Adani Power are planning public bond offerings to raise at least ₹2,000 crore, which equals 220 million dollars. Both companies are currently working with local bond arrangers for the upcoming public bond sale.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #adanienterprises #adanipower #bondmarket #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: BusinessLine, Economic Times"
+    ],
+    [
+      "ok",
+      "fresh: newest source 2.0 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 5 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "ADANIENT: quote unavailable (NSE /api/NextApi/apiClient/GetQuoteApi: HTTP 403)"
+    ],
+    [
+      "warn",
+      "ADANIPOWER: quote unavailable (NSE /api/NextApi/apiClient/GetQuoteApi: HTTP 403)"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://www.thehindubusinessline.com/companies/adani-enterprises-and-adani-power-plan-public-bond-sale-to-raise-at-least-220-million/article71745193.ece | https://economictimes.indiatimes.com/markets/bonds/adani-firms-plan-public-bond-sale-to-raise-at-least-220-million/articleshow/136178950.cms"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Thu, 26 Nov 2026",
+      "theme": "solar",
+      "seed": "000 adani bond crore firms least plan public",
+      "tone": null,
+      "quotes": [],
+      "label": "PUBLIC BOND SALE",
+      "headline": "Adani Enterprises and Adani Power Plan *Public Bond Sale*",
+      "points": [
+        "Adani Enterprises and Adani Power plan a public bond sale.",
+        "The companies aim to raise at least 220 million dollars.",
+        "Each company plans to raise between 1000 crore and 2000 crore rupees."
+      ],
+      "source": "BusinessLine, Economic Times"
+    },
+    "news_sector": "energy",
+    "photo_prompt": "High-voltage electric power transmission towers standing against a clear sky near a modern industrial facility."
+  },
+  "telegram_message_id": 1088,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: BusinessLine, Economic Times\n✅ fresh: newest source 2.0 h old\n✅ headline/banner/points/body: all 5 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n⚠️ ADANIENT: quote unavailable (NSE /api/NextApi/apiClient/GetQuoteApi: HTTP 403)\n⚠️ ADANIPOWER: quote unavailable (NSE /api/NextApi/apiClient/GetQuoteApi: HTTP 403)\n✅ written by gemini; sources: https://www.thehindubusinessline.com/companies/adani-enterprises-and-adani-power-plan-public-bond-sale-to-raise-at-least-220-million/article71745193.ece | https://economictimes.indiatimes.com/markets/bonds/adani-firms-plan-public-bond-sale-to-raise-at-least-220-million/articleshow/136178950.cms\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Adani Enterprises and Adani Power Plan Public Bond Sale",
+  "telegram_media_ids": [
+    1087
+  ]
+}
