@@ -1,0 +1,195 @@
+{
+  "companyName": "AIRPRO",
+  "metaInfo": {},
+  "bidDetails": [
+    {
+      "category": "Total",
+      "noOfshareBid": "0",
+      "noofapplication": "0",
+      "srNo": null
+    }
+  ],
+  "issueInfo": {
+    "dataList": [
+      {
+        "title": null,
+        "value": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment mechanism, for a period of six months and thereafter forward the same to the issuer/ Registrar to Issue. However in case of Electronic forms printouts of such applications need not be retained or sent to the issuer. Intermediaries shall, at all times, maintain the electronic records relating to such forms for a minimum period of three years.\""
+      },
+      {
+        "title": "Symbol",
+        "value": "AIRPRO"
+      },
+      {
+        "title": "Issue Period",
+        "value": "27-Nov-2026 to 01-Dec-2026"
+      },
+      {
+        "title": "Cut-off time for UPI Mandate Confirmation",
+        "value": "01-Dec-2026 (upto 5:00 PM) The cut-off time for UPI mandate acceptance is 05:00 PM on last day of IPO bidding. Further bids with confirmed status of mandate amount blocked (RC100) shall be considered as valid applications and hence investors are advised to submit their UPI applications in IPO well in advance to avoid any last minute technical/systemic constraints that may hamper their ability to participate in IPOs by successfully accepting the mandate."
+      },
+      {
+        "title": "Issue Size",
+        "value": "\"Initial Public Offer comprising of Fresh Issue up to 29,20,000 Equity Shares and Offer for Sales up to 6,80,000 Equity Shares (Including Market maker portion of 1,80,000 Equity Shares)\""
+      },
+      {
+        "title": "Issue Type",
+        "value": "Fixed Price"
+      },
+      {
+        "title": "Price Range",
+        "value": "Rs. 99 per equity share"
+      },
+      {
+        "title": "Face Value",
+        "value": "Rs.10 per Equity Share"
+      },
+      {
+        "title": "Lot Size",
+        "value": "1200 Equity Shares"
+      },
+      {
+        "title": "Tick Size",
+        "value": "Re.1"
+      },
+      {
+        "title": "IPO Market Timings",
+        "value": "10.00 a.m. to 5.00 p.m. (Bidding Timings on Issue Closure upto 4:00 P.M.)"
+      },
+      {
+        "title": "Book Running Lead Managers",
+        "value": "Horizon Management Private Limited"
+      },
+      {
+        "title": "Sponsor Bank",
+        "value": "Axis Bank Limited"
+      },
+      {
+        "title": "Categories",
+        "value": "\"FI, IC, MF, FII, OTH, CO, IND and NOH\""
+      },
+      {
+        "title": "Sub-Categories applicable for UPI",
+        "value": "IND  (Up to Rs. 5 lacs)"
+      },
+      {
+        "title": "Name of the Registrar",
+        "value": "MUFG Intime India Private Limited"
+      },
+      {
+        "title": "Address of the Registrar",
+        "value": "\"C-101, Embassy 247, L.B.S. Marg, Vikhroli (West), Mumbai, Maharashtra, India, 400 083\""
+      },
+      {
+        "title": "Contact person name number and Email id",
+        "value": "\"Mr. Shanti Gopalkrishnan, 022-49186000, airprotechnology.smeipo@in.mpms.mufg.com    \""
+      },
+      {
+        "title": "e-form link",
+        "value": "https://ipoforms.nseindia.com/issueforms/html/index.jsp"
+      },
+      {
+        "title": "Branches of Self Certified Syndicate Banks (SCSBs) where syndicate / sub syndicate member to submit ASBA form",
+        "value": "<a href=http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35 target=new>SCSB List</a>"
+      },
+      {
+        "title": "Prospectus",
+        "value": "https://nsearchives.nseindia.com/content/ipo/PROSPECTUS_AIRPRO.zip"
+      },
+      {
+        "title": "Ratios / Basis of Issue Price",
+        "value": "https://nsearchives.nseindia.com/content/ipo/RATIOS_AIRPRO.zip"
+      },
+      {
+        "title": "Sample Application Forms",
+        "value": "https://nsearchives.nseindia.com/content/ipo/FORMS_AIRPRO.zip"
+      },
+      {
+        "title": "Security Parameters ",
+        "value": "https://nsearchives.nseindia.com/content/ipo/LIVE_PARAMETERS_AIRPRO.zip"
+      },
+      {
+        "title": "Processing of ASBA Applications",
+        "value": "<a href=https://archives.nseindia.com/content/circulars/IPO53197.pdf target=new>NSE Circular on ASBA Application Processing</a>"
+      },
+      {
+        "title": "Remark",
+        "value": "\"The dedicated window provided for bid modification (modification of selected fields viz. DP ID/Client ID or Pan ID, Bank code and Location code) on T+1 day (T being last day of bidding) shall not be available now. The bid modification of selected fields shall be allowed during bidding period of IPO only.\""
+      },
+      {
+        "title": "List of mobile applications accepting UPI as Payment Option",
+        "value": "<a href=https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43 target=new>Mobile APP for UPI</a>"
+      },
+      {
+        "title": "Video link  for UPI based ASBA process",
+        "value": "<a href=https://youtu.be/UJ394m2Q3rg target=new>UPI Based ASBA Process</a>"
+      },
+      {
+        "title": "Video link  for BHIM UPI Registration",
+        "value": "<a href=https://youtu.be/cIUJOIH0x4c target=new>BHIM UPI Registration</a>"
+      }
+    ],
+    "heading": "Airpro Technology India Limited",
+    "symbol": "AIRPRO"
+  },
+  "activeCat": {
+    "dataList": [
+      {
+        "category": "Category",
+        "noOfShareOffered": "No.of shares offered/reserved",
+        "noOfSharesBid": "No. of shares bid for",
+        "noOfTotalMeant": "No. of times of total meant for the category",
+        "srNo": "Sr.No."
+      },
+      {
+        "category": "Total",
+        "noOfShareOffered": "0.0",
+        "noOfSharesBid": "0.0",
+        "noOfTotalMeant": "0.00",
+        "srNo": null
+      }
+    ],
+    "heading": null,
+    "symbol": null,
+    "updateTime": "Updated as on null"
+  },
+  "demandGraph": {
+    "noOfShare": "Cumulative Demand(no. of shares in lakhs)",
+    "totalIssueSize": "3600000",
+    "note": "Cumulative (NSE) bid quantity at each price point includes the quantity (NSE) bidded at that relevant price point and all valid bids above that price point.",
+    "heading1": "Airpro Technology India Limited- Graphical display of bids received *",
+    "heading2": "(* indicates bids position and not necessarily the subscription to the issue)",
+    "plotData": {
+      "-": "-"
+    },
+    "graphData": []
+  },
+  "demandDataNSE": [
+    {
+      "company": "Airpro Technology India Limited",
+      "cumQty": "-",
+      "price": "-",
+      "symbol": "AIRPRO",
+      "timestamp": "-"
+    }
+  ],
+  "demandDataBSE": [
+    {
+      "company": "Airpro Technology India Limited",
+      "cumQty": "-",
+      "price": "-",
+      "symbol": "AIRPRO",
+      "timestamp": "-"
+    }
+  ],
+  "demandGraphALL": {
+    "noOfShare": "Cumulative Demand(no. of shares in lakhs)",
+    "totalIssueSize": "3600000",
+    "note": " Cumulative bid quantity at each price point includes the quantity bid at that relevant price point and all valid bids at the next higher price point as specified. The graph is updated every hour.",
+    "heading1": "Airpro Technology India Limited- Graphical display of bids received *",
+    "heading2": "(* indicates bids position and not necessarily the subscription to the issue)",
+    "plotData": {
+      "-": "-"
+    },
+    "graphData": []
+  }
+}
