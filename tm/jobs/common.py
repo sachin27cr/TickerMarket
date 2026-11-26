@@ -98,7 +98,8 @@ def finish(kind, title, images, caption, report: Report, allowed_numbers=None, m
 
 def finish_video(kind, title, video_path, cover, caption, report, allowed_numbers=None, script=None, keyword=None):
     """Same checks as finish(); the reel (mp4) and its cover frame go to Telegram for approval.
-    Reels always wait for your approval (they are not auto-posted)."""
+    Data reels post by themselves at their slot (Cancel button to stop them) unless a check raised a warning;
+    one-off explainer reels wait for your approval."""
     import shutil
     from ..writer import seo
     caption = seo.optimise(kind, caption, keyword)
@@ -123,7 +124,10 @@ def finish_video(kind, title, video_path, cover, caption, report, allowed_number
     d['script'] = script or []
     d['report_text'] = report.text()
     d['topic_keyword'] = keyword or seo.topic_keyword(kind, caption)
+    auto = store.config.auto_posts(kind) and not any(s == 'warn' for s, _ in report)
+    if auto:
+        d['status'] = 'auto'                        # posted at its slot unless you tap Cancel
     store.save_draft(d)
-    telegram.send_draft(d)
-    log.info('reel draft %s sent (%s)', d['id'], kind)
+    telegram.send_draft(d, auto=auto)
+    log.info('reel draft %s sent (%s%s)', d['id'], kind, ', auto-post' if auto else '')
     return d

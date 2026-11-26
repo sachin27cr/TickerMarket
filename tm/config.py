@@ -58,7 +58,7 @@ AUTO_DELAY_MIN = int(env('TM_AUTO_DELAY_MIN', '10'))   # cancel window before an
 
 
 def auto_posts(kind):
-    """Default: everything posts on its own except news and reels (those need your tap)."""
+    """Default: everything posts on its own (reels included) except news and one-off custom posts/reels."""
     if _auto in ('default', 'data', ''):
-        return not (kind == 'news' or kind.startswith(('reel_', 'custom')))
+        return not (kind == 'news' or kind.startswith('custom') or kind == 'reel_custom')
     return '*' in AUTO_POST or kind in AUTO_POST

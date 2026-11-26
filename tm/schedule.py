@@ -35,7 +35,7 @@ APPROVAL = ('news', 'reel_', 'custom')
 
 
 def needs_approval(kind):
-    return kind == 'news' or kind.startswith(('reel_', 'custom'))
+    return kind == 'news' or kind.startswith('custom') or kind == 'reel_custom'
 
 
 def slot(kind, day=None):
