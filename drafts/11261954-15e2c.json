@@ -1,0 +1,69 @@
+{
+  "id": "11261954-15e2c",
+  "kind": "news",
+  "created": "2026-11-26T19:54:08.907986+05:30",
+  "images": [
+    "media/2026-11-26/news-195408-830c_1.jpg"
+  ],
+  "caption": "Stock market news | Airpro Technology India Limited IPO ₹35.64 Crore Opens Nov 27\n\nAirpro Technology India Limited announced a ₹35.64 crore SME IPO that will open on 27 November 2026. The issue adds a new tech company to the SME platform, expanding capital market participation.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #IPO #SME #IndianMarket #TickerMarketIndia",
+  "threads_text": "Stock market news | Airpro Technology India Limited IPO ₹35.64 Crore Opens Nov 27\n\nAirpro Technology India Limited announced a ₹35.64 crore SME IPO that will open on 27 November 2026. The issue adds a new tech company to the SME platform, expanding capital market participation.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #IPO #SME #IndianMarket #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: Multibagg AI, The Financial World"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.8 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 8 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMipwFBVV95cUxQc3RpWlJoWURjLWtVbUY1aXRtWjdFaXFtY0dabDdzVWxDakRvRTVCWGtPeXc4bWdSNDJMSGZsRVFHUEg0VDV6bHlOeDFMcjI1REJKU1c3Z0htLVBVUV8tTDVreEVJbmZobGpvMXVrbkFFZmMtWnVkNUw3UmpEektBazhVY00wTUZ0cEx6ZldwWS0zY2NDbnh3UnYtZGVsZ19BZkFJUmVkMA?oc=5 | https://news.google.com/rss/articles/CBMikwFBVV95cUxNM1haSVZyclo5N0VYTVg5R3dzWEtVN0pqN1NBVURwaWdfQlJTY05iOFZzMjJQVGlTV1ZqbkZsZWw3VWUxazh5RDVkaEJiWGpOSW1ZUjJVX1loN3ZRYXQxNVh1LVdQZ0czb0xadzJwY1U2UHNkanlHZ3NFeHVtTGFDOF9KcUh2ZXNyRGhPTkJiRDcxSHc?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "IPO Watch",
+      "date_text": "Thu, 26 Nov 2026",
+      "theme": "ipo",
+      "seed": "airpro crore ipo issue november opens sme technology",
+      "tone": null,
+      "quotes": [],
+      "label": "IPO LAUNCH",
+      "headline": "Airpro Technology India Limited *IPO* *₹35.64 Crore* Opens Nov 27",
+      "points": [
+        "Airpro Technology India Limited plans a ₹35.64 crore SME IPO.",
+        "The issue is scheduled to open on 27 November 2026.",
+        "The offering is classified under the SME segment of the market."
+      ],
+      "source": "Multibagg AI, The Financial World"
+    },
+    "news_sector": "ipo",
+    "photo_prompt": "A modern corporate headquarters building illuminated at dusk, with a subtle hint of financial charts on a nearby screen."
+  },
+  "telegram_message_id": 1126,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: Multibagg AI, The Financial World\n✅ fresh: newest source 0.8 h old\n✅ headline/banner/points/body: all 8 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMipwFBVV95cUxQc3RpWlJoWURjLWtVbUY1aXRtWjdFaXFtY0dabDdzVWxDakRvRTVCWGtPeXc4bWdSNDJMSGZsRVFHUEg0VDV6bHlOeDFMcjI1REJKU1c3Z0htLVBVUV8tTDVreEVJbmZobGpvMXVrbkFFZmMtWnVkNUw3UmpEektBazhVY00wTUZ0cEx6ZldwWS0zY2NDbnh3UnYtZGVsZ19BZkFJUmVkMA?oc=5 | https://news.google.com/rss/articles/CBMikwFBVV95cUxNM1haSVZyclo5N0VYTVg5R3dzWEtVN0pqN1NBVURwaWdfQlJTY05iOFZzMjJQVGlTV1ZqbkZsZWw3VWUxazh5RDVkaEJiWGpOSW1ZUjJVX1loN3ZRYXQxNVh1LVdQZ0czb0xadzJwY1U2UHNkanlHZ3NFeHVtTGFDOF9KcUh2ZXNyRGhPTkJiRDcxSHc?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Airpro Technology India Limited IPO ₹35.64 Crore Opens Nov 27",
+  "telegram_media_ids": [
+    1125
+  ]
+}
