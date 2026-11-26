@@ -1,0 +1,73 @@
+{
+  "id": "11270302-00593",
+  "kind": "news",
+  "created": "2026-11-27T03:02:53.856418+05:30",
+  "images": [
+    "media/2026-11-27/news-030253-950c_1.jpg"
+  ],
+  "caption": "Stock market news | Crystal Crop Protection lists at ₹278 with 2.2% premium\n\nCrystal Crop Protection listed on the NSE at ₹278 and on the BSE at ₹280 on 26 November 2026, trading at roughly a 2-3% premium to its issue price of ₹272. The IPO attracted strong demand, with overall subscription of 17 times and the retail tranche subscribed 9.26 times, indicating investor confidence in the agro-chemical sector.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #IPO #IndianStocks #CrystalCrop #TickerMarketIndia",
+  "threads_text": "Stock market news | Crystal Crop Protection lists at ₹278 with 2.2% premium\n\nCrystal Crop Protection listed on the NSE at ₹278 and on the BSE at ₹280 on 26 November 2026, trading at roughly a 2-3% premium to its issue price of ₹272. The IPO attracted strong demand, with overall subscription of 17 times and the retail tranche subscribed 9.26 times, indicating investor confidence in the agro-chemical sector.\n\n#StockMarketIndia #IPO #IndianStocks #CrystalCrop #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 6 outlets: Business Standard, BusinessLine, CNBC-TV18, Kotak Neo, Moneycontrol.com, Multibagg AI"
+    ],
+    [
+      "ok",
+      "fresh: newest source 4.4 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 18 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"Crystal Crop Protection\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMisAFBVV95cUxQalZxbmZNa25jdXV5NTByOE1odXRsdFJWZm1weTJINEZoQm1EZ2h3MGE4emZaN3pvSE9zWTRrRlhEUzYwbkFZTmI5dHlQZHZJcl8tX1BkRzZkMjF2dFlNSHFGSnhQLTdqaEN4RnZQUm84QmE1bWNEQXUydmpqY3lVc05HQ3Y5ZWFuTVNkcFpTV3hrMy0wc0dNSnNEUERzOVlfTHVTNFJ2RGxsT0hjS0FyNQ?oc=5 | https://www.business-standard.com/markets/news/crystal-crop-protection-lists-at-3-premium-after-17-times-ipo-subscription-126112600232_1.html | https://news.google.com/rss/articles/CBMi2AFBVV95cUxQZHFES00zZ0pHaUlzSTJ3MFZKczBxU0FXcEYxcDFxeG1OTjloUG9QN2U2aXZXU000Y2hHNkRrUjUwM3NWQlJJaDBpY0M3UjVxWHNtZERaTHpGWm9RZmtVQjk3WllYUTFoMjBadDBkUVpXS0I3eEZGMEtZVnkxbXBxXzZuVTBTblpYVDd0dWxzU0FMd010TTl5azU0Qk9scTBpNjJmTWFXT196NkFoZXhxeXpoUnVkNTQyMEl4djh1OWp6dHdKTk9RV1lQVEpyOEdEc2JWWFFSQTfSAd4BQVVfeXFMTXhwQ2dhdW1la1pGS0F1d0lQNXpXVHE1Ny1JLUhoMXI0MU83ZmVMNlY1STI0dFMxMURXaEFNd1FzMmQ3VERFcDlreFgxSUd6US1DWHVwTWFLbTduSElid3piUXR1bEk1STVVNEZLTDhNZWluMmxkN1QyT2o0ZHY0ZVRiMnRCQl91eWJXbWF5aFJwdnR4a3ZLY01JaDFKRzNoRlV6YmNmQ1RPTTVLdkV6ZDZpUUZSdVp4dE05bGp4R3VPZDBpWFhUT1REUHpicFpTaWo3aENSV3RFYi1tODdn?oc=5 | https://www.thehindubusinessline.com/markets/stock-markets/crystal-crop-protection-shares-list-at-3-premium-on-bse/article71745232.ece"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "IPO Watch",
+      "date_text": "Thu, 26 Nov 2026",
+      "theme": "ipo",
+      "seed": "bse crop crystal debut ipo listing nse premium",
+      "tone": "up",
+      "quotes": [],
+      "label": "IPO LISTING",
+      "headline": "Crystal Crop Protection *lists* at *₹278* with *2.2%* premium",
+      "points": [
+        "Listed on NSE at ₹278, a 2.21% premium to issue price ₹272.",
+        "BSE opening price was ₹280, a 2.94% gain.",
+        "IPO was 17-times subscribed; retail investors got 9.26-times allocation."
+      ],
+      "source": "Business Standard, BusinessLine, CNBC-TV18"
+    },
+    "news_sector": "ipo",
+    "photo_prompt": "A close‑up of a stock market monitor displaying green upward arrows and charts representing an agro‑chemical company."
+  },
+  "telegram_message_id": 1151,
+  "posted": {},
+  "report_text": "✅ confirmed by 6 outlets: Business Standard, BusinessLine, CNBC-TV18, Kotak Neo, Moneycontrol.com, Multibagg AI\n✅ fresh: newest source 4.4 h old\n✅ headline/banner/points/body: all 18 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"Crystal Crop Protection\" - no price box for it\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMisAFBVV95cUxQalZxbmZNa25jdXV5NTByOE1odXRsdFJWZm1weTJINEZoQm1EZ2h3MGE4emZaN3pvSE9zWTRrRlhEUzYwbkFZTmI5dHlQZHZJcl8tX1BkRzZkMjF2dFlNSHFGSnhQLTdqaEN4RnZQUm84QmE1bWNEQXUydmpqY3lVc05HQ3Y5ZWFuTVNkcFpTV3hrMy0wc0dNSnNEUERzOVlfTHVTNFJ2RGxsT0hjS0FyNQ?oc=5 | https://www.business-standard.com/markets/news/crystal-crop-protection-lists-at-3-premium-after-17-times-ipo-subscription-126112600232_1.html | https://news.google.com/rss/articles/CBMi2AFBVV95cUxQZHFES00zZ0pHaUlzSTJ3MFZKczBxU0FXcEYxcDFxeG1OTjloUG9QN2U2aXZXU000Y2hHNkRrUjUwM3NWQlJJaDBpY0M3UjVxWHNtZERaTHpGWm9RZmtVQjk3WllYUTFoMjBadDBkUVpXS0I3eEZGMEtZVnkxbXBxXzZuVTBTblpYVDd0dWxzU0FMd010TTl5azU0Qk9scTBpNjJmTWFXT196NkFoZXhxeXpoUnVkNTQyMEl4djh1OWp6dHdKTk9RV1lQVEpyOEdEc2JWWFFSQTfSAd4BQVVfeXFMTXhwQ2dhdW1la1pGS0F1d0lQNXpXVHE1Ny1JLUhoMXI0MU83ZmVMNlY1STI0dFMxMURXaEFNd1FzMmQ3VERFcDlreFgxSUd6US1DWHVwTWFLbTduSElid3piUXR1bEk1STVVNEZLTDhNZWluMmxkN1QyT2o0ZHY0ZVRiMnRCQl91eWJXbWF5aFJwdnR4a3ZLY01JaDFKRzNoRlV6YmNmQ1RPTTVLdkV6ZDZpUUZSdVp4dE05bGp4R3VPZDBpWFhUT1REUHpicFpTaWo3aENSV3RFYi1tODdn?oc=5 | https://www.thehindubusinessline.com/markets/stock-markets/crystal-crop-protection-shares-list-at-3-premium-on-bse/article71745232.ece\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Crystal Crop Protection lists at ₹278 with 2.2% premium",
+  "telegram_media_ids": [
+    1150
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "11270303-2e7d6",
+  "kind": "news",
+  "created": "2026-11-27T03:03:24.619864+05:30",
+  "images": [
+    "media/2026-11-27/news-030324-f187_1.jpg"
+  ],
+  "caption": "Stock market news | Supriya Lifescience plans share buyback at December 2 board meeting\n\nSupriya Lifescience said its board will meet on December 2, 2026 to consider a proposal to buy back its fully paid-up equity shares, pending statutory and regulatory approvals.\n\nThe move comes after the company reported a 42% profit decline to ₹29.25 crore in Q2 FY27, while revenue grew 3.2% to ₹206.30 crore, reflecting margin pressure from product-mix changes and higher input costs.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #SupriyaLifescience #ShareBuyback #IndianStocks #TickerMarketIndia",
+  "threads_text": "Stock market news | Supriya Lifescience plans share buyback at December 2 board meeting\n\nSupriya Lifescience said its board will meet on December 2, 2026 to consider a proposal to buy back its fully paid-up equity shares, pending statutory and regulatory approvals.\n\n#StockMarketIndia #SupriyaLifescience #ShareBuyback #IndianStocks #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: CNBC-TV18, Mint"
+    ],
+    [
+      "ok",
+      "fresh: newest source 3.9 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 13 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "fiscal years match the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "SUPRIYA: NSE ₹605.90 vs Yahoo ₹617.30 - no price box"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.livemint.com/market/stock-market-news/buyback-alert-supriya-lifescience-sets-december-2-board-meeting-to-consider-share-buyback-details-here-11795714356991.html | https://www.cnbctv18.com/market/stocks/supriya-lifescience-share-price-to-consider-share-buyback-proposal-at-december-2-board-meeting-20042358.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Thu, 26 Nov 2026",
+      "theme": "market_up",
+      "seed": "alert board buyback consider december details here lifescience",
+      "tone": null,
+      "quotes": [],
+      "label": "BUYBACK ALERT",
+      "headline": "Supriya Lifescience plans *share buyback* at *December 2* board meeting",
+      "points": [
+        "Board will consider share buyback on December 2, 2026, subject to approvals.",
+        "Q2 FY27 net profit fell 42% to ₹29.25 crore.",
+        "Revenue rose 3.2% to ₹206.30 crore despite lower margins."
+      ],
+      "source": "CNBC-TV18, Mint"
+    },
+    "news_sector": "pharma",
+    "photo_prompt": "A close‑up of a laboratory tablet press machine with rows of sealed medicine bottles on a shelf."
+  },
+  "telegram_message_id": 1153,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, Mint\n✅ fresh: newest source 3.9 h old\n✅ headline/banner/points/body: all 13 numbers match source data\n✅ all names appear in the sources\n✅ fiscal years match the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ SUPRIYA: NSE ₹605.90 vs Yahoo ₹617.30 - no price box\n✅ written by groq; sources: https://www.livemint.com/market/stock-market-news/buyback-alert-supriya-lifescience-sets-december-2-board-meeting-to-consider-share-buyback-details-here-11795714356991.html | https://www.cnbctv18.com/market/stocks/supriya-lifescience-share-price-to-consider-share-buyback-proposal-at-december-2-board-meeting-20042358.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Supriya Lifescience plans share buyback at December 2 board meeting",
+  "telegram_media_ids": [
+    1152
+  ]
+}

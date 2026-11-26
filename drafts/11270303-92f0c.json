@@ -1,0 +1,73 @@
+{
+  "id": "11270303-92f0c",
+  "kind": "news",
+  "created": "2026-11-27T03:03:50.816142+05:30",
+  "images": [
+    "media/2026-11-27/news-030350-fbd7_1.jpg"
+  ],
+  "caption": "Stock market news | Ashiana Housing ₹1,100 crore senior living land 9 lakh sq ft\n\nAshiana Housing Ltd, through its joint venture Kairav Developers, bought about 9.57 acres of land near Chennai's East Coast Road for a senior living project.\n\nThe development targets roughly 9 lakh square feet of saleable space and could generate around ₹1,100 crore in revenue, highlighting Ashiana's focus on senior living and group housing growth.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #RealEstate #SeniorLiving #AshianaHousing #TickerMarketIndia",
+  "threads_text": "Stock market news | Ashiana Housing ₹1,100 crore senior living land 9 lakh sq ft\n\nAshiana Housing Ltd, through its joint venture Kairav Developers, bought about 9.57 acres of land near Chennai's East Coast Road for a senior living project.\n\n#StockMarketIndia #RealEstate #SeniorLiving #AshianaHousing #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: CNBC-TV18, Economic Times"
+    ],
+    [
+      "ok",
+      "fresh: newest source 5.7 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 8 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "ASHIANA: NSE ₹358.80 vs Yahoo ₹349.00 - no price box"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://economictimes.indiatimes.com/markets/digital-real-estate/realty-news/ashiana-housing-jv-buys-10-acre-land-in-chennai-for-senior-living-project-eyes-rs-1100-cr-revenue/articleshow/136197134.cms | https://www.cnbctv18.com/market/stocks/ashiana-housing-share-price-joint-venture-buys-9-57-acres-near-chennai-sees-rs-1100-crore-sales-potential-20042260.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Thu, 26 Nov 2026",
+      "theme": "market_up",
+      "seed": "100 acre ashiana buys chennai eyes housing land",
+      "tone": null,
+      "quotes": [],
+      "label": "LAND ACQUISITION",
+      "headline": "Ashiana Housing *₹1,100 crore* senior living land *9 lakh* sq ft",
+      "points": [
+        "Ashiana Housing JV acquired nearly 10 acres near Chennai's East Coast Road.",
+        "Project plans about 9 lakh square feet of saleable area.",
+        "Estimated sales potential of ₹1,100 crore for the senior living development."
+      ],
+      "source": "CNBC-TV18, Economic Times"
+    },
+    "news_sector": "realty",
+    "photo_prompt": "A vacant plot of land with construction fences along Chennai’s East Coast Road, showing a cleared site ready for development."
+  },
+  "telegram_message_id": 1155,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, Economic Times\n✅ fresh: newest source 5.7 h old\n✅ headline/banner/points/body: all 8 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ ASHIANA: NSE ₹358.80 vs Yahoo ₹349.00 - no price box\n✅ written by groq; sources: https://economictimes.indiatimes.com/markets/digital-real-estate/realty-news/ashiana-housing-jv-buys-10-acre-land-in-chennai-for-senior-living-project-eyes-rs-1100-cr-revenue/articleshow/136197134.cms | https://www.cnbctv18.com/market/stocks/ashiana-housing-share-price-joint-venture-buys-9-57-acres-near-chennai-sees-rs-1100-crore-sales-potential-20042260.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Ashiana Housing ₹1,100 crore senior living land 9 lakh sq ft",
+  "telegram_media_ids": [
+    1154
+  ]
+}
