@@ -52,10 +52,13 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "auto",
+  "status": "posted",
   "meta": {},
   "telegram_message_id": 1063,
-  "posted": {},
+  "posted": {
+    "instagram": "18118630672839626",
+    "facebook": "1374383985767580_122112362817544503"
+  },
   "report_text": "✅ Dow Jones 50,182.95 (+0.33%) as of 2026-11-25\n✅ S&P 500 7,182.78 (-0.25%) as of 2026-11-25\n✅ Nasdaq 23,585.80 (-0.62%) as of 2026-11-25\n✅ Nikkei 225 57,965.64 (-1.16%) as of 2026-11-26\n✅ Hang Seng 22,309.03 (+0.40%) as of 2026-11-26\n✅ Brent Crude $90.69 (-0.78%) as of 2026-11-25\n✅ Gold $3,583.70 (+0.61%) as of 2026-11-25\n✅ USD / INR 92.81 (-0.12%) as of 2026-11-25\n✅ caption: all 19 numbers match source data\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Global market cues today",
   "alt_text": "Global market cues today: Ticker Market India carousel - Wall Street ends mixed; crude down 0.8%",
@@ -64,5 +67,6 @@
     1060,
     1061,
     1062
-  ]
+  ],
+  "posted_at": "2026-11-26T07:41:12.184410+05:30"
 }
