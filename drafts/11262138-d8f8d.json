@@ -1,0 +1,73 @@
+{
+  "id": "11262138-d8f8d",
+  "kind": "news",
+  "created": "2026-11-26T21:38:17.324846+05:30",
+  "images": [
+    "media/2026-11-26/news-213817-16da_1.jpg"
+  ],
+  "caption": "Stock market news | Uber appoints Rakesh Ranjan as India head from January 4\n\nUber announced the appointment of Rakesh Ranjan, previously Zomato's food-delivery chief, as its president for India and South Asia. The move was reported on 26 November 2026.\\nRanjan joins Uber after leading Zomato Gold, sales and serving as CEO of Allen Online, bringing extensive food-delivery and tech experience to Uber's Indian operations.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #UberIndia #Leadership #Zomato #TickerMarketIndia",
+  "threads_text": "Stock market news | Uber appoints Rakesh Ranjan as India head from January 4\n\nUber announced the appointment of Rakesh Ranjan, previously Zomato's food-delivery chief, as its president for India and South Asia. The move was reported on 26 November 2026.\\nRanjan joins Uber after leading Zomato Gold, sales and serving as CEO of Allen Online, bringing extensive food-delivery and tech experience to Uber's Indian operations.\n\n#StockMarketIndia #UberIndia #Leadership #Zomato #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: BusinessLine, Mint"
+    ],
+    [
+      "ok",
+      "fresh: newest source 10.5 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 5 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"Zomato\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.thehindubusinessline.com/companies/uber-appoints-former-zomato-food-delivery-ceo-rakesh-ranjan-to-lead-india-south-asia-operations/article71745210.ece | https://www.livemint.com/companies/people/who-is-rakesh-ranjan-uber-appoints-ex-zomato-food-delivery-ceo-to-lead-india-and-south-asia-11795663512666.html | https://www.thehindubusinessline.com/companies/uber-appoints-rakesh-ranjan-as-president-for-india-and-south-asia/article71745080.ece"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Thu, 26 Nov 2026",
+      "theme": "tech",
+      "seed": "appoints asia ceo delivery food lead rakesh ranjan",
+      "tone": null,
+      "quotes": [],
+      "label": "NEW LEADERSHIP",
+      "headline": "Uber appoints *Rakesh Ranjan* as India head from *January 4*",
+      "points": [
+        "Uber appointed former Zomato food delivery CEO Rakesh Ranjan.",
+        "He will serve as president for India and South Asia.",
+        "Appointment effective January 4, 2027."
+      ],
+      "source": "BusinessLine, Mint"
+    },
+    "news_sector": "it",
+    "photo_prompt": "A busy Indian street with ride‑hailing cars lined up beside a food‑delivery hub."
+  },
+  "telegram_message_id": 1144,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: BusinessLine, Mint\n✅ fresh: newest source 10.5 h old\n✅ headline/banner/points/body: all 5 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"Zomato\" - no price box for it\n✅ written by groq; sources: https://www.thehindubusinessline.com/companies/uber-appoints-former-zomato-food-delivery-ceo-rakesh-ranjan-to-lead-india-south-asia-operations/article71745210.ece | https://www.livemint.com/companies/people/who-is-rakesh-ranjan-uber-appoints-ex-zomato-food-delivery-ceo-to-lead-india-and-south-asia-11795663512666.html | https://www.thehindubusinessline.com/companies/uber-appoints-rakesh-ranjan-as-president-for-india-and-south-asia/article71745080.ece\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Uber appoints Rakesh Ranjan as India head from January 4",
+  "telegram_media_ids": [
+    1143
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "11262124-fef26",
+  "kind": "news",
+  "created": "2026-11-26T21:24:37.452781+05:30",
+  "images": [
+    "media/2026-11-26/news-212437-cc90_1.jpg"
+  ],
+  "caption": "Stock market news | NSE $64.1 billion market cap makes third-largest exchange\n\nNSE's market capitalisation reached $64.1 billion, placing it ahead of Deutsche Boerse, London Stock Exchange Group and Nasdaq, making it the world's third-largest listed exchange. The rise strengthens NSE's global standing, moving ahead of two major European bourses after a sharp share price increase.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #NSE #StockMarket #GlobalExchange #TickerMarketIndia",
+  "threads_text": "Stock market news | NSE $64.1 billion market cap makes third-largest exchange\n\nNSE's market capitalisation reached $64.1 billion, placing it ahead of Deutsche Boerse, London Stock Exchange Group and Nasdaq, making it the world's third-largest listed exchange. The rise strengthens NSE's global standing, moving ahead of two major European bourses after a sharp share price increase.\n\n#StockMarketIndia #NSE #StockMarket #GlobalExchange #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: BusinessLine, Mint"
+    ],
+    [
+      "ok",
+      "fresh: newest source 2.3 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 3 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.livemint.com/market/stock-market-news/nse-is-now-worlds-third-largest-listed-exchange-by-market-cap-overtakes-nasdaq-lse-which-two-exchanges-are-ahead-11795697484423.html | https://www.thehindubusinessline.com/markets/nse-overtakes-deutsche-boerse-lse-to-become-worlds-third-largest-listed-exchange-at-641-billion/article71746352.ece"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Global Markets",
+      "date_text": "Thu, 26 Nov 2026",
+      "theme": "market_up",
+      "seed": "ahead cap exchange exchanges largest listed lse nasdaq",
+      "tone": "up",
+      "quotes": [],
+      "label": "EXCHANGE MILESTONE",
+      "headline": "NSE *$64.1 billion* market cap makes *third-largest* exchange",
+      "points": [
+        "NSE market capitalisation is about $64.1 billion.",
+        "It ranks ahead of Deutsche Boerse, LSE and Nasdaq.",
+        "NSE becomes the world's third-largest listed exchange."
+      ],
+      "source": "BusinessLine, Mint"
+    },
+    "news_sector": "global",
+    "photo_prompt": "A bustling trading floor with screens showing market data and a large world map backdrop."
+  },
+  "telegram_message_id": 1140,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: BusinessLine, Mint\n✅ fresh: newest source 2.3 h old\n✅ headline/banner/points/body: all 3 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://www.livemint.com/market/stock-market-news/nse-is-now-worlds-third-largest-listed-exchange-by-market-cap-overtakes-nasdaq-lse-which-two-exchanges-are-ahead-11795697484423.html | https://www.thehindubusinessline.com/markets/nse-overtakes-deutsche-boerse-lse-to-become-worlds-third-largest-listed-exchange-at-641-billion/article71746352.ece\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - NSE $64.1 billion market cap makes third-largest exchange",
+  "telegram_media_ids": [
+    1139
+  ]
+}
