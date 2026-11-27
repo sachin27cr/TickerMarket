@@ -1,0 +1,86 @@
+{
+  "id": "11272116-615f7",
+  "kind": "news",
+  "created": "2026-11-27T21:16:50.224912+05:30",
+  "images": [
+    "media/2026-11-27/news-211650-d23f_1.jpg"
+  ],
+  "caption": "Stock market news | SEBI probes Tata Steel APL Apollo deal\n\nSEBI announced it is reviewing Tata Steel's proposed transaction with APL Apollo, citing the need to protect minority shareholders. Chairman Tuhin Kanta Pandey emphasized that safeguarding these investors is a priority for the regulator.\n\nInvestor and proxy advisers have raised concerns that the deal structure could shift costs to minority shareholders, while Enigma Investment notes the debt burden may fall on APL Apollo, increasing financial risk for those shareholders.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #SEBI #TataSteel #APLApollo #TickerMarketIndia",
+  "threads_text": "Stock market news | SEBI probes Tata Steel APL Apollo deal\n\nSEBI announced it is reviewing Tata Steel's proposed transaction with APL Apollo, citing the need to protect minority shareholders. Chairman Tuhin Kanta Pandey emphasized that safeguarding these investors is a priority for the regulator.\n\n#StockMarketIndia #SEBI #TataSteel #APLApollo #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: BusinessLine, CNBC-TV18, Mint"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.2 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 0 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "TATASTEEL ₹163.94 (+0.24%): NSE = Yahoo"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"APL Apollo\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.livemint.com/market/tata-steel-apl-apollo-deal-under-sebi-scrutiny-what-chairman-tuhin-kanta-pandey-said-on-minority-shareholders-11795787306824.html | https://www.thehindubusinessline.com/companies/sebi-to-look-into-tata-steelapl-apollo-deal-over-minority-concerns/article71749659.ece | https://www.thehindubusinessline.com/companies/sebi-to-look-into-tata-steelapl-apollo-deal-over-minority-concerns/article71749659.ece | https://www.cnbctv18.com/market/apl-apollo-tata-steel-deal-sebi-probe-minority-shareholders-viraj-mehta-enigma-alpha-article-20042855.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Regulation",
+      "date_text": "Fri, 27 Nov 2026",
+      "theme": "market_up",
+      "seed": "apl apollo chairman deal kanta minority pandey scrutiny",
+      "tone": "up",
+      "quotes": [
+        {
+          "name": "Tata Steel Ltd",
+          "symbol": "TATASTEEL",
+          "price": 163.94,
+          "chg": 0.4,
+          "pct": 0.24,
+          "time_text": "27 Nov, 4:00 PM IST"
+        }
+      ],
+      "label": "REGULATORY SCRUTINY",
+      "headline": "*SEBI* probes *Tata Steel* *APL Apollo* deal",
+      "points": [
+        "SEBI Chairman Tuhin Kanta Pandey says protecting minority shareholders is a priority.",
+        "SEBI is examining Tata Steel's proposed transaction with APL Apollo.",
+        "Enigma Investment warns debt burden on APL Apollo, risk to minority shareholders."
+      ],
+      "source": "NSE prices, BusinessLine, CNBC-TV18, Mint"
+    },
+    "news_sector": "metals",
+    "photo_prompt": "A steel plant’s towering furnace with smoke against a cloudy sky."
+  },
+  "telegram_message_id": 1247,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: BusinessLine, CNBC-TV18, Mint\n✅ fresh: newest source 1.2 h old\n✅ headline/banner/points/body: all 0 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ TATASTEEL ₹163.94 (+0.24%): NSE = Yahoo\n⚠️ no NSE listing matched \"APL Apollo\" - no price box for it\n✅ written by groq; sources: https://www.livemint.com/market/tata-steel-apl-apollo-deal-under-sebi-scrutiny-what-chairman-tuhin-kanta-pandey-said-on-minority-shareholders-11795787306824.html | https://www.thehindubusinessline.com/companies/sebi-to-look-into-tata-steelapl-apollo-deal-over-minority-concerns/article71749659.ece | https://www.thehindubusinessline.com/companies/sebi-to-look-into-tata-steelapl-apollo-deal-over-minority-concerns/article71749659.ece | https://www.cnbctv18.com/market/apl-apollo-tata-steel-deal-sebi-probe-minority-shareholders-viraj-mehta-enigma-alpha-article-20042855.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - SEBI probes Tata Steel APL Apollo deal",
+  "telegram_media_ids": [
+    1246
+  ]
+}

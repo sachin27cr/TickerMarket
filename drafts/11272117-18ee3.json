@@ -1,0 +1,73 @@
+{
+  "id": "11272117-18ee3",
+  "kind": "news",
+  "created": "2026-11-27T21:17:07.575885+05:30",
+  "images": [
+    "media/2026-11-27/news-211707-00dd_1.jpg"
+  ],
+  "caption": "Stock market news | Zee Entertainment launches ₹600 crore buyback at ₹91 per share\n\nZee Entertainment announced a share buyback of up to 65.93 million shares at ₹91 per share. The tender offer opens on 1 December 2026 and runs for five days, closing on 7 December 2026.\n\nThe buyback totals about ₹600 crore and settlement of bids is scheduled by 14 December 2026. Promoters have chosen not to participate, indicating the offer is solely for public shareholders.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #ZeeEntertainment #ShareBuyback #IndianStocks #TickerMarketIndia",
+  "threads_text": "Stock market news | Zee Entertainment launches ₹600 crore buyback at ₹91 per share\n\nZee Entertainment announced a share buyback of up to 65.93 million shares at ₹91 per share. The tender offer opens on 1 December 2026 and runs for five days, closing on 7 December 2026.\n\nThe buyback totals about ₹600 crore and settlement of bids is scheduled by 14 December 2026.\n\n#StockMarketIndia #ZeeEntertainment #ShareBuyback #IndianStocks #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: Business Standard, CNBC-TV18"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.8 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 18 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"Zee Entertainment\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.business-standard.com/companies/news/zee-entertainment-buyback-to-open-on-dec-1-set-to-close-on-dec-7-126112701272_1.html | https://www.cnbctv18.com/market/zee-entertainment-rs-600-crore-share-buyback-to-open-on-december-1-20043355.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Fri, 27 Nov 2026",
+      "theme": "market_up",
+      "seed": "600 buyback crore december entertainment open zee",
+      "tone": null,
+      "quotes": [],
+      "label": "BUYBACK LAUNCH",
+      "headline": "Zee Entertainment launches *₹600 crore* buyback at *₹91* per share",
+      "points": [
+        "Buyback opens on 1 December 2026.",
+        "Up to 65.93 million shares to be bought at ₹91 each.",
+        "Tender window closes on 7 December 2026; settlement by 14 December."
+      ],
+      "source": "Business Standard, CNBC-TV18"
+    },
+    "news_sector": "telecom",
+    "photo_prompt": "A close‑up of a stock exchange board displaying ticker symbols with a blurred city skyline in the background."
+  },
+  "telegram_message_id": 1249,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: Business Standard, CNBC-TV18\n✅ fresh: newest source 0.8 h old\n✅ headline/banner/points/body: all 18 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"Zee Entertainment\" - no price box for it\n✅ written by groq; sources: https://www.business-standard.com/companies/news/zee-entertainment-buyback-to-open-on-dec-1-set-to-close-on-dec-7-126112701272_1.html | https://www.cnbctv18.com/market/zee-entertainment-rs-600-crore-share-buyback-to-open-on-december-1-20043355.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Zee Entertainment launches ₹600 crore buyback at ₹91 per share",
+  "telegram_media_ids": [
+    1248
+  ]
+}

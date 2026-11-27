@@ -1,0 +1,94 @@
+{
+  "id": "11272108-b33c7",
+  "kind": "news",
+  "created": "2026-11-27T21:08:54.435239+05:30",
+  "images": [
+    "media/2026-11-27/news-210854-33cf_1.jpg"
+  ],
+  "caption": "Stock market news | SEBI Extends Tata Steel Open Offer Statement Deadline to Dec 8\n\nSEBI has extended the deadline for Tata Steel's 26% open offer statement in APL Apollo Tubes to 8 December 2026. The previous deadline was 1 December 2026. This comes amid concerns raised by proxy advisers, institutional investors, and other shareholders.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia # #T #a #TickerMarketIndia",
+  "threads_text": "Stock market news | SEBI Extends Tata Steel Open Offer Statement Deadline to Dec 8\n\nSEBI has extended the deadline for Tata Steel's 26% open offer statement in APL Apollo Tubes to 8 December 2026. The previous deadline was 1 December 2026. This comes amid concerns raised by proxy advisers, institutional investors, and other shareholders.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia # #T #a #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: Business Standard, CNBC-TV18, LinkedIn"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.0 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 11 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "TATASTEEL ₹163.94 (+0.24%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "APLAPOLLO ₹1,509.50 (+1.89%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://www.business-standard.com/markets/news/sebi-grants-tata-steel-extension-till-dec-8-for-apl-apollo-tubes-open-offer-126112701221_1.html | https://news.google.com/rss/articles/CBMiVkFVX3lxTFBUcmhadW95U3Ewek1VbVI0dUpDcVY3R0pJWEM4ejlqQU9tLW04YkxhWGphaTJsYmRWYzBqY3FhQjZNcUJKQUZGV1VhQkVtZHdQNWxKeGd3?oc=5 | https://news.google.com/rss/articles/CBMitgFBVV95cUxPck9jZ2JZRGtyVnZwRE03TkRtamRaTHlwZzFIYjRxYzBsYlhVRnFaOGl6Zkd1YlJwRm5FZ3FGZTcwYkpBc0ZHb0ZlMWg0eEk3RmswSjlKeWJRbGN0Z2JHRHBod051TVV2LXVzcUlJeEIwN2JqSXNxZVlKR0p4dGVZYTl0ZkpFbThPUXNnaDAwTloxX01uSG13TlNrSkZfSHMzRTJMT1J0RFRpZ2kzMEk1SG90bDBwUQ?oc=5 | https://www.cnbctv18.com/market/stocks/sebi-extends-deadline-for-tata-steels-26-open-offer-statement-in-apl-apollo-share-price-to-december-8-20043340.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Regulation",
+      "date_text": "Fri, 27 Nov 2026",
+      "theme": "market_up",
+      "seed": "apl apollo deadline december extends offer open sebi",
+      "tone": "up",
+      "quotes": [
+        {
+          "name": "Tata Steel Ltd",
+          "symbol": "TATASTEEL",
+          "price": 163.94,
+          "chg": 0.4,
+          "pct": 0.24,
+          "time_text": "27 Nov, 4:00 PM IST"
+        },
+        {
+          "name": "APL Apollo Tubes Ltd",
+          "symbol": "APLAPOLLO",
+          "price": 1509.5,
+          "chg": 28.0,
+          "pct": 1.89,
+          "time_text": "27 Nov, 4:00 PM IST"
+        }
+      ],
+      "label": "DEADLINE EXTENDED",
+      "headline": "SEBI Extends *Tata Steel* Open Offer Statement Deadline to Dec 8",
+      "points": [
+        "SEBI extended the deadline for Tata Steel's open offer statement to 8 December 2026.",
+        "The original deadline for the open offer statement was 1 December 2026.",
+        "The open offer involves acquiring a 26% stake in APL Apollo Tubes."
+      ],
+      "source": "NSE prices, Business Standard, CNBC-TV18, LinkedIn"
+    },
+    "news_sector": "metals",
+    "photo_prompt": "Steel pipes and structural tubes stacked neatly inside a modern industrial warehouse facility."
+  },
+  "telegram_message_id": 1245,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: Business Standard, CNBC-TV18, LinkedIn\n✅ fresh: newest source 1.0 h old\n✅ headline/banner/points/body: all 11 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ TATASTEEL ₹163.94 (+0.24%): NSE = Yahoo\n✅ APLAPOLLO ₹1,509.50 (+1.89%): NSE = Yahoo\n✅ written by gemini; sources: https://www.business-standard.com/markets/news/sebi-grants-tata-steel-extension-till-dec-8-for-apl-apollo-tubes-open-offer-126112701221_1.html | https://news.google.com/rss/articles/CBMiVkFVX3lxTFBUcmhadW95U3Ewek1VbVI0dUpDcVY3R0pJWEM4ejlqQU9tLW04YkxhWGphaTJsYmRWYzBqY3FhQjZNcUJKQUZGV1VhQkVtZHdQNWxKeGd3?oc=5 | https://news.google.com/rss/articles/CBMitgFBVV95cUxPck9jZ2JZRGtyVnZwRE03TkRtamRaTHlwZzFIYjRxYzBsYlhVRnFaOGl6Zkd1YlJwRm5FZ3FGZTcwYkpBc0ZHb0ZlMWg0eEk3RmswSjlKeWJRbGN0Z2JHRHBod051TVV2LXVzcUlJeEIwN2JqSXNxZVlKR0p4dGVZYTl0ZkpFbThPUXNnaDAwTloxX01uSG13TlNrSkZfSHMzRTJMT1J0RFRpZ2kzMEk1SG90bDBwUQ?oc=5 | https://www.cnbctv18.com/market/stocks/sebi-extends-deadline-for-tata-steels-26-open-offer-statement-in-apl-apollo-share-price-to-december-8-20043340.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - SEBI Extends Tata Steel Open Offer Statement Deadline to Dec 8",
+  "telegram_media_ids": [
+    1244
+  ]
+}

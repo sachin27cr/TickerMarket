@@ -1,112 +1,5 @@
 [
   {
-    "when": "2026-11-25T20:22:31.261441+05:30",
-    "title": "LG Electronics India promoter to sell up to 2% stake, plans to offload 13.57 million shares by Dec 31",
-    "bucket": null,
-    "lead": [
-      "dec",
-      "electronics",
-      "million",
-      "offload",
-      "plans",
-      "promoter",
-      "sell",
-      "stake"
-    ],
-    "tokens": [
-      "320",
-      "check",
-      "crore",
-      "details",
-      "divest",
-      "electronics",
-      "float",
-      "focus",
-      "inc",
-      "meet",
-      "norms",
-      "offload",
-      "promoter",
-      "public",
-      "sell",
-      "stake",
-      "subsidiary"
-    ]
-  },
-  {
-    "when": "2026-11-25T20:33:05.225550+05:30",
-    "title": "Shapoor Mistry lobbied Modi twice for Tata Sons IPO as battle over listing intensifies",
-    "bucket": null,
-    "lead": [
-      "battle",
-      "intensifies",
-      "ipo",
-      "listing",
-      "lobbied",
-      "mistry",
-      "modi",
-      "shapoor",
-      "sons",
-      "tata",
-      "twice"
-    ],
-    "tokens": [
-      "approached",
-      "battle",
-      "feud",
-      "intensifies",
-      "internal",
-      "ipo",
-      "listing",
-      "lobbied",
-      "mint",
-      "mistry",
-      "modi",
-      "pressed",
-      "push",
-      "shapoor",
-      "sons",
-      "tata",
-      "twice"
-    ]
-  },
-  {
-    "when": "2026-11-25T20:33:38.612944+05:30",
-    "title": "Rupee jumps 23 paise to 92.62 against US dollar in early trade",
-    "bucket": "rupee_forex",
-    "lead": [
-      "against",
-      "dollar",
-      "early",
-      "jumps",
-      "paise",
-      "rupee",
-      "trade"
-    ],
-    "tokens": [
-      "add",
-      "against",
-      "boost",
-      "crude",
-      "currency",
-      "dollar",
-      "early",
-      "falling",
-      "gains",
-      "jumps",
-      "nifty",
-      "oil",
-      "paise",
-      "prices",
-      "rally",
-      "rises",
-      "rupee",
-      "sensex",
-      "soar",
-      "trade"
-    ]
-  },
-  {
     "when": "2026-11-25T23:40:07.679747+05:30",
     "title": "RBI net buyer of dollars for fourth straight month in September, data shows",
     "bucket": "rbi_rates",
@@ -1279,6 +1172,110 @@
       "swiggy",
       "transition",
       "widen"
+    ]
+  },
+  {
+    "when": "2026-11-27T21:08:57.110657+05:30",
+    "title": "SEBI extends deadline for Tata Steel's 26% open offer statement in APL Apollo to December 8",
+    "bucket": null,
+    "lead": [
+      "apl",
+      "apollo",
+      "deadline",
+      "december",
+      "extends",
+      "offer",
+      "open",
+      "sebi",
+      "statement",
+      "steel",
+      "tata"
+    ],
+    "tokens": [
+      "apl",
+      "apollo",
+      "cnbc",
+      "deadline",
+      "dec",
+      "december",
+      "extends",
+      "extension",
+      "grants",
+      "offer",
+      "open",
+      "sebi",
+      "statement",
+      "steel",
+      "tata",
+      "till",
+      "tubes",
+      "tv18"
+    ]
+  },
+  {
+    "when": "2026-11-27T21:16:53.001544+05:30",
+    "title": "Tata Steel-APL Apollo deal under Sebi scrutiny? What Chairman Tuhin Kanta Pandey said on minority shareholders",
+    "bucket": null,
+    "lead": [
+      "apl",
+      "apollo",
+      "chairman",
+      "deal",
+      "kanta",
+      "minority",
+      "pandey",
+      "scrutiny",
+      "sebi",
+      "shareholders",
+      "steel",
+      "tata",
+      "tuhin",
+      "what"
+    ],
+    "tokens": [
+      "apl",
+      "apollo",
+      "chairman",
+      "concerns",
+      "deal",
+      "kanta",
+      "look",
+      "minority",
+      "pandey",
+      "scrutiny",
+      "sebi",
+      "shaeholder",
+      "shareholders",
+      "steel",
+      "tata",
+      "tuhin",
+      "what"
+    ]
+  },
+  {
+    "when": "2026-11-27T21:17:12.601374+05:30",
+    "title": "Zee Entertainment’s ₹600 crore share buyback to open on December 1",
+    "bucket": null,
+    "lead": [
+      "600",
+      "buyback",
+      "crore",
+      "december",
+      "entertainment",
+      "open",
+      "zee"
+    ],
+    "tokens": [
+      "600",
+      "buyback",
+      "close",
+      "crore",
+      "dec",
+      "december",
+      "entertainment",
+      "open",
+      "set",
+      "zee"
     ]
   }
 ]
