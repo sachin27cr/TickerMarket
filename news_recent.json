@@ -1,36 +1,5 @@
 [
   {
-    "when": "2026-11-25T03:57:22.607141+05:30",
-    "title": "States raise ₹7 trillion in market borrowings so far in FY27, 12% below plan",
-    "bucket": null,
-    "lead": [
-      "below",
-      "borrowings",
-      "far",
-      "fy27",
-      "plan",
-      "raise",
-      "states",
-      "trillion"
-    ],
-    "tokens": [
-      "365",
-      "auto",
-      "below",
-      "borrowings",
-      "crore",
-      "far",
-      "fy27",
-      "hit",
-      "payouts",
-      "plan",
-      "pli",
-      "raise",
-      "states",
-      "trillion"
-    ]
-  },
-  {
     "when": "2026-11-25T05:52:53.799730+05:30",
     "title": "Gold Slips as Investors Weigh Fed Outlook, US Tariff Plans",
     "bucket": "gold_metals",
@@ -1139,6 +1108,74 @@
       "sees",
       "senior",
       "venture"
+    ]
+  },
+  {
+    "when": "2026-11-27T05:41:25.360944+05:30",
+    "title": "Shree Siddhivinayak Greentech Industries IPO Allotment Status: Check Online on Mas Services & NSE SME",
+    "bucket": null,
+    "lead": [
+      "allotment",
+      "check",
+      "greentech",
+      "industries",
+      "ipo",
+      "mas",
+      "nse",
+      "online",
+      "services",
+      "shree",
+      "siddhivinayak",
+      "sme",
+      "status"
+    ],
+    "tokens": [
+      "allotment",
+      "check",
+      "greentech",
+      "industries",
+      "ipo",
+      "issue",
+      "mas",
+      "nse",
+      "online",
+      "services",
+      "shree",
+      "siddhivinayak",
+      "sme",
+      "status",
+      "subscribed",
+      "subscription",
+      "times"
+    ]
+  },
+  {
+    "when": "2026-11-27T06:05:41.722568+05:30",
+    "title": "Brent crude crosses $96 a barrel mark after Houthis attack key Saudi refinery",
+    "bucket": "crude_oil",
+    "lead": [
+      "attack",
+      "barrel",
+      "brent",
+      "crosses",
+      "crude",
+      "houthis",
+      "key",
+      "mark",
+      "refinery",
+      "saudi"
+    ],
+    "tokens": [
+      "attack",
+      "barrel",
+      "brent",
+      "crosses",
+      "crude",
+      "houthis",
+      "key",
+      "mark",
+      "refinery",
+      "saudi"
     ]
   }
 ]

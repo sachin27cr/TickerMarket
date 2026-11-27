@@ -1,0 +1,69 @@
+{
+  "id": "11270605-deb8e",
+  "kind": "news",
+  "created": "2026-11-27T06:05:38.723190+05:30",
+  "images": [
+    "media/2026-11-27/news-060538-45c4_1.jpg"
+  ],
+  "caption": "Stock market news | Brent crude crosses $96 barrel after Houthis attack\n\nOn 27 November 2026 Brent crude moved above $96 a barrel after the Houthis attacked a key Saudi refinery.\n\nDespite the attack, Vortexa reports higher November traffic through the Strait of Hormuz and the IEA expects a quarterly oil surplus, which has kept prices from rising further.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #OilPrices #BrentCrude #GlobalMarkets #TickerMarketIndia",
+  "threads_text": "Stock market news | Brent crude crosses $96 barrel after Houthis attack\n\nOn 27 November 2026 Brent crude moved above $96 a barrel after the Houthis attacked a key Saudi refinery.\n\nDespite the attack, Vortexa reports higher November traffic through the Strait of Hormuz and the IEA expects a quarterly oil surplus, which has kept prices from rising further.\n\nSave this for later and send it to a friend who trades.\n\n#StockMarketIndia #OilPrices #BrentCrude #GlobalMarkets #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "reported by a trusted outlet: CNBC-TV18"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.9 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 5 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.cnbctv18.com/market/commodities/crude-oil-prices-today-rise-brent-wti-saudi-aramco-key-facility-attack-jazan-ras-tanura-houthis-strait-of-hormuz-iran-20042528.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Global Markets",
+      "date_text": "Fri, 27 Nov 2026",
+      "theme": "oil",
+      "seed": "attack barrel brent crosses crude houthis key mark",
+      "tone": "up",
+      "quotes": [],
+      "label": "OIL PRICE MOVE",
+      "headline": "*Brent crude* crosses *$96* barrel after Houthis attack",
+      "points": [
+        "Brent crude rose above *$96* per barrel after Houthis hit a Saudi refinery.",
+        "Vortexa data shows November shipping traffic through the Strait of Hormuz increased.",
+        "IEA forecasts an oil surplus this quarter, limiting price gains."
+      ],
+      "source": "CNBC-TV18"
+    },
+    "news_sector": "oil",
+    "photo_prompt": "A cargo ship navigating the Strait of Hormuz with oil tankers silhouetted against a sunset."
+  },
+  "telegram_message_id": 1160,
+  "posted": {},
+  "report_text": "✅ reported by a trusted outlet: CNBC-TV18\n✅ fresh: newest source 0.9 h old\n✅ headline/banner/points/body: all 5 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://www.cnbctv18.com/market/commodities/crude-oil-prices-today-rise-brent-wti-saudi-aramco-key-facility-attack-jazan-ras-tanura-houthis-strait-of-hormuz-iran-20042528.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Brent crude crosses $96 barrel after Houthis attack",
+  "telegram_media_ids": [
+    1159
+  ]
+}
