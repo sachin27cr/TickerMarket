@@ -1277,5 +1277,102 @@
       "set",
       "zee"
     ]
+  },
+  {
+    "when": "2026-11-27T23:05:08.043971+05:30",
+    "title": "Why is Indian stock market falling today? Nifty down to near 25,600, Sensex crashes 900 points | Top 3 reasons explained",
+    "bucket": null,
+    "lead": [
+      "600",
+      "900",
+      "crashes",
+      "down",
+      "explained",
+      "falling",
+      "near",
+      "nifty",
+      "points",
+      "reasons",
+      "sensex",
+      "top",
+      "why"
+    ],
+    "tokens": [
+      "25600",
+      "600",
+      "900",
+      "990",
+      "crashes",
+      "down",
+      "explained",
+      "falling",
+      "near",
+      "nifty",
+      "points",
+      "reasons",
+      "sensex",
+      "top",
+      "why"
+    ]
+  },
+  {
+    "when": "2026-11-27T23:05:21.580820+05:30",
+    "title": "No stay for Tata Trusts: HC lets Tata Sons board meet, casting vote intact",
+    "bucket": null,
+    "lead": [
+      "board",
+      "casting",
+      "intact",
+      "lets",
+      "meet",
+      "sons",
+      "stay",
+      "tata",
+      "trusts",
+      "vote"
+    ],
+    "tokens": [
+      "board",
+      "casting",
+      "intact",
+      "lets",
+      "meet",
+      "monday",
+      "relief",
+      "sons",
+      "stay",
+      "tata",
+      "trusts",
+      "vote"
+    ]
+  },
+  {
+    "when": "2026-11-27T23:05:27.033596+05:30",
+    "title": "Five-day FPI onboarding, simpler disclosures: SEBI outlines major regulatory reforms",
+    "bucket": "fii_flows",
+    "lead": [
+      "disclosures",
+      "five",
+      "fpi",
+      "major",
+      "onboarding",
+      "outlines",
+      "reforms",
+      "regulatory",
+      "sebi",
+      "simpler"
+    ],
+    "tokens": [
+      "disclosures",
+      "five",
+      "fpi",
+      "major",
+      "onboarding",
+      "outlines",
+      "reforms",
+      "regulatory",
+      "sebi",
+      "simpler"
+    ]
   }
 ]
