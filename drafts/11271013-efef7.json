@@ -1,0 +1,82 @@
+{
+  "id": "11271013-efef7",
+  "kind": "news",
+  "created": "2026-11-27T10:13:06.328112+05:30",
+  "images": [
+    "media/2026-11-27/news-101306-f52d_1.jpg"
+  ],
+  "caption": "Stock market news | Mahanadi Coalfields Set for Mumbai Debut After ₹8,981 Crore IPO\n\nMahanadi Coalfields Ltd., a unit of state-owned Coal India Ltd., is set to begin trading in Mumbai on Friday. The company raised ₹8,981 crore, or $969 million, through its initial public offering, with bidding closing on Monday.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #MahanadiCoalfields #IPO #CoalIndia #TickerMarketIndia",
+  "threads_text": "Stock market news | Mahanadi Coalfields Set for Mumbai Debut After ₹8,981 Crore IPO\n\nMahanadi Coalfields Ltd., a unit of state-owned Coal India Ltd., is set to begin trading in Mumbai on Friday. The company raised ₹8,981 crore, or $969 million, through its initial public offering, with bidding closing on Monday.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #MahanadiCoalfields #IPO #CoalIndia #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 4 outlets: Bloomberg.com, BusinessLine, Mint, Traders Union"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.0 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 5 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "COALINDIA ₹388.05 (-0.22%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://www.thehindubusinessline.com/markets/mahanadi-coalfields-set-for-mumbai-debut-after-8981-crore-ipo/article71749298.ece | https://news.google.com/rss/articles/CBMilwFBVV95cUxPV1E5YVdGZzVIQi1VTUxlM2xaZnFTdDYzYVNNSUpTZVgyRndTejQ3UnVaMEJNNTM2LWdaMm5PTkhvQkpDR1V2cm9UMjU3V2xONm9ZSllROGw0V1NsWnlncjl3Wlk4ZnlIMUtST1NySUJvTHdubGxtQ2ZqQkthb0pHY3VwNm9iZGxlbFlsSUhHbTJWYTFWdHdN?oc=5 | https://www.livemint.com/market/mahanadi-coalfields-set-for-mumbai-debut-after-969-million-ipo-11795746565861.html | https://news.google.com/rss/articles/CBMiswFBVV95cUxNUkxRd1B0NXpiTm5KM1FTeU9aQVRoV3prVFlLX3NhR0RIZUllYVdtelZzMWUwZWwtRVVUY2Z0aFVKeElIZW9HWVY2bHZ0YkZkRU1rVU5nR0JmSmQ4TTRuTnBEenVxRzFxSDhveUtIWWVjZ0twZ2NlbmxnbE5WSWxTSzlpd210LVFrVnUxYU9RcGtYWm1Za1JrRHJzZDRWbGF5c0gyMm1tTlptbzJZdTRfeWdRNA?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "IPO Watch",
+      "date_text": "Fri, 27 Nov 2026",
+      "theme": "ipo",
+      "seed": "969 coalfields debut ipo mahanadi million mumbai set",
+      "tone": "down",
+      "quotes": [
+        {
+          "name": "Coal India Ltd",
+          "symbol": "COALINDIA",
+          "price": 388.05,
+          "chg": -0.85,
+          "pct": -0.22,
+          "time_text": "27 Nov, 10:12 AM IST"
+        }
+      ],
+      "label": "STOCK MARKET DEBUT",
+      "headline": "Mahanadi Coalfields Set for Mumbai Debut After *₹8,981 Crore IPO*",
+      "points": [
+        "Mahanadi Coalfields is set to start trading in Mumbai on Friday.",
+        "The ₹8,981 crore IPO was subscribed 1.5 times when bidding closed Monday.",
+        "Institutions drove the demand for the initial public offering shares."
+      ],
+      "source": "NSE prices, Bloomberg.com, BusinessLine, Mint"
+    },
+    "news_sector": "ipo",
+    "photo_prompt": "An open-cast coal mining site showing massive earth-moving machinery, coal deposits, and dusty terrain under bright sunlight."
+  },
+  "telegram_message_id": 1180,
+  "posted": {},
+  "report_text": "✅ confirmed by 4 outlets: Bloomberg.com, BusinessLine, Mint, Traders Union\n✅ fresh: newest source 1.0 h old\n✅ headline/banner/points/body: all 5 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ COALINDIA ₹388.05 (-0.22%): NSE = Yahoo\n✅ written by gemini; sources: https://www.thehindubusinessline.com/markets/mahanadi-coalfields-set-for-mumbai-debut-after-8981-crore-ipo/article71749298.ece | https://news.google.com/rss/articles/CBMilwFBVV95cUxPV1E5YVdGZzVIQi1VTUxlM2xaZnFTdDYzYVNNSUpTZVgyRndTejQ3UnVaMEJNNTM2LWdaMm5PTkhvQkpDR1V2cm9UMjU3V2xONm9ZSllROGw0V1NsWnlncjl3Wlk4ZnlIMUtST1NySUJvTHdubGxtQ2ZqQkthb0pHY3VwNm9iZGxlbFlsSUhHbTJWYTFWdHdN?oc=5 | https://www.livemint.com/market/mahanadi-coalfields-set-for-mumbai-debut-after-969-million-ipo-11795746565861.html | https://news.google.com/rss/articles/CBMiswFBVV95cUxNUkxRd1B0NXpiTm5KM1FTeU9aQVRoV3prVFlLX3NhR0RIZUllYVdtelZzMWUwZWwtRVVUY2Z0aFVKeElIZW9HWVY2bHZ0YkZkRU1rVU5nR0JmSmQ4TTRuTnBEenVxRzFxSDhveUtIWWVjZ0twZ2NlbmxnbE5WSWxTSzlpd210LVFrVnUxYU9RcGtYWm1Za1JrRHJzZDRWbGF5c0gyMm1tTlptbzJZdTRfeWdRNA?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Mahanadi Coalfields Set for Mumbai Debut After ₹8,981 Crore IPO",
+  "telegram_media_ids": [
+    1179
+  ]
+}

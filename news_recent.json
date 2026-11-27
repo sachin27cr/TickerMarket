@@ -1,78 +1,5 @@
 [
   {
-    "when": "2026-11-25T05:52:53.799730+05:30",
-    "title": "Gold Slips as Investors Weigh Fed Outlook, US Tariff Plans",
-    "bucket": "gold_metals",
-    "lead": [
-      "fed",
-      "gold",
-      "investors",
-      "outlook",
-      "plans",
-      "slips",
-      "tariff",
-      "weigh"
-    ],
-    "tokens": [
-      "fed",
-      "gold",
-      "investors",
-      "outlook",
-      "plans",
-      "slips",
-      "tariff",
-      "weigh"
-    ]
-  },
-  {
-    "when": "2026-11-25T06:03:40.178536+05:30",
-    "title": "Zydus Lifesciences sets up wholly owned subsidiary in Australia",
-    "bucket": null,
-    "lead": [
-      "australia",
-      "lifesciences",
-      "owned",
-      "sets",
-      "subsidiary",
-      "wholly",
-      "zydus"
-    ],
-    "tokens": [
-      "australia",
-      "lifesciences",
-      "owned",
-      "sets",
-      "subsidiary",
-      "wholly",
-      "zydus"
-    ]
-  },
-  {
-    "when": "2026-11-25T06:17:49.912039+05:30",
-    "title": "JSW Motors unveils brand identity ahead of December 3 launch",
-    "bucket": null,
-    "lead": [
-      "ahead",
-      "brand",
-      "december",
-      "identity",
-      "jsw",
-      "launch",
-      "motors",
-      "unveils"
-    ],
-    "tokens": [
-      "ahead",
-      "brand",
-      "december",
-      "identity",
-      "jsw",
-      "launch",
-      "motors",
-      "unveils"
-    ]
-  },
-  {
     "when": "2026-11-25T10:35:38.931526+05:30",
     "title": "Big boom in stock market today; ₹2.2 lakh cr wealth for investors! Sensex up 1,400 points, Nifty 600 | 3 main reasons",
     "bucket": null,
@@ -1176,6 +1103,108 @@
       "mark",
       "refinery",
       "saudi"
+    ]
+  },
+  {
+    "when": "2026-11-27T10:10:43.293622+05:30",
+    "title": "Swara Baby Products fixes price band for ₹800 crore IPO - Details here",
+    "bucket": null,
+    "lead": [
+      "800",
+      "baby",
+      "band",
+      "crore",
+      "details",
+      "fixes",
+      "here",
+      "ipo",
+      "price",
+      "products",
+      "swara"
+    ],
+    "tokens": [
+      "105",
+      "111",
+      "800",
+      "baby",
+      "band",
+      "check",
+      "cuts",
+      "dates",
+      "ipo",
+      "key",
+      "lot",
+      "per",
+      "price",
+      "products",
+      "set",
+      "sets",
+      "size",
+      "swara"
+    ]
+  },
+  {
+    "when": "2026-11-27T10:13:08.859513+05:30",
+    "title": "Mahanadi Coalfields Set for Mumbai Debut After $969 Million IPO",
+    "bucket": null,
+    "lead": [
+      "969",
+      "coalfields",
+      "debut",
+      "ipo",
+      "mahanadi",
+      "million",
+      "mumbai",
+      "set"
+    ],
+    "tokens": [
+      "969",
+      "981",
+      "coalfields",
+      "crore",
+      "debut",
+      "ipo",
+      "mahanadi",
+      "million",
+      "mumbai",
+      "set",
+      "start",
+      "trading"
+    ]
+  },
+  {
+    "when": "2026-11-27T10:27:25.904707+05:30",
+    "title": "Mahanadi Coalfields Listing: Coal India subsidiary debuts at a small discount to issue price",
+    "bucket": null,
+    "lead": [
+      "coal",
+      "coalfields",
+      "debuts",
+      "discount",
+      "issue",
+      "listing",
+      "mahanadi",
+      "price",
+      "small",
+      "subsidiary"
+    ],
+    "tokens": [
+      "coal",
+      "coalfields",
+      "debuts",
+      "discount",
+      "flat",
+      "here",
+      "how",
+      "ipo",
+      "issue",
+      "listing",
+      "mahanadi",
+      "make",
+      "price",
+      "small",
+      "subsidiary",
+      "trade"
     ]
   }
 ]

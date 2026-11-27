@@ -1,0 +1,86 @@
+{
+  "id": "11271027-02153",
+  "kind": "news",
+  "created": "2026-11-27T10:27:23.350454+05:30",
+  "images": [
+    "media/2026-11-27/news-102723-bc3b_1.jpg"
+  ],
+  "caption": "Stock market news | Mahanadi Coalfields lists at 2% discount to ₹136 IPO\n\nMahanadi Coalfields, a Coal India subsidiary, listed on 27 November 2026, offering 66.18 crore shares at ₹136, raising ₹9,000 crore, with Coal India offloading 10% stake. Issue was subscribed 1.52 times. The listing values the company near ₹90,000 crore and adds a new energy stock to the market, though it opened at a modest 2% discount to the IPO price.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #MahanadiCoalfields #IPO #IndianStocks #TickerMarketIndia",
+  "threads_text": "Stock market news | Mahanadi Coalfields lists at 2% discount to ₹136 IPO\n\nMahanadi Coalfields, a Coal India subsidiary, listed on 27 November 2026, offering 66.18 crore shares at ₹136, raising ₹9,000 crore, with Coal India offloading 10% stake. Issue was subscribed 1.52 times.\n\n#StockMarketIndia #MahanadiCoalfields #IPO #IndianStocks #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: CNBC-TV18, Moneycontrol.com"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.2 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 16 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"Mahanadi Coalfields\" - no price box for it"
+    ],
+    [
+      "ok",
+      "COALINDIA ₹385.50 (-0.87%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.cnbctv18.com/market/mahanadi-coalfields-mcl-coal-india-subsidiary-listing-ipo-subscription-financials-production-offtake-dividends-share-price-20042647.htm | https://news.google.com/rss/articles/CBMi1wFBVV95cUxQT19LS3FOU1ZMT1ZueUFlY010WVJwUTNSZml0dGt1ZjYxOEtIQmFzT1lwT0xib1Vubk5kWDVNdW1xampoYW1oYWFBc05hV1BkTW11aFFaOXhXM1FLRWlOMWYxWDQxZXgwQlg5TmdEMjdwRkk0UGgwTmk3OVJ0WmdDUHJpOGNfVVd0UVBwVG91VlhEcmx4R1lZQWVSZW9RS0ltTjR2SmRxb1YwWXdJRkhTZ2oxeXlTY2dKN1hURllhYUtYWHRuZldIQWxZS2ZuVWwyeUVNcDIwRdIB3AFBVV95cUxQbzRIVGhRelFvdDh6bDRNWmIybENQcHViWkw4RVIyRC12OG5mUUJDUjNsZVlCQ0VPN1dfNVozU3Y1UlN4NDNDSVlQQWJTb0ctbVpOWE81N0llSUNmVGEzNFpjWFFUeEVDdDlkbmdJamN5RVp3andZQWg3a1lITVhURjQ5dU50bVE0U1Fpd1MweDZQNkV5SC1nWDNIQVNjUHgtMzJVeGd0M3htMEtlb3JtYW52YndSYjUwRGhoTWVWR3BMMS1tXzlzV1FGZDZxMFF5MHVRR0h3YXNZM3Iw?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "IPO Watch",
+      "date_text": "Fri, 27 Nov 2026",
+      "theme": "ipo",
+      "seed": "coal coalfields debuts discount issue listing mahanadi price",
+      "tone": "down",
+      "quotes": [
+        {
+          "name": "Coal India Ltd",
+          "symbol": "COALINDIA",
+          "price": 385.5,
+          "chg": -3.4,
+          "pct": -0.87,
+          "time_text": "27 Nov, 10:26 AM IST"
+        }
+      ],
+      "label": "NEW COAL IPO",
+      "headline": "Mahanadi Coalfields lists at *2%* discount to *₹136* IPO",
+      "points": [
+        "Offer included *66.18 crore* shares at *₹136* each, total *₹9,000 crore*",
+        "Coal India sold 10% of its stake in the listing",
+        "Shares listed flat, trading at *2%* discount to IPO price"
+      ],
+      "source": "NSE prices, CNBC-TV18, Moneycontrol.com"
+    },
+    "news_sector": "ipo",
+    "photo_prompt": "A coal mine entrance with rows of stacked coal bags under a cloudy sky."
+  },
+  "telegram_message_id": 1182,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, Moneycontrol.com\n✅ fresh: newest source 0.2 h old\n✅ headline/banner/points/body: all 16 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n⚠️ no NSE listing matched \"Mahanadi Coalfields\" - no price box for it\n✅ COALINDIA ₹385.50 (-0.87%): NSE = Yahoo\n✅ written by groq; sources: https://www.cnbctv18.com/market/mahanadi-coalfields-mcl-coal-india-subsidiary-listing-ipo-subscription-financials-production-offtake-dividends-share-price-20042647.htm | https://news.google.com/rss/articles/CBMi1wFBVV95cUxQT19LS3FOU1ZMT1ZueUFlY010WVJwUTNSZml0dGt1ZjYxOEtIQmFzT1lwT0xib1Vubk5kWDVNdW1xampoYW1oYWFBc05hV1BkTW11aFFaOXhXM1FLRWlOMWYxWDQxZXgwQlg5TmdEMjdwRkk0UGgwTmk3OVJ0WmdDUHJpOGNfVVd0UVBwVG91VlhEcmx4R1lZQWVSZW9RS0ltTjR2SmRxb1YwWXdJRkhTZ2oxeXlTY2dKN1hURllhYUtYWHRuZldIQWxZS2ZuVWwyeUVNcDIwRdIB3AFBVV95cUxQbzRIVGhRelFvdDh6bDRNWmIybENQcHViWkw4RVIyRC12OG5mUUJDUjNsZVlCQ0VPN1dfNVozU3Y1UlN4NDNDSVlQQWJTb0ctbVpOWE81N0llSUNmVGEzNFpjWFFUeEVDdDlkbmdJamN5RVp3andZQWg3a1lITVhURjQ5dU50bVE0U1Fpd1MweDZQNkV5SC1nWDNIQVNjUHgtMzJVeGd0M3htMEtlb3JtYW52YndSYjUwRGhoTWVWR3BMMS1tXzlzV1FGZDZxMFF5MHVRR0h3YXNZM3Iw?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Mahanadi Coalfields lists at 2% discount to ₹136 IPO",
+  "telegram_media_ids": [
+    1181
+  ]
+}
