@@ -3,17 +3,18 @@
   "kind": "cap_movers",
   "created": "2026-11-27T16:16:22.661395+05:30",
   "images": [
-    "media/2026-11-27/cap_movers-161622-5d20_1.jpg",
-    "media/2026-11-27/cap_movers-161622-5d20_2.jpg",
-    "media/2026-11-27/cap_movers-161622-5d20_3.jpg",
-    "media/2026-11-27/cap_movers-161622-5d20_4.jpg",
-    "media/2026-11-27/cap_movers-161622-5d20_5.jpg",
-    "media/2026-11-27/cap_movers-161622-5d20_6.jpg",
-    "media/2026-11-27/cap_movers-161622-5d20_7.jpg",
-    "media/2026-11-27/cap_movers-161622-5d20_8.jpg"
+    "media/2026-11-27/cap_movers-fii-202045-eb2f_1.jpg",
+    "media/2026-11-27/cap_movers-fii-202045-eb2f_2.jpg",
+    "media/2026-11-27/cap_movers-fii-202045-eb2f_3.jpg",
+    "media/2026-11-27/cap_movers-fii-202045-eb2f_4.jpg",
+    "media/2026-11-27/cap_movers-fii-202045-eb2f_5.jpg",
+    "media/2026-11-27/cap_movers-fii-202045-eb2f_6.jpg",
+    "media/2026-11-27/cap_movers-fii-202045-eb2f_7.jpg",
+    "media/2026-11-27/cap_movers-fii-202045-eb2f_8.jpg",
+    "media/2026-11-27/cap_movers-fii-202045-eb2f_9.jpg"
   ],
-  "caption": "Top gainers and losers by market cap: 27 November 2026\n\nLarge Cap: top gainer Solar Industries (+6.58%), top loser Hyundai India (-4.67%).\nMid Cap: top gainer Escorts Kubota (+4.52%), top loser Endurance Technologies (-4.22%).\nSmall Cap: top gainer BEML (+14.99%), top loser Jupiter Wagons (-5.80%).\nMicro Cap: top gainer Waaree Renewable Technologies (+20.00%), top loser Thomas Cook (-5.30%).\n\nGroups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the top 5 in each group.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #TopGainers #TopLosers #SmallCap #TickerMarketIndia",
-  "threads_text": "Top gainers and losers by market cap: 27 November 2026\n\nLarge Cap: top gainer Solar Industries (+6.58%), top loser Hyundai India (-4.67%).\nMid Cap: top gainer Escorts Kubota (+4.52%), top loser Endurance Technologies (-4.22%).\nSmall Cap: top gainer BEML (+14.99%), top loser Jupiter Wagons (-5.80%).\nMicro Cap: top gainer Waaree Renewable Technologies (+20.00%), top loser Thomas Cook (-5.30%).\n\n#StockMarketIndia #TopGainers #TopLosers #SmallCap #TickerMarketIndia",
+  "caption": "Top gainers and losers today by market cap + FII/DII data: 27 November 2026\n\nLarge Cap: top gainer Solar Industries (+6.58%), top loser Hyundai India (-4.67%).\nMid Cap: top gainer Escorts Kubota (+4.52%), top loser Endurance Technologies (-4.22%).\nSmall Cap: top gainer BEML (+14.99%), top loser Jupiter Wagons (-5.80%).\nMicro Cap: top gainer Waaree Renewable Technologies (+20.00%), top loser Thomas Cook (-5.30%).\n\nGroups as defined by NSE: Large Cap = Nifty 100, Mid Cap = Nifty Midcap 150, Small Cap = Nifty Smallcap 250, Micro Cap = Nifty Microcap 250. Swipe for the top 5 in each group.\n\nOn 27 November 2026, foreign institutional investors (FIIs) were net buyers of ₹1,634.33 crore in the cash market, while domestic institutional investors (DIIs) were net sellers of ₹556.42 crore.\n\nNovember so far (9 sessions): FIIs +50,276.40 crore, DIIs -6,365.49 crore.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #TopGainers #TopLosers #FII #TickerMarketIndia",
+  "threads_text": "Top gainers and losers today by market cap + FII/DII data: 27 November 2026\n\nLarge Cap: top gainer Solar Industries (+6.58%), top loser Hyundai India (-4.67%).\nMid Cap: top gainer Escorts Kubota (+4.52%), top loser Endurance Technologies (-4.22%).\nSmall Cap: top gainer BEML (+14.99%), top loser Jupiter Wagons (-5.80%).\nMicro Cap: top gainer Waaree Renewable Technologies (+20.00%), top loser Thomas Cook (-5.30%).\n\n#StockMarketIndia #TopGainers #TopLosers #FII #TickerMarketIndia",
   "report": [
     [
       "ok",
@@ -38,11 +39,31 @@
     [
       "ok",
       "no advice, prediction or rumour language"
+    ],
+    [
+      "ok",
+      "NSE provisional data for 27 November 2026: FII +1,634.33, DII -556.42 crore"
+    ],
+    [
+      "warn",
+      "F&O file does not add up (opt_idx_call_long: 6290509 vs 6290510) - section left out"
+    ],
+    [
+      "ok",
+      "month FII total: total 50,276.40 = sum of rows"
+    ],
+    [
+      "ok",
+      "caption: all 18 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
     ]
   ],
   "status": "pending",
   "meta": {
-    "awaiting_fii": "2026-11-27",
+    "awaiting_fii": null,
     "allowed": [
       27,
       2026,
@@ -63,19 +84,20 @@
     ],
     "n_content": 6
   },
-  "telegram_message_id": 1205,
+  "telegram_message_id": 1240,
   "posted": {},
-  "report_text": "✅ Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed\n⚠️ Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n⚠️ Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n✅ caption: all 11 numbers match source data\n✅ no advice, prediction or rumour language",
+  "report_text": "✅ Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed\n⚠️ Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n⚠️ Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n✅ caption: all 11 numbers match source data\n✅ no advice, prediction or rumour language\n✅ NSE provisional data for 27 November 2026: FII +1,634.33, DII -556.42 crore\n⚠️ F&O file does not add up (opt_idx_call_long: 6290509 vs 6290510) - section left out\n✅ month FII total: total 50,276.40 = sum of rows\n✅ caption: all 18 numbers match source data\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Top gainers and losers today",
-  "alt_text": "Top gainers and losers today: Ticker Market India carousel - Top gainers and losers by market cap: 27 November 2026",
+  "alt_text": "Top gainers and losers today: Ticker Market India carousel - Top gainers and losers today by market cap + FII/DII data: 27 November 2026",
   "telegram_media_ids": [
-    1197,
-    1198,
-    1199,
-    1200,
-    1201,
-    1202,
-    1203,
-    1204
+    1231,
+    1232,
+    1233,
+    1234,
+    1235,
+    1236,
+    1237,
+    1238,
+    1239
   ]
 }
