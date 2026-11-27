@@ -1,106 +1,5 @@
 [
   {
-    "when": "2026-11-25T23:40:07.679747+05:30",
-    "title": "RBI net buyer of dollars for fourth straight month in September, data shows",
-    "bucket": "rbi_rates",
-    "lead": [
-      "buyer",
-      "data",
-      "dollars",
-      "fourth",
-      "month",
-      "net",
-      "rbi",
-      "september",
-      "shows",
-      "straight"
-    ],
-    "tokens": [
-      "billion",
-      "bought",
-      "buyer",
-      "buying",
-      "buys",
-      "dollars",
-      "forex",
-      "fourth",
-      "month",
-      "net",
-      "purchases",
-      "rbi",
-      "remains",
-      "september",
-      "straight"
-    ]
-  },
-  {
-    "when": "2026-11-25T23:40:29.448633+05:30",
-    "title": "Sebi mulls early payout of up to 80% of sale proceeds to FPOs in commodity derivatives market",
-    "bucket": null,
-    "lead": [
-      "commodity",
-      "derivatives",
-      "early",
-      "fpos",
-      "mulls",
-      "payout",
-      "proceeds",
-      "sale",
-      "sebi"
-    ],
-    "tokens": [
-      "commodity",
-      "derivatives",
-      "early",
-      "facility",
-      "fpos",
-      "mulls",
-      "payout",
-      "proceeds",
-      "proposes",
-      "sale",
-      "sebi"
-    ]
-  },
-  {
-    "when": "2026-11-25T23:41:06.048843+05:30",
-    "title": "Why APL Apollo Tubes shares crashed 15% today to plunge at 52-week low; downgrade from brokerages after Tata Steel deal",
-    "bucket": null,
-    "lead": [
-      "apl",
-      "apollo",
-      "brokerages",
-      "crashed",
-      "deal",
-      "downgrade",
-      "low",
-      "plunge",
-      "steel",
-      "tata",
-      "tubes",
-      "why"
-    ],
-    "tokens": [
-      "000",
-      "apl",
-      "apollo",
-      "brokerages",
-      "cautious",
-      "crashed",
-      "deal",
-      "downgrade",
-      "falls",
-      "low",
-      "plunge",
-      "rise",
-      "steel",
-      "tata",
-      "tubes",
-      "turn",
-      "why"
-    ]
-  },
-  {
     "when": "2026-11-26T03:15:37.552716+05:30",
     "title": "IndiGo, BPCL, Asian Paints, other crude-sensitive shares rise up to 4% as Brent eases to $88",
     "bucket": "crude_oil",
@@ -1373,6 +1272,76 @@
       "regulatory",
       "sebi",
       "simpler"
+    ]
+  },
+  {
+    "when": "2026-11-28T03:05:14.118018+05:30",
+    "title": "Axis Mutual Fund launches Nifty LargeMidcap 250 Index Fund; NFO open until December 11",
+    "bucket": null,
+    "lead": [
+      "250",
+      "axis",
+      "december",
+      "fund",
+      "index",
+      "largemidcap",
+      "launches",
+      "mutual",
+      "nfo",
+      "nifty",
+      "open",
+      "until"
+    ],
+    "tokens": [
+      "250",
+      "axis",
+      "december",
+      "fund",
+      "index",
+      "largemidcap",
+      "launches",
+      "mutual",
+      "nfo",
+      "nifty",
+      "open",
+      "until"
+    ]
+  },
+  {
+    "when": "2026-11-28T03:17:24.505920+05:30",
+    "title": "RBI issues new ATM and card rules: What happens to your free withdrawals, extra charges and contactless payments?",
+    "bucket": "rbi_rates",
+    "lead": [
+      "atm",
+      "card",
+      "charges",
+      "contactless",
+      "extra",
+      "free",
+      "happens",
+      "issues",
+      "payments",
+      "rbi",
+      "rules",
+      "what",
+      "withdrawals",
+      "your"
+    ],
+    "tokens": [
+      "atm",
+      "card",
+      "charges",
+      "contactless",
+      "extra",
+      "free",
+      "happens",
+      "issues",
+      "payments",
+      "rbi",
+      "rules",
+      "what",
+      "withdrawals",
+      "your"
     ]
   }
 ]
