@@ -1,0 +1,86 @@
+{
+  "id": "11271750-8cbba",
+  "kind": "news",
+  "created": "2026-11-27T17:50:11.620832+05:30",
+  "images": [
+    "media/2026-11-27/news-175011-cd38_1.jpg"
+  ],
+  "caption": "Stock market news | Tata Steel ₹28,000-crore deal under SEBI review\n\nSEBI launched a review of the Tata Steel-APL Apollo deal valued at ₹28,000 crore, amid concerns over the transaction's structure.\nThe review highlights risk to minority shareholders and debt allocation, prompting investors like Enigma to avoid the stocks until clarity.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #TataSteel #APLApollo #SEBI #TickerMarketIndia",
+  "threads_text": "Stock market news | Tata Steel ₹28,000-crore deal under SEBI review\n\nSEBI launched a review of the Tata Steel-APL Apollo deal valued at ₹28,000 crore, amid concerns over the transaction's structure.\nThe review highlights risk to minority shareholders and debt allocation, prompting investors like Enigma to avoid the stocks until clarity.\n\nSave this for later and send it to a friend who trades.\n\nFor information only.\n\n#StockMarketIndia #TataSteel #APLApollo #SEBI #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: CNBC-TV18, The Indian Express"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.1 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 3 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "TATASTEEL ₹163.94 (+0.24%): NSE = Yahoo"
+    ],
+    [
+      "warn",
+      "no NSE listing matched \"APL Apollo\" - no price box for it"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://www.cnbctv18.com/market/apl-apollo-tata-steel-deal-sebi-probe-minority-shareholders-viraj-mehta-enigma-alpha-article-20042855.htm | https://news.google.com/rss/articles/CBMi2wFBVV95cUxOeXlkTXAtLW8zYTFvV1VPSmpaRmY5S194VW5IQWpyeHZ4bU9xZ0xNYllkZHRpMmlZMFlCeEJKbzJKRG9oN3UwOUxfdFlIYkEzWk9WVVBvWk1nTmdSbGg4cXZTdU53TzB3Mnh5bDg3T3ZhVUN5LWstS0x4b29zdEVwVUJhNlI2MU1YMDNHRWhvZ1l6SnFpTXFQbGktWHFqTngxZDV6SjRrX1VSRGFXNVhtLW5qTnBoZEc2SE5JNXhhd3k2Wkcwa3JsTjh5cWZYNUhzRE1JbjNrWi1MZUnSAeIBQVVfeXFMTkRVaTlhLXJyOG5XNmFNNDNpdnFIWVZvUUZXTUI3U2ZYdTNpMThhWUF6Y0xORjZZdFp4MURpSTNQSi1uRzN3V05kb0Q1QjVRRVVldE42N2diVENXTnN5RnZuanZrYzN0SHRJcTlpSFNBNDB6TXFMZFRNZFdORXZ4cm14RnhjR1VOdGpyVWFTOXpZYkgtZENPT3oybEFBSnFXLVpybm9udDZNaTNHX2NIdGY1c0pCY3RSelRRRUJQS2lYUGIycDFNTi15VG1xVVpVY0p4d0IzNk1EdUVoQXpSSG9LUQ?oc=5 | https://www.cnbctv18.com/videos/market/viraj-mehta-avoids-tata-steel-apl-apollo-stocks-deal-clarity-20043010.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Regulation",
+      "date_text": "Fri, 27 Nov 2026",
+      "theme": "market_up",
+      "seed": "apl apollo avoids clarity deal emerges enigma investment",
+      "tone": "up",
+      "quotes": [
+        {
+          "name": "Tata Steel Ltd",
+          "symbol": "TATASTEEL",
+          "price": 163.94,
+          "chg": 0.4,
+          "pct": 0.24,
+          "time_text": "27 Nov, 4:00 PM IST"
+        }
+      ],
+      "label": "REGULATORY REVIEW",
+      "headline": "Tata Steel *₹28,000-crore* deal under *SEBI* review",
+      "points": [
+        "SEBI is reviewing the *₹28,000-crore* Tata Steel-APL Apollo transaction.",
+        "Enigma Investment flags that debt burden rests on APL Apollo, not Tata Steel.",
+        "Fund manager Viraj Mehta stays away from both stocks pending deal clarity."
+      ],
+      "source": "NSE prices, CNBC-TV18, The Indian Express"
+    },
+    "news_sector": "metals",
+    "photo_prompt": "A steel plant with towering furnace stacks under a cloudy sky, showing raw material piles."
+  },
+  "telegram_message_id": 1220,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, The Indian Express\n✅ fresh: newest source 1.1 h old\n✅ headline/banner/points/body: all 3 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ TATASTEEL ₹163.94 (+0.24%): NSE = Yahoo\n⚠️ no NSE listing matched \"APL Apollo\" - no price box for it\n✅ written by groq; sources: https://www.cnbctv18.com/market/apl-apollo-tata-steel-deal-sebi-probe-minority-shareholders-viraj-mehta-enigma-alpha-article-20042855.htm | https://news.google.com/rss/articles/CBMi2wFBVV95cUxOeXlkTXAtLW8zYTFvV1VPSmpaRmY5S194VW5IQWpyeHZ4bU9xZ0xNYllkZHRpMmlZMFlCeEJKbzJKRG9oN3UwOUxfdFlIYkEzWk9WVVBvWk1nTmdSbGg4cXZTdU53TzB3Mnh5bDg3T3ZhVUN5LWstS0x4b29zdEVwVUJhNlI2MU1YMDNHRWhvZ1l6SnFpTXFQbGktWHFqTngxZDV6SjRrX1VSRGFXNVhtLW5qTnBoZEc2SE5JNXhhd3k2Wkcwa3JsTjh5cWZYNUhzRE1JbjNrWi1MZUnSAeIBQVVfeXFMTkRVaTlhLXJyOG5XNmFNNDNpdnFIWVZvUUZXTUI3U2ZYdTNpMThhWUF6Y0xORjZZdFp4MURpSTNQSi1uRzN3V05kb0Q1QjVRRVVldE42N2diVENXTnN5RnZuanZrYzN0SHRJcTlpSFNBNDB6TXFMZFRNZFdORXZ4cm14RnhjR1VOdGpyVWFTOXpZYkgtZENPT3oybEFBSnFXLVpybm9udDZNaTNHX2NIdGY1c0pCY3RSelRRRUJQS2lYUGIycDFNTi15VG1xVVpVY0p4d0IzNk1EdUVoQXpSSG9LUQ?oc=5 | https://www.cnbctv18.com/videos/market/viraj-mehta-avoids-tata-steel-apl-apollo-stocks-deal-clarity-20043010.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Tata Steel ₹28,000-crore deal under SEBI review",
+  "telegram_media_ids": [
+    1219
+  ]
+}
