@@ -1,0 +1,82 @@
+{
+  "id": "11272002-7f625",
+  "kind": "news",
+  "created": "2026-11-27T20:02:58.967658+05:30",
+  "images": [
+    "media/2026-11-27/news-200258-0c15_1.jpg"
+  ],
+  "caption": "Stock market news | Swiggy Instamart to cut 340 jobs amid business restructuring\n\nSwiggy's quick delivery arm, Instamart, is set to lay off 340 employees as it restructures the business for its next stage of growth. The move comes as the company sharpens its focus on profitability and widen its adoption of AI.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Swiggy #Instamart #Layoffs #TickerMarketIndia",
+  "threads_text": "Stock market news | Swiggy Instamart to cut 340 jobs amid business restructuring\n\nSwiggy's quick delivery arm, Instamart, is set to lay off 340 employees as it restructures the business for its next stage of growth. The move comes as the company sharpens its focus on profitability and widen its adoption of AI.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Swiggy #Instamart #Layoffs #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 3 outlets: BusinessLine, CNBC-TV18, Mint"
+    ],
+    [
+      "ok",
+      "fresh: newest source 6.7 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 3 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "SWIGGY ₹180.00 (-1.60%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://www.thehindubusinessline.com/companies/swiggy-instamart-cuts-340-roles-as-quick-commerce-player-sharpens-focus-on-profitability/article71749763.ece | https://www.cnbctv18.com/education/swiggy-instamart-to-layoff-340-employees-amid-artificial-intelligence-quick-commerce-blinkit-zepto-q2-20042851.htm | https://www.livemint.com/companies/news/swiggys-quick-commerce-arm-instamart-to-lay-off-340-employees-amid-restructuring-ai-push-11795759734638.html"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Market News",
+      "date_text": "Fri, 27 Nov 2026",
+      "theme": "market_down",
+      "seed": "340 employees instamart layoff report swiggy transition",
+      "tone": "down",
+      "quotes": [
+        {
+          "name": "Swiggy Ltd",
+          "symbol": "SWIGGY",
+          "price": 180.0,
+          "chg": -2.93,
+          "pct": -1.6,
+          "time_text": "27 Nov, 4:00 PM IST"
+        }
+      ],
+      "label": "JOB CUTS",
+      "headline": "Swiggy Instamart to *cut 340 jobs* amid business restructuring",
+      "points": [
+        "Swiggy Instamart is firing 340 employees in its quick-commerce division.",
+        "The company is restructuring its business amid increased adoption of AI.",
+        "Affected staff will receive severance pay and health benefits from the company."
+      ],
+      "source": "NSE prices, BusinessLine, CNBC-TV18, Mint"
+    },
+    "news_sector": "other",
+    "photo_prompt": "A modern warehouse filled with neatly stacked grocery packages, delivery boxes, and conveyor belts without any visible people or brand logos."
+  },
+  "telegram_message_id": 1229,
+  "posted": {},
+  "report_text": "✅ confirmed by 3 outlets: BusinessLine, CNBC-TV18, Mint\n✅ fresh: newest source 6.7 h old\n✅ headline/banner/points/body: all 3 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ SWIGGY ₹180.00 (-1.60%): NSE = Yahoo\n✅ written by gemini; sources: https://www.thehindubusinessline.com/companies/swiggy-instamart-cuts-340-roles-as-quick-commerce-player-sharpens-focus-on-profitability/article71749763.ece | https://www.cnbctv18.com/education/swiggy-instamart-to-layoff-340-employees-amid-artificial-intelligence-quick-commerce-blinkit-zepto-q2-20042851.htm | https://www.livemint.com/companies/news/swiggys-quick-commerce-arm-instamart-to-lay-off-340-employees-amid-restructuring-ai-push-11795759734638.html\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Swiggy Instamart to cut 340 jobs amid business restructuring",
+  "telegram_media_ids": [
+    1228
+  ]
+}
