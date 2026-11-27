@@ -1,45 +1,5 @@
 [
   {
-    "when": "2026-11-25T10:35:38.931526+05:30",
-    "title": "Big boom in stock market today; ₹2.2 lakh cr wealth for investors! Sensex up 1,400 points, Nifty 600 | 3 main reasons",
-    "bucket": null,
-    "lead": [
-      "400",
-      "600",
-      "big",
-      "boom",
-      "investors",
-      "lakh",
-      "main",
-      "nifty",
-      "points",
-      "reasons",
-      "sensex",
-      "wealth"
-    ],
-    "tokens": [
-      "400",
-      "600",
-      "big",
-      "boom",
-      "feel",
-      "global",
-      "investors",
-      "jitters",
-      "jumps",
-      "lakh",
-      "main",
-      "nifty",
-      "points",
-      "reasons",
-      "rising",
-      "sensex",
-      "wealth",
-      "while",
-      "why"
-    ]
-  },
-  {
     "when": "2026-11-25T12:52:18.797993+05:30",
     "title": "HDFC Bank shares surge 4% as banking stocks stage sharp recovery",
     "bucket": null,
@@ -1205,6 +1165,82 @@
       "small",
       "subsidiary",
       "trade"
+    ]
+  },
+  {
+    "when": "2026-11-27T12:50:19.032963+05:30",
+    "title": "NSE Secures RBI Nod for Corporate Bond Index Futures After SEBI Clearance in October; Launch Date Awaited",
+    "bucket": "rbi_rates",
+    "lead": [
+      "awaited",
+      "bond",
+      "clearance",
+      "corporate",
+      "date",
+      "futures",
+      "index",
+      "launch",
+      "nod",
+      "nse",
+      "october",
+      "rbi",
+      "sebi",
+      "secures"
+    ],
+    "tokens": [
+      "awaited",
+      "bond",
+      "clearance",
+      "clears",
+      "corporate",
+      "date",
+      "focus",
+      "futures",
+      "index",
+      "launch",
+      "month",
+      "nod",
+      "nse",
+      "october",
+      "rally",
+      "rbi",
+      "sebi",
+      "secures"
+    ]
+  },
+  {
+    "when": "2026-11-27T13:06:28.709513+05:30",
+    "title": "SEBI eyes faster foreign investor entry, 3-day REIT listing; reviews IPO and broker rules",
+    "bucket": null,
+    "lead": [
+      "broker",
+      "entry",
+      "eyes",
+      "faster",
+      "foreign",
+      "investor",
+      "ipo",
+      "listing",
+      "reit",
+      "reviews",
+      "rules",
+      "sebi"
+    ],
+    "tokens": [
+      "broker",
+      "cnbc",
+      "entry",
+      "eyes",
+      "faster",
+      "foreign",
+      "investor",
+      "ipo",
+      "listing",
+      "reit",
+      "reviews",
+      "rules",
+      "sebi",
+      "tv18"
     ]
   }
 ]

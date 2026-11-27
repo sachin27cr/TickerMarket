@@ -1,0 +1,69 @@
+{
+  "id": "11271306-a583f",
+  "kind": "news",
+  "created": "2026-11-27T13:06:25.713280+05:30",
+  "images": [
+    "media/2026-11-27/news-130625-caa4_1.jpg"
+  ],
+  "caption": "Stock market news | SEBI pushes faster FPI entry and 3-day REIT listings\n\nSEBI announced it will reduce foreign portfolio investor onboarding to five days and shorten REIT and InvIT listing timelines to three days. It also said it will review the LODR, ICDR and SME IPO frameworks.\nThe changes aim to speed capital entry, improve listing efficiency and update regulatory rules for smaller companies.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #SEBI #IndianMarkets #FPI #TickerMarketIndia",
+  "threads_text": "Stock market news | SEBI pushes faster FPI entry and 3-day REIT listings\n\nSEBI announced it will reduce foreign portfolio investor onboarding to five days and shorten REIT and InvIT listing timelines to three days. It also said it will review the LODR, ICDR and SME IPO frameworks.\nThe changes aim to speed capital entry, improve listing efficiency and update regulatory rules for smaller companies.\n\n#StockMarketIndia #SEBI #IndianMarkets #FPI #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: CNBC-TV18, LinkedIn"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.8 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 1 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMitAFBVV95cUxPbTlSMlk2VkZUVmdjY0d0bE53LVB0SWd2elpBbGVERDNaUHphTnIwQ2FnenZoZDZ6MGh4bk9OX1lOd0JpN1lrTThnVnZHU0lkN2MzWnhfaGVfT0lSVjNaYVRTV2dKd08ya2pFQnlLc2w1Wi03Mm9PenBjVm9fUWcwWl9DYjhFSjI4bExsVHJzRkZSTE5lelVJVTB6ZllrWVpXZHloOGtsNF9HT19JZnl4UWN3Z08?oc=5 | https://www.cnbctv18.com/market/sebi-eyes-faster-foreign-investor-entry-3-day-reit-listing-ipo-broker-rules-20042810.htm"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Regulation",
+      "date_text": "Fri, 27 Nov 2026",
+      "theme": "market_up",
+      "seed": "broker entry eyes faster foreign investor ipo listing",
+      "tone": null,
+      "quotes": [],
+      "label": "REGULATORY UPDATE",
+      "headline": "SEBI pushes *faster* FPI entry and *3-day* REIT listings",
+      "points": [
+        "SEBI will cut foreign portfolio investor onboarding to five days.",
+        "REIT and InvIT listings to be completed within three days.",
+        "SEBI is reviewing LODR, ICDR and SME IPO frameworks."
+      ],
+      "source": "CNBC-TV18, LinkedIn"
+    },
+    "news_sector": "other",
+    "photo_prompt": "A sleek conference room with a glass table and a large screen displaying financial charts and data."
+  },
+  "telegram_message_id": 1187,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: CNBC-TV18, LinkedIn\n✅ fresh: newest source 0.8 h old\n✅ headline/banner/points/body: all 1 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMitAFBVV95cUxPbTlSMlk2VkZUVmdjY0d0bE53LVB0SWd2elpBbGVERDNaUHphTnIwQ2FnenZoZDZ6MGh4bk9OX1lOd0JpN1lrTThnVnZHU0lkN2MzWnhfaGVfT0lSVjNaYVRTV2dKd08ya2pFQnlLc2w1Wi03Mm9PenBjVm9fUWcwWl9DYjhFSjI4bExsVHJzRkZSTE5lelVJVTB6ZllrWVpXZHloOGtsNF9HT19JZnl4UWN3Z08?oc=5 | https://www.cnbctv18.com/market/sebi-eyes-faster-foreign-investor-entry-3-day-reit-listing-ipo-broker-rules-20042810.htm\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - SEBI pushes faster FPI entry and 3-day REIT listings",
+  "telegram_media_ids": [
+    1186
+  ]
+}
