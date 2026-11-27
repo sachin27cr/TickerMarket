@@ -37,7 +37,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "IPO Watch",
@@ -59,11 +59,16 @@
     "photo_prompt": "A clean automated manufacturing belt carrying neatly stacked soft white baby diapers inside a modern hygiene products factory."
   },
   "telegram_message_id": 1178,
-  "posted": {},
+  "posted": {
+    "instagram": "18122052877987072",
+    "facebook": "122112844197544503"
+  },
   "report_text": "✅ confirmed by 6 outlets: BusinessLine, CNBC TV18, CNBC-TV18, Finimize, Moneycontrol.com, Upstox\n✅ fresh: newest source 0.1 h old\n✅ headline/banner/points/body: all 11 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ written by gemini; sources: https://www.thehindubusinessline.com/markets/swara-baby-products-cuts-ipo-size-to-800-cr-sets-price-band-at-105-111/article71749297.ece | https://news.google.com/rss/articles/CBMi0AFBVV95cUxONEdwdkJZRW1DWU5MUktCZk9nWi1iTWdRN2VOUnpPcEtqU1FkUUZ0TENjdTVpMlNJWUxKZGdjazdJMnJJMWxNWFp4cU1TQ2tnU0d6U2o3ME9MSzc2c3NfSzBHNXZMM3l2bVNFU2h5SUFZV3RqeE11S01hRHFWOElUbkVkZUl6enhUdF9abHJFWGhkQWFuMnVGUElXQ2E4QWRzZUFWTDVzWURTbmNaLUNJS2laY3g0MWd4dmFDd19RUFQwLTJjRy1yRkNuMGNBZTk40gHXAUFVX3lxTFBnZzhNUnRnYXI0eVp3c1hvdmkyMmlXWlVQRlR3OWxsTGRBQ0FkZ1ZNcmVHdjN1NXN5bVBtMnNES2JjQ2hlY1BrczNJVkVFZWk4a05tSTlfVHpLVTh0RDNUU2NrcFBxc1EzUnRYLU53ZnJMOEtHcE9ZQXcteHQ0NEZVVFFiUEJra1VTUWlna3pOWVpPdjVwREEzMUduYmlFMXVUZVFXel9xWjZzTW5GMVU1eE9rc2JUR29tbXRKbmI4TVlsc2JiTm5PRlNqRmU3Y2gyU295ejAw?oc=5 | https://news.google.com/rss/articles/CBMizwFBVV95cUxQZmdyd04yRW93bWdjbDZvTVFoTFRFQllVX0dpLTc4c241N2ZTSHZLdkE5dEVZbDQyc1hNVWRGd3JVdDNONkh4bkRIMVpyUFh1VmtMRVYtbmhlWkNIdFc1TWpJT0JPX0RMYldQVzNjRXM1ZFdEMUx6OWI2cjJuRTY5VnU1WHdWenFGX3VpSWdTVmE4QmRRRUNwOE1zZUw0eHhBd2lIcnQ0M09aYjREWnk2bjI3aFBaWkdHenh0S3ZJWGJ5SHRjTmRvNzdqSWFnVWM?oc=5 | https://news.google.com/rss/articles/CBMi2gFBVV95cUxQMHNUOE5VQnBkMzQ2RXdydzVFVzFaNXAtTUY5RnNnbFZyWGVlV2NPdWF1MmNSTVFONnhvX2JMVklZekI3SDBiSzdyTVpfREJFYnBub0RaNEx2ZlNiNGh6VnBZZnFBSTJqQmg4ZHkxd280VmNPX2RaVmxYUURjT2ZfRGtidFBWSF9YRXFMazhaVXdrZ1MzMWdocklwdEJUcTlnRnU1SXRyZUQzU0VwblZBTGliUFpWSG5DTEpOaXdBUnBObzFkWkMzQWFheFJmZE5Mc1l3WDRPcHl3d9IB3wFBVV95cUxQNnNGZUozZHVXVTNwb1RGbWFITjhLb3lBM0paMk42R3NSREF4VG1MSUNiVzFKZ0NlOUh2aVA4d1ZETEtxaXliRXNFR3ZTaUVBb2g3LVZnSHE2anRPVUw1YUk0S1JZUUI0V1l4Nll6QjVEM0tLMWFVaHE3X3JLNzNvQnU5cy1mWXhkYUFBMExpa0lLM1RPc1F1UnhDaTRRb2hQSnJsV01UN01Tc0poR2M3czdsU0gwZXRWalNyU19NdE4wTjlLc0NFbE9FUUU3M21TU3Bfc09QNkN3YTFpbUFV?oc=5\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - Swara Baby Products sets ₹800 crore IPO price band",
   "telegram_media_ids": [
     1177
-  ]
+  ],
+  "approved_at": "2026-11-27T10:31:02.381581+05:30",
+  "posted_at": "2026-11-27T10:31:22.811869+05:30"
 }
