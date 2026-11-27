@@ -1,0 +1,314 @@
+{
+  "Large Cap": {
+    "gainers": [
+      {
+        "symbol": "SOLARINDS",
+        "last": 19450.0,
+        "chg": 1200.0,
+        "pct": 6.58,
+        "prev": 18250.0,
+        "year_high": 22700.0,
+        "year_low": 11646.0,
+        "day_high": 19520.0,
+        "day_low": 18250.0,
+        "name": "Solar Industries"
+      },
+      {
+        "symbol": "VAML",
+        "last": 369.55,
+        "chg": 16.4,
+        "pct": 4.64,
+        "prev": 353.15,
+        "year_high": 537.0,
+        "year_low": 334.0,
+        "day_high": 373.6,
+        "day_low": 358.7,
+        "name": "Vedanta Aluminium Metal"
+      },
+      {
+        "symbol": "MAZDOCK",
+        "last": 1890.0,
+        "chg": 73.0,
+        "pct": 4.02,
+        "prev": 1817.0,
+        "year_high": 2810.0,
+        "year_low": 1687.5,
+        "day_high": 1915.9,
+        "day_low": 1818.0,
+        "name": "Mazagon Dock"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "HYUNDAI",
+        "last": 2006.0,
+        "chg": -98.2,
+        "pct": -4.67,
+        "prev": 2104.2,
+        "year_high": 2420.0,
+        "year_low": 1658.0,
+        "day_high": 2103.9,
+        "day_low": 2002.1,
+        "name": "Hyundai India"
+      },
+      {
+        "symbol": "SHRIRAMFIN",
+        "last": 923.5,
+        "chg": -38.35,
+        "pct": -3.99,
+        "prev": 961.85,
+        "year_high": 1153.7,
+        "year_low": 810.1,
+        "day_high": 963.0,
+        "day_low": 918.25,
+        "name": "Shriram Finance"
+      },
+      {
+        "symbol": "BAJAJ-AUTO",
+        "last": 10485.0,
+        "chg": -365.0,
+        "pct": -3.36,
+        "prev": 10850.0,
+        "year_high": 12470.0,
+        "year_low": 8624.0,
+        "day_high": 10900.0,
+        "day_low": 10465.0,
+        "name": "Bajaj Auto"
+      }
+    ]
+  },
+  "Mid Cap": {
+    "gainers": [
+      {
+        "symbol": "ESCORTS",
+        "last": 2570.0,
+        "chg": 111.1,
+        "pct": 4.52,
+        "prev": 2458.9,
+        "year_high": 3987.8,
+        "year_low": 2361.0,
+        "day_high": 2587.0,
+        "day_low": 2451.3,
+        "name": "Escorts Kubota"
+      },
+      {
+        "symbol": "BDL",
+        "last": 1077.5,
+        "chg": 42.7,
+        "pct": 4.13,
+        "prev": 1034.8,
+        "year_high": 1593.9,
+        "year_low": 974.0,
+        "day_high": 1093.85,
+        "day_low": 1034.0,
+        "name": "Bharat Dynamics"
+      },
+      {
+        "symbol": "COFORGE",
+        "last": 2071.0,
+        "chg": 71.0,
+        "pct": 3.55,
+        "prev": 2000.0,
+        "year_high": 2185.6,
+        "year_low": 1008.1,
+        "day_high": 2091.0,
+        "day_low": 2020.0,
+        "name": "Coforge"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "ENDURANCE",
+        "last": 2583.0,
+        "chg": -113.8,
+        "pct": -4.22,
+        "prev": 2696.8,
+        "year_high": 3072.0,
+        "year_low": 2142.8,
+        "day_high": 2686.4,
+        "day_low": 2561.0,
+        "name": "Endurance Technologies"
+      },
+      {
+        "symbol": "SBICARD",
+        "last": 565.8,
+        "chg": -20.3,
+        "pct": -3.46,
+        "prev": 586.1,
+        "year_high": 906.4,
+        "year_low": 519.05,
+        "day_high": 591.3,
+        "day_low": 565.05,
+        "name": "SBI Card"
+      },
+      {
+        "symbol": "HAVELLS",
+        "last": 1142.4,
+        "chg": -38.6,
+        "pct": -3.27,
+        "prev": 1181.0,
+        "year_high": 1514.7,
+        "year_low": 999.2,
+        "day_high": 1185.0,
+        "day_low": 1135.6,
+        "name": "Havells"
+      }
+    ]
+  },
+  "Small Cap": {
+    "gainers": [
+      {
+        "symbol": "BEML",
+        "last": 2346.1,
+        "prev": 2040.2,
+        "chg": 305.9,
+        "pct": 14.993628075678847,
+        "day_high": 2383.300048828125,
+        "day_low": 2040.0,
+        "year_high": 2383.300048828125,
+        "year_low": 1355.0,
+        "name": "BEML"
+      },
+      {
+        "symbol": "AEGISLOG",
+        "last": 1297.9,
+        "prev": 1211.2,
+        "chg": 86.7,
+        "pct": 7.158190224570678,
+        "day_high": 1314.0,
+        "day_low": 1209.4000244140625,
+        "year_high": 1528.699951171875,
+        "year_low": 576.0999755859375,
+        "name": "Aegis Logistics"
+      },
+      {
+        "symbol": "ANGELONE",
+        "last": 376.0,
+        "prev": 358.0,
+        "chg": 18.0,
+        "pct": 5.027932960893855,
+        "day_high": 382.8999938964844,
+        "day_low": 359.75,
+        "year_high": 382.8999938964844,
+        "year_low": 208.6300048828125,
+        "name": "Angel One"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "JWL",
+        "last": 224.84,
+        "prev": 238.69,
+        "chg": -13.85,
+        "pct": -5.8025053416565395,
+        "day_high": 231.52999877929688,
+        "day_low": 220.39999389648438,
+        "year_high": 358.25,
+        "year_low": 169.0800018310547,
+        "name": "Jupiter Wagons"
+      },
+      {
+        "symbol": "HONASA",
+        "last": 512.55,
+        "prev": 533.25,
+        "chg": -20.7,
+        "pct": -3.8818565400843967,
+        "day_high": 534.9000244140625,
+        "day_low": 507.75,
+        "year_high": 554.9500122070312,
+        "year_low": 248.39999389648438,
+        "name": "Honasa Consumer"
+      },
+      {
+        "symbol": "PWL",
+        "last": 131.43,
+        "prev": 136.38,
+        "chg": -4.95,
+        "pct": -3.6295644522657198,
+        "day_high": 138.47999572753906,
+        "day_low": 130.86000061035156,
+        "year_high": 159.42999267578125,
+        "year_low": 77.72000122070312,
+        "name": "Physicswallah"
+      }
+    ]
+  },
+  "Micro Cap": {
+    "gainers": [
+      {
+        "symbol": "WAAREERTL",
+        "last": 825.7,
+        "prev": 688.1,
+        "chg": 137.6,
+        "pct": 19.9970934457201,
+        "day_high": 825.7000122070312,
+        "day_low": 694.2999877929688,
+        "year_high": 1202.0,
+        "year_low": 653.75,
+        "name": "Waaree Renewable Technologies"
+      },
+      {
+        "symbol": "PRAJIND",
+        "last": 255.64,
+        "prev": 225.38,
+        "chg": 30.26,
+        "pct": 13.426213506078618,
+        "day_high": 262.8999938964844,
+        "day_low": 224.39999389648438,
+        "year_high": 427.6499938964844,
+        "year_low": 224.00999450683594,
+        "name": "Praj Industries"
+      },
+      {
+        "symbol": "GOKEX",
+        "last": 793.65,
+        "prev": 737.25,
+        "chg": 56.4,
+        "pct": 7.650050864699895,
+        "day_high": 819.0,
+        "day_low": 739.1500244140625,
+        "year_high": 938.9000244140625,
+        "year_low": 531.0,
+        "name": "Gokaldas Exports"
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "THOMASCOOK",
+        "last": 127.51,
+        "prev": 134.64,
+        "chg": -7.13,
+        "pct": -5.295603089720723,
+        "day_high": 133.6300048828125,
+        "day_low": 127.0,
+        "year_high": 155.0,
+        "year_low": 85.25,
+        "name": "Thomas Cook"
+      },
+      {
+        "symbol": "PAISALO",
+        "last": 72.25,
+        "prev": 74.34,
+        "chg": -2.09,
+        "pct": -2.8114070486951888,
+        "day_high": 75.4800033569336,
+        "day_low": 72.0,
+        "year_high": 94.87999725341797,
+        "year_low": 30.0,
+        "name": "Paisalo Digital"
+      },
+      {
+        "symbol": "TI",
+        "last": 536.85,
+        "prev": 550.2,
+        "chg": -13.35,
+        "pct": -2.426390403489644,
+        "day_high": 557.0,
+        "day_low": 536.0499877929688,
+        "year_high": 607.7999877929688,
+        "year_low": 381.54998779296875,
+        "name": "Tilaknagar Industries"
+      }
+    ]
+  }
+}
