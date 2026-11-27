@@ -105,12 +105,15 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "auto",
+  "status": "posted",
   "meta": {
     "video": "media/2026-11-27/reel_evening-202353-ea43.mp4"
   },
   "telegram_message_id": 1242,
-  "posted": {},
+  "posted": {
+    "instagram": "17996938344066772",
+    "facebook": "1817226959577788"
+  },
   "video": "media/2026-11-27/reel_evening-202353-ea43.mp4",
   "script": [
     "1. Stock market today. The Nifty lost 277 points today, and Nifty IT dragged the most. Here is how the day played out.",
@@ -125,5 +128,6 @@
   "topic_keyword": "Stock market today",
   "telegram_media_ids": [
     1241
-  ]
+  ],
+  "posted_at": "2026-11-27T20:26:46.195544+05:30"
 }
