@@ -1,0 +1,128 @@
+{
+  "ath": 10,
+  "hi52": 17,
+  "lo52": 3,
+  "groups": {
+    "Large Cap": {
+      "ath": [
+        {
+          "name": "Tech Mahindra",
+          "pct": -2.2
+        }
+      ],
+      "hi52": [
+        {
+          "name": "HAL",
+          "pct": 3.35
+        },
+        {
+          "name": "DLF",
+          "pct": -0.29
+        }
+      ],
+      "lo52": [],
+      "ath_count": 1,
+      "hi52_count": 3,
+      "lo52_count": 0
+    },
+    "Mid Cap": {
+      "ath": [
+        {
+          "name": "Glenmark Pharmaceuticals",
+          "pct": 3.46
+        },
+        {
+          "name": "MCX",
+          "pct": 1.69
+        },
+        {
+          "name": "Anthem Biosciences",
+          "pct": 0.9
+        },
+        {
+          "name": "Laurus Labs",
+          "pct": -0.02
+        }
+      ],
+      "hi52": [
+        {
+          "name": "Mankind Pharma",
+          "pct": 0.16
+        },
+        {
+          "name": "Prestige",
+          "pct": -1.93
+        }
+      ],
+      "lo52": [],
+      "ath_count": 4,
+      "hi52_count": 6,
+      "lo52_count": 0
+    },
+    "Small Cap": {
+      "ath": [
+        {
+          "name": "Welspun Living",
+          "pct": 1.8441234171571101
+        },
+        {
+          "name": "Navin Fluorine International",
+          "pct": 1.815968841285297
+        },
+        {
+          "name": "Anand Rathi Wealth",
+          "pct": 0.09128630705393437
+        },
+        {
+          "name": "Acutaas Chemicals",
+          "pct": -0.12010098286722937
+        }
+      ],
+      "hi52": [
+        {
+          "name": "BEML",
+          "pct": 14.993628075678847
+        },
+        {
+          "name": "Angel One",
+          "pct": 5.027932960893855
+        },
+        {
+          "name": "Action Construction Equipment",
+          "pct": 2.3706563706563744
+        }
+      ],
+      "lo52": [
+        {
+          "name": "KEC International",
+          "pct": -1.680954782316356
+        }
+      ],
+      "ath_count": 4,
+      "hi52_count": 7,
+      "lo52_count": 1
+    },
+    "Micro Cap": {
+      "ath": [
+        {
+          "name": "Greaves Cotton",
+          "pct": -0.9515331962307076
+        }
+      ],
+      "hi52": [],
+      "lo52": [
+        {
+          "name": "Happiest Minds Technologies",
+          "pct": 1.9477101245832642
+        },
+        {
+          "name": "ION Exchange",
+          "pct": 3.0165912518853695
+        }
+      ],
+      "ath_count": 1,
+      "hi52_count": 1,
+      "lo52_count": 2
+    }
+  }
+}
