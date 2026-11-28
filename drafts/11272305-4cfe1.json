@@ -45,7 +45,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "card": {
       "category": "Market News",
@@ -76,11 +76,16 @@
     "photo_prompt": "A bustling trading floor with screens showing falling stock charts and red arrows."
   },
   "telegram_message_id": 1252,
-  "posted": {},
+  "posted": {
+    "instagram": "18648943660047763",
+    "facebook": "122113234641544503"
+  },
   "report_text": "✅ confirmed by 5 outlets: ChiniMandi, Kotak Neo, Livemint, Mint, The Economic Times\n✅ fresh: newest source 7.2 h old\n✅ headline/banner/points/body: all 10 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ BAJAJ-AUTO ₹10,485.00 (-3.36%): NSE = Yahoo\n⚠️ no NSE listing matched \"HCL Tech\" - no price box for it\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMidkFVX3lxTE05VkZIaDFmRHZKQ0lkQVpFZ25kWjNiNzdCRmo3SHZSc2M1R3ZwYXdoVVgwX1JpelVhLTRVaEpLM3N5RTJKOHNUd2Y3U3pRRElqREVDWkttSUYzWTJvbm15bFR1dEdYbEViMXljdGF4bFdkMklPWnc?oc=5 | https://www.livemint.com/market/stock-market-news/why-is-indian-stock-market-falling-today-nifty-down-to-near-25-700-sensex-crashes-700-points-top-3-reasons-explained-11795761327368.html | https://news.google.com/rss/articles/CBMilAJBVV95cUxPRG5kczVKX21vODcxdUJRN2ozSWZqbFVTaXdLUjFjSGprN05fVzd0bFJLVllCMC1sajIyam9HTVNjT0FhSXJZVkFycUpFRWd0M29nOVAwbzl0UDVENEtwdUM2N3pBVzBmMmFwLVl4UjlKWmdrcmVUWUJVY0pGTDU0T2p1NjJGWG1HWnNRQ3BJV1h3YVNFeExUbV8yeWM4endGSTdxWjF3andXRlhILWd6Q2hBNlBiaFRDeWZrWXVKVjJTSVFkeHdZVm5zM21UX01rVzc2ckstV2NoNm4tdGY4QkR1WXFoQ0djTkJ4RnpSZDRCS3JUbXpEc2FRa0E5dmM1TC1KTUZkOHhBbFpjQ002U1FxeWPSAZoCQVVfeXFMUEdKUUFYWWkzTm9tRVFNZDVTRmEycm1vVDFhbDJtb0FYQ1FXd2QxSXJ1SEZab2hwdmR2SWM0MTIyZWxLSDNmNVh1WEdhMERhLVZkWDVuTmJ0QWs4OGprZllBSDkyYWg0RFpTRU5ITW9FdC1qYXdjNEUxNmZGUFlfT1FkX1A4ZTUtUzFIWXJuaXJZMEhnZDZhcmJXRUdSTUFqQ1FCTDdCNXpXUWZWQjNFLXIyTk9RTEpmc2hQczdaZGd0SUpXOGI3Sm5Mcm4zVkljLVZCN3cxdTdDd255UGZ2ZXhiYkR2WXcxbkQzcnlMY0UzeUZSemlsRnBUMno4LUtsY2tmT25HcmIxanZhaTJibWFPS0NtWVlqdXF3?oc=5 | http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6b09bcff114b4a118af23ebd5eeb1bc2&url=https%3a%2f%2feconomictimes.indiatimes.com%2fmarkets%2fstocks%2flive-blog%2fbse-sensex-today-nifty50-stock-market-live-updates-gift-nifty-nse-bse-share-price-27-november-2026%2fliveblog%2f136206762.cms&c=17461454488585503924&mkt=en-in\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Stock market news",
   "alt_text": "Stock market news: Ticker Market India image - Sensex drops 990 points as Nifty hovers 25,600",
   "telegram_media_ids": [
     1251
-  ]
+  ],
+  "approved_at": "2026-11-28T07:52:36.813733+05:30",
+  "posted_at": "2026-11-28T07:52:52.018269+05:30"
 }
