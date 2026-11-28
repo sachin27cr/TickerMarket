@@ -1,0 +1,69 @@
+{
+  "id": "11281904-989a9",
+  "kind": "news",
+  "created": "2026-11-28T19:04:39.886010+05:30",
+  "images": [
+    "media/2026-11-28/news-190439-c5c1_1.jpg"
+  ],
+  "caption": "Stock market news | SEBI aims to deepen capital markets for 2x economy\n\nOn 28 November 2026, SEBI Chairman Pandey announced that the regulator will work to deepen capital markets and simplify regulations. These steps aim to attract more investment and help India achieve a *2x* economy, boosting growth and market depth.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #SEBI #IndiaEconomy #CapitalMarkets #TickerMarketIndia",
+  "threads_text": "Stock market news | SEBI aims to deepen capital markets for 2x economy\n\nOn 28 November 2026, SEBI Chairman Pandey announced that the regulator will work to deepen capital markets and simplify regulations. These steps aim to attract more investment and help India achieve a *2x* economy, boosting growth and market depth.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #SEBI #IndiaEconomy #CapitalMarkets #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: KNN India, cfo.economictimes.indiatimes.com"
+    ],
+    [
+      "ok",
+      "fresh: newest source 2.1 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 5 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMi8wFBVV95cUxPb2hNR3ZPVmI4U2VWa01ZMjMzRkx0Q0Z5cEdwSW1wQWtSbkJmTE4zaXNBaXduM2JiS0JRbTk2N1A3c2pjQTVac1pZYWZ4NXY3cWNYeVV3SlRwenIzNl9GV2VqdTBrS1dPOU9HRzd5Y1I0MHg1UVBkZEtuRWFZbVZReFZKTGRDaTY4aUZBMFVaaXRtbi1RVHd3UnJZMUY4QzZqdTdNdnRLVVZXTUZVRFhhWllQc1gxTTZlYzhPTHFhZ1BNV1BidDVmSVNzcEhwQ3prcjZGQll2cFJkY0REeUE4NS1NNmNFQXZkdnlvakl6TDA1M2vSAfgBQVVfeXFMUDJHMFVra3ZoZVhKY2pDR2phT09pZDJLaS1tdlBJV3dXY0tZdTQ4N3A3Znc2ZkpPb3U4cTN5TEN3aVYtbDJ0ZjlfZGZVc0tXMEJSdGJuWDNQSWtjdmVJXzJVOVY0RUIxU0luRzNzTVQ2bkNhYlJGRjc3VmNweklENkFmRDdVbHFYTEZmSWUzd0Uxa3NPRG9ZUmEwT214TUMyZXF1cUgzdXc3MVJwTmpaejJOOHFlU2U4TWF3WGZjZzFsOUsxMVhrMXBvNS1uZThGZXFBTmFBWFJUc25HSVFMS2pScjlLRGdIX0Z2eXE2WUpPeFRySmF2NEc?oc=5 | https://news.google.com/rss/articles/CBMi3wFBVV95cUxQcFdwSzdVaE5fY25YSnFSc0lZeFRHWWV1X3gtbWdXUFZFRWd3ZTQ3S0picThVekZTd2N5dzVGWnFsaFBhNGY3WWh4cURQcVlaUXhtd0otX2duVUNpNC1IREJ5cEJBQkxCekN1QkJPWDF1T3loX3RFb0pYdDRJYVN3Rm84bE0yV3ByWmg1S0JJSXd2RGF5akZlaDloWVdQT3JBZFZDV1lOaTJQTUxORXlQQmxfUmE1ZnYtYzJOSzVWMFpLRU9jWm9ZNkNtbGZWQW1tdzJiM1ljVTBBVkNfd0NR?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Regulation",
+      "date_text": "Sat, 28 Nov 2026",
+      "theme": "market_up",
+      "seed": "capital chairman deepen economy pandey regulations sebi simplify",
+      "tone": null,
+      "quotes": [],
+      "label": "REGULATORY PUSH",
+      "headline": "SEBI aims to *deepen* capital markets for *2x* economy",
+      "points": [
+        "SEBI Chairman Pandey states regulator will deepen capital markets.",
+        "SEBI will simplify regulations to ease market participation.",
+        "Aim is to support India's economy growing *2x* size."
+      ],
+      "source": "KNN India, cfo.economictimes.indiatimes.com"
+    },
+    "news_sector": "economy",
+    "photo_prompt": "A bustling trading floor with large digital screens displaying market charts and activity."
+  },
+  "telegram_message_id": 1287,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: KNN India, cfo.economictimes.indiatimes.com\n✅ fresh: newest source 2.1 h old\n✅ headline/banner/points/body: all 5 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMi8wFBVV95cUxPb2hNR3ZPVmI4U2VWa01ZMjMzRkx0Q0Z5cEdwSW1wQWtSbkJmTE4zaXNBaXduM2JiS0JRbTk2N1A3c2pjQTVac1pZYWZ4NXY3cWNYeVV3SlRwenIzNl9GV2VqdTBrS1dPOU9HRzd5Y1I0MHg1UVBkZEtuRWFZbVZReFZKTGRDaTY4aUZBMFVaaXRtbi1RVHd3UnJZMUY4QzZqdTdNdnRLVVZXTUZVRFhhWllQc1gxTTZlYzhPTHFhZ1BNV1BidDVmSVNzcEhwQ3prcjZGQll2cFJkY0REeUE4NS1NNmNFQXZkdnlvakl6TDA1M2vSAfgBQVVfeXFMUDJHMFVra3ZoZVhKY2pDR2phT09pZDJLaS1tdlBJV3dXY0tZdTQ4N3A3Znc2ZkpPb3U4cTN5TEN3aVYtbDJ0ZjlfZGZVc0tXMEJSdGJuWDNQSWtjdmVJXzJVOVY0RUIxU0luRzNzTVQ2bkNhYlJGRjc3VmNweklENkFmRDdVbHFYTEZmSWUzd0Uxa3NPRG9ZUmEwT214TUMyZXF1cUgzdXc3MVJwTmpaejJOOHFlU2U4TWF3WGZjZzFsOUsxMVhrMXBvNS1uZThGZXFBTmFBWFJUc25HSVFMS2pScjlLRGdIX0Z2eXE2WUpPeFRySmF2NEc?oc=5 | https://news.google.com/rss/articles/CBMi3wFBVV95cUxQcFdwSzdVaE5fY25YSnFSc0lZeFRHWWV1X3gtbWdXUFZFRWd3ZTQ3S0picThVekZTd2N5dzVGWnFsaFBhNGY3WWh4cURQcVlaUXhtd0otX2duVUNpNC1IREJ5cEJBQkxCekN1QkJPWDF1T3loX3RFb0pYdDRJYVN3Rm84bE0yV3ByWmg1S0JJSXd2RGF5akZlaDloWVdQT3JBZFZDV1lOaTJQTUxORXlQQmxfUmE1ZnYtYzJOSzVWMFpLRU9jWm9ZNkNtbGZWQW1tdzJiM1ljVTBBVkNfd0NR?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - SEBI aims to deepen capital markets for 2x economy",
+  "telegram_media_ids": [
+    1286
+  ]
+}

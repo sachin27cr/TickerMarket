@@ -1,0 +1,69 @@
+{
+  "id": "11281904-554ff",
+  "kind": "news",
+  "created": "2026-11-28T19:04:55.857772+05:30",
+  "images": [
+    "media/2026-11-28/news-190455-ee7e_1.jpg"
+  ],
+  "caption": "Stock market news | SEBI Weighs Exchange Platform for Pre-IPO Shares\n\nIndia's securities regulator SEBI is evaluating a new exchange platform that would handle pre-IPO shares, as reported on 28 November 2026. This regulatory review signals a potential shift in how pre-IPO securities could be traded.\nA dedicated platform may provide a structured venue for pre-IPO transactions, influencing market access and transparency for investors under SEBI's oversight.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #SEBI #PreIPO #IndiaMarkets #TickerMarketIndia",
+  "threads_text": "Stock market news | SEBI Weighs Exchange Platform for Pre-IPO Shares\n\nIndia's securities regulator SEBI is evaluating a new exchange platform that would handle pre-IPO shares, as reported on 28 November 2026. This regulatory review signals a potential shift in how pre-IPO securities could be traded.\n\n#StockMarketIndia #SEBI #PreIPO #IndiaMarkets #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "reported by a trusted outlet: Bloomberg.com"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.6 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 4 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq (backup)): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by groq; sources: https://news.google.com/rss/articles/CBMiqwFBVV95cUxPVmgwX3RrNk9hZnY0VXVVN1lkRXk4akh2YVIybm02QzFiZWV6a3NHa1FrU181TW93X0pXcF94NzlFa1dKS3E0Qml5WG9CRmNSaERfWUxqY0dtSTNXaFJUaVY5NXZ6VnloX0F0cHFNVGt1ZTVhQkpzTUNnbWZKazRKZHIzTkwtcnI1VmEzamtydXgwSERUXzhqS1hqeDA1WlMyMkpfWndPRW9ENzQ?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Regulation",
+      "date_text": "Sat, 28 Nov 2026",
+      "theme": "market_up",
+      "seed": "exchange ipo platform pre sebi weighs",
+      "tone": null,
+      "quotes": [],
+      "label": "REGULATORY MOVE",
+      "headline": "SEBI *Weighs* *Exchange* Platform for Pre-IPO Shares",
+      "points": [
+        "SEBI is weighing an exchange platform for pre-IPO shares.",
+        "The proposal was reported on 28 November 2026.",
+        "The move is under consideration by India's securities regulator."
+      ],
+      "source": "Bloomberg.com"
+    },
+    "news_sector": "other",
+    "photo_prompt": "A modern trading floor with large screens displaying market data, no faces, logos, or text."
+  },
+  "telegram_message_id": 1291,
+  "posted": {},
+  "report_text": "✅ reported by a trusted outlet: Bloomberg.com\n✅ fresh: newest source 1.6 h old\n✅ headline/banner/points/body: all 4 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq (backup)): every fact supported, not misleading, no advice\n✅ written by groq; sources: https://news.google.com/rss/articles/CBMiqwFBVV95cUxPVmgwX3RrNk9hZnY0VXVVN1lkRXk4akh2YVIybm02QzFiZWV6a3NHa1FrU181TW93X0pXcF94NzlFa1dKS3E0Qml5WG9CRmNSaERfWUxqY0dtSTNXaFJUaVY5NXZ6VnloX0F0cHFNVGt1ZTVhQkpzTUNnbWZKazRKZHIzTkwtcnI1VmEzamtydXgwSERUXzhqS1hqeDA1WlMyMkpfWndPRW9ENzQ?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - SEBI Weighs Exchange Platform for Pre-IPO Shares",
+  "telegram_media_ids": [
+    1290
+  ]
+}
