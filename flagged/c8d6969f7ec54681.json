@@ -1,0 +1,5 @@
+{
+  "kind": "weekly_ath",
+  "title": "weekly-ath:2026-11-23",
+  "report": "✅ Large Cap (NIFTY 100): 100 stocks checked; 6 all-time highs, 2 52-week lows; 1 listed < 1 year skipped, 1 without data for this week\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks checked; 10 all-time highs, 5 52-week lows; 2 listed < 1 year skipped\n❌ Small Cap (NIFTY SMALLCAP 250): NSE list unavailable (NIFTY SMALLCAP 250: only 137 stocks priced; marketWatchApi: 0 of 225+ rows readable; marketWatchApi: 0 of 225+ rows readable; indexTrackerApi: HTTP 404; equity-stockIndices: HTTP 404)\n❌ Micro Cap (NIFTY MICROCAP 250): NSE list unavailable (NIFTY MICROCAP 250: only 109 stocks priced; marketWatchApi: 0 of 225+ rows readable; marketWatchApi: 0 of 225+ rows readable; indexTrackerApi: HTTP 404; equity-stockIndices: HTTP 404)\n❌ need all 4 market-cap groups for this post\n✅ no advice, prediction or rumour language"
+}
