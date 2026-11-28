@@ -1,92 +1,5 @@
 [
   {
-    "when": "2026-11-26T03:15:37.552716+05:30",
-    "title": "IndiGo, BPCL, Asian Paints, other crude-sensitive shares rise up to 4% as Brent eases to $88",
-    "bucket": "crude_oil",
-    "lead": [
-      "asian",
-      "bpcl",
-      "brent",
-      "crude",
-      "eases",
-      "indigo",
-      "other",
-      "paints",
-      "rise",
-      "sensitive"
-    ],
-    "tokens": [
-      "asian",
-      "bpcl",
-      "brent",
-      "crude",
-      "eases",
-      "indigo",
-      "other",
-      "paints",
-      "rise",
-      "sensitive"
-    ]
-  },
-  {
-    "when": "2026-11-26T03:24:10.382472+05:30",
-    "title": "Fed monetary news linked to weaker rupee, higher G-sec yields: RBI study",
-    "bucket": "rupee_forex",
-    "lead": [
-      "fed",
-      "higher",
-      "linked",
-      "monetary",
-      "rbi",
-      "rupee",
-      "sec",
-      "study",
-      "weaker",
-      "yields"
-    ],
-    "tokens": [
-      "fed",
-      "higher",
-      "linked",
-      "monetary",
-      "rbi",
-      "rupee",
-      "sec",
-      "study",
-      "weaker",
-      "yields"
-    ]
-  },
-  {
-    "when": "2026-11-26T03:24:35.498462+05:30",
-    "title": "IPO on agenda: Tata Sons board to discuss listing plan at Monday's meeting",
-    "bucket": null,
-    "lead": [
-      "agenda",
-      "board",
-      "discuss",
-      "ipo",
-      "listing",
-      "meeting",
-      "monday",
-      "plan",
-      "sons",
-      "tata"
-    ],
-    "tokens": [
-      "agenda",
-      "board",
-      "discuss",
-      "ipo",
-      "listing",
-      "meeting",
-      "monday",
-      "plan",
-      "sons",
-      "tata"
-    ]
-  },
-  {
     "when": "2026-11-26T05:23:44.834339+05:30",
     "title": "India's RBI sees broad food inflation pressures; was net dollar buyer in Sept, bulletin shows",
     "bucket": "rbi_rates",
@@ -1342,6 +1255,50 @@
       "what",
       "withdrawals",
       "your"
+    ]
+  },
+  {
+    "when": "2026-11-28T05:24:37.666110+05:30",
+    "title": "Anthropic Shares Jump After Volatile First Week Since IPO",
+    "bucket": null,
+    "lead": [
+      "anthropic",
+      "first",
+      "ipo",
+      "jump",
+      "since",
+      "volatile"
+    ],
+    "tokens": [
+      "anthropic",
+      "first",
+      "ipo",
+      "jump",
+      "since",
+      "volatile"
+    ]
+  },
+  {
+    "when": "2026-11-28T05:31:04.528344+05:30",
+    "title": "Minority shareholders’ interest protection a key priority: Sebi",
+    "bucket": null,
+    "lead": [
+      "interest",
+      "key",
+      "minority",
+      "priority",
+      "protection",
+      "sebi",
+      "shareholders"
+    ],
+    "tokens": [
+      "interest",
+      "key",
+      "minority",
+      "priority",
+      "protection",
+      "sebi",
+      "shareholders"
     ]
   }
 ]
