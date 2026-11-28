@@ -1,0 +1,69 @@
+{
+  "id": "11281012-e61be",
+  "kind": "news",
+  "created": "2026-11-28T10:12:42.088842+05:30",
+  "images": [
+    "media/2026-11-28/news-101242-bb27_1.jpg"
+  ],
+  "caption": "Stock market news | Sensex and Nifty end week lower after rally fizzles out\n\nIndian stock markets ended the week in the red as a midweek recovery rally fizzled out. The market dropped after a two-day rally snapped due to profit booking on 27 November 2026.\n\nThe decline wiped out gains made during the midweek recovery. Both major indices, the Sensex and Nifty, faced pressure from profit booking towards the close of the week.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #Sensex #Nifty #IndianStockMarket #TickerMarketIndia",
+  "threads_text": "Stock market news | Sensex and Nifty end week lower after rally fizzles out\n\nIndian stock markets ended the week in the red as a midweek recovery rally fizzled out. The market dropped after a two-day rally snapped due to profit booking on 27 November 2026.\n\nThe decline wiped out gains made during the midweek recovery. Both major indices, the Sensex and Nifty, faced pressure from profit booking towards the close of the week.\n\n#StockMarketIndia #Sensex #Nifty #IndianStockMarket #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: DD India, The New Indian Express"
+    ],
+    [
+      "ok",
+      "fresh: newest source 1.2 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 2 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://news.google.com/rss/articles/CBMivgFBVV95cUxOUEFsOE1CUlpFUlpxdFFOYWdWb184ZUMwZWI0WUlMQm15aExPRkw5c0tyM2RZeGNVcHMwR3VXUXFROUN2QmhmYi12djlwWnNKZm1BeXJpejV3d1V5QjhfRmZPMkNCMEZJRVZtdXNaVVQ0WDhFVW9naU1YRmtVc3k5LWprWk1qbmRoSFgwZEd0ZU15V3N6QUVkdkZRSzQ1LTBzbm1vUTZSYjJ2RHhoQkZpM2pTV3M4TDhFUmwxRzhR0gHLAUFVX3lxTE51a1ktY2UxMDdIZGVMVmRVZWFUNWVQNTJwWkNFTGZnZmxQcVNPRExFdWpvelFOaEozY0c2NEdCcnQ1VHlCTU5VaUJnRUpRRXdCd3R6dktfdzE2c2tPS2I3SVFRcG54NXZ2UUd6S1JOczlCZllKalFwUzZ1LTZ0OEJhNXRLYm5VUEI4UEpyMV9vLXlCbmdSR3hfQ1ZXZWZ1RnRZLW1tdXAtOGdWYVliNFl0QWxiTVZPNC13dlBRendWNlNkUEdyMVF0R0c4?oc=5 | https://news.google.com/rss/articles/CBMiqAFBVV95cUxOcmFfcWhyazUycEdmZXNJU1BGalg5dEZMSENiVEtIeHRZRHNPemxOb19OQUpLZXNXS05qZW9uNDVMMUZUYzVrX0NfTVAzclZhRGlfRWM1a1h6VVVmNTgzaWZTUXJlc1dIVXRNTUZReFZrNExuNFdDVVoxWW44WXFnNzh2d0NHYUlBZ3lrNi1jNWVmTkFvWnd6WmZMdGZHUTBlMmUtby04TTI?oc=5"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Market News",
+      "date_text": "Sat, 28 Nov 2026",
+      "theme": "market_down",
+      "seed": "end fizzles midweek nifty out rally recovery red",
+      "tone": "down",
+      "quotes": [],
+      "label": "MARKET FALLS",
+      "headline": "*Sensex* and Nifty end week lower after rally fizzles out",
+      "points": [
+        "Sensex and Nifty ended the week in the red.",
+        "A midweek recovery rally snapped after two days.",
+        "Profit booking contributed to the decline in stock markets."
+      ],
+      "source": "DD India, The New Indian Express"
+    },
+    "news_sector": "markets",
+    "photo_prompt": "A modern financial stock exchange trading floor with empty desks and glowing monitor screens displaying market data charts."
+  },
+  "telegram_message_id": 1271,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: DD India, The New Indian Express\n✅ fresh: newest source 1.2 h old\n✅ headline/banner/points/body: all 2 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ written by gemini; sources: https://news.google.com/rss/articles/CBMivgFBVV95cUxOUEFsOE1CUlpFUlpxdFFOYWdWb184ZUMwZWI0WUlMQm15aExPRkw5c0tyM2RZeGNVcHMwR3VXUXFROUN2QmhmYi12djlwWnNKZm1BeXJpejV3d1V5QjhfRmZPMkNCMEZJRVZtdXNaVVQ0WDhFVW9naU1YRmtVc3k5LWprWk1qbmRoSFgwZEd0ZU15V3N6QUVkdkZRSzQ1LTBzbm1vUTZSYjJ2RHhoQkZpM2pTV3M4TDhFUmwxRzhR0gHLAUFVX3lxTE51a1ktY2UxMDdIZGVMVmRVZWFUNWVQNTJwWkNFTGZnZmxQcVNPRExFdWpvelFOaEozY0c2NEdCcnQ1VHlCTU5VaUJnRUpRRXdCd3R6dktfdzE2c2tPS2I3SVFRcG54NXZ2UUd6S1JOczlCZllKalFwUzZ1LTZ0OEJhNXRLYm5VUEI4UEpyMV9vLXlCbmdSR3hfQ1ZXZWZ1RnRZLW1tdXAtOGdWYVliNFl0QWxiTVZPNC13dlBRendWNlNkUEdyMVF0R0c4?oc=5 | https://news.google.com/rss/articles/CBMiqAFBVV95cUxOcmFfcWhyazUycEdmZXNJU1BGalg5dEZMSENiVEtIeHRZRHNPemxOb19OQUpLZXNXS05qZW9uNDVMMUZUYzVrX0NfTVAzclZhRGlfRWM1a1h6VVVmNTgzaWZTUXJlc1dIVXRNTUZReFZrNExuNFdDVVoxWW44WXFnNzh2d0NHYUlBZ3lrNi1jNWVmTkFvWnd6WmZMdGZHUTBlMmUtby04TTI?oc=5\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Sensex and Nifty end week lower after rally fizzles out",
+  "telegram_media_ids": [
+    1270
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "id": "11281027-4cca4",
+  "kind": "news",
+  "created": "2026-11-28T10:27:15.017747+05:30",
+  "images": [
+    "media/2026-11-28/news-102715-a796_1.jpg"
+  ],
+  "caption": "Stock market news | Blackstone Sells 1.55% Stake in International Gemological Institute for ₹280 Crore\n\nBlackstone completed the sale of a 1.55 percent stake in International Gemological Institute for ₹280.06 crore through block deals. The transaction involved selling over 67.16 lakh shares at an average price of ₹417 each.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #IGI #Blackstone #BlockDeal #TickerMarketIndia",
+  "threads_text": "Stock market news | Blackstone Sells 1.55% Stake in International Gemological Institute for ₹280 Crore\n\nBlackstone completed the sale of a 1.55 percent stake in International Gemological Institute for ₹280.06 crore through block deals. The transaction involved selling over 67.16 lakh shares at an average price of ₹417 each.\n\nSave this for later and send it to a friend who trades.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #IGI #Blackstone #BlockDeal #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "confirmed by 2 outlets: BusinessLine, Economic Times"
+    ],
+    [
+      "ok",
+      "fresh: newest source 0.6 h old"
+    ],
+    [
+      "ok",
+      "headline/banner/points/body: all 10 numbers match source data"
+    ],
+    [
+      "ok",
+      "all names appear in the sources"
+    ],
+    [
+      "ok",
+      "second opinion (groq): every fact supported, not misleading, no advice"
+    ],
+    [
+      "ok",
+      "IGIL ₹429.65 (+1.52%): NSE = Yahoo"
+    ],
+    [
+      "ok",
+      "written by gemini; sources: https://www.thehindubusinessline.com/companies/blackstone-sells-155-stake-in-igi-for-280-crore-to-meet-public-shareholding-norms/article71753547.ece | https://economictimes.indiatimes.com/markets/stocks/news/blackstone-sells-1-55-stake-in-igi-for-rs-280-crore-to-meet-public-shareholding-norms/articleshow/136228297.cms | https://economictimes.indiatimes.com/markets/stocks/news/blackstone-sells-1-55-stake-in-igi-for-rs-280-crore-to-meet-public-shareholding-norms/articleshow/136228297.cms"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "card": {
+      "category": "Corporate Action",
+      "date_text": "Sat, 28 Nov 2026",
+      "theme": "market_up",
+      "seed": "280 blackstone crore igi meet norms public sells",
+      "tone": "up",
+      "quotes": [
+        {
+          "name": "International Gemological Institute Ltd",
+          "symbol": "IGIL",
+          "price": 429.65,
+          "chg": 6.45,
+          "pct": 1.52,
+          "time_text": "27 Nov, 4:00 PM IST"
+        }
+      ],
+      "label": "STAKE SALE",
+      "headline": "Blackstone Sells *1.55% Stake* in International Gemological Institute for ₹280 Crore",
+      "points": [
+        "Blackstone sold over 67.16 lakh shares through block deals.",
+        "The shares were sold at an average price of ₹417 apiece.",
+        "Blackstone's holding decreased from 76.55 percent to 75 percent."
+      ],
+      "source": "NSE prices, BusinessLine, Economic Times"
+    },
+    "news_sector": "other",
+    "photo_prompt": "A close up shot of loose polished diamonds and gemstones resting on a dark velvet surface in a gem testing laboratory."
+  },
+  "telegram_message_id": 1273,
+  "posted": {},
+  "report_text": "✅ confirmed by 2 outlets: BusinessLine, Economic Times\n✅ fresh: newest source 0.6 h old\n✅ headline/banner/points/body: all 10 numbers match source data\n✅ all names appear in the sources\n✅ second opinion (groq): every fact supported, not misleading, no advice\n✅ IGIL ₹429.65 (+1.52%): NSE = Yahoo\n✅ written by gemini; sources: https://www.thehindubusinessline.com/companies/blackstone-sells-155-stake-in-igi-for-280-crore-to-meet-public-shareholding-norms/article71753547.ece | https://economictimes.indiatimes.com/markets/stocks/news/blackstone-sells-1-55-stake-in-igi-for-rs-280-crore-to-meet-public-shareholding-norms/articleshow/136228297.cms | https://economictimes.indiatimes.com/markets/stocks/news/blackstone-sells-1-55-stake-in-igi-for-rs-280-crore-to-meet-public-shareholding-norms/articleshow/136228297.cms\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stock market news",
+  "alt_text": "Stock market news: Ticker Market India image - Blackstone Sells 1.55% Stake in International Gemological Institute for ₹280 Crore",
+  "telegram_media_ids": [
+    1272
+  ]
+}

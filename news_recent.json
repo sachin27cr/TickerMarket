@@ -1,38 +1,5 @@
 [
   {
-    "when": "2026-11-26T05:23:44.834339+05:30",
-    "title": "India's RBI sees broad food inflation pressures; was net dollar buyer in Sept, bulletin shows",
-    "bucket": "rbi_rates",
-    "lead": [
-      "broad",
-      "bulletin",
-      "buyer",
-      "dollar",
-      "food",
-      "inflation",
-      "net",
-      "pressures",
-      "rbi",
-      "sees",
-      "sept",
-      "shows"
-    ],
-    "tokens": [
-      "broad",
-      "bulletin",
-      "buyer",
-      "dollar",
-      "food",
-      "inflation",
-      "net",
-      "pressures",
-      "rbi",
-      "sees",
-      "sept",
-      "shows"
-    ]
-  },
-  {
     "when": "2026-11-26T10:12:27.611495+05:30",
     "title": "Positive Breakout: These 5 stocks rose above their 200 DMAs",
     "bucket": null,
@@ -1299,6 +1266,65 @@
       "protection",
       "sebi",
       "shareholders"
+    ]
+  },
+  {
+    "when": "2026-11-28T10:12:45.002665+05:30",
+    "title": "Midweek recovery rally fizzles out, Sensex, Nifty end week in the red",
+    "bucket": null,
+    "lead": [
+      "end",
+      "fizzles",
+      "midweek",
+      "nifty",
+      "out",
+      "rally",
+      "recovery",
+      "red",
+      "sensex"
+    ],
+    "tokens": [
+      "booking",
+      "end",
+      "fizzles",
+      "midweek",
+      "nifty",
+      "out",
+      "profit",
+      "rally",
+      "recovery",
+      "red",
+      "sensex",
+      "snap"
+    ]
+  },
+  {
+    "when": "2026-11-28T10:27:17.897940+05:30",
+    "title": "Blackstone sells 1.55% stake in IGI for Rs 280 crore to meet public shareholding norms",
+    "bucket": null,
+    "lead": [
+      "280",
+      "blackstone",
+      "crore",
+      "igi",
+      "meet",
+      "norms",
+      "public",
+      "sells",
+      "shareholding",
+      "stake"
+    ],
+    "tokens": [
+      "280",
+      "blackstone",
+      "crore",
+      "igi",
+      "meet",
+      "norms",
+      "public",
+      "sells",
+      "shareholding",
+      "stake"
     ]
   }
 ]
