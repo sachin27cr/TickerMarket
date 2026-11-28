@@ -1,0 +1,322 @@
+{
+  "Large Cap": {
+    "index": "NIFTY 100",
+    "gainers": [
+      {
+        "symbol": "TCS",
+        "name": "TCS",
+        "start": 2376.2,
+        "end": 2572.5,
+        "pct": 8.261089133911295
+      },
+      {
+        "symbol": "TORNTPHARM",
+        "name": "Torrent Pharma",
+        "start": 4689.5,
+        "end": 5034.0,
+        "pct": 7.346198955112486
+      },
+      {
+        "symbol": "HCLTECH",
+        "name": "HCLTech",
+        "start": 1344.4,
+        "end": 1424.1,
+        "pct": 5.928295150252887
+      },
+      {
+        "symbol": "HAL",
+        "name": "HAL",
+        "start": 4809.0,
+        "end": 5074.0,
+        "pct": 5.510501143688916
+      },
+      {
+        "symbol": "ENRIN",
+        "name": "Siemens Energy India",
+        "start": 2944.0,
+        "end": 3102.0,
+        "pct": 5.366847826086957
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "ADANIENSOL",
+        "name": "Adani Energy",
+        "start": 1491.8,
+        "end": 1337.0,
+        "pct": -10.376726102694729
+      },
+      {
+        "symbol": "HYUNDAI",
+        "name": "Hyundai India",
+        "start": 2215.0,
+        "end": 2006.0,
+        "pct": -9.43566591422122
+      },
+      {
+        "symbol": "TATASTEEL",
+        "name": "Tata Steel",
+        "start": 178.0,
+        "end": 163.94,
+        "pct": -7.898876404494383
+      },
+      {
+        "symbol": "ADANIGREEN",
+        "name": "Adani Green",
+        "start": 1435.0,
+        "end": 1327.6,
+        "pct": -7.484320557491296
+      },
+      {
+        "symbol": "TMCV",
+        "name": "Tata Motors",
+        "start": 456.75,
+        "end": 424.95,
+        "pct": -6.962233169129724
+      }
+    ],
+    "count": 100,
+    "last_day": "2026-11-27",
+    "prev_day": "2026-11-20"
+  },
+  "Mid Cap": {
+    "index": "NIFTY MIDCAP 150",
+    "gainers": [
+      {
+        "symbol": "POLICYBZR",
+        "name": "Policybazaar",
+        "start": 1022.8,
+        "end": 1186.5,
+        "pct": 16.005084082909665
+      },
+      {
+        "symbol": "MCX",
+        "name": "MCX",
+        "start": 3535.0,
+        "end": 3900.0,
+        "pct": 10.325318246110324
+      },
+      {
+        "symbol": "LAURUSLABS",
+        "name": "Laurus Labs",
+        "start": 2294.6,
+        "end": 2504.4,
+        "pct": 9.143205787501097
+      },
+      {
+        "symbol": "GLENMARK",
+        "name": "Glenmark Pharmaceuticals",
+        "start": 2648.0,
+        "end": 2834.9,
+        "pct": 7.058157099697889
+      },
+      {
+        "symbol": "PRESTIGE",
+        "name": "Prestige",
+        "start": 1680.0,
+        "end": 1796.7,
+        "pct": 6.946428571428574
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "APLAPOLLO",
+        "name": "APL Apollo Tubes",
+        "start": 2121.6,
+        "end": 1509.5,
+        "pct": -28.850867269984914
+      },
+      {
+        "symbol": "LLOYDSME",
+        "name": "Lloyds Metals And Energy",
+        "start": 1723.8,
+        "end": 1556.8,
+        "pct": -9.687898828170322
+      },
+      {
+        "symbol": "ASHOKLEY",
+        "name": "Ashok Leyland",
+        "start": 163.35,
+        "end": 151.42,
+        "pct": -7.303336394245489
+      },
+      {
+        "symbol": "TORNTPOWER",
+        "name": "Torrent Power",
+        "start": 1225.4,
+        "end": 1152.2,
+        "pct": -5.973559653990537
+      },
+      {
+        "symbol": "DALBHARAT",
+        "name": "Dalmia Bharat",
+        "start": 1578.1,
+        "end": 1487.1,
+        "pct": -5.766427983017553
+      }
+    ],
+    "count": 149,
+    "last_day": "2026-11-27",
+    "prev_day": "2026-11-20"
+  },
+  "Small Cap": {
+    "index": "NIFTY SMALLCAP 250",
+    "gainers": [
+      {
+        "symbol": "JWL",
+        "name": "Jupiter Wagons",
+        "start": 191.23,
+        "end": 224.84,
+        "pct": 17.575694190242125
+      },
+      {
+        "symbol": "BEML",
+        "name": "BEML",
+        "start": 2052.4,
+        "end": 2346.1,
+        "pct": 14.310076008575317
+      },
+      {
+        "symbol": "ACE",
+        "name": "Action Construction Equipment",
+        "start": 1170.35,
+        "end": 1325.7,
+        "pct": 13.273806980817717
+      },
+      {
+        "symbol": "J&KBANK",
+        "name": "Jammu & Kashmir Bank",
+        "start": 149.73,
+        "end": 166.39,
+        "pct": 11.126694717157548
+      },
+      {
+        "symbol": "HEGAM",
+        "name": "HEG Advanced Materials",
+        "start": 257.39,
+        "end": 285.79,
+        "pct": 11.033839698511999
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "HFCL",
+        "name": "HFCL",
+        "start": 188.0,
+        "end": 172.48,
+        "pct": -8.255319148936175
+      },
+      {
+        "symbol": "SUNTV",
+        "name": "Sun TV Network",
+        "start": 694.2,
+        "end": 640.75,
+        "pct": -7.699510227600122
+      },
+      {
+        "symbol": "FIVESTAR",
+        "name": "Five-Star Business Finance",
+        "start": 433.0,
+        "end": 400.85,
+        "pct": -7.424942263279441
+      },
+      {
+        "symbol": "GPIL",
+        "name": "Godawari Power And Ispat",
+        "start": 226.69,
+        "end": 211.14,
+        "pct": -6.859587983589929
+      },
+      {
+        "symbol": "KAYNES",
+        "name": "Kaynes Technology India",
+        "start": 2910.0,
+        "end": 2725.0,
+        "pct": -6.357388316151202
+      }
+    ],
+    "count": 248,
+    "last_day": "2026-11-27",
+    "prev_day": "2026-11-20"
+  },
+  "Micro Cap": {
+    "index": "NIFTY MICROCAP 250",
+    "gainers": [
+      {
+        "symbol": "GREAVESCOT",
+        "name": "Greaves Cotton",
+        "start": 268.31,
+        "end": 322.69,
+        "pct": 20.267600909395846
+      },
+      {
+        "symbol": "WAAREERTL",
+        "name": "Waaree Renewable Technologies",
+        "start": 693.35,
+        "end": 825.7,
+        "pct": 19.08848344991707
+      },
+      {
+        "symbol": "TEXRAIL",
+        "name": "Texmaco Rail & Engineering",
+        "start": 111.37,
+        "end": 124.85,
+        "pct": 12.10379815030977
+      },
+      {
+        "symbol": "IIFLCAPS",
+        "name": "IIFL Capital Services",
+        "start": 311.45,
+        "end": 346.8,
+        "pct": 11.350136458500568
+      },
+      {
+        "symbol": "THOMASCOOK",
+        "name": "Thomas Cook",
+        "start": 114.66,
+        "end": 127.51,
+        "pct": 11.207046921332644
+      }
+    ],
+    "losers": [
+      {
+        "symbol": "SGMART",
+        "name": "SG Mart",
+        "start": 1097.05,
+        "end": 913.15,
+        "pct": -16.763137505127386
+      },
+      {
+        "symbol": "V2RETAIL",
+        "name": "V2 Retail",
+        "start": 162.06,
+        "end": 145.72,
+        "pct": -10.08268542515118
+      },
+      {
+        "symbol": "NAZARA",
+        "name": "Nazara Technologies",
+        "start": 414.55,
+        "end": 377.1,
+        "pct": -9.03389217223495
+      },
+      {
+        "symbol": "CENTUM",
+        "name": "Centum Electronics",
+        "start": 4374.5,
+        "end": 3991.5,
+        "pct": -8.755286318436392
+      },
+      {
+        "symbol": "SUDARSCHEM",
+        "name": "Sudarshan Chemical Industries",
+        "start": 1160.4,
+        "end": 1075.05,
+        "pct": -7.355222337125141
+      }
+    ],
+    "count": 250,
+    "last_day": "2026-11-27",
+    "prev_day": "2026-11-20"
+  }
+}
