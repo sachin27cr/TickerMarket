@@ -1,0 +1,79 @@
+{
+  "id": "11281723-09a63",
+  "kind": "reel_ath",
+  "created": "2026-11-28T17:23:05.837939+05:30",
+  "images": [
+    "media/2026-11-28/reel_ath-172305-03d0_cover.jpg"
+  ],
+  "caption": "Stocks at all-time high | 29 all-time highs, 21 52-week lows this week\n\nAll-time highs this week (29):\n\nLarge Cap (6): Tech Mahindra (+107.75%), Apollo Hospitals (-0.78%), Eicher Motors (-1.35%), ICICI Bank (-2.84%), Kotak Bank (-3.06%), Axis Bank (-4.56%)\n\nMid Cap (10): MCX (+10.33%), Laurus Labs (+9.14%), Glenmark Pharmaceuticals (+7.06%), Anthem Biosciences (+3.48%), Marico (+0.58%), Coforge (-0.75%) and 4 more in the reel\n\nSmall Cap (8): Acutaas Chemicals (+6.30%), Welspun Living (+6.23%), Navin Fluorine International (+3.77%), Anand Rathi Wealth (+1.53%), Asahi India Glass (-0.46%), Vijaya Diagnostic Centre (-1.26%) and 2 more in the reel\n\nMicro Cap (5): Greaves Cotton (+20.27%), Indo Count Industries (+1.96%), Shreeji Shipping Global (+1.08%), Pearl Global Industries (+0.36%), SG Mart (-16.76%)\n\n52-week lows this week (21):\n\nLarge Cap (2): Tata Steel (-7.90%), Tata Power (-5.78%)\n\nMid Cap (5): APL Apollo Tubes (-28.85%), KEI Industries (-1.94%), Cochin Shipyard (+0.09%), Thermax (+0.15%), PI Industries (+0.54%)\n\nSmall Cap (4): Kaynes Technology India (-6.36%), Inox Wind (-3.80%), KEC International (-2.57%), Aadhar Housing Finance (+1.38%)\n\nMicro Cap (10): ION Exchange (-7.17%), Piccadily Agro Industries (-3.69%), Shakti Pumps (-3.14%), Indian Metals & Ferro Alloys (-2.37%), Happiest Minds Technologies (-2.06%), Vaibhav Global (-0.63%) and 4 more in the reel\n\nWeekly % change in brackets.\n\nShare this with a friend who trades, and follow for the daily market update.\n\nFor information only. Not investment advice.\n\n#StockMarketIndia #AllTimeHigh #52WeekLow #SmallCap #TickerMarketIndia",
+  "threads_text": "Stocks at all-time high | 29 all-time highs, 21 52-week lows this week\n\nAll-time highs this week (29):\n\nLarge Cap (6): Tech Mahindra (+107.75%), Apollo Hospitals (-0.78%), Eicher Motors (-1.35%), ICICI Bank (-2.84%), Kotak Bank (-3.06%), Axis Bank (-4.56%)\n\n#StockMarketIndia #AllTimeHigh #52WeekLow #SmallCap #TickerMarketIndia",
+  "report": [
+    [
+      "ok",
+      "Large Cap (NIFTY 100): 100 stocks checked; 6 all-time highs, 2 52-week lows; 1 listed < 1 year skipped, 1 without data for this week"
+    ],
+    [
+      "ok",
+      "Mid Cap (NIFTY MIDCAP 150): 150 stocks checked; 10 all-time highs, 5 52-week lows; 2 listed < 1 year skipped"
+    ],
+    [
+      "warn",
+      "Small Cap: NSE stock API unavailable - 52-week levels from Yahoo, not cross-checked"
+    ],
+    [
+      "ok",
+      "Small Cap (NIFTY SMALLCAP 250): 249 stocks checked; 8 all-time highs, 4 52-week lows; 7 listed < 1 year skipped, 2 without data for this week"
+    ],
+    [
+      "warn",
+      "Micro Cap: NSE stock API unavailable - 52-week levels from Yahoo, not cross-checked"
+    ],
+    [
+      "ok",
+      "Micro Cap (NIFTY MICROCAP 250): 250 stocks checked; 5 all-time highs, 10 52-week lows; 13 listed < 1 year skipped, 1 without data for this week"
+    ],
+    [
+      "ok",
+      "voice-over: en-US-BrianMultilingualNeural"
+    ],
+    [
+      "ok",
+      "reel: 13 scenes, 67 s, 6.1 MB"
+    ],
+    [
+      "ok",
+      "caption: all 57 numbers match source data"
+    ],
+    [
+      "ok",
+      "no advice, prediction or rumour language"
+    ]
+  ],
+  "status": "pending",
+  "meta": {
+    "video": "media/2026-11-28/reel_ath-172305-03d0.mp4"
+  },
+  "telegram_message_id": 1285,
+  "posted": {},
+  "video": "media/2026-11-28/reel_ath-172305-03d0.mp4",
+  "script": [
+    "1. Stocks at all-time high. This week, 29 stocks hit an all-time high, and 21 sank to a 52-week low. Here are all the names.",
+    "2. First, all-time highs. In large caps, 6 stocks hit an all-time high.",
+    "3. In mid caps, 10 stocks hit an all-time high.",
+    "4. (on-screen list, no voice)",
+    "5. In small caps, 8 stocks hit an all-time high.",
+    "6. (on-screen list, no voice)",
+    "7. In micro caps, 5 stocks hit an all-time high.",
+    "8. Now the 52-week lows. In large caps, 2 stocks fell to a 52-week low.",
+    "9. In mid caps, 5 stocks fell to a 52-week low.",
+    "10. In small caps, 4 stocks fell to a 52-week low.",
+    "11. In micro caps, 10 stocks fell to a 52-week low.",
+    "12. (on-screen list, no voice)",
+    "13. For more market data, visit our page and follow Ticker Market India."
+  ],
+  "report_text": "✅ Large Cap (NIFTY 100): 100 stocks checked; 6 all-time highs, 2 52-week lows; 1 listed < 1 year skipped, 1 without data for this week\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks checked; 10 all-time highs, 5 52-week lows; 2 listed < 1 year skipped\n⚠️ Small Cap: NSE stock API unavailable - 52-week levels from Yahoo, not cross-checked\n✅ Small Cap (NIFTY SMALLCAP 250): 249 stocks checked; 8 all-time highs, 4 52-week lows; 7 listed < 1 year skipped, 2 without data for this week\n⚠️ Micro Cap: NSE stock API unavailable - 52-week levels from Yahoo, not cross-checked\n✅ Micro Cap (NIFTY MICROCAP 250): 250 stocks checked; 5 all-time highs, 10 52-week lows; 13 listed < 1 year skipped, 1 without data for this week\n✅ voice-over: en-US-BrianMultilingualNeural\n✅ reel: 13 scenes, 67 s, 6.1 MB\n✅ caption: all 57 numbers match source data\n✅ no advice, prediction or rumour language",
+  "topic_keyword": "Stocks at all-time high",
+  "telegram_media_ids": [
+    1284
+  ]
+}
