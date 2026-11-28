@@ -61,7 +61,7 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "pending",
+  "status": "posted",
   "meta": {
     "awaiting_fii": null,
     "allowed": [
@@ -85,7 +85,10 @@
     "n_content": 6
   },
   "telegram_message_id": 1240,
-  "posted": {},
+  "posted": {
+    "instagram": "18138804349728797",
+    "facebook": "1374383985767580_122113236159544503"
+  },
   "report_text": "✅ Large Cap (NIFTY 100): 100 stocks, NSE prices, % re-computed\n✅ Mid Cap (NIFTY MIDCAP 150): 150 stocks, NSE prices, % re-computed\n⚠️ Small Cap (NIFTY SMALLCAP 250): 248 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n⚠️ Micro Cap (NIFTY MICROCAP 250): 250 stocks, members from NSE list, prices from Yahoo (NSE stock API unavailable)\n✅ caption: all 11 numbers match source data\n✅ no advice, prediction or rumour language\n✅ NSE provisional data for 27 November 2026: FII +1,634.33, DII -556.42 crore\n⚠️ F&O file does not add up (opt_idx_call_long: 6290509 vs 6290510) - section left out\n✅ month FII total: total 50,276.40 = sum of rows\n✅ caption: all 18 numbers match source data\n✅ no advice, prediction or rumour language",
   "topic_keyword": "Top gainers and losers today",
   "alt_text": "Top gainers and losers today: Ticker Market India carousel - Top gainers and losers today by market cap + FII/DII data: 27 November 2026",
@@ -99,5 +102,7 @@
     1237,
     1238,
     1239
-  ]
+  ],
+  "approved_at": "2026-11-28T07:53:02.743826+05:30",
+  "posted_at": "2026-11-28T07:54:36.340674+05:30"
 }
