@@ -386,6 +386,18 @@ def weekly_extremes(week_monday, n=10):
     week (or this week's low below the previous 51 weeks), (2) it has at least 52 weeks of history, and
     (3) NSE's own 52-week high/low agrees with Yahoo's level within 0.5%."""
     result, report = {}, []
+    # official closes for the week's % change (Yahoo's older history is sometimes mis-adjusted)
+    bhav_end = bhav_prev = None
+    ws = week_sessions(week_monday)
+    if ws:
+        try:
+            bhav_end, bhav_prev = nse.bhavcopy(ws[0]), nse.bhavcopy(ws[2])
+            report.append(('ok', f'weekly % from NSE bhavcopy closes ({ws[2]:%d %b} -> {ws[0]:%d %b}); '
+                                 f'Yahoo history must agree with them'))
+        except nse.SourceError as e:
+            report.append(('warn', f'NSE bhavcopy unavailable ({e}) - weekly % from Yahoo; moves over '
+                                   f'{MAX_WEEK_MOVE}% left out'))
+    unconfirmed = []
     for seg, index in CAP_SEGMENTS:
         try:
             rows, _ = nse.index_constituents(index)
@@ -396,6 +408,21 @@ def weekly_extremes(week_monday, n=10):
             report.append(('warn', f'{seg}: NSE stock API unavailable - 52-week levels from Yahoo, not cross-checked'))
         nse_by = {r['symbol']: r for r in rows}
         hist = weekly_history(list(nse_by))
+        for sym in list(hist):
+            h = hist[sym]
+            if len(h) < 2:
+                continue
+            y_end, y_prev = float(h['Close'].iloc[-1]), float(h['Close'].iloc[-2])
+            if bhav_end and bhav_prev and sym in bhav_end and sym in bhav_prev:
+                b_end, b_prev = bhav_end[sym], bhav_prev[sym]
+                # Yahoo's last two weekly closes must match NSE's official closes; if not, its history (and so
+                # any 'all-time high' / '52-week low' read from it) cannot be trusted for this stock
+                if abs(y_end - b_end) / b_end > 0.01 or abs(y_prev - b_prev) / b_prev > 0.02:
+                    unconfirmed.append(sym)
+                    del hist[sym]
+            elif abs(y_end - y_prev) / y_prev * 100 > MAX_WEEK_MOVE:
+                unconfirmed.append(sym)
+                del hist[sym]
         ath, low, young, mismatch, stale = [], [], 0, 0, 0
         for sym, h in hist.items():
             if h.index[-1].date() != week_monday:
@@ -405,6 +432,9 @@ def weekly_extremes(week_monday, n=10):
             cur, prev_close = h.iloc[-1], float(h['Close'].iloc[-2])
             wk = {'symbol': sym, 'name': nse_by[sym].get('name') or _short_name(sym), 'close': float(cur['Close']),
                   'week_pct': (float(cur['Close']) - prev_close) / prev_close * 100}
+            if bhav_end and sym in bhav_end and sym in (bhav_prev or {}):   # official closes for the shown numbers
+                wk['close'] = bhav_end[sym]
+                wk['week_pct'] = (bhav_end[sym] - bhav_prev[sym]) / bhav_prev[sym] * 100
             r = nse_by[sym]
             if float(cur['High']) > float(h['High'].iloc[:-1].max()):
                 lvl = float(cur['High'])
@@ -418,7 +448,7 @@ def weekly_extremes(week_monday, n=10):
                     low.append({**wk, 'level': lvl})
                 else:
                     mismatch += 1
-        if len(hist) < 0.9 * len(rows):
+        if len(hist) + len([u for u in unconfirmed if u in nse_by]) < 0.9 * len(rows):
             report.append(('fail', f'{seg}: Yahoo history for only {len(hist)} of {len(rows)} stocks'))
             continue
         ath.sort(key=lambda x: x['week_pct'], reverse=True)
@@ -430,6 +460,9 @@ def weekly_extremes(week_monday, n=10):
                              f'{mismatch} dropped (Yahoo and NSE levels differ)' if mismatch else '',
                              f'{stale} without data for this week' if stale else '') if x]
         report.append(('ok', msg + ('; ' + ', '.join(extra) if extra else '')))
+    if unconfirmed:
+        report.append(('ok', f'{len(unconfirmed)} stock(s) left out - Yahoo history does not match NSE closes: '
+                             + ', '.join(unconfirmed[:12])))
     return result, report
 
 
