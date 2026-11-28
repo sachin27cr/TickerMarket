@@ -49,12 +49,15 @@
       "no advice, prediction or rumour language"
     ]
   ],
-  "status": "auto",
+  "status": "posted",
   "meta": {
     "video": "media/2026-11-28/reel_weekly-123946-556b.mp4"
   },
   "telegram_message_id": 1275,
-  "posted": {},
+  "posted": {
+    "instagram": "18030731222921848",
+    "facebook": "1701786394777933"
+  },
   "video": "media/2026-11-28/reel_weekly-123946-556b.mp4",
   "script": [
     "1. Stock market this week. The Nifty lost 0.75 percent this week. Here is the full week, by index, sector and market cap.",
@@ -72,5 +75,6 @@
   "topic_keyword": "Stock market this week",
   "telegram_media_ids": [
     1274
-  ]
+  ],
+  "posted_at": "2026-11-28T19:17:09.159501+05:30"
 }
